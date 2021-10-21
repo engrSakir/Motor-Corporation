@@ -1,0 +1,12 @@
+<?php
+use App\Http\Controllers\Frontend\FrontEndController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Frontend Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('/', [FrontEndController::class, 'home'])->name('home');
