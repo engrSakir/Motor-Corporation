@@ -75,10 +75,10 @@
             <div class="co-info">
               <h4>SHOWROOM</h4>
               <address>
-              <div><span>ThemesGround, 789 Main rd, Anytown, <br>
-                CA 12345 USA</span></div>
-              <div> <span> +1 800 789 0000</span></div>
-              <div> <span><a href="#">Harrier@themesground.com</a></span></div>
+              <div><span>Bashundhara extension road, Ka - 30, 2/1 Kuwaiti Mosque Rd, <br>
+              Dhaka 1212, Dhaka Division, Bangladesh</span></div>
+              <div> <span> +8801762522594</span></div>
+              <div> <span><a href="#">motorcorporation.bd@gmail.com</a></span></div>
               <div> <span>Mon - Fri : 09am to 06pm</span></div>
               </address>
             </div>
@@ -136,17 +136,17 @@
           <div class="col-xs-12 col-sm-4">
             <div class="social">
               <ul>
-                <li class="fb"><a href="#"></a></li>
-                <li class="tw"><a href="#"></a></li>
+                <li class="fb"><a href="https://www.facebook.com/MotorCorporationBD"></a></li>
+               <!-- <li class="tw"><a href="#"></a></li>
                 <li class="googleplus"><a href="#"></a></li>
                 <li class="rss"><a href="#"></a></li>
                 <li class="pintrest"><a href="#"></a></li>
-                <li class="linkedin"><a href="#"></a></li>
-                <li class="youtube"><a href="#"></a></li>
+                <li class="linkedin"><a href="#"></a></li>-->
+                <li class="instagram"><a href="https://www.instagram.com/motor_corporation/"></a></li>
               </ul>
             </div>
           </div>
-          <div class="col-sm-4 col-xs-12 coppyright">&copy; 2019 ThemesGround. All Rights Reserved. </div>
+          <div class="col-sm-4 col-xs-12 coppyright">&copy; 2021 Motor Corporation. All Rights Reserved. </div>
           <div class="col-xs-12 col-sm-4">
             <div class="payment-accept"> <img src="{{ asset('assets/frontend/images/payment-1.png') }}" alt=""> <img src="images/payment-2.png" alt=""> <img src="images/payment-3.png" alt=""> <img src="images/payment-4.png" alt=""> </div>
           </div>
