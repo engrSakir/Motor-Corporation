@@ -10,7 +10,7 @@
             <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container' >
               <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
                 <ul>
-                  <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ asset("assets/frontend/images/slide-img1.jpg") }}'><img src='{{ asset("assets/frontend/images/slide-img1.jpg") }}'  data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
+                  <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ asset("assets/frontend/images/slide/6.jpg") }}'><img src='{{ asset("assets/frontend/images/slide/6.jpg") }}'  data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
                     <div class="container">
                       <div class="content_slideshow">
                         <div class="row">
@@ -26,7 +26,7 @@
                       </div>
                     </div>
                   </li>
-                  <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ asset("assets/frontend/images/slide-img2.jpg") }}'><img src='{{ asset("assets/frontend/images/slide-img2.jpg") }}'  data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
+                  <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ asset("assets/frontend/images/slide/5.jpg") }}'><img src='{{ asset("assets/frontend/images/slide/5.jpg") }}'  data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
                     <div class="container">
                       <div class="content_slideshow">
                         <div class="row">
