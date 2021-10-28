@@ -4,7 +4,7 @@
 					
 					<!-- LOGO -->
 					<div class="col align-l">
-						<a href="#" title="ckav" class="ckav-header--logo inline-block px-w100" data-ckav-md="px-w80" data-ckav-sm="px-w60">
+						<a href="#" title="ckav" class="ckav-header--logo inline-block px-w300" data-ckav-md="px-w100" data-ckav-sm="px-w80">
 							<img src="{{ asset('assets/frontend/images/logo-bg.png') }}" alt="ckavart">
 						</a>
 					</div><!-- / LOGO -->

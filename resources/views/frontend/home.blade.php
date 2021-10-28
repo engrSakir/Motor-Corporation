@@ -32,10 +32,10 @@
   <!-- INTRO-TEXT -->
   <div class="ckav-title">
     <h1 class="title f-3 italic bold-1 with-sep sep-right sep-light mr-b-0 animated s008" data-animIn="fadeInUp|0.1" data-ckav-sm="fs20">
-      <span>Creative</span>
+     <!-- <span>Creative</span>-->
     </h1>
     <h1 class="title xxlarge f-1 bold-4 mr-b-0 animated s008" data-animIn="fadeInUp|0.2" data-ckav-md="fs60" data-ckav-sm="fs30">
-      Fashion Agency
+     Motor Corporation
     </h1>
   </div><!-- INTRO-TEXT -->
 
@@ -53,7 +53,7 @@
 
 
     <!-- ABOUT-SECTION -->
-<div class="section ckav-section pd-0" data-tsection="sdark">
+<div class="section ckav-section pd-0" data-tsection="sdark" data-bgcolor="rgba(0,0,0,0.2)">
 
 <!-- CONTENT -->
 <div class="ckav-section--content container-fluid z9">
@@ -185,7 +185,7 @@
 
 
     <!-- SUBSCRIBE-SECTION -->
-<div class="section ckav-section pd-0 flex-cc" data-tsection="slight">
+<div class="section ckav-section pd-0 flex-cc" data-tsection="slight" data-bgcolor="rgba(0,0,0,0.2)">
 
 <!-- CONTENT -->
 <div class="ckav-section--content container z9 animated s008" data-animIn="fadeInUp|0.0" data-animOut="fadeOutUp|0.0" data-ckav-md="pd-60" data-ckav-sm="pd-40">
