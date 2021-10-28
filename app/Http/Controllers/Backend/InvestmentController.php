@@ -15,7 +15,8 @@ class InvestmentController extends Controller
      */
     public function index()
     {
-        //
+        $investments = Investment::orderBy('id','DESC')->get();
+        return view('backend.investment.index', compact('investments'));
     }
 
     /**
@@ -25,7 +26,7 @@ class InvestmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.investment.create');
     }
 
     /**
@@ -47,7 +48,7 @@ class InvestmentController extends Controller
      */
     public function show(Investment $investment)
     {
-        //
+        return view('backend.investment.show', compact('investment'));
     }
 
     /**
@@ -58,7 +59,7 @@ class InvestmentController extends Controller
      */
     public function edit(Investment $investment)
     {
-        //
+        return view('backend.investment.edit', compact('investment'));
     }
 
     /**
@@ -81,6 +82,10 @@ class InvestmentController extends Controller
      */
     public function destroy(Investment $investment)
     {
-        //
+        $investment->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }

@@ -1,5 +1,5 @@
 <div class="ckav-navigation ckav-nav-effect flex-cc align-c dark-bg" data-menulinks="intro-section|Intro,about-section|About,contact-section|Contact,subscribe-section|Subscribe,social-section|Social">
-			
+
 			<!-- CLOSE NAVIGATION -->
 			<div class="ckav-navigation--close sq50 flex-cc mr-80 txt-white cursor-pointer" data-ckav-sm="mr-10">
 				<span class="fs40">
@@ -9,10 +9,10 @@
 			<!-- / CLOSE NAVIGATION -->
 
 			<div class="ckav-navigation--content">
-				
+
 				<!-- LOGO -->
 				<a href="#" title="ckav" class="ckav-navigation--logo block mr-auto mr-b-100 px-w100 animated s008" data-animIn="fadeInUp|0.4">
-					<img src="images/logo.png" alt="ckavart">
+					<img src="{{ asset('assets/frontend/images/logo-bg.png') }}" alt="ckavart">
 				</a>
 				<!-- / LOGO -->
 
@@ -39,6 +39,11 @@
 								Subscribe
 							</a>
 						</li>
+						<li data-menuanchor="subscribe-section" class="animated s008" data-animIn="fadeInUp|0.8">
+							<a class="pd-b-5 block ckav-navigation--links" href="{{ route('login') }}">
+								Login
+							</a>
+						</li>
 					</ul>
 				</nav>
 				<!-- / NAV-LINKS -->
@@ -52,13 +57,13 @@
 					</a>
 					<a href="#" title="twitter" class="sq40 fs18 bold-n btn-white iconbox rd-4 mr-20">
 						<i class="fab fa-twitter"></i>
-					</a>	
+					</a>
 					<a href="#" title="linkedin" class="sq40 fs18 bold-n btn-white iconbox rd-4 mr-20">
 						<i class="fab fa-linkedin-in"></i>
 					</a>
 					<a href="#" title="instagram" class="sq40 fs18 bold-n btn-white iconbox rd-4 mr-20">
 						<i class="fab fa-instagram"></i>
-					</a>	
+					</a>
 				</div>
 				<!-- / SOCIAL-ICONS -->
 

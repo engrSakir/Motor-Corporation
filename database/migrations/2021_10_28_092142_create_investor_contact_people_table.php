@@ -15,11 +15,14 @@ class CreateInvestorContactPeopleTable extends Migration
     {
         Schema::create('investor_contact_people', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone');
             $table->foreignId('investor_id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email')->nullable();
             $table->timestamps();
+            $table->foreignId('created_by')->nullable();
+            $table->foreignId('updated_by')->nullable();
+            $table->foreignId('deleted_by')->nullable();
         });
     }
 

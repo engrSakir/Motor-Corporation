@@ -32,7 +32,7 @@
 
 	<!-- THEME -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/themes/default.css') }}">
-	
+
 	<!-- CUSTOM -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/custom.css') }}">
 
@@ -41,8 +41,8 @@
 	<link rel="icon apple-touch-icon" type="image/png" href="{{ asset('assets/frontend/images/favicons/apple-icon.png') }}">
 	<link rel="icon apple-touch-icon" type="image/png" sizes="72x72" href="{{ asset('assets/frontend/images/favicons/apple-icon-72x72.png') }}">
 	<link rel="icon apple-touch-icon" type="image/png" sizes="114x114" href="{{ asset('assets/frontend/images/favicons/apple-icon-114x114.png') }}">
-	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+	{{-- <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79547588-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -50,4 +50,4 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-79547588-3');
-</script>
+</script> --}}

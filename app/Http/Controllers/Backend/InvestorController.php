@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Investor;
+use App\Models\InvestorContactPerson;
 use Illuminate\Http\Request;
 
 class InvestorController extends Controller
@@ -26,7 +27,7 @@ class InvestorController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.investor.create');
     }
 
     /**
@@ -37,7 +38,21 @@ class InvestorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'investor_name' => 'required|string|unique:investors,name',
+            'contact_person_name' => 'required|string',
+            'contact_person_phone' => 'required|string',
+            'contact_person_email' => 'nullable|email',
+        ]);
+        $investor = Investor::create(['name' => $request->investor_name]);
+        InvestorContactPerson::create([
+            'investor_id' => $investor->id,
+            'name' => $request->contact_person_name,
+            'phone' => $request->contact_person_phone,
+            'email' => $request->contact_person_email,
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
@@ -48,7 +63,7 @@ class InvestorController extends Controller
      */
     public function show(Investor $investor)
     {
-        //
+        return view('backend.investor.show', compact('investor'));
     }
 
     /**
@@ -59,7 +74,7 @@ class InvestorController extends Controller
      */
     public function edit(Investor $investor)
     {
-        //
+        return view('backend.investor.edit', compact('investor'));
     }
 
     /**
@@ -71,7 +86,13 @@ class InvestorController extends Controller
      */
     public function update(Request $request, Investor $investor)
     {
-        //
+        $request->validate([
+            'investor_name' => 'required|string|unique:investors,name,'.$investor->id
+        ]);
+        $investor->name = $request->investor_name;
+        $investor->save();
+        toastr()->success('Update');
+        return back();
     }
 
     /**
@@ -82,6 +103,10 @@ class InvestorController extends Controller
      */
     public function destroy(Investor $investor)
     {
-        //
+        $investor->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }
