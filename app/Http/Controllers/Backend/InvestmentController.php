@@ -70,7 +70,8 @@ class InvestmentController extends Controller
      */
     public function edit(Investment $investment)
     {
-        return view('backend.investment.edit', compact('investment'));
+        $investors = Investor::all();
+        return view('backend.investment.edit', compact('investment', 'investors'));
     }
 
     /**
@@ -82,7 +83,16 @@ class InvestmentController extends Controller
      */
     public function update(Request $request, Investment $investment)
     {
-        //
+        $request->validate([
+            'investor' => 'required|exists:investors,id',
+            'investment_amount' => 'required|numeric|min:0',
+        ]);
+        $investment->update([
+            'investor_id' => $request->investor,
+            'amount' => $request->investment_amount
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**

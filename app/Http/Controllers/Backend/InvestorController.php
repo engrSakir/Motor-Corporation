@@ -89,8 +89,7 @@ class InvestorController extends Controller
         $request->validate([
             'investor_name' => 'required|string|unique:investors,name,'.$investor->id
         ]);
-        $investor->name = $request->investor_name;
-        $investor->save();
+        $investor->update(['name' => $request->investor_name]);
         toastr()->success('Update');
         return back();
     }
