@@ -29,11 +29,44 @@
                     <div class="form-body">
                         <div class="card-body">
                             <div class="row pt-3">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="investor_name">Investor Name<b class="text-danger">*</b> </label>
                                         <input type="text" id="investor_name" name="investor_name" class="form-control" placeholder="Investor Name" value="{{ old('investor_name') }}" required>
                                         @error('investor_name')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="opening_date">Opening Date<b class="text-danger">*</b> </label>
+                                        <input type="date" id="opening_date" name="opening_date" class="form-control" placeholder="Opening Date" value="{{ old('opening_date') }}" required>
+                                        @error('opening_date')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="initial_deposit">Initial Deposit<b class="text-danger">*</b> </label>
+                                        <input type="number" id="initial_deposit" name="initial_deposit" class="form-control" placeholder="Initial Deposit" value="{{ old('initial_deposit') }}" required>
+                                        @error('initial_deposit')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="current_amount">Current Amount<b class="text-danger">*</b> </label>
+                                        <input type="number" id="current_amount" name="current_amount" class="form-control" placeholder="Current Amount" value="{{ old('current_amount') }}" required>
+                                        @error('current_amount')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>

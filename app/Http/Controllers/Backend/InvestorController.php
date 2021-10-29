@@ -40,11 +40,19 @@ class InvestorController extends Controller
     {
         $request->validate([
             'investor_name' => 'required|string|unique:investors,name',
+            'opening_date' => 'required|date',
+            'initial_deposit' => 'required|numeric',
+            'current_amount' => 'required|numeric',
             'contact_person_name' => 'required|string',
             'contact_person_phone' => 'required|string',
             'contact_person_email' => 'nullable|email',
         ]);
-        $investor = Investor::create(['name' => $request->investor_name]);
+        $investor = Investor::create([
+            'name' => $request->investor_name,
+            'opening_date' => $request->opening_date,
+            'initial_deposit' => $request->initial_deposit,
+            'current_amount' => $request->current_amount,
+        ]);
         InvestorContactPerson::create([
             'investor_id' => $investor->id,
             'name' => $request->contact_person_name,
@@ -87,9 +95,17 @@ class InvestorController extends Controller
     public function update(Request $request, Investor $investor)
     {
         $request->validate([
-            'investor_name' => 'required|string|unique:investors,name,'.$investor->id
+            'investor_name' => 'required|string|unique:investors,name,'.$investor->id,
+            'opening_date' => 'required|date',
+            'initial_deposit' => 'required|numeric',
+            'current_amount' => 'required|numeric',
         ]);
-        $investor->update(['name' => $request->investor_name]);
+        $investor->update([
+            'name' => $request->investor_name,
+            'opening_date' => $request->opening_date,
+            'initial_deposit' => $request->initial_deposit,
+            'current_amount' => $request->current_amount,
+        ]);
         toastr()->success('Update');
         return back();
     }

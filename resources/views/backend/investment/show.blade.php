@@ -37,8 +37,12 @@
                                     <td>{{ $investment->amount }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Deshmukh</td>
-                                    <td><span class="label label-danger">admin</span> </td>
+                                    <td>Interest</td>
+                                    <td>{{ $investment->interest }} % = {{ $investment->interestAmount() }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Settlement Date</td>
+                                    <td>{{ date('d/m/Y', strtotime($investment->settlement_date)) }}</td>
                                 </tr>
                                 <tr>
                                     <td>Creator</td>

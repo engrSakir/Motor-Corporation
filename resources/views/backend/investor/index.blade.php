@@ -25,7 +25,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Investor Name</th>
-                            <th scope="col">Created At</th>
+                            <th scope="col">Initioal Deposit</th>
+                            <th scope="col">Current Amount</th>
+                            <th scope="col">Opening Date</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -34,7 +36,9 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $investor->name }}</td>
-                                <td>{{ $investor->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $investor->initial_deposit }}</td>
+                                <td>{{ $investor->current_amount }}</td>
+                                <td>{{ date('d/m/Y', strtotime($investor->opening_date)) }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.investor.show', $investor) }}">
                                     <i class="fa fa-eye" ></i>

@@ -17,6 +17,8 @@ class CreateInvestmentsTable extends Migration
             $table->id();
             $table->foreignId('investor_id');
             $table->double('amount')->default(0);
+            $table->double('interest')->nullable();
+            $table->date('settlement_date')->nullable();
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Investment;
 use App\Models\Investor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class InvestmentController extends Controller
@@ -42,10 +43,14 @@ class InvestmentController extends Controller
         $request->validate([
             'investor' => 'required|exists:investors,id',
             'investment_amount' => 'required|numeric|min:0',
+            'interest' => 'required|numeric|min:0',
+            'settlement_date' => 'required|date|after:today',
         ]);
         $investment = Investment::create([
             'investor_id' => $request->investor,
-            'amount' => $request->investment_amount
+            'amount' => $request->investment_amount,
+            'interest' => $request->interest,
+            'settlement_date' => new Carbon($request->settlement_date)
         ]);
         toastr()->success('Saved');
         return back();
@@ -86,10 +91,14 @@ class InvestmentController extends Controller
         $request->validate([
             'investor' => 'required|exists:investors,id',
             'investment_amount' => 'required|numeric|min:0',
+            'interest' => 'required|numeric|min:0',
+            'settlement_date' => 'required|date|after:today',
         ]);
         $investment->update([
             'investor_id' => $request->investor,
-            'amount' => $request->investment_amount
+            'amount' => $request->investment_amount,
+            'interest' => $request->interest,
+            'settlement_date' => new Carbon($request->settlement_date)
         ]);
         toastr()->success('Saved');
         return back();

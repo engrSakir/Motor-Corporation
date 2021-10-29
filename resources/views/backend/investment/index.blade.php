@@ -25,7 +25,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Investor Name</th>
-                            <th scope="col">Amount</th>
+                            <th scope="col">Invest</th>
+                            <th scope="col">Interest</th>
+                            <th scope="col">Settlement date</th>
                             <th scope="col">Created At</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -36,6 +38,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
                                 <td>{{ $investment->amount }}</td>
+                                <td>{{ $investment->interest }} % = {{ $investment->interestAmount() }}</td>
+                                <td>{{ date('d/m/Y', strtotime($investment->settlement_date)) }}</td>
                                 <td>{{ $investment->created_at->format('d/m/Y') }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.investment.show', $investment) }}">

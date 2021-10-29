@@ -29,12 +29,20 @@
                         <table class="table">
                             <tbody>
                                 <tr>
+                                    <td>Investor</td>
+                                    <td>{{ $investorContactPerson->investor->name }}</td>
+                                </tr>
+                                <tr>
                                     <td>Name</td>
                                     <td>{{ $investorContactPerson->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Deshmukh</td>
-                                    <td><span class="label label-danger">admin</span> </td>
+                                    <td>Phone</td>
+                                    <td>{{ $investorContactPerson->phone }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{ $investorContactPerson->email }}</td>
                                 </tr>
                                 <tr>
                                     <td>Creator</td>
@@ -147,27 +155,6 @@
                 </div>
             </div>
         </div>
-    </div>
-<hr class="bg-success">
-    <div class="row">
-        @foreach ($investorContactPerson->contactpersons as $investorContactPerson)
-            <div class="col-md-6 col-lg-6 col-xl-4">
-                <div class="card card-body">
-                    <div class="row align-items-center">
-                        <div class="col-md-4 col-lg-3 text-center">
-                            <a href="app-contact-detail.html"><img src="{{ asset('assets/images/avatar.png') }}" width="90" alt=""class="img-circle img-fluid"></a>
-                        </div>
-                        <div class="col-md-8 col-lg-9">
-                            <h3 class="box-title m-b-0">{{ $investorContactPerson->name }}</h3> <small>{{ $investorContactPerson->email }}</small>
-                            <address>
-                                <br>
-                                <abbr title="Phone">Phone:</abbr> {{ $investorContactPerson->phone }}
-                            </address>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
     </div>
 @endsection
 

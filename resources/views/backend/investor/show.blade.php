@@ -33,8 +33,16 @@
                                     <td>{{ $investor->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Deshmukh</td>
-                                    <td><span class="label label-danger">admin</span> </td>
+                                    <td>Initial Deposit</td>
+                                    <td>{{ $investor->initial_deposit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Current Amount</td>
+                                    <td>{{ $investor->current_amount }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Opening Date</td>
+                                    <td>{{ date('d/m/Y', strtotime($investor->opening_date)) }}</td>
                                 </tr>
                                 <tr>
                                     <td>Creator</td>
@@ -71,8 +79,8 @@
                         <div class="col-md-6 col-lg-4 col-xlg-2">
                             <div class="card">
                                 <div class="box bg-info text-center">
-                                    <h1 class="font-light text-white">2,064</h1>
-                                    <h6 class="text-white">Sessions</h6>
+                                    <h1 class="font-light text-white">{{ $investor->investments()->sum('amount') }}</h1>
+                                    <h6 class="text-white">Investment</h6>
                                 </div>
                             </div>
                         </div>
@@ -80,8 +88,8 @@
                         <div class="col-md-6 col-lg-4 col-xlg-2">
                             <div class="card">
                                 <div class="box bg-primary text-center">
-                                    <h1 class="font-light text-white">1,738</h1>
-                                    <h6 class="text-white">Users</h6>
+                                    <h1 class="font-light text-white">000</h1>
+                                    <h6 class="text-white">Settlement</h6>
                                 </div>
                             </div>
                         </div>
@@ -89,35 +97,8 @@
                         <div class="col-md-6 col-lg-4 col-xlg-2">
                             <div class="card">
                                 <div class="box bg-success text-center">
-                                    <h1 class="font-light text-white">5963</h1>
-                                    <h6 class="text-white">Page Views</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-dark text-center">
-                                    <h1 class="font-light text-white">2.9s</h1>
-                                    <h6 class="text-white">Pages/Session</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-megna text-center">
-                                    <h1 class="font-light text-white">1.5s</h1>
-                                    <h6 class="text-white">Avg. Session</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-warning text-center">
-                                    <h1 class="font-light text-white">10%</h1>
-                                    <h6 class="text-white">Bounce Rate</h6>
+                                    <h1 class="font-light text-white">000</h1>
+                                    <h6 class="text-white">Unsettlement</h6>
                                 </div>
                             </div>
                         </div>

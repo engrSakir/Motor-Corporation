@@ -16,6 +16,9 @@ class CreateInvestorsTable extends Migration
         Schema::create('investors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->date('opening_date')->nullable()->comment('Bank AC Opening');
+            $table->double('initial_deposit')->default(0);
+            $table->double('current_amount')->default(0);
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

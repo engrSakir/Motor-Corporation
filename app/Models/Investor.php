@@ -12,7 +12,10 @@ class Investor extends Model
     use Userstamps;
 
     protected $fillable = [
-        'name'
+        'name',
+        'opening_date',
+        'initial_deposit',
+        'current_amount',
     ];
 
 
@@ -25,4 +28,16 @@ class Investor extends Model
     {
         return $this->hasMany(Investment::class, 'investor_id', 'id');
     }
+
+    // public function totalInvestment()
+    // {
+    //     return $this->investments
+    //     // return round(($this->interest / 100) * $this->amount, 2) + $this->amount;
+    //     return round(($this->interest / 100) * $this->amount, 2);
+    //     $total_investment = 0;
+    //     foreach($this->investments as $investment){
+    //         $total_investment += round(($this->vat_percentage / 100) * $item->price, 2) * $item->quantity;
+    //     }
+    //     return $total_investment;
+    // }
 }
