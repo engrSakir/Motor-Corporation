@@ -20,5 +20,6 @@
 <link href="{{ asset('assets/helper/helper.css') }}" rel="stylesheet" type="text/css"/>
 <!--====== AJAX ======-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 @toastr_css
 @stack('head')

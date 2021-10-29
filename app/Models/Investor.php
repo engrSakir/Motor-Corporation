@@ -12,10 +12,7 @@ class Investor extends Model
     use Userstamps;
 
     protected $fillable = [
-        'name',
-        'created_by',
-        'updated_by',
-        'deleted_by'
+        'name'
     ];
 
 

@@ -12,6 +12,9 @@
 <script src="{{ asset('assets/node_modules/sparkline/jquery.sparkline.min.js') }}"></script>
 <!--Sweet alert CDN -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- select2 --}}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!--Custom JavaScript -->
 <script src="{{ asset('assets/dist/js/custom.min.js') }}"></script>
 <script src="{{ asset('assets/helper/helper.js') }}"></script>
@@ -19,7 +22,6 @@
 @toastr_js
 @toastr_render
 @stack('foot')
-
  {{-- Ajax Delete code --}}
  <script>
     $('table').on('click', '.delete-btn', function(event) {
@@ -83,5 +85,10 @@
                 }
             })
         }
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
     });
 </script>

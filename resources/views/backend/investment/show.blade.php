@@ -29,8 +29,12 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>{{ $investment->name }}</td>
+                                    <td>Investor</td>
+                                    <td>{{ $investment->investor->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Amount</td>
+                                    <td>{{ $investment->amount }}</td>
                                 </tr>
                                 <tr>
                                     <td>Deshmukh</td>
@@ -183,7 +187,7 @@
     </div>
 
     <div class="row">
-        @foreach ($investment->contactpersons as $contactPerson)
+        @foreach ($investment->investor->contactpersons as $contactPerson)
             <div class="col-md-6 col-lg-6 col-xl-4">
                 <div class="card card-body">
                     <div class="row align-items-center">

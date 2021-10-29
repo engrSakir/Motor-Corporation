@@ -24,7 +24,8 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Investment Name</th>
+                            <th scope="col">Investor Name</th>
+                            <th scope="col">Amount</th>
                             <th scope="col">Created At</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -33,7 +34,8 @@
                         @foreach($investments as $investment)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $investment->name }}</td>
+                                <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
+                                <td>{{ $investment->amount }}</td>
                                 <td>{{ $investment->created_at->format('d/m/Y') }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.investment.show', $investment) }}">

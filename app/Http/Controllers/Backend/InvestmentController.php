@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Investment;
+use App\Models\Investor;
 use Illuminate\Http\Request;
 
 class InvestmentController extends Controller
@@ -26,7 +27,8 @@ class InvestmentController extends Controller
      */
     public function create()
     {
-        return view('backend.investment.create');
+        $investors = Investor::all();
+        return view('backend.investment.create', compact('investors'));
     }
 
     /**
@@ -37,7 +39,16 @@ class InvestmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'investor' => 'required|exists:investors,id',
+            'investment_amount' => 'required|numeric|min:0',
+        ]);
+        $investment = Investment::create([
+            'investor_id' => $request->investor,
+            'amount' => $request->investment_amount
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
