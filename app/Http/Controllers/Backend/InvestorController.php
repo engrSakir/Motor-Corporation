@@ -16,7 +16,7 @@ class InvestorController extends Controller
      */
     public function index()
     {
-        $investors = Investor::orderBy('id','DESC')->get();
+        $investors = Investor::orderBy('id','desc')->get();
         return view('backend.investor.index', compact('investors'));
     }
 
