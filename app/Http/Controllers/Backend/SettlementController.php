@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Investor;
 use App\Models\Settlement;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,8 @@ class SettlementController extends Controller
      */
     public function index()
     {
-        //
+        $settlements = Settlement::orderBy('id','desc')->get();
+        return view('backend.settlement.index', compact('settlements'));
     }
 
     /**
@@ -24,7 +27,8 @@ class SettlementController extends Controller
      */
     public function create()
     {
-        //
+        $investors = Investor::all();
+        return view('backend.settlement.create', compact('investors'));
     }
 
     /**
@@ -46,7 +50,7 @@ class SettlementController extends Controller
      */
     public function show(Settlement $settlement)
     {
-        //
+        return view('backend.settlement.show');
     }
 
     /**
@@ -57,7 +61,8 @@ class SettlementController extends Controller
      */
     public function edit(Settlement $settlement)
     {
-        //
+        $investors = Investor::all();
+        return view('backend.settlement.edit', compact('investors'));
     }
 
     /**
@@ -80,6 +85,10 @@ class SettlementController extends Controller
      */
     public function destroy(Settlement $settlement)
     {
-        //
+        $settlement ->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }
