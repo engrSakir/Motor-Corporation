@@ -154,7 +154,7 @@
                                 <div class="input-group">
                                     <span class="input-group-text">UnSettlement is &nbsp;
                                         <b>{{ $investment->investWithInterest() - $investment->settlements->sum('amount') }}</b></span>
-                                    <input type="number" class="form-control" name="settlemen_amount" placeholder="Settlement amount" required>
+                                    <input type="number" step="any" class="form-control" name="settlemen_amount" placeholder="Settlement amount" required>
                                     <button class="btn btn-info text-white" type="submit">Make Settlement!</button>
                                 </div>
                                 @error('settlemen_amount')

@@ -25,6 +25,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Investor Name</th>
+                            <th scope="col">Investment ID</th>
                             <th scope="col">Invest</th>
                             <th scope="col">Interest</th>
                             <th scope="col">Settlement %</th>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
+                                <td>{{ $investment->created_at->format('dmyhis') }}</td>
                                 <td>{{ $investment->amount }}</td>
                                 <td>{{ $investment->interest }} % = {{ $investment->interestAmount() }}</td>
                                 <td>

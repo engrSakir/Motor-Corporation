@@ -59,7 +59,7 @@ class SettlementController extends Controller
      */
     public function show(Settlement $settlement)
     {
-        return view('backend.settlement.show');
+        return view('backend.settlement.show', compact('settlement'));
     }
 
     /**
@@ -71,7 +71,7 @@ class SettlementController extends Controller
     public function edit(Settlement $settlement)
     {
         $investors = Investor::all();
-        return view('backend.settlement.edit', compact('investors'));
+        return view('backend.settlement.edit', compact('investors', 'settlement'));
     }
 
     /**

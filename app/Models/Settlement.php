@@ -15,4 +15,8 @@ class Settlement extends Model
         'investment_id',
         'amount'
     ];
+
+    public function investment(){
+        return $this->belongsTo(Investment::class, 'investment_id', 'id');
+    }
 }

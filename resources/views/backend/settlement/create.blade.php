@@ -29,17 +29,23 @@
                     <div class="form-body">
                         <div class="card-body">
                             <div class="row pt-3">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="form-label" for="investor">Investor Name<b class="text-danger">*</b> </label>
-                                        <select class="select2 form-select form-control" id="investor" name="investor" required>
-                                            <option selected disabled value="">Chose investor</option>
+                                        <label class="form-label" for="investment">Investment<b class="text-danger">*</b> </label>
+                                        <select class="select2 form-select form-control" id="investment" name="investment" required>
+                                            <option selected disabled value="">Chose investment</option>
                                             @foreach ($investors as $investor)
-                                            <option value="{{ $investor->id }}" @if(old('investor') == $investor->id) selected @endif>{{ $investor->name }}</option>
+                                            <optgroup label="{{ $investor->name }}">
+                                                @foreach ($investor->investments as $investment)
+                                                @if($investment->investWithInterest() - $investment->settlements->sum('amount') > 0)
+                                                <option value="{{ $investment->id }}" @if(old('investment') == $investment->id) selected @endif>ID: {{ $investment->created_at->format('dmyhis') }} Unsettlement: {{ $investment->investWithInterest() - $investment->settlements->sum('amount') }} Settlement: {{ $investment->settlements->sum('amount') }}</option>
+                                                @endif
+                                                @endforeach
+                                            </optgroup>
                                             @endforeach
                                           </select>
                                           </select>
-                                        @error('investor')
+                                        @error('investment')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>
@@ -47,39 +53,16 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="investment_amount">Settlement Amount<b class="text-danger">*</b></label>
-                                        <input type="number" id="investment_amount" name="investment_amount" class="form-control" placeholder="Settlement Amount" value="{{ old('investment_amount') }}" required>
-                                        @error('investment_amount')
+                                    <div class="input-group">
+                                        <input type="number" step="any" class="form-control" name="settlemen_amount" value="{{ old('settlemen_amount') }}" placeholder="Settlement amount" required>
+                                    </div>
+                                    @error('settlemen_amount')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="interest">Interest Amount in Percentage<b class="text-danger">*</b></label>
-                                        <input type="number" id="interest" name="interest" class="form-control" placeholder="Interest Amount" value="{{ old('interest') }}" required>
-                                        @error('interest')
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="settlement_date">Settlement Date<b class="text-danger">*</b></label>
-                                        <input type="date" id="settlement_date" name="settlement_date" class="form-control" placeholder="Settlement Date" value="{{ old('settlement_date') }}" required>
-                                        @error('settlement_date')
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="form-actions">
