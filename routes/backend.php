@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Backend\CarCategoryController;
+use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\InvestmentController;
 use App\Http\Controllers\Backend\InvestorContactPersonController;
 use App\Http\Controllers\Backend\InvestorController;
 use App\Http\Controllers\Backend\SettlementController;
+use App\Http\Controllers\Backend\VendorInfoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +22,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('investment', InvestmentController::class);
     Route::resource('investorContactPerson', InvestorContactPersonController::class);
     Route::resource('settlement', SettlementController::class);
+    Route::resource('vendorInfo', VendorInfoController::class);
+    Route::resource('carCategory', CarCategoryController::class);
+    Route::resource('car', CarController::class);
 });

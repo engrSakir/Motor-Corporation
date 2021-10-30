@@ -15,7 +15,8 @@ class VendorInfoController extends Controller
      */
     public function index()
     {
-        //
+        $vendorInfos = VendorInfo::orderBy('id','desc')->get();
+        return view('backend.vendor-info.index', compact('vendorInfos'));
     }
 
     /**
@@ -25,7 +26,7 @@ class VendorInfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.vendor-info.create');
     }
 
     /**
@@ -36,7 +37,22 @@ class VendorInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'nullable|email',
+            'address' => 'nullable|string',
+            'image' => 'nullable|image',
+        ]);
+        VendorInfo::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'address' => $request->address,
+            'image' => $request->image,
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
@@ -47,7 +63,7 @@ class VendorInfoController extends Controller
      */
     public function show(VendorInfo $vendorInfo)
     {
-        //
+        return view('backend.vendor-info.show', compact('vendorInfo'));
     }
 
     /**
@@ -58,7 +74,7 @@ class VendorInfoController extends Controller
      */
     public function edit(VendorInfo $vendorInfo)
     {
-        //
+        return view('backend.vendor-info.edit', compact('vendorInfo'));
     }
 
     /**
@@ -70,7 +86,22 @@ class VendorInfoController extends Controller
      */
     public function update(Request $request, VendorInfo $vendorInfo)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'nullable|email',
+            'address' => 'nullable|string',
+            'image' => 'nullable|image',
+        ]);
+        $vendorInfo->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'address' => $request->address,
+            'image' => $request->image,
+        ]);
+        toastr()->success('Update');
+        return back();
     }
 
     /**
@@ -81,6 +112,10 @@ class VendorInfoController extends Controller
      */
     public function destroy(VendorInfo $vendorInfo)
     {
-        //
+        $vendorInfo ->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }
