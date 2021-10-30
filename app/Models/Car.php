@@ -13,6 +13,7 @@ class Car extends Model
 
     protected $fillable = [
         'car_category_id',
+        'vendor_id',
         'status',
         'name',
         'brand',

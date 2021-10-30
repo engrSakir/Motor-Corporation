@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Car;
+use App\Models\CarCategory;
+use App\Models\VendorInfo;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -15,7 +17,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::orderBy('id','desc')->get();
+        return view('backend.car.index', compact('cars'));
     }
 
     /**
@@ -25,7 +28,9 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        $vendors = VendorInfo::all();
+        $carCategories = CarCategory::all();
+        return view('backend.car.create', compact('vendors','carCategories'));
     }
 
     /**
@@ -36,7 +41,27 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:car_categories,name'
+        ]);
+        Car::create([
+            'car_category_id' => $request->category,
+            'vendor_id' => $request->vendor,
+            // 'status' => $request->status,
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'purchase_price' => $request->purchase_price,
+            'selling_price' => $request->selling_price,
+            'vat_percentage' => $request->vat_percentage,
+            'discount_percentage' => $request->discount_percentage,
+            'image' => $request->image,
+            'registration' => $request->registration,
+            'mileages' => $request->mileages,
+            'description' => $request->description
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
@@ -47,7 +72,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('backend.car.show', compact('car'));
     }
 
     /**
@@ -58,7 +83,9 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        $vendors = VendorInfo::all();
+        $carCategories = CarCategory::all();
+        return view('backend.car.edit', compact('vendors','carCategories'));
     }
 
     /**
@@ -81,6 +108,10 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }

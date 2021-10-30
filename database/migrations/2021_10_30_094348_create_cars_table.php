@@ -16,6 +16,7 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_category_id');
+            $table->foreignId('vendor_id');
             $table->string('status')->default('Available')->comment('Available|Booking|Sold');
             $table->string('name');
             $table->string('brand');
