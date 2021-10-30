@@ -1,17 +1,17 @@
 @extends('layouts.backend.app')
 
-@section('title') Vendor  Details | @endsection
+@section('title') Car Category Details | @endsection
 
 @section('content')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">Vendor  Details</h4>
+            <h4 class="text-themecolor">Car Category Details</h4>
         </div>
         <div class="col-md-7 align-self-center text-end">
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Vendor </li>
+                    <li class="breadcrumb-item active">Car Category</li>
                 </ol>
 
             </div>
@@ -30,44 +30,28 @@
                             <tbody>
                                 <tr>
                                     <td>Name</td>
-                                    <td>{{ $vendorInfo->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Phone</td>
-                                    <td>{{ $vendorInfo->phone }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>{{ $vendorInfo->email }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Address</td>
-                                    <td>{{ $vendorInfo->address }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Image</td>
-                                    <td><img width="60" class="img-circle" src="{{ asset($vendorInfo->image ?? 'assets/images/avatar.png') }}" alt=""></td>
+                                    <td>{{ $carCategory->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Created at</td>
-                                    <td>{{$vendorInfo->created_at->format('d/m/Y') }}</td>
+                                    <td>{{$carCategory->created_at->format('d/m/Y') }}</td>
                                 </tr>
                                 <tr>
                                     <td>Creator</td>
                                     <td><span
-                                            class="label label-success">{{ $vendorInfo->creator->name ?? 'Not Found' }}</span>
+                                            class="label label-success">{{ $carCategory->creator->name ?? 'Not Found' }}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Editor</td>
                                     <td><span
-                                            class="label label-warning">{{ $vendorInfo->editor->name ?? 'Not Found' }}</span>
+                                            class="label label-warning">{{ $carCategory->editor->name ?? 'Not Found' }}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Destroyer</td>
                                     <td><span
-                                            class="label label-danger">{{ $vendorInfo->destroyer->name ?? 'Not Found' }}</span>
+                                            class="label label-danger">{{ $carCategory->destroyer->name ?? 'Not Found' }}</span>
                                     </td>
                                 </tr>
                             </tbody>

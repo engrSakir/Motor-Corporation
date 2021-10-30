@@ -15,7 +15,8 @@ class CarCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $carCategories = CarCategory::orderBy('id','desc')->get();
+        return view('backend.car-category.index', compact('carCategories'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CarCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.car-category.create');
     }
 
     /**
@@ -36,7 +37,14 @@ class CarCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:car_categories,name'
+        ]);
+        CarCategory::create([
+            'name' => $request->name,
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
@@ -47,7 +55,7 @@ class CarCategoryController extends Controller
      */
     public function show(CarCategory $carCategory)
     {
-        //
+        return view('backend.car-category.show', compact('carCategory'));
     }
 
     /**
@@ -58,7 +66,7 @@ class CarCategoryController extends Controller
      */
     public function edit(CarCategory $carCategory)
     {
-        //
+        return view('backend.car-category.edit', compact('carCategory'));
     }
 
     /**
@@ -70,7 +78,14 @@ class CarCategoryController extends Controller
      */
     public function update(Request $request, CarCategory $carCategory)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:car_categories,name,'.$carCategory->id
+        ]);
+        $carCategory->update([
+            'name' => $request->name,
+        ]);
+        toastr()->success('Update');
+        return back();
     }
 
     /**
@@ -81,6 +96,10 @@ class CarCategoryController extends Controller
      */
     public function destroy(CarCategory $carCategory)
     {
-        //
+        $carCategory->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }
