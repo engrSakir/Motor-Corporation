@@ -25,6 +25,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Investor Name</th>
+                            <th scope="col">Settlement</th>
                             <th scope="col">Initioal Deposit</th>
                             <th scope="col">Current Amount</th>
                             <th scope="col">Opening Date</th>
@@ -36,6 +37,11 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $investor->name }}</td>
+                                <td>
+                                    <div class="progress progress-xs margin-vertical-10" title="{{  round($investor->percentageOfSettlement(), 2) }}%">
+                                    <div class="progress-bar bg-success" style="width: {{  round($investor->percentageOfSettlement(), 2) }}%; height:8px;"></div>
+                                    </div>
+                                </td>
                                 <td>{{ $investor->initial_deposit }}</td>
                                 <td>{{ $investor->current_amount }}</td>
                                 <td>{{ date('d/m/Y', strtotime($investor->opening_date)) }}</td>

@@ -29,15 +29,32 @@ class Investor extends Model
         return $this->hasMany(Investment::class, 'investor_id', 'id');
     }
 
-    // public function totalInvestment()
-    // {
-    //     return $this->investments
-    //     // return round(($this->interest / 100) * $this->amount, 2) + $this->amount;
-    //     return round(($this->interest / 100) * $this->amount, 2);
-    //     $total_investment = 0;
-    //     foreach($this->investments as $investment){
-    //         $total_investment += round(($this->vat_percentage / 100) * $item->price, 2) * $item->quantity;
-    //     }
-    //     return $total_investment;
-    // }
+    // Custom function
+    public function totalInvestmentWithInterest()
+    {
+        $total_investment = 0;
+        foreach($this->investments as $investment){
+            $total_investment += $investment->investWithInterest();
+        }
+        return $total_investment;
+    }
+
+    public function totalSettlement()
+    {
+        $total_settlement = 0;
+        foreach($this->investments as $investment){
+            $total_settlement += $investment->settlements()->sum('amount');
+        }
+        return $total_settlement;
+    }
+
+
+    public function percentageOfSettlement()
+    {
+        try{
+            return ($this->totalSettlement() / $this->totalInvestmentWithInterest()) * 100;
+        }catch(\Exception $exception){
+            return 0;
+        }
+    }
 }

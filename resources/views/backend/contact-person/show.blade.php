@@ -75,82 +75,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-info text-center">
-                                    <h1 class="font-light text-white">2,064</h1>
-                                    <h6 class="text-white">Sessions</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-primary text-center">
-                                    <h1 class="font-light text-white">1,738</h1>
-                                    <h6 class="text-white">Users</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-success text-center">
-                                    <h1 class="font-light text-white">5963</h1>
-                                    <h6 class="text-white">Page Views</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-dark text-center">
-                                    <h1 class="font-light text-white">2.9s</h1>
-                                    <h6 class="text-white">Pages/Session</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-megna text-center">
-                                    <h1 class="font-light text-white">1.5s</h1>
-                                    <h6 class="text-white">Avg. Session</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-                        <div class="col-md-6 col-lg-4 col-xlg-2">
-                            <div class="card">
-                                <div class="box bg-warning text-center">
-                                    <h1 class="font-light text-white">10%</h1>
-                                    <h6 class="text-white">Bounce Rate</h6>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <hr>
                    <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>86%</h3>
-                                        <h6 class="card-subtitle">Total Product</h6>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar"
-                                                style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                    </div>
                 </div>
             </div>
