@@ -18,14 +18,25 @@ class Investment extends Model
         'settlement_date',
     ];
 
+    //Relational
     public function investor()
     {
         return $this->belongsTo(Investor::class, 'investor_id', 'id');
     }
 
+    public function settlements()
+    {
+        return $this->hasMany(Settlement::class, 'investment_id', 'id');
+    }
+
+    //Custom function
     public function interestAmount()
     {
-        // return round(($this->interest / 100) * $this->amount, 2) + $this->amount;
         return round(($this->interest / 100) * $this->amount, 2);
+    }
+
+    public function investWithInterest()
+    {
+        return round(($this->interest / 100) * $this->amount, 2) + $this->amount;
     }
 }

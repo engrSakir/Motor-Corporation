@@ -27,6 +27,7 @@
                             <th scope="col">Investor Name</th>
                             <th scope="col">Invest</th>
                             <th scope="col">Interest</th>
+                            <th scope="col">Settlement %</th>
                             <th scope="col">Settlement date</th>
                             <th scope="col">Created At</th>
                             <th scope="col">Action</th>
@@ -39,6 +40,11 @@
                                 <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
                                 <td>{{ $investment->amount }}</td>
                                 <td>{{ $investment->interest }} % = {{ $investment->interestAmount() }}</td>
+                                <td>
+                                    <div class="progress progress-xs margin-vertical-10" title="{{ ($investment->settlements->sum('amount') / $investment->investWithInterest()) * 100 }}%">
+                                        <div class="progress-bar bg-success" style="width: {{ ($investment->settlements->sum('amount') / $investment->investWithInterest()) * 100 }}%; height:8px;"></div>
+                                    </div>
+                                </td>
                                 <td>{{ date('d/m/Y', strtotime($investment->settlement_date)) }}</td>
                                 <td>{{ $investment->created_at->format('d/m/Y') }}</td>
                                 <td>

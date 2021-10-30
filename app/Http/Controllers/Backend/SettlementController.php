@@ -39,7 +39,16 @@ class SettlementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'investment' => 'required|exists:investors,id',
+            'settlemen_amount' => 'required|numeric|min:0'
+        ]);
+        Settlement::create([
+            'investment_id' => $request->investment,
+            'amount' => $request->settlemen_amount,
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
@@ -74,7 +83,16 @@ class SettlementController extends Controller
      */
     public function update(Request $request, Settlement $settlement)
     {
-        //
+        $request->validate([
+            'investment' => 'required|exists:investors,id',
+            'settlemen_amount' => 'required|numeric|min:0'
+        ]);
+        $settlement->update([
+            'investment_id' => $request->investment,
+            'amount' => $request->settlemen_amount,
+        ]);
+        toastr()->success('Update');
+        return back();
     }
 
     /**
