@@ -15,6 +15,7 @@ class CreateCarCategoriesTable extends Migration
     {
         Schema::create('car_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();
