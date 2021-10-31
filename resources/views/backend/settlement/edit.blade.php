@@ -39,7 +39,7 @@
                                             @foreach ($investors as $investor)
                                             <optgroup label="{{ $investor->name }}">
                                                 @foreach ($investor->investments as $investment)
-                                                <option value="{{ $investment->id }}" @if($settlement->investment == $investment) selected @endif>ID: {{ $investment->created_at->format('dmyhis') }} Unsettlement: {{ $investment->investWithInterest() - $investment->settlements->sum('amount') }} Settlement: {{ $investment->settlements->sum('amount') }}</option>
+                                                <option value="{{ $investment->id }}" @if($settlement->investment == $investment) selected @endif>ID: {{ $investment->id }} Unsettlement: {{ $investment->investWithInterest() - $investment->settlements->sum('amount') }} Settlement: {{ $investment->settlements->sum('amount') }}</option>
                                                 @endforeach
                                             </optgroup>
                                             @endforeach

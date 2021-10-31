@@ -25,8 +25,10 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Paid</th>
-                            <th scope="col">Due</th>
+                            <th scope="col">Purchase Price</th>
+                            <th scope="col">Purchase Paid</th>
+                            <th scope="col">Purchase Due</th>
+                            <th scope="col">Sell Price</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -35,8 +37,10 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $car->name }}</td>
-                                <td>{{ '100' }}</td>
-                                <td>{{ '50' }}</td>
+                                <td>{{ $car->purchase_price }}</td>
+                                <td>{{ $car->purchasePayments()->sum('amount') }}</td>
+                                <td>{{ $car->purchase_price - $car->purchasePayments()->sum('amount') }}</td>
+                                <td>{{ $car->selling_price }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.purchasePayment', $car) }}">
                                     <i class="fa fa-credit-card" ></i>

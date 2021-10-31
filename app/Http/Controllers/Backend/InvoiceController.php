@@ -18,7 +18,7 @@ class InvoiceController extends Controller
         $total_paid = total_sale_amount();
         $total_vat = total_vat();
         $invoices = Invoice::orderBy('id', 'desc')->paginate(500);
-        return view('backend.pos.index', compact('invoices', 'total_paid', 'total_vat'));
+        return view('backend.invoice.index', compact('invoices', 'total_paid', 'total_vat'));
     }
 
     /**
@@ -32,7 +32,7 @@ class InvoiceController extends Controller
         $itemCategories =0;
         $items =0;
         $paymentmethods = 0;
-        return view('backend.pos.create', compact('appointments', 'itemCategories', 'items', 'paymentmethods'));
+        return view('backend.invoice.create', compact('appointments', 'itemCategories', 'items', 'paymentmethods'));
 
     }
 
@@ -69,7 +69,7 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        $pdf = PDF::loadView('backend.pos.pos-pdf', compact('invoice'));
+        $pdf = PDF::loadView('backend.invoice.pos-pdf', compact('invoice'));
         return $pdf->stream('Invoice-' . config('app.name') . '.pdf');
     }
 

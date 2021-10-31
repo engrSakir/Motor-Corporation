@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Car;
+use App\Models\Investment;
 use App\Models\Investor;
 use App\Models\PurchasePayment;
 use Illuminate\Http\Request;
@@ -38,7 +39,19 @@ class PurchasePaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $investment = Investment::find($request->investment);
+        $request->validate([
+            'car' => 'required|exists:cars,id',
+            'investment' => 'required|exists:investments,id',
+            'payment_amount' => 'required|numeric|min:0|max:'.$investment->totalUsableAmount(),
+        ]);
+        PurchasePayment::create([
+            'car_id'        => $request->car,
+            'investment_id' => $request->investment,
+            'amount'        => $request->payment_amount,
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**

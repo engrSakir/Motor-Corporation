@@ -589,7 +589,7 @@
             if (service_data_set.length > 0) {
                 $.ajax({
                     method: "POST",
-                    url: "{{ route('backend.pos.store') }}",
+                    url: "{{ route('backend.invoice.store') }}",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },

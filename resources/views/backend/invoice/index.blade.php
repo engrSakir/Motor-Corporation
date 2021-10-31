@@ -13,8 +13,8 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item active">Invoice Page</li>
                 </ol>
-                <a href="{{ route('backend.pos.create') }}" class="btn btn-info d-none d-lg-block m-l-15"><i
-                        class="fa fa-plus-circle"></i> Create New</a>
+                <a href="{{ route('backend.invoice.create') }}" target="_blank" class="btn btn-info d-none d-lg-block m-l-15"><i
+                        class="fa fa-plus-circle"></i> POS </a>
             </div>
         </div>
     </div>
@@ -106,13 +106,13 @@
                                         @endcan
                                         <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
                                         <td>
-                                            <a href="{{ route('backend.pos.show', $invoice) }}" target="_blank"
+                                            <a href="{{ route('backend.invoice.show', $invoice) }}" target="_blank"
                                                 class="btn btn-primary waves-effect btn-rounded waves-light"> <i
                                                     class="fas fa-print"></i> </a>
-                                            <a target="_blank" href="{{ route('backend.pos.edit', $invoice) }}"
+                                            <a target="_blank" href="{{ route('backend.invoice.edit', $invoice) }}"
                                                 class="btn btn-secondary waves-effect btn-rounded waves-light"> <i
                                                     class="fas fa-pen"></i> </a>
-                                                    <button value="{{ route('backend.pos.destroy', $invoice) }}"
+                                                    <button value="{{ route('backend.invoice.destroy', $invoice) }}"
                                                 class="btn btn-danger btn-circle delete-btn"><i class="fa fa-trash"></i>
                                             </button>
                                         </td>

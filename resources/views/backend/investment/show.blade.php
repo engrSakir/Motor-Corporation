@@ -45,6 +45,14 @@
                                     <td>{{ date('d/m/Y', strtotime($investment->settlement_date)) }}</td>
                                 </tr>
                                 <tr>
+                                    <td>Current Balance</td>
+                                    <td>{{ $investment->totalUsableAmount() }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Used Amount</td>
+                                    <td>{{ $investment->totalUsedAmount() }}</td>
+                                </tr>
+                                <tr>
                                     <td>Creator</td>
                                     <td><span
                                             class="label label-success">{{ $investment->creator->name ?? 'Not Found' }}</span>
@@ -119,6 +127,26 @@
                                         {{ $investment->investWithInterest() - $investment->settlements->sum('amount') }}
                                     </h1>
                                     <h6 class="text-white">UnSettlement</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xlg-4">
+                            <div class="card">
+                                <div class="box bg-success text-center">
+                                    <h1 class="font-light text-white">
+                                        {{ $investment->totalUsableAmount() }}
+                                    </h1>
+                                    <h6 class="text-white">Current Balance</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xlg-4">
+                            <div class="card">
+                                <div class="box bg-warning text-center">
+                                    <h1 class="font-light text-white">
+                                        {{ $investment->totalUsedAmount() }}
+                                    </h1>
+                                    <h6 class="text-white">Used Amount</h6>
                                 </div>
                             </div>
                         </div>

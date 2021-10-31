@@ -17,6 +17,12 @@ class PurchasePayment extends Model
         'amount',
     ];
 
+    public function car(){
+        return $this->belongsTo(Car::class, 'car_id', 'id');
+    }
 
+    public function investment(){
+        return $this->belongsTo(Investment::class, 'investment_id', 'id');
+    }
 
 }

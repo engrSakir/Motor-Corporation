@@ -114,19 +114,19 @@
                             <input type="hidden" name="car" value="{{ $car->id }}">
                             <div class="input-group" style="background-color: white;">
                                 <span class="input-group-text"></span>
-                                    <select name="investment" class="form-control select2" id="investment">
+                                    <select name="investment" class="form-control select2" id="investment" required>
                                         <option selected disabled value="">Chose investment</option>
                                             @foreach ($investors as $investor)
                                             <optgroup label="{{ $investor->name }}">
                                                 @foreach ($investor->investments as $investment)
-                                                @if($investment->investWithInterest() - $investment->settlements->sum('amount') > 0)
-                                                <option value="{{ $investment->id }}" @if(old('investment') == $investment->id) selected @endif>ID: {{ $investment->created_at->format('dmyhis') }} Balance: {{ $investment->totalUsableAmount() }} of {{ $investment->amount }}</option>
+                                                @if($investment->totalUsableAmount() > 0)
+                                                <option value="{{ $investment->id }}" @if(old('investment') == $investment->id) selected @endif>ID: {{ $investment->id }} Balance: {{ $investment->totalUsableAmount() }} of {{ $investment->amount }}</option>
                                                 @endif
                                                 @endforeach
                                             </optgroup>
                                             @endforeach
                                     </select>
-                                <input type="number" step="any" class="form-control" name="payment_amount" placeholder="Payment amount" required>
+                                <input type="number" step="any" class="form-control" name="payment_amount" value="{{ old('payment_amount') }}" placeholder="Payment amount" required>
                                 <button class="btn btn-info text-white" type="submit">Make Payment!</button>
                             </div>
                             @error('investment')
@@ -153,7 +153,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header bg-info">
-                    <h4 class="mb-0 text-white">Payment Information</h4>
+                    <h4 class="mb-0 text-white">Purchase Payment Information</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -162,16 +162,19 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Investor</th>
-                                    <th>Investment</th>
+                                    <th>Investment ID</th>
                                     <th>Amount</th>
                                     <th>Date</th>
-                                <tr>
-                                    <td>#</td>
-                                    <td>Investor</td>
-                                    <td>Investment</td>
-                                    <td>Amount</td>
-                                    <td>Date</td>
                                 </tr>
+                                @foreach ($car->purchasePayments as $purchasePayment)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $purchasePayment->investment->investor->name ?? 'No Name' }}</td>
+                                    <td>{{ $purchasePayment->investment->id ?? 'No Investment' }}</td>
+                                    <td>{{ $purchasePayment->amount }}</td>
+                                    <td>{{ $purchasePayment->created_at->format('d/m/Y') }}</td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

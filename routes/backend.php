@@ -29,6 +29,6 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('car', CarController::class);
     Route::resource('purchasePayment', PurchasePaymentController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
-    Route::resource('pos', InvoiceController::class);
+    Route::resource('invoice', InvoiceController::class);
 
 });

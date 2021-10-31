@@ -38,7 +38,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $settlement->investment->investor->name ?? 'Not Found' }}</td>
-                                    <td>{{ $settlement->investment->created_at->format('dmyhis') }}</td>
+                                    <td>{{ $settlement->investment->id }}</td>
                                     <td>{{ $settlement->amount }}</td>
                                     <td>
                                         <div class="progress progress-xs margin-vertical-10"

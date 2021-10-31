@@ -26,11 +26,9 @@
                             <th scope="col">#</th>
                             <th scope="col">Investor Name</th>
                             <th scope="col">Investment ID</th>
-                            <th scope="col">Invest</th>
-                            <th scope="col">Interest</th>
+                            <th scope="col">Invest Amount</th>
                             <th scope="col">Settlement %</th>
-                            <th scope="col">Settlement date</th>
-                            <th scope="col">Created At</th>
+                            <th scope="col">Current Balance</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -39,16 +37,14 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
-                                <td>{{ $investment->created_at->format('dmyhis') }}</td>
+                                <td>{{ $investment->id }}</td>
                                 <td>{{ $investment->amount }}</td>
-                                <td>{{ $investment->interest }} % = {{ $investment->interestAmount() }}</td>
                                 <td>
                                     <div class="progress progress-xs margin-vertical-10" title="{{ ($investment->settlements->sum('amount') / $investment->investWithInterest()) * 100 }}%">
                                         <div class="progress-bar bg-success" style="width: {{ ($investment->settlements->sum('amount') / $investment->investWithInterest()) * 100 }}%; height:8px;"></div>
                                     </div>
                                 </td>
-                                <td>{{ date('d/m/Y', strtotime($investment->settlement_date)) }}</td>
-                                <td>{{ $investment->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $investment->totalUsableAmount() }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.investment.show', $investment) }}">
                                     <i class="fa fa-eye" ></i>
