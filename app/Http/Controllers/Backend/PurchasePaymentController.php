@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Car;
+use App\Models\Investor;
 use App\Models\PurchasePayment;
 use Illuminate\Http\Request;
 
@@ -87,6 +88,7 @@ class PurchasePaymentController extends Controller
 
     public function purchasePayment(Car $car)
     {
-        return view('backend.car.purchase-payment', compact('car'));
+        $investors =Investor::all();
+        return view('backend.car.purchase-payment', compact('car', 'investors'));
     }
 }

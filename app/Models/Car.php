@@ -31,4 +31,9 @@ class Car extends Model
     public function category(){
         return $this->belongsTo(CarCategory::class, 'car_category_id', 'id');
     }
+
+    public function purchasePayments()
+    {
+        return $this->hasMany(PurchasePayment::class, 'car_id', 'id');
+    }
 }

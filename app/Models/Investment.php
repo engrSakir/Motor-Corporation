@@ -29,6 +29,11 @@ class Investment extends Model
         return $this->hasMany(Settlement::class, 'investment_id', 'id');
     }
 
+    public function purchasePayments()
+    {
+        return $this->hasMany(PurchasePayment::class, 'investment_id', 'id');
+    }
+
     //Custom function
     public function interestAmount()
     {
@@ -38,5 +43,15 @@ class Investment extends Model
     public function investWithInterest()
     {
         return round(($this->interest / 100) * $this->amount, 2) + $this->amount;
+    }
+
+    public function totalUsedAmount()
+    {
+        return $this->purchasePayments->sum('amount');
+    }
+
+    public function totalUsableAmount()
+    {
+        return $this->amount - $this->totalUsedAmount();
     }
 }
