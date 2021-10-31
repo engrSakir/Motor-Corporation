@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\InvestmentController;
 use App\Http\Controllers\Backend\InvestorContactPersonController;
 use App\Http\Controllers\Backend\InvestorController;
+use App\Http\Controllers\Backend\PurchasePaymentController;
 use App\Http\Controllers\Backend\SettlementController;
 use App\Http\Controllers\Backend\VendorInfoController;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,5 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('vendorInfo', VendorInfoController::class);
     Route::resource('carCategory', CarCategoryController::class);
     Route::resource('car', CarController::class);
+    Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
 });

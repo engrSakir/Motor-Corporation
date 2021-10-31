@@ -38,7 +38,7 @@
                                 <td>{{ '100' }}</td>
                                 <td>{{ '50' }}</td>
                                 <td>
-                                <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">
+                                <a  class="btn btn-success btn-circle" href="{{ route('backend.purchasePayment', $car) }}">
                                     <i class="fa fa-eye" ></i>
                                 </a>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">

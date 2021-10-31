@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Car;
 use App\Models\PurchasePayment;
 use Illuminate\Http\Request;
 
@@ -81,5 +83,10 @@ class PurchasePaymentController extends Controller
     public function destroy(PurchasePayment $purchasePayment)
     {
         //
+    }
+
+    public function purchasePayment(Car $car)
+    {
+        return view('backend.car.purchase-payment', compact('car'));
     }
 }
