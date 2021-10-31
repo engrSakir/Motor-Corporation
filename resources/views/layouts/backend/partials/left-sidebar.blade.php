@@ -39,6 +39,7 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.vendorInfo.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Vendor</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.carCategory.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Category</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.car.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="{{ route('backend.pos.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">POS</span></a></li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Parent</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Ch 1 </a></li>

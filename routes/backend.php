@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\InvestorController;
 use App\Http\Controllers\Backend\PurchasePaymentController;
 use App\Http\Controllers\Backend\SettlementController;
 use App\Http\Controllers\Backend\VendorInfoController;
+use App\Http\Controllers\Backend\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,6 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('car', CarController::class);
     Route::resource('purchasePayment', PurchasePaymentController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
+    Route::resource('pos', InvoiceController::class);
+
 });

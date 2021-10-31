@@ -3,15 +3,15 @@
 @section('content')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">Blank Page</h4>
+        <h4 class="text-themecolor">Car Page</h4>
     </div>
     <div class="col-md-7 align-self-center text-end">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb justify-content-end">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Blank Page</li>
+                <li class="breadcrumb-item active">Car Page</li>
             </ol>
-            <a href="{{ route('backend.car.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</a>
+            <a href="{{ route('backend.car.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Purchase</a>
         </div>
     </div>
 </div>
@@ -39,7 +39,7 @@
                                 <td>{{ '50' }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.purchasePayment', $car) }}">
-                                    <i class="fa fa-eye" ></i>
+                                    <i class="fa fa-credit-card" ></i>
                                 </a>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">
                                     <i class="fa fa-eye" ></i>
