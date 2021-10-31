@@ -25,6 +25,8 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Paid</th>
+                            <th scope="col">Due</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -33,7 +35,12 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $car->name }}</td>
+                                <td>{{ '100' }}</td>
+                                <td>{{ '50' }}</td>
                                 <td>
+                                <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">
+                                    <i class="fa fa-eye" ></i>
+                                </a>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">
                                     <i class="fa fa-eye" ></i>
                                 </a>
