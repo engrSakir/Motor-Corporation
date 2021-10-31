@@ -45,9 +45,9 @@
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.purchasePayment', $car) }}">
                                     <i class="fa fa-credit-card" ></i>
                                 </a>
-                                <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">
+                                {{-- <a  class="btn btn-success btn-circle" href="{{ route('backend.car.show', $car) }}">
                                     <i class="fa fa-eye" ></i>
-                                </a>
+                                </a> --}}
                                 <a  class="btn btn-warning btn-circle" href="{{ route('backend.car.edit', $car) }}">
                                     <i class="fa fa-pen" ></i>
                                 </a>

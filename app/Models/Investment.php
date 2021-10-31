@@ -54,4 +54,24 @@ class Investment extends Model
     {
         return $this->amount - $this->totalUsedAmount();
     }
+
+    //How many percentage are settle
+    public function percentageOfSettlement()
+    {
+        try {
+            return ($this->settlements->sum('amount') / $this->investWithInterest()) * 100;
+        } catch (\Exception $exception) {
+            return 0;
+        }
+    }
+
+    //How many percentage are used
+    public function percentageOfUsed()
+    {
+        try {
+            return ($this->totalUsedAmount() / $this->amount) * 100;
+        } catch (\Exception $exception) {
+            return 0;
+        }
+    }
 }

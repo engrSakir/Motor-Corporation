@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\PurchasePaymentController;
 use App\Http\Controllers\Backend\SettlementController;
 use App\Http\Controllers\Backend\VendorInfoController;
 use App\Http\Controllers\Backend\InvoiceController;
+use App\Http\Controllers\Backend\PaymentMethodController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('purchasePayment', PurchasePaymentController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
     Route::resource('invoice', InvoiceController::class);
+    Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
+    Route::resource('paymentMethod', PaymentMethodController::class);
 
 });

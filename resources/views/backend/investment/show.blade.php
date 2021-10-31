@@ -153,19 +153,39 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-12 col-md-12">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h3>{{ round(($investment->settlements->sum('amount') / $investment->investWithInterest()) * 100, 2) }}%
+                                            <h3>{{ round($investment->percentageOfSettlement(), 2) }}%
                                             </h3>
-                                            <h6 class="card-subtitle">Settlement</h6>
+                                            <h6 class="card-subtitle">Percentage of settlement</h6>
                                         </div>
                                         <div class="col-12">
                                             <div class="progress">
                                                 <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: {{ ($investment->settlements->sum('amount') / $investment->investWithInterest()) * 100 }}%; height: 6px;"
+                                                    style="width: {{ round($investment->percentageOfSettlement(), 2) }}%; height: 6px;"
+                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3>{{ round($investment->percentageOfUsed(), 2) }}%
+                                            </h3>
+                                            <h6 class="card-subtitle">Percentage of used amount</h6>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" role="progressbar"
+                                                    style="width: {{ round($investment->percentageOfUsed(), 2) }}%; height: 6px;"
                                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>

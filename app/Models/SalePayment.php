@@ -6,23 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Wildside\Userstamps\Userstamps;
 
-class Invoice extends Model
+class SalePayment extends Model
 {
     use HasFactory;
     use Userstamps;
 
     protected $fillable = [
-        'payment_method_id',
-        'discount_percentage',
-        'fixed_discount',
-        'note',
+        'invoice_id',
+        'amount'
     ];
 
-    public function payments(){
-        return $this->hasMany(SalePayment::class, 'invoice_id', 'id');
+    public function invoice(){
+        return $this->belongsTo(Invoice::class, 'invoice_id', 'id');
     }
 }
-
-
-
-

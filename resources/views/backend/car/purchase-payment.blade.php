@@ -142,7 +142,7 @@
                         </form>
                         @else
                         <div class="alert alert-success" role="alert">
-                            <h3><b>Settlement</b></h3>
+                            <h3><b>Playment Clear</b></h3>
                         </div>
                         @endif
                     </div>

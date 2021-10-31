@@ -21,16 +21,13 @@
     <link href="pos-assets/api/pace/pace-theme-flat-top.css" rel="stylesheet" type="text/css" />
     <link href="pos-assets/api/mcustomscrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
 
-    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> --}}
-
-
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <style>
         .productCard {
             padding: 10px;
             margin: 2px;
             text-align: center;
-            background: linear-gradient(to bottom, #cca356 0%, #ff99cc 100%);
+            background: rgb(46, 46, 46);
             border-radius: 15px;
             cursor: pointer;
 
@@ -76,17 +73,17 @@
                     <div class="greeting-text">
                         <h3 class="card-label mb-0 font-weight-bold text-primary">POS
                         </h3>
-                       <a href="{{ route('dashboard') }}">
-                        <h3 class="card-label mb-0 ">
-                            {{ config('app.name') }}
-                        </h3>
-                       </a>
+                        <a href="{{ route('dashboard') }}">
+                            <h3 class="card-label mb-0 ">
+                                {{ config('app.name') }}
+                            </h3>
+                        </a>
                     </div>
 
                 </div>
                 <div class="col-xl-4 col-lg-5 col-md-6  clock-main text-center">
-                   <b>  Developed by
-                   <a href="https://www.iciclecorporation.com/" target="_blank"><b>Icicle Corporation</b></a></b>
+                    <b> Developed by
+                        <a href="https://www.iciclecorporation.com/" target="_blank"><b>Icicle Corporation</b></a></b>
                 </div>
                 <div class="col-xl-4 col-lg-3 col-md-12 order-lg-last order-second">
                     <div class="topbar justify-content-end">
@@ -159,23 +156,30 @@
                                     <select class="style-select select2" id="item_category">
                                         <option value="" selected disabled>Select Category</option>
                                         <option value="All">All Category</option>
-                                       {{--  @foreach ($itemCategories as $itemCategory)
+                                        @foreach ($itemCategories as $itemCategory)
                                             <option value="{{ $itemCategory->id }}">{{ $itemCategory->name }}
                                             </option>
-                                        @endforeach --}}
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="product-items">
                             <div class="row" id="item_area">
-                            {{-- @foreach ($items as $item)
-                                    <div class="col-6 item_card"
-                                        id="item_id_{{ $item->id }}">
+                                @foreach ($items as $item)
+                                    <div class="col-6 item_card" id="item_id_{{ $item->id }}">
                                         <input type="hidden" class="item_id" value="{{ $item->id }}">
                                         <input type="hidden" class="item_name" value="{{ $item->name }}">
-                                        <input type="hidden" class="item_price" value="{{ $item->price }}">
+                                        <input type="hidden" class="item_price"
+                                            value="{{ $item->selling_price }}">
+                                        <input type="hidden" class="item_vat"
+                                            value="{{ $item->vat_percentage }}">
                                         <div class="productCard">
+                                            <div class="">
+                                                <img style="" class="img-fluid product_card_image"
+                                                    src="{{ asset($item->image ?? 'assets/images/no_car.png') }}"
+                                                    alt="">
+                                            </div>
                                             <div class="productContent">
                                                 <a href="javascript:void(0)">
                                                     {{ $item->name }}
@@ -183,7 +187,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach --}}
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -195,10 +199,11 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-12">
                                     <fieldset class="form-group mb-0 d-flex barcodeselection">
-                                        <select name="appointment" id="appointment" class="style-select select2">
+                                        <h3 class="text-danger">Client Information</h3>
+                                        {{-- <select name="appointment" id="appointment" class="style-select select2">
                                             <option value="" selected disabled>Please chose a approved appointment
                                             </option>
-                                            {{-- @foreach ($appointments as $appointment)
+                                            @foreach ($appointments as $appointment)
                                                 <option value="{{ $appointment->id }}">
                                                     {{ $loop->iteration }})
                                                     Name: {{ $appointment->customer->name ?? '#' }}
@@ -209,8 +214,8 @@
                                                     {{ $appointment->schedule->schedule_day ?? '#' }}
                                                     ({{ date('d M Y', strtotime($appointment->appointment_data)) ?? '#' }})
                                                 </option>
-                                            @endforeach --}}
-                                        </select>
+                                            @endforeach
+                                        </select> --}}
                                     </fieldset>
                                 </div>
                             </div>
@@ -237,7 +242,8 @@
                         <div class="card-body">
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 btn-submit d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-danger mr-2 confirm-delete" onClick="window.location.reload();">
+                                    <button type="submit" class="btn btn-danger mr-2 confirm-delete"
+                                        onClick="window.location.reload();">
                                         <i class="fas fa-trash-alt mr-2"></i>
                                         Refresh Everything
                                     </button>
@@ -306,17 +312,17 @@
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between">
                                             <th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
-                                                Advance Payment
+                                                Paid Amount
                                             </th>
                                             <td class="border-0 justify-content-end d-flex text-dark font-size-base"
-                                                id="advance_payment_amount">00</td>
+                                                id="payment_amount">00</td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between item-price">
-                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-primary">
-                                                HAVE TO PAY
+                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-danger">
+                                                DUE AMOUNT
                                             </th>
                                             <td class="border-0 justify-content-end d-flex text-primary font-size-base"
-                                                id="have_to_pay">00</td>
+                                                id="due_amount">00</td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between item-price">
                                             <th class="border-0 font-size-h5 mb-0 font-size-bold text-primary">
@@ -334,11 +340,11 @@
                                     <select name="payment_method" id="payment_method" class="form-control select2"
                                         required="">
                                         <option value="" selected disabled>Please choose a Payment Method</option>
-                                        {{--  @foreach ($paymentmethods as $paymentMethod)
+                                        @foreach ($paymentmethods as $paymentMethod)
                                             <option value="{{ $paymentMethod->id }}">
                                                 {{ $paymentMethod->name ?? '#' }}
                                             </option>
-                                        @endforeach--}}
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div>
@@ -384,7 +390,7 @@
                     <div class="row">
                         <div class="col-12">
                             {{-- Modal cntent --}}
-                            {{--  <x-appointment-booking-component/> --}}
+                            {{-- <x-appointment-booking-component/> --}}
                         </div>
                     </div>
                 </div>
@@ -416,7 +422,6 @@
         </div>
     </div>
 
-    {{-- <script src="{{ asset('pos-assets/js/plugin.bundle.min.js') }}"></script> --}}
     <script src="{{ asset('pos-assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -424,8 +429,7 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--Custom JavaScript helper -->
-    <script src="{{ asset('assets/js/helper.js') }}"></script>
-    {{-- <script src="pos-assets/js/script.bundle.js"></script> --}}
+    <script src="{{ asset('assets/helper/helper.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.select2').select2();
@@ -443,13 +447,23 @@
                     // console.log(data);
                     $.each(data, function(key, value) {
                         console.log(value)
+                        item_image = value.image;
+                        if (item_image == null) {
+                            item_image = 'assets/images/no_car.png';
+                        }
                         new_html +=
                             `<div class="col-6 item_card" id="item_id_` +
                             value.id + `">
                         <input type="hidden" class="item_id" value="` + value.id +
                             `"><input type="hidden" class="item_name" value="` + value.name +
-                            `"><input type="hidden" class="item_price" value="` + value.price + `">
-                        <div class="productCard"><div class="productContent">
+                            `"><input type="hidden" class="item_price" value="` + value
+                            .selling_price + `">
+                            <input type="hidden" class="item_vat" value="` + value.vat_percentage + `">
+                        <div class="productCard">
+                        <div class="">
+                        <img style="" class="img-fluid product_card_image" src="` + item_image + `" alt="">
+                        </div>
+                        <div class="productContent">
                         <a href="javascript:void(0)">` + value.name + `</a></div></div></div>`;
                     });
                     $('#item_area').html(new_html);
@@ -460,9 +474,8 @@
         $('#item_area').on('click', '.item_card', function() {
             var item_id = $(this).find('.item_id').val();
             var item_name = $(this).find('.item_name').val();
-            var item_price = ((100 * $(this).find('.item_price').val()) / 115).toFixed(2);
-            var item_vat = ($(this).find('.item_price').val() - (100 * $(this).find('.item_price').val()) / 115)
-                .toFixed(2);
+            var item_price = $(this).find('.item_price').val();
+            var item_vat = $(this).find('.item_vat').val();
             // alert(item_name);
             if ($("#selected_item_for_" + item_id).length > 0) {
                 // update price with incease quantity
@@ -532,44 +545,10 @@
             price_after_discount = price - discount_amount;
             $('#price_after_discount').text((price_after_discount).toFixed(2));
             let vat = parseFloat($('#total_vat').text());
-            let advance_payment_amount =  parseFloat($('#advance_payment_amount').text());
-            $('#have_to_pay').text((price_after_discount + vat - advance_payment_amount).toFixed(2));
+            let payment_amount = parseFloat($('#payment_amount').text());
+            $('#due_amount').text((price_after_discount + vat - payment_amount).toFixed(2));
             $('#total_price_include_vat').text((price_after_discount + vat).toFixed(2));
         }
-
-
-
-        $("#appointment").change(function() {
-            let appointment_id = this.value;
-            if ($('.item_card').length < 1) {
-                alert('Service not found. Please select all category.');
-                $('#appointment').prop('selectedIndex', 0);
-            } else {
-                $.ajax({
-                    type: 'GET',
-                    url: "/backend/appointment/" + appointment_id, //show
-                    success: function(response) {
-                        console.log(response);
-                        $('#item_id_' + response.appointment.service_id).trigger('click');
-                        $('#discount_percentage').val(response.discount_percentage);
-                        $('#discount_fixed_amount').val(0);
-                        $('#advance_payment_amount').text(response.appointment.advance_amount);
-                        discount_calculate();
-                        // $('#addr0').find('.service').val(response.appointment.service_id)
-                        // $('#addr0').find('.price').val(response.service.price)
-                        // $('#addr0').find('.qty').val(1)
-                        // // $('#tax').val(response.vat_percentage)
-                        // $('#tax').val(0)
-                        // $('#discount').val(response.discount_percentage)
-                        // $('#fixed_discount').val(0)
-                        // $('#advance_payment_amount').val(response.appointment.advance_amount)
-                        // calc();
-                        // calc_total();
-                    }
-                });
-            }
-        });
-
 
         $('.mdal_close_a').click(function() {
             $('#modal').modal('hide');
@@ -583,26 +562,23 @@
                     'service': parseInt($(this).find('.selected_item').val()),
                     'quantity': parseInt($(this).find('.selected_item_qty').val()),
                     'price': parseFloat($(this).find('.selected_item_price').text()),
+                    'vat': parseFloat($(this).find('.selected_item_vat').text()),
                 });
             });
             // console.log(service_data_set)
             if (service_data_set.length > 0) {
                 $.ajax({
-                    method: "POST",
+                    type: "POST",
                     url: "{{ route('backend.invoice.store') }}",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     data: {
                         service_data_set: service_data_set,
-                        appointment_id: $('#appointment').val(),
                         payment_method: $('#payment_method').val(),
-                        vat_percentage: 15,
                         discount_percentage: $('#discount_percentage').val(),
                         fixed_discount: $('#discount_fixed_amount').val(),
-                        advance_payment_amount: parseFloat($('#advance_payment_amount').text()),
-                        // new_payment_amount: document.getElementById('new_payment_amount').value,
-                        new_payment_amount: parseFloat($('#have_to_pay').text()),
+                        payment_amount: parseFloat($('#payment_amount').text()),
                     },
                     dataType: 'JSON',
                     beforeSend: function() {
@@ -625,7 +601,7 @@
                             $('#modal-body').html(`<iframe src="` + data.invoice_url +
                                 `" width="100%" height="400"></iframe>`);
 
-                            // $(".mdal_close_a").attr("href", data.btn_url)
+                            $(".mdal_close_a").attr("href", data.btn_url)
                         } else {
                             Swal.fire({
                                 icon: data.type,
@@ -636,7 +612,26 @@
                         }
                     },
                     error: function(error) {
-                        validation_error(error);
+                        // console.log("ERROR:: ",error.response);
+                        // validation_error(error);
+
+                        console.log(error.responseText);
+                        $.each(error.responseJSON.responseText, function(key, value) {
+                            console.log(value)
+                        });
+
+                        var errorMessage = '<div class="card bg-danger">\n' +
+                            '                        <div class="card-body text-center p-5">\n' +
+                            '                            <span class="text-white">';
+                        $.each(error.responseJSON.errors, function(key, value) {
+                            errorMessage += ('' + value + '<br>');
+                        });
+                        errorMessage += '</span>\n' +
+                            '                        </div>\n' +
+                            '                    </div>';
+                        Swal.fire({
+                            html: errorMessage,
+                        })
                     },
                 });
             } else {
