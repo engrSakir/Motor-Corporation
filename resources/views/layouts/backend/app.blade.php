@@ -66,7 +66,7 @@
         <!-- ============================================================== -->
         <footer class="footer">
             © {{ date('Y') }}
-            <a href="https://www.google.com/" target="_blank">Md. Sakir Ahmed</a>
+            <a href="https://iciclecorporation.com/" target="_blank">Icicle Corporation</a>
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
