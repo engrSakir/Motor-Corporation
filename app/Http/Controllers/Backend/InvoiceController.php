@@ -9,6 +9,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
+use PDF;
 
 class InvoiceController extends Controller
 {
@@ -19,8 +20,8 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $total_paid = total_sale_amount();
-        $total_vat = total_vat();
+        $total_paid = 0;
+        $total_vat = 0;
         $invoices = Invoice::orderBy('id', 'desc')->paginate(500);
         return view('backend.invoice.index', compact('invoices', 'total_paid', 'total_vat'));
     }
@@ -97,8 +98,8 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        // $pdf = PDF::loadView('backend.invoice.pos-pdf', compact('invoice'));
-        // return $pdf->stream('Invoice-' . config('app.name') . '.pdf');
+        $pdf = PDF::loadView('backend.invoice.invoice-pdf', compact('invoice'));
+        return $pdf->stream('Invoice-' . config('app.name') . '.pdf');
     }
 
     /**

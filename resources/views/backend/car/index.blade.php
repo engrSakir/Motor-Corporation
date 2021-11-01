@@ -29,6 +29,7 @@
                             <th scope="col">Purchase Paid</th>
                             <th scope="col">Purchase Due</th>
                             <th scope="col">Sell Price</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
                                 <td>{{ $car->purchasePayments()->sum('amount') }}</td>
                                 <td>{{ $car->purchase_price - $car->purchasePayments()->sum('amount') }}</td>
                                 <td>{{ $car->selling_price }}</td>
+                                <td>{{ $car->status }}</td>
                                 <td>
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.purchasePayment', $car) }}">
                                     <i class="fa fa-credit-card" ></i>

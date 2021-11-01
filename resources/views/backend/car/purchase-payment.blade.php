@@ -92,13 +92,13 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <h3>10%</h3>
-                                        <h6 class="card-subtitle">Name</h6>
+                                        <h3>{{ round($car->percentageOfPurchasePayment(), 2) }}%</h3>
+                                        <h6 class="card-subtitle">Percentage of purchase payment</h6>
                                     </div>
                                     <div class="col-12">
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar"
-                                                style="width:10%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                                style="width:{{ round($car->percentageOfPurchasePayment(), 2) }}%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
                                                 aria-valuemax="100"></div>
                                         </div>
                                     </div>

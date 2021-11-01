@@ -36,4 +36,14 @@ class Car extends Model
     {
         return $this->hasMany(PurchasePayment::class, 'car_id', 'id');
     }
+
+        //How many percentage are payed in purchase (to vendor)
+        public function percentageOfPurchasePayment()
+        {
+            try {
+                return ($this->purchasePayments()->sum('amount') / $this->purchase_price) * 100;
+            } catch (\Exception $exception) {
+                return 0;
+            }
+        }
 }

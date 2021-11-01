@@ -479,16 +479,23 @@
             // alert(item_name);
             if ($("#selected_item_for_" + item_id).length > 0) {
                 // update price with incease quantity
-                $("#selected_item_qty_for_" + item_id).val(parseInt($("#selected_item_qty_for_" + item_id).val()) +
-                    1);
-                inner_calculation();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'info',
+                    title: 'Already add',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                // $("#selected_item_qty_for_" + item_id).val(parseInt($("#selected_item_qty_for_" + item_id).val()) +
+                //     1);
+                // inner_calculation();
             } else {
                 //jQuery append row in table
                 table_tr = `<tr id="selected_item_for_` + item_id + `">
-                            <input type="hidden" class="selected_item" name="selected_items[]" value="` + item_id + `">
+                            <input type="hidden" readonly class="selected_item" name="selected_items[]" value="` + item_id + `">
                             <td id="selected_item_name_for_` + item_id + `">` + item_name +
                     `</td>
-                            <td> <input type="number" value="1" class="form-control border-dark w-100px selected_item_qty" id="selected_item_qty_for_` +
+                            <td> <input type="number" readonly value="1" class="form-control border-dark w-100px selected_item_qty" id="selected_item_qty_for_` +
                     item_id + `" placeholder=""> </td>
                             <td id="selected_item_vat_for_` + item_id + `" class="selected_item_vat">` +
                     item_vat + `</td>

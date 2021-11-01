@@ -73,12 +73,9 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Phone</th>
-                                    <th>Services</th>
+                                    <th>Car</th>
                                     <th>Price</th>
-
-
                                     <th>Vat</th>
-
                                     {{-- <th>Due</th> --}}
                                     <th>Created At</th>
                                     <th>Action</th>
@@ -89,17 +86,18 @@
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->id }}</td>
-                                        <td>{{ $invoice->appointment->customer->name ?? '#' }}</td>
-                                        <td>{{ $invoice->appointment->customer->phone ?? '#' }}</td>
+                                        <td>{{ $invoice->customer_name }}</td>
+                                        <td>{{ $invoice->customer_phone }}</td>
                                         <td>
                                         @foreach($invoice->items as $item)
-                                        {{ $item->service->name ?? '#' }},
+                                        {{ $item->car->name ?? '#' }}
+                                        {{-- {{ $item->car->selling_price ?? '#' }} --}}
+                                        (QT-{{ $item->quantity ?? '#' }}) <br>
                                         @endforeach
                                         </td>
                                         <td>
                                             {{ $invoice->price() }}
                                         </td>
-
                                         <td>
                                             {{ $invoice->vat() }}
                                         </td>

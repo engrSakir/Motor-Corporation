@@ -19,7 +19,13 @@ class InvoiceItem extends Model
         'vat',
     ];
 
+    public function invoice(){
+        return $this->belongsTo(Invoice::class, 'invoice_id', 'id');
+    }
 
+    public function car(){
+        return $this->belongsTo(Car::class, 'car_id', 'id');
+    }
 }
 
 
