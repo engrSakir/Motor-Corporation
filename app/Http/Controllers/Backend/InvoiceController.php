@@ -140,7 +140,7 @@ class InvoiceController extends Controller
     {
         $items = Car::all();
         if ($category != 'All') {
-            $items = Car::where('car_category_id', $category)->get();
+            $items = Car::where('car_category_id', $category)->where('status', 'Available')->get();
         }
         return $items;
     }
