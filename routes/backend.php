@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SettlementController;
 use App\Http\Controllers\Backend\VendorInfoController;
 use App\Http\Controllers\Backend\InvoiceController;
 use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\CarExpenseController;
 use App\Http\Controllers\Backend\ExpenseCategoryController;
 use App\Http\Controllers\Backend\PaymentMethodController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('car', CarController::class);
     Route::resource('expense', ExpenseController::class);
     Route::resource('expenseCategory', ExpenseCategoryController::class);
+    Route::resource('carExpense', CarExpenseController::class);
     Route::resource('purchasePayment', PurchasePaymentController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
     Route::resource('invoice', InvoiceController::class);
