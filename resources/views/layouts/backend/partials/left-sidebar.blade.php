@@ -41,10 +41,10 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.car.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.invoice.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Sales</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.paymentMethod.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Payment Method</span></a></li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Parent</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Expense</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Ch 1 </a></li>
-                        <li><a href="#">Ch 2</a></li>
+                        <li><a href="{{ route('backend.expense.index') }}">Add New Expense </a></li>
+                        <li><a href="{{ route('backend.expenseCategory.index') }}">Expense Category</a></li>
                     </ul>
                 </li>
                <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Single</span></a></li>
