@@ -134,7 +134,7 @@ header {
     float: left;
 	padding:3px 4px 0px 10px;
 	line-height:100px;
-	background:#d9eb3d;
+	/* background:#d9eb3d; */
     position: relative;
 }
 

@@ -3,94 +3,24 @@
       <div class="row">
         <div id="header">
           <div class="header-container">
-            <div class="header-logo"> <a href="index.html" title="Car HTML" class="logo">
-              <div><img src="{{ asset('assets/frontend/images/logo-bg.png') }}" height="110px" alt="Car Store"></div>
-              </a> </div>
-            <div class="header__nav">
-              <div class="header-banner">
-                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
-                  <div class="assetBlock">
-                    <div style="height: 20px; overflow: hidden;" id="slideshow">
-                      <p style="display: block;">Hot days! - <span>50%</span> Get ready for summer! </p>
-                      <p style="display: none;">Save up to <span>40%</span> Hurry limited offer!</p>
-                    </div>
-                  </div>
+            <div class="header-logo"> 
+              <a href="{{ url('/')}}" title="Car HTML" class="logo">
+                <div>
+                  <img style="background-color:#FAF9F6; border-radius:15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);" src="{{ asset('assets/frontend/images/logo-bg.png') }}" height="110px" alt="Car Store">
                 </div>
-                <div class="col-lg-6 col-lg-6 col-xs-12 col-sm-6 col-md-6 call-us"><i class="fa fa-clock-o"></i> Mon - Fri : 09am to 06pm <i class="fa fa-phone"></i> +1 800 789 0000</div>
-              </div>
+              </a> 
+            </div>
+            <div class="header__nav">
               <div class="fl-header-right">
                 <div class="fl-links">
                   <div class="no-js"> <a title="" class="clicker"></a>
                     <div class="fl-nav-links">
-                      <div class="language-currency">
-                        <div class="fl-language">
-                        <h3>Language</h3>
-                          <ul class="lang">
-                            <li><a href="#"> <img src="{{ asset('assets/frontend/images/english.png') }}" alt="English"> <span>English</span> </a></li>
-                            <li><a href="#"> <img src="{{ asset('assets/frontend/images/francais.png') }}" alt="French"> <span>French</span> </a></li>
-                            <li><a href="#"> <img src="{{ asset('assets/frontend/images/german.png') }}" alt="German"> <span>German</span> </a></li>
-                          </ul>
-                        </div>
-                        <!--fl-language--> 
-                        <!-- END For version 1,2,3,4,6 --> 
-                        <!-- For version 1,2,3,4,6 -->
-                        <div class="fl-currency">
-                         <h3>Currency</h3>
-                          <ul class="currencies_list">
-                            <li><a href="#" title="EGP"> <strong>£</strong> Pound Sterling</a></li>
-                            <li><a href="#" title="EUR"> <strong>€</strong> Euro</a></li>
-                            <li><a href="#" title="USD"> <strong>$</strong> US Dollar</a></li>
-                          </ul>
-                        </div>
-                        <!--fl-currency--> 
-                        <!-- END For version 1,2,3,4,6 --> 
-                      </div>
                        <h3>My Acount</h3>
                       <ul class="links">
                         <li><a href="login.html" title="My Account">Login</a></li>
                         <li><a href="login.html" title="Wishlist">Register</a></li>
                         </ul>
                     </div>
-                  </div>
-                </div>
-                <div class="fl-cart-contain">
-                  <div class="mini-cart">
-                    <div class="basket"> <a href="shopping-cart.html"><span> 2 </span></a> </div>
-                    <div class="fl-mini-cart-content" style="display: none;">
-                      <div class="block-subtitle">
-                        <div class="top-subtotal">2 items, <span class="price">$259.99</span> </div>
-                        <!--top-subtotal--> 
-                        <!--pull-right--> 
-                      </div>
-                      <!--block-subtitle-->
-                      <ul class="mini-products-list" id="cart-sidebar">
-                        <li class="item first">
-                          <div class="item-inner"><a class="product-image" title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="#l"><img alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" src="{{ asset('assets/frontend/products-images/p4.jpg') }}"></a>
-                            <div class="product-details">
-                              <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                              <!--access--> 
-                              <strong>1</strong> x <span class="price">$179.99</span>
-                              <p class="product-name"><a href="accessories-detail.html">timi &amp; leslie Sophia Diaper Bag...</a></p>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="item last">
-                          <div class="item-inner"><a class="product-image" title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="#"><img alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" src="{{ asset('assets/frontend/products-images/p3.jpg') }}"></a>
-                            <div class="product-details">
-                              <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                              <!--access--> 
-                              <strong>1</strong> x <span class="price">$80.00</span>
-                              <p class="product-name"><a href="accessories-detail.html">JP Lizzy Satchel Designer Diaper Ba...</a></p>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <div class="actions">
-                        <button class="btn-checkout" title="Checkout" type="button" onClick="window.location=checkout.html"><span>Checkout</span></button>
-                      </div>
-                      <!--actions--> 
-                    </div>
-                    <!--fl-mini-cart-content--> 
                   </div>
                 </div>
                 <!--mini-cart-->
