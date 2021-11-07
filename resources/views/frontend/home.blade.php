@@ -11,12 +11,8 @@
                         <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
                             <ul>
                                 <li>
-                                  {{-- <video autoplay muted loop id="myVideo">
-                                    <source src="rain.mp4" type="{{ asset('assets/videos/cover_1.mp4') }}">
-                                    Your browser does not support HTML5 video.
-                                  </video> --}}
-                                  <img src='{{ asset('assets/frontend/images/slide/6.jpg') }}' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
-                                    <div class="container">
+                                    <video autoplay muted loop id="myVideo" style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;" src="{{ asset('assets/videos/cover_1.mp4') }}"></video>
+                                    <div class="container ">
                                         <div class="content_slideshow">
                                             <div class="row">
                                                 <div>
@@ -28,7 +24,7 @@
                                                             data-endelementdelay='0.1'
                                                             style='z-index:2; white-space:nowrap;'><span>Top Brands
                                                                 2019</span>
-                                                              </div>
+                                                        </div>
                                                         <div class='tp-caption LargeTitle sfl  tp-resizeme '
                                                             data-endspeed='500' data-speed='500' data-start='1300'
                                                             data-easing='Linear.easeNone' data-splitin='none'
@@ -49,7 +45,8 @@
                                                             data-splitin='none' data-splitout='none' data-elementdelay='0.1'
                                                             data-endelementdelay='0.1'
                                                             style='z-index:4; white-space:nowrap;'><a href='#'
-                                                                class="buy-btn">Book Appointment</a> </div>
+                                                                class="buy-btn">Booking Now</a>
+                                                              </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,9 +61,7 @@
             </div>
         </div>
     </div>
-
     <!--Category slider Start-->
-
     <div class="section-filter">
         <div class="b-filter__inner bg-grey container">
             <h2>Find your right car</h2>
@@ -95,32 +90,6 @@
                         <option>Model 3</option>
                     </select>
                 </div>
-                <div class="btn-group bootstrap-select">
-                    <select class="selectpicker" data-width="100%" tabindex="-98">
-                        <option>Select All Locations</option>
-                        <option>Location 1</option>
-                        <option>Location 2</option>
-                        <option>Location 3</option>
-                    </select>
-                </div>
-                <div class="btn-group bootstrap-select">
-                    <select class="selectpicker" data-width="100%" tabindex="-98">
-                        <option>Select Year</option>
-                        <option>2017</option>
-                        <option>2016</option>
-                        <option>2015</option>
-                    </select>
-                </div>
-                <div class="ui-filter-slider">
-                    <div class="sidebar-widget-body m-t-10">
-                        <div class="price-range-holder"> <span class="min-max"> <span
-                                    class="pull-left">$200.00</span> <span class="pull-right">$800.00</span>
-                            </span>
-                            <input type="text" class="price-slider" value="" style="display:block">
-                        </div>
-                        <!-- /.price-range-holder -->
-                    </div>
-                </div>
                 <div>
                     <div class="b-filter__btns">
                         <button class="btn btn-lg btn-primary">search vehicle</button>
@@ -129,8 +98,6 @@
             </form>
         </div>
     </div>
-
-
     <!--Category silder End-->
 
     <div id="top">

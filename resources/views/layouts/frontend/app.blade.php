@@ -10,20 +10,20 @@
 @include('layouts.frontend.partials.header')
 
   <!--container-->
-  
+
   <div class="content">
   @yield('content')
 
   </div>
-  
+
   <!-- For version 1,2,3,4,6 -->
   @include('layouts.frontend.partials.footer')
 
-  
-  <!-- End For version 1,2,3,4,6 --> 
-  
+
+  <!-- End For version 1,2,3,4,6 -->
+
 </div>
-<!--page--> 
+<!--page-->
 <!-- Mobile Menu-->
 <div id="mobile-menu">
   <ul>
@@ -43,7 +43,7 @@
     <li><a href="grid1.html">Accessories</a>
       <!--mega menu-->
                                 <ul class="level0">
-                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Audio</span></a> 
+                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Audio</span></a>
                                     <!--sub sub category-->
                                     <ul class="level1">
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Amplifiers</span></a> </li>
@@ -57,11 +57,11 @@
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Subwoofers</span></a> </li>
                                       <!--level2 nav-6-1-1-->
                                     </ul>
-                                    <!--level1--> 
-                                    <!--sub sub category--> 
+                                    <!--level1-->
+                                    <!--sub sub category-->
                                   </li>
                                   <!--level3 nav-6-1 parent item-->
-                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Body Parts</span></a> 
+                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Body Parts</span></a>
                                     <!--sub sub category-->
                                     <ul class="level1">
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bumpers</span></a> </li>
@@ -75,11 +75,11 @@
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Hoods</span></a> </li>
                                       <!--level2 nav-6-1-1-->
                                     </ul>
-                                    <!--level1--> 
-                                    <!--sub sub category--> 
+                                    <!--level1-->
+                                    <!--sub sub category-->
                                   </li>
                                   <!--level3 nav-6-1 parent item-->
-                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Exterior</span></a> 
+                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Exterior</span></a>
                                     <!--sub sub category-->
                                     <ul class="level1">
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bed Accessories</span></a> </li>
@@ -93,11 +93,11 @@
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Off-Road Bumpers</span></a> </li>
                                       <!--level2 nav-6-1-1-->
                                     </ul>
-                                    <!--level1--> 
-                                    <!--sub sub category--> 
+                                    <!--level1-->
+                                    <!--sub sub category-->
                                   </li>
                                   <!--level3 nav-6-1 parent item-->
-                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Interior</span></a> 
+                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Interior</span></a>
                                     <!--sub sub category-->
                                     <ul class="level1">
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Custom Gauges</span></a> </li>
@@ -111,11 +111,11 @@
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Sun Shades</span></a> </li>
                                       <!--level2 nav-6-1-1-->
                                     </ul>
-                                    <!--level1--> 
-                                    <!--sub sub category--> 
+                                    <!--level1-->
+                                    <!--sub sub category-->
                                   </li>
                                   <!--level3 nav-6-1 parent item-->
-                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Lighting</span></a> 
+                                  <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Lighting</span></a>
                                     <!--sub sub category-->
                                     <ul class="level1">
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Fog Lights</span></a> </li>
@@ -129,11 +129,11 @@
                                       <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Signal Lights</span></a> </li>
                                       <!--level2 nav-6-1-1-->
                                     </ul>
-                                    <!--level1--> 
-                                    <!--sub sub category--> 
+                                    <!--level1-->
+                                    <!--sub sub category-->
                                   </li>
                                   <!--level3 nav-6-1 parent item-->
-                                  <li class="level3 parent item"> <a href="grid.html"><span>Performance</span></a> 
+                                  <li class="level3 parent item"> <a href="grid.html"><span>Performance</span></a>
                                     <!--sub sub category-->
                                     <ul class="level1">
                                       <li class="level2"> <a href="grid.html"><span>Air Intake Systems</span></a> </li>
@@ -147,12 +147,12 @@
                                       <li class="level2"> <a href="grid.html"><span>Racing Gear</span></a> </li>
                                       <!--level2 nav-6-1-1-->
                                     </ul>
-                                    <!--level1--> 
-                                    <!--sub sub category--> 
+                                    <!--level1-->
+                                    <!--sub sub category-->
                                   </li>
                                   <!--level3 nav-6-1 parent item-->
                                 </ul>
-                                <!--level0--> 
+                                <!--level0-->
     </li>
     <li><a href="#">Listing‎</a>
       <ul class="level1">
@@ -175,13 +175,13 @@
        <ul class="level1">
                           <li class="level1"> <a href="about-us.html"> <span>About us</span> </a> </li>
                           <li class="level1 nav-10-4"> <a href="shopping-cart.html"> <span>Cart Page</span> </a> </li>
-                          <li class="level1 first parent"><a href="checkout.html"><span>Checkout</span></a> 
+                          <li class="level1 first parent"><a href="checkout.html"><span>Checkout</span></a>
                             <!--sub sub category-->
                             <ul class="level2 right-sub">
                               <li class="level2 nav-2-1-1 first"><a href="checkout-method.html"><span>Method</span></a></li>
                               <li class="level2 nav-2-1-5 last"><a href="checkout-billing-info.html"><span>Billing Info</span></a></li>
                             </ul>
-                            <!--sub sub category--> 
+                            <!--sub sub category-->
                           </li>
                           <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Wishlist</span> </a> </li>
                           <li class="level1"> <a href="dashboard.html"> <span>Dashboard</span> </a> </li>
@@ -196,7 +196,7 @@
     <li><a href="#">Custom</a></li>
    </ul>
 </div>
-<div class="popup1" style="display: block;">
+{{-- <div class="popup1" style="display: block;">
   <div class="newsletter-sign-box">
     <h3>Newsletter Sign up</h3>
      <img src="{{ asset('assets/frontend/images/close-icon.png') }}" alt="close" class="x" onClick="HideMe();">
@@ -209,7 +209,7 @@
             <input type="text" name="email" id="newsletter2" title="Sign up for our newsletter" placeholder="Enter your email address" class="input-text required-entry validate-email">
             <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
           </div>
-          <!--input-box--> 
+          <!--input-box-->
         </div>
         <!--newsletter-form-->
         <label class="subscribe-bottom">
@@ -217,12 +217,11 @@
           Don’t show this popup again</label>
       </form>
     </div>
-    <!--newsletter--> 
-    
+    <!--newsletter-->
   </div>
-  <!--newsletter-sign-box--> 
+  <!--newsletter-sign-box-->
 </div>
-<div id="fade" style="display: block;"></div>
+<div id="fade" style="display: block;"></div> --}}
 
 @include('layouts.frontend.partials.foot')
 </body>
