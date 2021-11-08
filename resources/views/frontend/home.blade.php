@@ -2,7 +2,6 @@
 @push('title') Motor Corporation @endpush
 @section('content')
     <div class="container-fluid">
-
         <div class="row">
             <!-- Slider -->
             <div class="home-slider5">
@@ -11,7 +10,9 @@
                         <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
                             <ul>
                                 <li>
-                                    <video autoplay muted loop id="myVideo" style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;" src="{{ asset('assets/videos/cover_1.mp4') }}"></video>
+                                    <video autoplay muted loop id="myVideo"
+                                        style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;"
+                                        src="{{ asset('assets/videos/cover_1.mp4') }}"></video>
                                     <div class="container ">
                                         <div class="content_slideshow">
                                             <div class="row">
@@ -23,7 +24,7 @@
                                                             data-splitout='none' data-elementdelay='0.1'
                                                             data-endelementdelay='0.1'
                                                             style='z-index:2; white-space:nowrap;'><span>Top Brands
-                                                                2019</span>
+                                                                2021</span>
                                                         </div>
                                                         <div class='tp-caption LargeTitle sfl  tp-resizeme '
                                                             data-endspeed='500' data-speed='500' data-start='1300'
@@ -46,7 +47,7 @@
                                                             data-endelementdelay='0.1'
                                                             style='z-index:4; white-space:nowrap;'><a href='#'
                                                                 class="buy-btn">Booking Now</a>
-                                                              </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,7 +63,8 @@
         </div>
     </div>
     <!--Category slider Start-->
-    <div class="section-filter">
+    {{-- section-filter --}}
+    <div class="" style="margin: 10px;">
         <div class="b-filter__inner bg-grey container">
             <h2>Find your right car</h2>
             <form class="b-filter">
@@ -103,16 +105,24 @@
     <div id="top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a href="#" data-scroll-goto="1"> <img
-                            src="{{ asset('assets/frontend/images/speakers.png') }}" alt="promotion-banner1"> </a> </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a href="#" data-scroll-goto="2"> <img
-                            src="{{ asset('assets/frontend/images/schedule.png') }}" alt="promotion-banner2"> </a> </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <a href="#" data-scroll-goto="1">
+                        <img height="350px;" width="150px;" src="{{ asset('assets/images/small_cover_1.jpg') }}"
+                            alt="banner1">
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <a href="#" data-scroll-goto="2">
+                        <img height="350px;" width="150px;" src="{{ asset('assets/images/small_cover_2.jpg') }}"
+                            alt="banner2">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- best Pro Slider -->
-    <section class=" wow bounceInUp animated">
+    <section class="wow bounceInUp animated">
         <div class="hot_deals slider-items-products container">
             <div class="new_title">
                 <h2>Deals of the Week</h2>
@@ -162,7 +172,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$49000.00</span> </span> </div>
+                                                        class="price">৳49000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 4875km</div>
@@ -215,7 +225,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$39000.00</span> </span> </div>
+                                                        class="price">৳39000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
@@ -269,7 +279,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$99000.00</span> </span> </div>
+                                                        class="price">৳99000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i>687km</div>
@@ -322,7 +332,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$59000.00</span> </span> </div>
+                                                        class="price">৳59000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 10587km</div>
@@ -376,7 +386,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$47000.00</span> </span> </div>
+                                                        class="price">৳47000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 0km</div>
@@ -431,7 +441,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$67000.00</span> </span> </div>
+                                                        class="price">৳67000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
@@ -449,48 +459,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Logo Brand Block -->
-    <div class="brand-logo wow bounceInUp animated">
-        <div class="container">
-            <div class="row">
-                <div class="home-banner col-lg-2 hidden-md col-xs-12 hidden-sm"> </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <div class="testimonials-section">
-                        <div class="offer-slider parallax parallax-2">
-                            <ul class="bxslider">
-                                <li>
-                                    <div class="avatar"><img
-                                            src="{{ asset('assets/frontend/images/member1.png') }}" alt="Image"></div>
-                                    <div class="testimonials">Perfect Themes and the best of all that you have many
-                                        options to choose! Very fast responding! I highly recommend this theme and these
-                                        people!</div>
-                                    <div class="clients_author">Smith John <span>Happy Customer</span> </div>
-                                </li>
-                                <li>
-                                    <div class="avatar"><img
-                                            src="{{ asset('assets/frontend/images/member2.png') }}" alt="Image"></div>
-                                    <div class="testimonials">Code, template and others are very good. The support has
-                                        served me immediately and solved my problems when I need help. Are to be
-                                        congratulated.</div>
-                                    <div class="clients_author">Sahara Anderson <span>Happy Customer</span> </div>
-                                </li>
-                                <li>
-                                    <div class="avatar"><img
-                                            src="{{ asset('assets/frontend/images/member3.png') }}" alt="Image"></div>
-                                    <div class="testimonials">Our support and response has been amazing, helping me with
-                                        several issues I came across and got them solved almost the same day. A pleasure to
-                                        work with them! </div>
-                                    <div class="clients_author">Stephen Smith <span>Happy Customer</span> </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
 
     <!-- best Pro Slider -->
     <section class=" wow bounceInUp animated">
@@ -540,7 +508,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$49000.00</span> </span> </div>
+                                                        class="price">৳49000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 4875km</div>
@@ -593,7 +561,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$39000.00</span> </span> </div>
+                                                        class="price">৳39000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
@@ -647,7 +615,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$99000.00</span> </span> </div>
+                                                        class="price">৳99000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i>687km</div>
@@ -700,7 +668,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$59000.00</span> </span> </div>
+                                                        class="price">৳59000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 10587km</div>
@@ -754,7 +722,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$47000.00</span> </span> </div>
+                                                        class="price">৳47000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 0km</div>
@@ -809,7 +777,7 @@
                                         </div>
                                         <div class="item-price">
                                             <div class="price-box"><span class="regular-price"><span
-                                                        class="price">$67000.00</span> </span> </div>
+                                                        class="price">৳67000.00</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
@@ -900,77 +868,6 @@
         <!--exclude For version 6 -->
         <!--container-->
     </div>
-    <div class="logo-brand container">
-        <div class="brand-title">
-            <h2>Popular Brands</h2>
-        </div>
-        <div class="slider-items-products">
-            <div id="brand-slider" class="product-flexslider hidden-buttons">
-                <div class="slider-items slider-width-col6">
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand1.png') }}" alt="Image"></a></div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand2.png') }}" alt="Image"></a></div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand3.png') }}" alt="Image"></a></div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand4.png') }}" alt="Image"></a></div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand5.png') }}" alt="Image"></a></div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand6.png') }}" alt="Image"></a></div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand1.png') }}" alt="Image"></a></div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand2.png') }}" alt="Image"></a></div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand3.png') }}" alt="Image"></a></div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand4.png') }}" alt="Image"></a></div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand5.png') }}" alt="Image"></a></div>
-                    </div>
-                    <div class="item">
-                        <div class="logo-item"><a href="#"><img
-                                    src="{{ asset('assets/frontend/images/brand6.png') }}" alt="Image"></a></div>
-                    </div>
-                    <!-- End Item -->
-
-                </div>
-            </div>
-        </div>
     @endsection
 
     @push('head')

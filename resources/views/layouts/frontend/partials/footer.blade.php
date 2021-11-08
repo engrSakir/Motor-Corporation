@@ -1,52 +1,10 @@
-<footer> 
+<footer>
     <!-- BEGIN INFORMATIVE FOOTER -->
     <div class="footer-inner">
-      <div class="our-features-box wow bounceInUp animated animated">
-        <div class="container">
-          <ul>
-            <li>
-              <div class="feature-box">
-                <div class="icon-truck"><img src="{{ asset('assets/frontend/images/world-icon.png') }}" alt="Image"></div>
-                <div class="content">
-                  <h6>World's #1</h6>
-                  <p>Largest Auto portal</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="feature-box">
-                <div class="icon-support"><img src="{{ asset('assets/frontend/images/car-sold-icon.png') }}" alt="Image"></div>
-                <div class="content">
-                  <h6>Car Sold</h6>
-                  <p>Every 4 minute</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="feature-box">
-                <div class="icon-money"><img src="{{ asset('assets/frontend/images/tag-icon.png') }}" alt="Image"></div>
-                <div class="content">
-                  <h6>Offers</h6>
-                  <p>Stay updated pay less</p>
-                </div>
-              </div>
-            </li>
-            <li class="last">
-              <div class="feature-box">
-                <div class="icon-return"><img src="{{ asset('assets/frontend/images/compare-icon.png') }}" alt="Image"></div>
-                <div class="content">
-                  <h6>Compare</h6>
-                  <p>Decode the right car</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
       <div class="newsletter-row">
         <div class="container">
-          <div class="row"> 
-            
+          <div class="row">
+
             <!-- Footer Newsletter -->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col1">
               <div class="newsletter-wrap">
@@ -58,16 +16,16 @@
                       <input type="text" name="email" id="newsletter1" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Enter your email address">
                       <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
                     </div>
-                    <!--container_form_news2--> 
+                    <!--container_form_news2-->
                   </div>
                   <!--container_form_news-->
                 </form>
               </div>
-              <!--newsletter-wrap--> 
+              <!--newsletter-wrap-->
             </div>
           </div>
         </div>
-        <!--footer-column-last--> 
+        <!--footer-column-last-->
       </div>
       <div class="container">
         <div class="row">
@@ -118,18 +76,18 @@
               </ul>
             </div>
           </div>
-          
-          <!--col-sm-12 col-xs-12 col-lg-8--> 
-          <!--col-xs-12 col-lg-4--> 
+
+          <!--col-sm-12 col-xs-12 col-lg-8-->
+          <!--col-xs-12 col-lg-4-->
         </div>
-        <!--row--> 
-        
+        <!--row-->
+
       </div>
-      
-      <!--container--> 
+
+      <!--container-->
     </div>
     <!--footer-inner-->
-    
+
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -153,5 +111,5 @@
         </div>
       </div>
     </div>
-    <!-- BEGIN SIMPLE FOOTER --> 
+    <!-- BEGIN SIMPLE FOOTER -->
   </footer>

@@ -54,4 +54,9 @@
     .fl-links .clicker:before {
         color: white;
     }
+
+    .b-filter__inner {
+        background: black;
+    }
+
 </style>

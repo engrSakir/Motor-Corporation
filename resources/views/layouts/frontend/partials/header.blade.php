@@ -20,8 +20,7 @@
                                     <div class="fl-nav-links">
                                         <h3>My Acount</h3>
                                         <ul class="links">
-                                            <li><a href="login.html" title="My Account">Login</a></li>
-                                            <li><a href="login.html" title="Wishlist">Register</a></li>
+                                            <li><a href="{{ url('/login') }}" title="My Account">Login</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -51,7 +50,7 @@
                                     <!-- BEGIN NAV -->
                                     <ul id="nav" class="hidden-xs">
                                         <li class="active"> <a class="level-top"
-                                                href="#"><span>Home</span></a></li>
+                                                href="{{ url('/') }}"><span>Home</span></a></li>
                                         <li class="mega-menu"> <a class="level-top"
                                                 href="grid1.html"><span>Accessories</span></a>
                                             <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
