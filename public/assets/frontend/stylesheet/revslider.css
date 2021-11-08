@@ -12,7 +12,7 @@ version:   	1.4.5
 .home-slider5 #thmg-slideshow {
     padding: 0;
     margin:auto;
-   
+
 }
 
 .home-slider5 #thmg-slideshow .content_slideshow {
@@ -83,8 +83,8 @@ version:   	1.4.5
     margin: auto;
 }
 .tp-simpleresponsive .tp-caption {
- 
-	
+
+
 }
 
 .caption-inner {width:60%}
@@ -107,7 +107,7 @@ version:   	1.4.5
 	font-size: 18px;
 	text-align: left;
 	letter-spacing: 0px;
-	
+
 }
 .tp-caption.slide2 {
 	color: #FFF;
@@ -158,15 +158,15 @@ version:   	1.4.5
 	font-size: 18px;
 	text-transform: uppercase;
 	font-weight: 400;
-	color: #3e6274;
+	color: #f5f5f5;
 	letter-spacing: 1px!important;
 	display: inline-block;
 	border:none;
 	margin-top: 45px;
 	float: left;
-	background: #d9eb3d ;
+	background: #9A0C05 ;
 	border-radius:0px;
-	border-bottom:3px #c6d535 solid
+	border-bottom:3px #f5f5f5 solid
 }
 .buy-btn:hover {
 	background: #fed700;
@@ -196,7 +196,7 @@ version:   	1.4.5
 	text-align: left;
 	margin: auto;
 	letter-spacing: 1px;
-	
+
 }
 .home-slider5 .tp-bullets {
     z-index: 1000;
@@ -278,14 +278,14 @@ font-size:24px;
 }
 .home-slider5 .tp-bullets.tp-thumbs {
     /*z-index: 1000; */
-    
+
     position: absolute;
     padding: 3px;
     background-color: #fff;
     width: 500px;
     height: 50px;
     /* THE DIMENSIONS OF THE THUMB CONTAINER */
-    
+
     margin-top: -50px;
     vertical-align: top;
     display: none;
@@ -298,7 +298,7 @@ font-size:24px;
     width: 500px;
     height: 50px;
     /* THE DIMENSIONS OF THE THUMB CONTAINER */
-    
+
     overflow: hidden;
     position: relative;
 }
@@ -310,7 +310,7 @@ font-size:24px;
     width: 100px;
     height: 50px;
     /* THE DIMENSION OF A SINGLE THUMB */
-    
+
     cursor: pointer;
     overflow: hidden;
     background: none;
@@ -346,7 +346,7 @@ font-size:24px;
 }
 .home-slider5 .tp-leftarrow.default:hover,
 .home-slider5 .tp-rightarrow.default:hover {
-    background-color: #d9eb3d;
+    background-color: #9A0C05;
 }
 .home-slider5 .forcefullwidth_wrapper_tp_banner,
 .fullwidthbanner-container {
@@ -362,7 +362,7 @@ font-size:24px;
         line-height: 20px !important;
         font-size: 10px !important;
     }
-	
+
 	.home-slider5 #thmg-slideshow .content_slideshow {left:10%; top:0}
 	.home-slider5 .info {margin-top:10%}
 	.tp-caption.ExtraLargeTitle span {font-size:16px!important}
@@ -370,7 +370,7 @@ font-size:24px;
 	.tp-caption.LargeTitle span {font-size:26px!important;}
 	.tp-caption.Title {display:none}
 	.buy-btn {font-size:13px!important; padding:10px!important; display:none}
-	
+
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
    	.home-slider5 #thmg-slideshow .content_slideshow {left:5%; top:0}

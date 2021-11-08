@@ -11,7 +11,7 @@ html {
 	left: 0;
 	    overflow: hidden;
 
-	
+
 }
 .mmPushBody {
 	width: 100%;
@@ -30,7 +30,7 @@ html {
 	display: none;
 	font-family:'Montserrat', sans-serif;
 	font-size: 13px;
-	
+
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	-o-box-sizing: content-box;
@@ -60,7 +60,7 @@ html {
 }
 .mobile-menu .mm-search {
 	height: 60px;
-	background-color:#d9eb3d;
+	background-color:#9A0C05;
 	color: #333;
 	padding: 10px 10px;
 	box-sizing: border-box;
@@ -164,7 +164,7 @@ html {
 	right: 0;
 	position: absolute;
 	padding: 0 25px;
-	color:#d9eb3d;
+	color:#9A0C05;
 	margin-left: 50px;
 }
 .mobile-menu .icon-plus:before {
@@ -280,7 +280,7 @@ line-height: 23px;
 
  @media (max-width: 767px) {
 .mm-toggle {
-	display: block; 
+	display: block;
 }
 .mm-toggle h2 {
 font-size:14px;

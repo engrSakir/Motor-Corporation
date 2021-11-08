@@ -42,7 +42,7 @@
     .cms-index-index #nav #nav-home>a,
     #nav>li.active>a,
     .vertnav-top li.current>a:hover {
-        color: #d9eb3d;
+        color: #9A0C05;
         /* color: #9A0C05; */
         padding: 0 px 0 px;
     }
