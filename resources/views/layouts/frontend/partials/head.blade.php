@@ -35,6 +35,8 @@
         background-color: black;
     }
 
+
+
     #nav>li>a {
         color: #f2f2f2;
     }
@@ -56,6 +58,47 @@
     }
 
     .b-filter__inner {
+        background: black;
+    }
+
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .image-box {
+        position: relative;
+        /* margin: auto; */
+        overflow: hidden;
+    }
+
+    .image-box img {
+        max-width: 100%;
+        transition: all 0.3s;
+        display: block;
+        width: 400px;
+        height: 400px;
+        transform: scale(1);
+    }
+
+    .image-box:hover img {
+        transform: scale(1.1);
+    }
+
+    .bg-black {
+        background-color: black;
+    }
+
+    .latest-blog .blog-title h2 {
+        color: #fff;
+        background: black;
+    }
+
+    .best-pro .new_title h2 {
+        color: #fff;
         background: black;
     }
 
