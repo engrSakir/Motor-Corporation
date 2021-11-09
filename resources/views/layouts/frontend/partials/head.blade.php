@@ -35,6 +35,8 @@
         background-color: black;
     }
 
+
+
     #nav>li>a {
         color: #f2f2f2;
     }
@@ -42,7 +44,7 @@
     .cms-index-index #nav #nav-home>a,
     #nav>li.active>a,
     .vertnav-top li.current>a:hover {
-        color: #d9eb3d;
+        color: #9A0C05;
         /* color: #9A0C05; */
         padding: 0 px 0 px;
     }
@@ -56,6 +58,47 @@
     }
 
     .b-filter__inner {
+        background: black;
+    }
+
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .image-box {
+        position: relative;
+        /* margin: auto; */
+        overflow: hidden;
+    }
+
+    .image-box img {
+        max-width: 100%;
+        transition: all 0.3s;
+        display: block;
+        width: 400px;
+        height: 400px;
+        transform: scale(1);
+    }
+
+    .image-box:hover img {
+        transform: scale(1.1);
+    }
+
+    .bg-black {
+        background-color: black;
+    }
+
+    .latest-blog .blog-title h2 {
+        color: #fff;
+        background: black;
+    }
+
+    .best-pro .new_title h2 {
+        color: #fff;
         background: black;
     }
 

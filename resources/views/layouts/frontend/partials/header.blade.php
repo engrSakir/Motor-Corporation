@@ -7,7 +7,7 @@
                     <div class="header-logo">
                         <a href="{{ url('/') }}" title="Car HTML" class="logo">
                             <div>
-                                <img style="background-color:#FAF9F6; border-radius:15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);"
+                                <img style="background-color:#000000; border-radius:15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);"
                                     src="{{ asset('assets/frontend/images/logo-bg.png') }}" height="110px"
                                     alt="Car Store">
                             </div>
@@ -34,6 +34,14 @@
                                             <button type="submit" class="search-btn"> <span
                                                     class="glyphicon glyphicon-search"> <span
                                                         class="sr-only">Search</span> </span> </button>
+                                        </span>
+                                        <span class="input-group-btn">
+                                            <a href="#" class="search-btn" style="">
+                                                <img width="30px;" src="{{ asset('assets/images/map-icon.png') }}" alt="">
+                                                {{-- <button class="button btn-cart" type="button"></button> --}}
+                                                {{-- <i class="fa fa-tachometer"></i> --}}
+                                                {{-- <span class="glyphicon glyphicon-map-marker">  </span> --}}
+                                            </a>
                                         </span>
                                     </div>
                                 </form>
@@ -174,64 +182,7 @@
                                                                     <!--level1-->
                                                                     <!--sub sub category-->
                                                                 </li>
-                                                                <!--level3 nav-6-1 parent item-->
-                                                                <li class="level3 nav-6-1 parent item"> <a
-                                                                        href="grid.html"><span>Lighting</span></a>
-                                                                    <!--sub sub category-->
-                                                                    <ul class="level1">
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Fog
-                                                                                    Lights</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Headlights</span></a>
-                                                                        </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>LED
-                                                                                    Lights</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Off-Road
-                                                                                    Lights</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Signal
-                                                                                    Lights</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                    </ul>
-                                                                    <!--level1-->
-                                                                    <!--sub sub category-->
-                                                                </li>
-                                                                <!--level3 nav-6-1 parent item-->
-                                                                <li class="level3 nav-6-1 parent item"> <a
-                                                                        href="grid.html"><span>Performance</span></a>
-                                                                    <!--sub sub category-->
-                                                                    <ul class="level1">
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Air Intake
-                                                                                    Systems</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Brakes</span></a>
-                                                                        </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Exhaust
-                                                                                    Systems</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Power
-                                                                                    Adders</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                        <li class="level2 nav-6-1-1"> <a
-                                                                                href="grid.html"><span>Racing
-                                                                                    Gear</span></a> </li>
-                                                                        <!--level2 nav-6-1-1-->
-                                                                    </ul>
-                                                                    <!--level1-->
-                                                                    <!--sub sub category-->
-                                                                </li>
+
                                                                 <!--level3 nav-6-1 parent item-->
                                                             </ul>
                                                             <!--level0-->
@@ -360,9 +311,7 @@
                             </nav>
                         </div>
                     </div>
-
                     <!--row-->
-
                 </div>
             </div>
         </div>

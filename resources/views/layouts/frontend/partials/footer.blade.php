@@ -1,7 +1,7 @@
 <footer>
     <!-- BEGIN INFORMATIVE FOOTER -->
     <div class="footer-inner">
-      <div class="newsletter-row">
+      {{-- <div class="newsletter-row">
         <div class="container">
           <div class="row">
 
@@ -26,7 +26,7 @@
           </div>
         </div>
         <!--footer-column-last-->
-      </div>
+      </div> --}}
       <div class="container">
         <div class="row">
           <div class="col-sm-4 col-xs-12 col-lg-4">
