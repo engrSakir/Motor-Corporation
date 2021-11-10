@@ -92,6 +92,15 @@
         background-color: black;
     }
 
+    .hot_deals .new_title h2 {
+        color: #fff;
+        background: black;
+    }
+
+    .hot_deals .new_title {
+        background: #c51b1b;
+    }
+
     .latest-blog .blog-title h2 {
         color: #fff;
         background: black;
