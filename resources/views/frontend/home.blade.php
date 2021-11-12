@@ -866,6 +866,80 @@
         <!--exclude For version 6 -->
         <!--container-->
     </div>
+
+    {{-- Video --}}
+    <div class="latest-blog wow bounceInUp animated animated container">
+        <!--exclude For version 6 -->
+        <div class="blog-home-inner">
+            <div class="blog-title">
+                <h2>Videos</h2>
+            </div>
+            <!--For version 1,2,3,4,5,6,8 -->
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="javascript:vaoid(0)">
+                                <iframe width="400" height="250" src="https://www.youtube.com/embed/gHgwnI28Ahc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </a>
+                        </div>
+                        <!--blog-img-->
+                        <div class="blog-info">
+                            <ul class="post-meta">
+                                <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
+                            </ul>
+                            <h3><a href="blog-detail.html">Powerful and flexible premium Ecommerce themes</a></h3>
+                            <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi
+                                metus, semper eu dictum nec...</p>
+                        </div>
+                    </div>
+                    <!--blog_inner-->
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="javascript:vaoid(0)">
+                                <iframe width="400" height="250" src="https://www.youtube.com/embed/gHgwnI28Ahc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </a>
+                        </div>
+                        <!--blog-img-->
+                        <div class="blog-info">
+                            <ul class="post-meta">
+                                <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
+                            </ul>
+                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
+                            <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac
+                                felis erat sed elit bibendum ...</p>
+                        </div>
+                    </div>
+                    <!--blog_inner-->
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="javascript:vaoid(0)">
+                                <iframe width="400" height="250" src="https://www.youtube.com/embed/gHgwnI28Ahc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </a>
+                        </div>
+                        <!--blog-img-->
+                        <div class="blog-info">
+                            <ul class="post-meta">
+                                <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
+                            </ul>
+                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
+                            <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac
+                                felis erat sed elit bibendum ...</p>
+                        </div>
+                    </div>
+                    <!--blog_inner-->
+                </div>
+            </div>
+        </div>
+        <!--END For version 1,2,3,4,5,6,8 -->
+        <!--exclude For version 6 -->
+        <!--container-->
+    </div>
+    <!--end latest blogs -->
     @endsection
 
     @push('head')
