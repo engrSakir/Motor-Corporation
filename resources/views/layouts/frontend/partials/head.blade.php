@@ -26,8 +26,52 @@
 <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,400,500,600,700,800" rel="stylesheet">
 @stack('head')
 <style>
+    body {
+        color: #ddd;
+        background-color: #fff;
+    }
+
+    header {
+        background-color: black;
+    }
+
+
+
+    #nav>li>a {
+        color: #f2f2f2;
+    }
+
+    .cms-index-index #nav #nav-home>a,
+    #nav>li.active>a,
+    .vertnav-top li.current>a:hover {
+        color: #9A0C05;
+        /* color: #9A0C05; */
+        padding: 0 px 0 px;
+    }
+
+    .navbar-form .search-btn .glyphicon-search:before {
+        color: white;
+    }
+
+    .fl-links .clicker:before {
+        color: white;
+    }
+
+    .b-filter__inner {
+        background: black;
+    }
+
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     .image-box {
         position: relative;
+        /* margin: auto; */
         overflow: hidden;
     }
 
@@ -44,11 +88,27 @@
         transform: scale(1.1);
     }
 
+    .bg-black {
+        background-color: black;
+    }
 
+    .hot_deals .new_title h2 {
+        color: #fff;
+        background: black;
+    }
 
-    /* a {
-        color: #faf3f3;
-    } */
+    .hot_deals .new_title {
+        background: #c51b1b;
+    }
 
+    .latest-blog .blog-title h2 {
+        color: #fff;
+        background: black;
+    }
+
+    .best-pro .new_title h2 {
+        color: #fff;
+        background: black;
+    }
 
 </style>

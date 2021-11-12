@@ -1,8 +1,6 @@
-
 @extends('layouts.frontend.app')
 @push('title') Motor Corporation @endpush
 @section('content')
-    {{-- Main banner --}}
     <div class="container-fluid">
         <div class="row">
             <!-- Slider -->
@@ -64,8 +62,7 @@
             </div>
         </div>
     </div>
-    {{--end Main banner --}}
-    <!--Search box-->
+    <!--Category slider Start-->
     {{-- section-filter --}}
     <div class="" style="margin: 10px;">
         <div class="b-filter__inner bg-grey container">
@@ -103,8 +100,8 @@
             </form>
         </div>
     </div>
-    <!--end Search box-->
-    <!--2 small banner image-->
+    <!--Category silder End-->
+
     <div id="top">
         <div class="container">
             <div class="row">
@@ -123,347 +120,348 @@
             </div>
         </div>
     </div>
-    <!--end2 small banner image-->
-    <!-- deals of the week Slider -->
-    <section class="wow bounceInUp animated">
-        <div class="hot_deals slider-items-products container">
-            <div class="new_title ">
-                <h2 class="bg-black">Deals of the Week</h2>
-            </div>
-            <div id="best-seller" class="product-flexslider hidden-buttons">
-                <div class="slider-items slider-width-col4 products-grid">
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset('assets/frontend/products-images/p13.jpg') }}"
-                                            alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">Hot</div>
-                                    <div class="sale-label sale-top-left">-15%</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="add_cart">
-                                                <button class="button btn-cart" type="button"></button>
-                                            </div>
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
-                                                        View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
-                                                            Wishlist</span></a> </span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳49000.00</span> </span> </div>
-                                        </div>
-                                        <div class="other-info">
-                                            <div class="col-km"><i class="fa fa-tachometer"></i> 4875km</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Automatic</div>
-                                            <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2018</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset('assets/frontend/products-images/p14.jpg') }}"
-                                            alt="Retis lapen casen"></a>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="add_cart">
-                                                <button class="button btn-cart" type="button"></button>
-                                            </div>
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
-                                                        View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
-                                                            Wishlist</span></a> </span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳39000.00</span> </span> </div>
-                                        </div>
-                                        <div class="other-info">
-                                            <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
-                                            <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2018</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info"> <a href="javascript:void(0)" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset('assets/frontend/products-images/p15.jpg') }}"
-                                            alt="Retis lapen casen"></a>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="add_cart">
-                                                <button class="button btn-cart" type="button"></button>
-                                            </div>
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
-                                                        View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
-                                                            Wishlist</span></a> </span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳99000.00</span> </span> </div>
-                                        </div>
-                                        <div class="other-info">
-                                            <div class="col-km"><i class="fa fa-tachometer"></i>687km</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
-                                            <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset('assets/frontend/products-images/p16.jpg') }}"
-                                            alt="Retis lapen casen"></a>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="add_cart">
-                                                <button class="button btn-cart" type="button"></button>
-                                            </div>
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
-                                                        View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
-                                                            Wishlist</span></a> </span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳59000.00</span> </span> </div>
-                                        </div>
-                                        <div class="other-info">
-                                            <div class="col-km"><i class="fa fa-tachometer"></i> 10587km</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
-                                            <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2017</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset('assets/frontend/products-images/p17.jpg') }}"
-                                            alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="add_cart">
-                                                <button class="button btn-cart" type="button"></button>
-                                            </div>
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
-                                                        View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
-                                                            Wishlist</span></a> </span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳47000.00</span> </span> </div>
-                                        </div>
-                                        <div class="other-info">
-                                            <div class="col-km"><i class="fa fa-tachometer"></i> 0km</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
-                                            <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset('assets/frontend/products-images/p18.jpg') }}"
-                                            alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="add_cart">
-                                                <button class="button btn-cart" type="button"></button>
-                                            </div>
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
-                                                        View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
-                                                            Wishlist</span></a> </span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳67000.00</span> </span> </div>
-                                        </div>
-                                        <div class="other-info">
-                                            <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Semi</div>
-                                            <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2016</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-                </div>
+  <!-- best Pro Slider -->
+  <section class="wow bounceInUp animated">
+    <div class="hot_deals slider-items-products container">
+        <div class="new_title">
+            <h2>Deals of the Week</h2>
+            <div class="box-timer">
+                <div class="countbox_1 timer-grid"></div>
             </div>
         </div>
-    </section>
-    <!--end deals of the week Slider -->
-    <!-- est seller car Slider -->
+        <div id="hot_deals" class="product-flexslider hidden-buttons">
+            <div class="slider-items slider-width-col4 products-grid">
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="item-img">
+                            <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
+                                    class="product-image"><img
+                                        src="{{ asset('assets/frontend/products-images/p1.jpg') }}"
+                                        alt="Retis lapen casen"></a>
+                                <div class="new-label new-top-left">Used</div>
+                                <div class="sale-label sale-top-left">-15%</div>
+                                <div class="item-box-hover">
+                                    <div class="box-inner">
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" type="button"></button>
+                                        </div>
+                                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
+                                                    View</span></a></div>
+                                        <div class="actions"><span class="add-to-links"><a href="#"
+                                                    class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                                        Wishlist</span></a> </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title"><a href="accessories-detail.html"
+                                        title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="rating">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:80%"></div>
+                                            </div>
+                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span
+                                                    class="separator">|</span> <a href="#">Add Review</a> </p>
+                                        </div>
+                                    </div>
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span
+                                                    class="price">৳49000.00</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km"><i class="fa fa-tachometer"></i> 4875km</div>
+                                        <div class="col-engine"><i class="fa fa-gear"></i> Automatic</div>
+                                        <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="item-img">
+                            <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
+                                    class="product-image"><img
+                                        src="{{ asset('assets/frontend/products-images/p2.jpg') }}"
+                                        alt="Retis lapen casen"></a>
+                                <div class="item-box-hover">
+                                    <div class="box-inner">
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" type="button"></button>
+                                        </div>
+                                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
+                                                    View</span></a></div>
+                                        <div class="actions"><span class="add-to-links"><a href="#"
+                                                    class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                                        Wishlist</span></a> </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title"><a href="accessories-detail.html"
+                                        title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="rating">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:80%"></div>
+                                            </div>
+                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span
+                                                    class="separator">|</span> <a href="#">Add Review</a> </p>
+                                        </div>
+                                    </div>
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span
+                                                    class="price">৳39000.00</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
+                                        <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
+                                        <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="item-img">
+                            <div class="item-img-info"> <a href="accessories-detail.html" title="Retis lapen casen"
+                                    class="product-image"><img
+                                        src="{{ asset('assets/frontend/products-images/p3.jpg') }}"
+                                        alt="Retis lapen casen"></a>
+                                <div class="item-box-hover">
+                                    <div class="box-inner">
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" type="button"></button>
+                                        </div>
+                                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
+                                                    View</span></a></div>
+                                        <div class="actions"><span class="add-to-links"><a href="#"
+                                                    class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                                        Wishlist</span></a> </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title"><a href="accessories-detail.html"
+                                        title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="rating">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:80%"></div>
+                                            </div>
+                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span
+                                                    class="separator">|</span> <a href="#">Add Review</a> </p>
+                                        </div>
+                                    </div>
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span
+                                                    class="price">৳99000.00</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km"><i class="fa fa-tachometer"></i>687km</div>
+                                        <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
+                                        <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Item -->
+
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="item-img">
+                            <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
+                                    class="product-image"><img
+                                        src="{{ asset('assets/frontend/products-images/p12.jpg') }}"
+                                        alt="Retis lapen casen"></a>
+                                <div class="item-box-hover">
+                                    <div class="box-inner">
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" type="button"></button>
+                                        </div>
+                                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
+                                                    View</span></a></div>
+                                        <div class="actions"><span class="add-to-links"><a href="#"
+                                                    class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                                        Wishlist</span></a> </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title"><a href="accessories-detail.html"
+                                        title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="rating">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:80%"></div>
+                                            </div>
+                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span
+                                                    class="separator">|</span> <a href="#">Add Review</a> </p>
+                                        </div>
+                                    </div>
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span
+                                                    class="price">৳59000.00</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km"><i class="fa fa-tachometer"></i> 10587km</div>
+                                        <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
+                                        <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            2017</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="item-img">
+                            <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
+                                    class="product-image"><img
+                                        src="{{ asset('assets/frontend/products-images/p8.jpg') }}"
+                                        alt="Retis lapen casen"></a>
+                                <div class="new-label new-top-left">New</div>
+                                <div class="item-box-hover">
+                                    <div class="box-inner">
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" type="button"></button>
+                                        </div>
+                                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
+                                                    View</span></a></div>
+                                        <div class="actions"><span class="add-to-links"><a href="#"
+                                                    class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                                        Wishlist</span></a> </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title"><a href="accessories-detail.html"
+                                        title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="rating">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:80%"></div>
+                                            </div>
+                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span
+                                                    class="separator">|</span> <a href="#">Add Review</a> </p>
+                                        </div>
+                                    </div>
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span
+                                                    class="price">৳47000.00</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km"><i class="fa fa-tachometer"></i> 0km</div>
+                                        <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
+                                        <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="item-img">
+                            <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
+                                    class="product-image"><img
+                                        src="{{ asset('assets/frontend/products-images/p6.jpg') }}"
+                                        alt="Retis lapen casen"></a>
+                                <div class="new-label new-top-left">New</div>
+                                <div class="item-box-hover">
+                                    <div class="box-inner">
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" type="button"></button>
+                                        </div>
+                                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
+                                                    View</span></a></div>
+                                        <div class="actions"><span class="add-to-links"><a href="#"
+                                                    class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                                        Wishlist</span></a> </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title"><a href="accessories-detail.html"
+                                        title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="rating">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:80%"></div>
+                                            </div>
+                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span
+                                                    class="separator">|</span> <a href="#">Add Review</a> </p>
+                                        </div>
+                                    </div>
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span
+                                                    class="price">৳67000.00</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km"><i class="fa fa-tachometer"></i> 847km</div>
+                                        <div class="col-engine"><i class="fa fa-gear"></i> Semi</div>
+                                        <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            2016</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Item -->
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- best Pro Slider -->
     <section class="wow bounceInUp animated">
-        <div class="hot_deals slider-items-products container">
-            <div class="new_title ">
+        <div class="best-pro slider-items-products container">
+            <div class="new_title " >
                 <h2 class="bg-black">Best Seller Cars</h2>
             </div>
             <div id="best-seller" class="product-flexslider hidden-buttons">
@@ -471,7 +469,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset('assets/frontend/products-images/p13.jpg') }}"
                                             alt="Retis lapen casen"></a>
@@ -493,7 +491,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
+                                    <div class="item-title"><a href="accessories-detail.html"
                                             title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
                                     </div>
                                     <div class="item-content">
@@ -526,7 +524,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset('assets/frontend/products-images/p14.jpg') }}"
                                             alt="Retis lapen casen"></a>
@@ -546,7 +544,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
+                                    <div class="item-title"><a href="accessories-detail.html"
                                             title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
                                     </div>
                                     <div class="item-content">
@@ -580,7 +578,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"> <a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"> <a href="accessories-detail.html" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset('assets/frontend/products-images/p15.jpg') }}"
                                             alt="Retis lapen casen"></a>
@@ -600,7 +598,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
+                                    <div class="item-title"><a href="accessories-detail.html"
                                             title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
                                     </div>
                                     <div class="item-content">
@@ -633,7 +631,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset('assets/frontend/products-images/p16.jpg') }}"
                                             alt="Retis lapen casen"></a>
@@ -653,7 +651,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
+                                    <div class="item-title"><a href="accessories-detail.html"
                                             title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
                                     </div>
                                     <div class="item-content">
@@ -686,7 +684,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset('assets/frontend/products-images/p17.jpg') }}"
                                             alt="Retis lapen casen"></a>
@@ -707,7 +705,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
+                                    <div class="item-title"><a href="accessories-detail.html"
                                             title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
                                     </div>
                                     <div class="item-content">
@@ -741,7 +739,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="accessories-detail.html" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset('assets/frontend/products-images/p18.jpg') }}"
                                             alt="Retis lapen casen"></a>
@@ -762,7 +760,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
+                                    <div class="item-title"><a href="accessories-detail.html"
                                             title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
                                     </div>
                                     <div class="item-content">
@@ -795,8 +793,8 @@
             </div>
         </div>
     </section>
-    <!-- est seller car Slider -->
-    <!-- latest blogs -->
+
+    <!-- Home Lastest Blog Block -->
     <div class="latest-blog wow bounceInUp animated animated container">
         <!--exclude For version 6 -->
         <div class="blog-home-inner">
@@ -868,13 +866,12 @@
         <!--exclude For version 6 -->
         <!--container-->
     </div>
-    <!--end latest blogs -->
-@endsection
+    @endsection
 
-@push('head')
+    @push('head')
 
-@endpush
+    @endpush
 
-@push('foot')
+    @push('foot')
 
-@endpush
+    @endpush

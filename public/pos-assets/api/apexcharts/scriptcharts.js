@@ -107,7 +107,7 @@ var options = {
     markers: {
       size: 4,
       colors: ["#FFA41B"],
-      strokeColors: "black",
+      strokeColors: "#fff",
       strokeWidth: 2,
       hover: {
         size: 7,

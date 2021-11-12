@@ -39,7 +39,7 @@ website:   	http://www.themesground.com/
     /* overflow: hidden; */
     /* top: 150px; */
     /* margin-top: 85px; */
-    /* background-color: black; */
+    /* background-color: #fff; */
     /*clear: both;*/
     height: 55px;
 }
@@ -132,7 +132,7 @@ website:   	http://www.themesground.com/
 }
 
 #summarySpecs>table>tbody>tr, .spec-sub-ctr table>tbody>tr {width:100%}
-#summarySpecs>table>tbody>tr.odd {background:black}
+#summarySpecs>table>tbody>tr.odd {background:#fff}
 
 .product-essential {
     padding: 30px 15px;
@@ -264,7 +264,7 @@ footer address {
     text-align: center;
 }
 .header-banner .call-us {
-    color: black;
+    color: #fff;
     text-align: center;
     font-size: 14px;
     font-weight: 400;
@@ -623,7 +623,7 @@ ul.slideshow {
 	padding: 20px 0px;
 	width: 100%;
 	border-bottom: 1px #e5e5e5 solid;
-	border-left: 1px black solid;
+	border-left: 1px #fff solid;
 	border-right: none;
 }
 .offer-banner-section .row {
@@ -1244,7 +1244,7 @@ button.button.btn-update:before {
     text-align: center;
 }
 .header-banner .call-us {
-    color: black;
+    color: #fff;
     text-align: center;
     font-size: 15px;
     font-weight: 400;
@@ -1720,7 +1720,7 @@ ul.slideshow {
 	padding: 20px 0px;
 	width: 100%;
 	border-bottom: 1px #e5e5e5 solid;
-	border-left: 1px black solid;
+	border-left: 1px #fff solid;
 	border-right: none;
 }
 .col {
@@ -2277,7 +2277,7 @@ display: none;
      border-radius: 0px;
     /* overflow: hidden; */
     /* top: 150px; */
-    background-color: black;
+    background-color: #fff;
     clear: both;}
 .fl-header-right {    position: absolute;
     right: 0;
@@ -2377,7 +2377,7 @@ display: none;
 	width: 70px;
 	border-radius: 80px;
 	font-size: 25px;
-	color: black;
+	color: #fff;
 }
 .cat-img-title .cat-heading {
 	font-size: 32px;

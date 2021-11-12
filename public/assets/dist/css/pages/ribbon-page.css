@@ -60,7 +60,7 @@ ribbons page
   position: absolute;
   top: 12px;
   left: -2px;
-  color: black; }
+  color: #fff; }
 
 .ribbon-bookmark:before {
   position: absolute;
