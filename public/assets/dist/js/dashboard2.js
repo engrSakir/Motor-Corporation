@@ -61,7 +61,7 @@ $(function() {
         },
         colors: ["#fec107"],
         grid: {
-            color: "black",
+            color: "#fff",
             hoverable: true,
             borderWidth: 0,
             backgroundColor: 'transparent'
@@ -83,9 +83,9 @@ $(function() {
         setTimeout(update, updateInterval);
     }
     update();
-    // ==============================================================
+    // ============================================================== 
     // Our Visitor
-    // ==============================================================
+    // ============================================================== 
 
     var chart = c3.generate({
         bindto: '#visitor',
@@ -120,9 +120,9 @@ $(function() {
             pattern: ['#40c4ff', '#2961ff', '#ff821c', '#7e74fb']
         }
     });
-    // ==============================================================
+    // ============================================================== 
     // Our Visitor
-    // ==============================================================
+    // ============================================================== 
     var sparklineLogin = function() {
         $('#ravenue').sparkline([6, 10, 9, 11, 9, 10, 12], {
             type: 'bar',
@@ -131,7 +131,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '8',
-            barColor: 'black'
+            barColor: '#fff'
         });
         $('#ravenue1').sparkline([16, 10, 16, 11, 8, 10, 12], {
             type: 'bar',
@@ -140,7 +140,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '8',
-            barColor: 'black'
+            barColor: '#fff'
         });
         $('#ravenue2').sparkline([16, 10, 16, 11, 8, 10, 12], {
             type: 'bar',
@@ -149,7 +149,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '8',
-            barColor: 'black'
+            barColor: '#fff'
         });
         $('#ravenue3').sparkline([16, 10, 16, 11, 8, 10, 12], {
             type: 'bar',
@@ -158,7 +158,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '8',
-            barColor: 'black'
+            barColor: '#fff'
         });
         $('#ravenue4').sparkline([16, 10, 16, 11, 8, 10, 12], {
             type: 'bar',
@@ -167,7 +167,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '8',
-            barColor: 'black'
+            barColor: '#fff'
         });
         $('#ravenue5').sparkline([16, 10, 16, 11, 8, 10, 12], {
             type: 'bar',
@@ -176,7 +176,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '8',
-            barColor: 'black'
+            barColor: '#fff'
         });
         $('#active-users').sparkline([6, 10, 9, 11, 9, 10, 12, 10, 9, 11, 9, 10, 12, 10, 9, 11, 9, 10, 12], {
             type: 'bar',
@@ -209,9 +209,9 @@ $(function() {
 
 $(function() {
     "use strict";
-    // ==============================================================
+    // ============================================================== 
     // Newsletter
-    // ==============================================================
+    // ============================================================== 
 
     var chart = new Chartist.Line('.campaign', {
         labels: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -240,7 +240,7 @@ $(function() {
     });
 
     // Offset x1 a tiny amount so that the straight stroke gets a bounding box
-    // Straight lines don't get a bounding box
+    // Straight lines don't get a bounding box 
     // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
     chart.on('draw', function(ctx) {
         if (ctx.type === 'area') {

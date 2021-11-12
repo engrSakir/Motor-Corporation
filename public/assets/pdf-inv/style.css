@@ -16,13 +16,13 @@ a {
 
 body {
   position: relative;
-  width: 21cm;
-  height: 29.7cm;
-  margin: 0 auto;
+  width: 21cm;  
+  height: 29.7cm; 
+  margin: 0 auto; 
   color: #555555;
-  background: blackFFF;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+  background: #FFFFFF; 
+  font-family: Arial, sans-serif; 
+  font-size: 14px; 
   font-family: SourceSansPro;
 }
 
@@ -97,11 +97,11 @@ table td {
   padding: 20px;
   background: #EEEEEE;
   text-align: center;
-  border-bottom: 1px solid blackFFF;
+  border-bottom: 1px solid #FFFFFF;
 }
 
 table th {
-  white-space: nowrap;
+  white-space: nowrap;        
   font-weight: normal;
 }
 
@@ -117,7 +117,7 @@ table td h3{
 }
 
 table .no {
-  color: blackFFF;
+  color: #FFFFFF;
   font-size: 1.6em;
   background: #57B223;
 }
@@ -135,7 +135,7 @@ table .qty {
 
 table .total {
   background: #57B223;
-  color: blackFFF;
+  color: #FFFFFF;
 }
 
 table td.unit,
@@ -150,21 +150,21 @@ table tbody tr:last-child td {
 
 table tfoot td {
   padding: 10px 20px;
-  background: blackFFF;
+  background: #FFFFFF;
   border-bottom: none;
   font-size: 1.2em;
-  white-space: nowrap;
-  border-top: 1px solid #AAAAAA;
+  white-space: nowrap; 
+  border-top: 1px solid #AAAAAA; 
 }
 
 table tfoot tr:first-child td {
-  border-top: none;
+  border-top: none; 
 }
 
 table tfoot tr:last-child td {
   color: #57B223;
   font-size: 1.4em;
-  border-top: 1px solid #57B223;
+  border-top: 1px solid #57B223; 
 
 }
 
@@ -179,7 +179,7 @@ table tfoot tr td:first-child {
 
 #notices{
   padding-left: 6px;
-  border-left: 6px solid #0087C3;
+  border-left: 6px solid #0087C3;  
 }
 
 #notices .notice {

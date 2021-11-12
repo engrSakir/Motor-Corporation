@@ -29,7 +29,7 @@ FAQs Page
 .minimal-faq .card {
   border: 0px; }
   .minimal-faq .card .card-header {
-    background: black;
+    background: #fff;
     padding: 20px 0;
     margin-top: 10px; }
   .minimal-faq .card .card-body {
@@ -59,7 +59,7 @@ Seach listing Page
 Gridstack Dragable portlet
 ******************/
 .grid-stack-item-content {
-  background: black;
+  background: #fff;
   color: #6c757d;
   text-align: center;
   font-size: 20px; }
@@ -100,19 +100,19 @@ Notification page Jquery toaster
 ******************/
 .jq-icon-info {
   background-color: #03a9f3;
-  color: black; }
+  color: #fff; }
 
 .jq-icon-success {
   background-color: #00c292;
-  color: black; }
+  color: #fff; }
 
 .jq-icon-error {
   background-color: #e46a76;
-  color: black; }
+  color: #fff; }
 
 .jq-icon-warning {
   background-color: #fec107;
-  color: black; }
+  color: #fff; }
 
 .alert-rounded {
   border-radius: 60px; }
@@ -161,7 +161,7 @@ list and media
 
 .twitter-typeahead .tt-menu {
   width: 100%;
-  background: black;
+  background: #fff;
   border: 1px solid #f8f9fa;
   border-radius: 5px;
   padding: .75rem 0; }
@@ -172,7 +172,7 @@ list and media
 
 .twitter-typeahead .tt-menu .tt-suggestion:hover {
   background-color: #fb9678;
-  color: black; }
+  color: #fff; }
 
 .twitter-typeahead .empty-message {
   padding: 5px 10px;

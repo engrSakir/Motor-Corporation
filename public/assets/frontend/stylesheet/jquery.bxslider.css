@@ -35,7 +35,7 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	/*background: url(images/bx_loader.gif) center center no-repeat black;*/
+	/*background: url(images/bx_loader.gif) center center no-repeat #fff;*/
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -151,7 +151,7 @@
 	width: 100%;
 }
 .bx-wrapper .bx-caption span {
-	color: black;
+	color: #fff;
 	font-family: Arial;
 	display: block;
 	font-size: .85em;

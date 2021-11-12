@@ -44,7 +44,7 @@ Form icheck
 
 .icolors > li.active:after {
   content: "\2713 ";
-  color: black;
+  color: #fff;
   line-height: 30px; }
 
 .icolors > li:first-child {
