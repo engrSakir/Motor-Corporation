@@ -63,7 +63,7 @@ User card page
       text-decoration: none;
       display: inline-block;
       text-transform: uppercase;
-      color: #fff;
+      color: black;
       background-color: transparent;
       filter: alpha(opacity=0);
       -webkit-transition: all .2s ease-in-out;
@@ -82,8 +82,8 @@ User card page
         display: inline-block;
         margin: 0 3px; }
         .el-element-overlay .el-card-item .el-overlay-1 .el-info > li a {
-          border-color: #fff;
-          color: #fff;
+          border-color: black;
+          color: black;
           padding: 12px 15px 10px; }
           .el-element-overlay .el-card-item .el-overlay-1 .el-info > li a:hover {
             background: #fb9678;

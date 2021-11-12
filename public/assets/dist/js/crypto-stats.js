@@ -1,7 +1,7 @@
 $(function() {
     "use strict";
 
-    // ============================================================== 
+    // ==============================================================
     // sparkline charts
     // ==============================================================
     var sparklineLogin = function() {
@@ -41,7 +41,7 @@ $(function() {
             width: '100%',
             height: '50',
             lineColor: '#ffbc34',
-            fillColor: '#FFF8EA',
+            fillColor: 'black8EA',
             maxSpotColor: '#ffbc34',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
             highlightSpotColor: '#ffbc34'

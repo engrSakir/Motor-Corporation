@@ -60,7 +60,7 @@ var plot = $.plot("#placeholder", [getRandomData()], {
         color: "#AFAFAF"
         , hoverable: true
         , borderWidth: 0
-        , backgroundColor: '#FFF'
+        , backgroundColor: 'black'
     }
     , tooltip: true
     , tooltipOpts: {
@@ -110,7 +110,7 @@ $(function () {
                 color: "#AFAFAF"
                 , hoverable: true
                 , borderWidth: 0
-                , backgroundColor: '#FFF'
+                , backgroundColor: 'black'
             }
             , tooltip: true
             , tooltipOpts: {
@@ -211,7 +211,7 @@ $(function () {
             , minBorderMargin: 20
             , labelMargin: 10
             , backgroundColor: {
-                colors: ["#fff", "#fff"]
+                colors: ["black", "black"]
             }
             , margin: {
                 top: 8
@@ -227,7 +227,7 @@ $(function () {
                             from: x
                             , to: x + xaxis.tickSize
                         }
-                        , color: "#fff"
+                        , color: "black"
                     });
                 }
                 return markings;
@@ -277,7 +277,7 @@ $(function () {
             color: "#AFAFAF"
             , hoverable: true
             , borderWidth: 0
-            , backgroundColor: '#FFF'
+            , backgroundColor: 'black'
         }
         , tooltip: true
         , tooltipOpts: {

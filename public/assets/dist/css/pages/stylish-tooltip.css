@@ -52,7 +52,7 @@ Stylish tooltip
     pointer-events: auto;
     transform: scale3d(1, 1, 1); }
   .mytooltip:hover .tooltip-item2 {
-    color: #fff;
+    color: black;
     transform: translate3d(0, -0.5em, 0); }
   .mytooltip:hover .tooltip-content5 {
     opacity: 1;
@@ -134,7 +134,7 @@ Stylish tooltip
   line-height: 24px;
   display: block;
   padding: 1.31em 1.21em 1.21em 0;
-  color: #fff; }
+  color: black; }
 
 .tooltip-content2 {
   position: absolute;
@@ -148,7 +148,7 @@ Stylish tooltip
   border-radius: 50%;
   text-align: center;
   background: #fb9678;
-  color: #fff;
+  color: black;
   opacity: 0;
   margin-bottom: 20px;
   cursor: default;
@@ -189,7 +189,7 @@ Stylish tooltip
   margin-left: -100px;
   padding: 50px 30px;
   text-align: center;
-  color: #fff;
+  color: black;
   opacity: 0;
   cursor: default;
   font-size: 14;
@@ -233,7 +233,7 @@ Stylish tooltip
   font-size: 14px;
   line-height: 27px;
   padding: 1.5em;
-  color: #fff;
+  color: black;
   border-bottom: 55px solid #2b2b2b;
   cursor: default;
   pointer-events: none;
@@ -258,7 +258,7 @@ Stylish tooltip
   line-height: 1.4;
   text-align: center;
   font-weight: 400;
-  color: #fff;
+  color: black;
   background: transparent;
   opacity: 0;
   margin: 0 0 20px -150px;
@@ -297,7 +297,7 @@ Stylish tooltip
 .tooltip-effect-1 .tooltip-content {
   transform: translate3d(0, -10px, 0);
   transition: opacity 0.3s, transform 0.3s;
-  color: #fff; }
+  color: black; }
 
 .tooltip-effect-2 .tooltip-content {
   transform-origin: 50% calc(110%);

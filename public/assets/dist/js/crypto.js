@@ -1,6 +1,6 @@
 $(function() {
     "use strict";
-    // ============================================================== 
+    // ==============================================================
     // For Crypto Cards
     // ==============================================================
     var sparklineLogin = function() {
@@ -11,7 +11,7 @@ $(function() {
             width: '100%',
             resize: true,
             barSpacing: '5',
-            barColor: '#ffffff'
+            barColor: 'blackfff'
         });
         $('.crypto1').sparkline([6, 10, 9, 11, 9, 10, 12], {
             type: 'bar',

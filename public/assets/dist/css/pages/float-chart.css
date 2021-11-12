@@ -23,7 +23,7 @@ File: scss
  *	12. Forms
  *	14. Component
  */
-/*============================================================== 
+/*==============================================================
  flot chart
  ============================================================== */
 .flot-chart {
@@ -39,7 +39,7 @@ html body .flotTip {
   width: auto !important;
   height: auto !important;
   background: #343a40;
-  color: #fff;
+  color: black;
   padding: 5px 10px; }
 
 body .jqstooltip {

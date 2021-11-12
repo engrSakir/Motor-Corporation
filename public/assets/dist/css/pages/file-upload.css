@@ -23,7 +23,7 @@ File: scss
  *	12. Forms
  *	14. Component
  */
-/*============================================================== 
+/*==============================================================
 File upload
  ============================================================== */
 .btn-file {
@@ -47,7 +47,7 @@ File upload
 .fileinput .input-group-addon {
   border: none;
   border-bottom: 1px solid #e9ecef;
-  background: #fff;
+  background: black;
   margin-bottom: 1px; }
 
 .fileinput .form-control {

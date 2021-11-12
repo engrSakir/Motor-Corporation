@@ -6,9 +6,9 @@ File: js
 */
 $(function () {
     "use strict";
-    // ============================================================== 
+    // ==============================================================
     // Foo1 total visit
-    // ============================================================== 
+    // ==============================================================
     var opts = {
           angle: 0, // The span of the gauge arc
           lineWidth: 0.42, // The line thickness
@@ -31,10 +31,10 @@ $(function () {
     gauge.maxValue = 3000; // set max gauge value
     gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
     gauge.animationSpeed = 45; // set animation speed (32 is default value)
-    gauge.set(1850); // set actual value 
-    // ============================================================== 
+    gauge.set(1850); // set actual value
+    // ==============================================================
     // Foo1 total visit
-    // ============================================================== 
+    // ==============================================================
     var opts = {
           angle: 0, // The span of the gauge arc
           lineWidth: 0.42, // The line thickness
@@ -57,10 +57,10 @@ $(function () {
     gauge.maxValue = 3000; // set max gauge value
     gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
     gauge.animationSpeed = 45; // set animation speed (32 is default value)
-    gauge.set(850); // set actual value 
-    // ============================================================== 
+    gauge.set(850); // set actual value
+    // ==============================================================
     // Foo1 total visit
-    // ============================================================== 
+    // ==============================================================
     var opts = {
           angle: 0, // The span of the gauge arc
           lineWidth: 0.42, // The line thickness
@@ -83,11 +83,11 @@ $(function () {
     gauge.maxValue = 3000; // set max gauge value
     gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
     gauge.animationSpeed = 45; // set animation speed (32 is default value)
-    gauge.set(1250); // set actual value 
-    
-    // ============================================================== 
+    gauge.set(1250); // set actual value
+
+    // ==============================================================
     // Foo1 total visit
-    // ============================================================== 
+    // ==============================================================
     var opts = {
           angle: 0, // The span of the gauge arc
           lineWidth: 0.42, // The line thickness
@@ -110,14 +110,14 @@ $(function () {
     gauge.maxValue = 3000; // set max gauge value
     gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
     gauge.animationSpeed = 45; // set animation speed (32 is default value)
-    gauge.set(2850); // set actual value   
+    gauge.set(2850); // set actual value
 
-    // ============================================================== 
+    // ==============================================================
     // sparkline charts
     // ==============================================================
-    var sparklineLogin = function() { 
-       
-  
+    var sparklineLogin = function() {
+
+
         $("#spark1").sparkline([2,4,4,6,8,5,6,4,8,6,6,2 ], {
             type: 'line',
             width: '100%',
@@ -153,7 +153,7 @@ $(function () {
             type: 'line',
             width: '100%',
             height: '50',
-            lineColor: '#fff',
+            lineColor: 'black',
             fillColor: '#7460ee',
             maxSpotColor: '#7460ee',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
@@ -163,7 +163,7 @@ $(function () {
             type: 'line',
             width: '100%',
             height: '50',
-            lineColor: '#fff',
+            lineColor: 'black',
             fillColor: '#009efb',
             maxSpotColor: '#009efb',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
@@ -173,7 +173,7 @@ $(function () {
             type: 'line',
             width: '100%',
             height: '50',
-            lineColor: '#fff',
+            lineColor: 'black',
             fillColor: '#26c6da',
             maxSpotColor: '#26c6da',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
@@ -183,7 +183,7 @@ $(function () {
             type: 'line',
             width: '100%',
             height: '50',
-            lineColor: '#fff',
+            lineColor: 'black',
             fillColor: '#ffbc34',
             maxSpotColor: '#ffbc34',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
@@ -257,10 +257,10 @@ $(function () {
             barSpacing: '5',
             barColor: '#f62d51'
         });
-       
+
    }
     var sparkResize;
- 
+
         $(window).resize(function(e) {
             clearTimeout(sparkResize);
             sparkResize = setTimeout(sparklineLogin, 500);

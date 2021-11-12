@@ -7,7 +7,7 @@
   <g fill-rule="evenodd" clip-path="url(#a)" transform="translate(80) scale(.9375)">
     <path fill="#1b0073" d="M-128 0h768v512h-768z"/>
     <path fill="#e60006" d="M-128 128h768v256h-768z"/>
-    <g stroke="#e60000" fill="#fff">
+    <g stroke="#e60000" fill="black">
       <path stroke-width="1.207557" d="M93.251 248.065h325.473v52.63H93.251z"/>
       <path d="M220 280l-5 15h320l-5-15H220z" transform="matrix(1.0514 0 0 .82556 -138.285 69.541)" stroke-width="1.25"/>
       <path d="M245 280l-5 15h60l-5-15h-50z" transform="matrix(1.27557 0 0 .82556 37.621 69.542)" stroke-width="1.123"/>

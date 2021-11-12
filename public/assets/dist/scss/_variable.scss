@@ -4,10 +4,10 @@
 /*Theme Colors*/
 $themecolor: #fb9678;
 $themecolor-alt: #26c6da;
-$sidebar: #fff;
+$sidebar: black;
 $sidebar-alt:#f9f9f9;
 $sidebar-text: #8d97ad;
-$sidebar-icons: #787f91; 
+$sidebar-icons: #787f91;
 $shadow:1px 0px 20px rgba(0, 0, 0, 0.08);
 $lft:left;
 $rgt:right;
@@ -37,7 +37,7 @@ $rgt:right;
 // Color system
 //
 
-$white:    #fff !default;
+$white:    black !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -88,7 +88,7 @@ $theme-colors: (
   light:                          $gray-100,
   cyan:                           $cyan,
   dark:                           $gray-800,
-  purple:                         $purple    
+  purple:                         $purple
 );
 
 // Options
@@ -131,7 +131,7 @@ $grid-gutter-width:         20px !default;
 // Font, line-height, and color for body text, headings, and more.
 
 $font-size-base:              0.875rem;
-$font-family-sans-serif:     'Poppins', sans-serif !default; 
+$font-family-sans-serif:     'Poppins', sans-serif !default;
 
 
 $font-weight-light:           300 !default;
@@ -154,7 +154,7 @@ $headings-color:              inherit !default;
 
 // Breadcrumbs
 
-$breadcrumb-bg:                   #fff;
+$breadcrumb-bg:                   black;
 $breadcrumb-margin-bottom:        1.5rem;
 
 // Cards
@@ -227,7 +227,7 @@ $nav-tabs-link-active-bg:           $white !default;
 $badge-padding-y:                   .2em !default;
 $badge-padding-x:                   1em !default;
 
-//card 
+//card
 $card-spacer-y:                     1.25rem !default;
 $card-spacer-x:                     1.25rem !default;
 
@@ -248,7 +248,7 @@ $table-group-separator-color: $gray-300 !default;
 
 //check-box
 $form-check-input-width:                  1.16em !default;
-$form-check-min-height:                   1.14em !default; 
+$form-check-min-height:                   1.14em !default;
 
 //code
 $code-font-size:                    87.5% !default;

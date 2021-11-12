@@ -91,9 +91,9 @@ Timeline page
   top: 27px;
   right: -7px;
   border-top: 7px solid transparent;
-  border-right: 0 solid #fff;
+  border-right: 0 solid black;
   border-bottom: 7px solid transparent;
-  border-left: 7px solid #fff; }
+  border-left: 7px solid black; }
 
 .timeline > li > .timeline-badge {
   z-index: 10;
@@ -107,7 +107,7 @@ Timeline page
   text-align: center;
   font-size: 1.4em;
   line-height: 50px;
-  color: #fff;
+  color: black;
   overflow: hidden; }
 
 .timeline > li.timeline-inverted > .timeline-panel {
