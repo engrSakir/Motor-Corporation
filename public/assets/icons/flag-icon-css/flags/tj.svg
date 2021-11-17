@@ -15,7 +15,7 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="tj.svg">
   <sodipodi:namedview
-     pagecolor="blackfff"
+     pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1"
      objecttolerance="10"
@@ -67,7 +67,7 @@
      height="480"
      id="rect3880" />
   <rect
-     style="fill:blackfff"
+     style="fill:#ffffff"
      y="-1.5000001e-06"
      x="0"
      width="640"
@@ -89,7 +89,7 @@
        d="m 672,340.7 a 12.5,12.5 0 0 1 23.3,5.9 l 0,50 9.4,0 0,-50 a 12.5,12.5 0 0 1 23.3,-5.9 29.5,29.5 0 1 0 -56,0"
        id="path3888" />
     <path
-       style="fill:blackfff"
+       style="fill:#ffffff"
        inkscape:connector-curvature="0"
        d="m 678.7,327.65 a 20,20 0 0 1 21.3,9.55 20,20 0 0 1 21.3,-9.55 21.5,21.5 0 0 0 -42.6,0"
        id="path3890" />
