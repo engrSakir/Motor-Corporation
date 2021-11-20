@@ -138,7 +138,7 @@ class InvoiceController extends Controller
 
     public function searchByCategory($category = 'All')
     {
-        $items = Car::all();
+        $items = Car::where('status', 'Available')->get();
         if ($category != 'All') {
             $items = Car::where('car_category_id', $category)->where('status', 'Available')->get();
         }

@@ -200,22 +200,6 @@
                                 <div class="col-md-12">
                                     <fieldset class="form-group mb-0 d-flex barcodeselection">
                                         <h3 class="text-danger">Client Information</h3>
-                                        {{-- <select name="appointment" id="appointment" class="style-select select2">
-                                            <option value="" selected disabled>Please chose a approved appointment
-                                            </option>
-                                            @foreach ($appointments as $appointment)
-                                                <option value="{{ $appointment->id }}">
-                                                    {{ $loop->iteration }})
-                                                    Name: {{ $appointment->customer->name ?? '#' }}
-                                                    {{ date('h:i A', strtotime($appointment->schedule->starting_time)) ?? '#' }}
-                                                    to
-                                                    {{ date('h:i A', strtotime($appointment->schedule->ending_time)) ?? '#' }}
-                                                    of
-                                                    {{ $appointment->schedule->schedule_day ?? '#' }}
-                                                    ({{ date('d M Y', strtotime($appointment->appointment_data)) ?? '#' }})
-                                                </option>
-                                            @endforeach
-                                        </select> --}}
                                     </fieldset>
                                 </div>
                             </div>
@@ -234,7 +218,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                    {{-- Assign by ajax --}}
                                     </tbody>
                                 </table>
                             </div>
@@ -572,8 +556,9 @@
                     'vat': parseFloat($(this).find('.selected_item_vat').text()),
                 });
             });
-            // console.log(service_data_set)
-            if (service_data_set.length > 0) {
+            if (service_data_set.length <= 0 || $('#payment_method').val().length < 1) {
+                alert('Please select a service and payment method.');
+            }else{
                 $.ajax({
                     type: "POST",
                     url: "{{ route('backend.invoice.store') }}",
@@ -619,9 +604,6 @@
                         }
                     },
                     error: function(error) {
-                        // console.log("ERROR:: ",error.response);
-                        // validation_error(error);
-
                         console.log(error.responseText);
                         $.each(error.responseJSON.responseText, function(key, value) {
                             console.log(value)
@@ -641,8 +623,6 @@
                         })
                     },
                 });
-            } else {
-                alert('Select a service.');
             }
         });
     </script>
