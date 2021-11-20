@@ -26,9 +26,9 @@
             <div style="width: 100%;">
                 <div id="client" style="width: 50%; ">
                     <div class="to">INVOICE TO:</div>
-                    <h2 class="name">Mr. Customer</h2>
-                    <div class="address">Mirpur Dhaka-1200</div>
-                    <div class="email"><a href="mailto:customer@example.com">customer@example.com</a></div>
+                    <h2 class="name">{{ $invoice->client_name }}</h2>
+                    <div class="address">{{ $invoice->client_phone }}</div>
+                    <div class="email"><a href="mailto:{{ $invoice->client_email }}">{{ $invoice->client_email }}</a></div>
                 </div>
                 <div id="invoice" style="width: 45%;">
                     <h1>INVOICE #{{ $invoice->id }}</h1>

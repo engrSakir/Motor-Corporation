@@ -54,6 +54,9 @@ class InvoiceController extends Controller
             'advance_amount' => 'nullable|numeric',
             'note'              => 'nullable|string',
             'payment_method'  => 'required',
+            'client_name'  => 'required',
+            'client_email'  => 'required',
+            'client_phone'  => 'required',
         ]);
 
         $invoice = new Invoice();
@@ -61,6 +64,9 @@ class InvoiceController extends Controller
         $invoice->fixed_discount = $request->fixed_discount ?? 0;
         $invoice->payment_method_id = $request->payment_method;
         $invoice->note = $request->note;
+        $invoice->client_name = $request->client_name;
+        $invoice->client_email = $request->client_email;
+        $invoice->client_phone = $request->client_phone;
         $invoice->save();
 
         try {

@@ -198,16 +198,19 @@
                         <div class="card-body">
                             <div class="form-group row mb-0">
                                 <div class="col-md-12">
-                                    <fieldset class="form-group mb-0 d-flex barcodeselection">
-                                        <h3 class="text-danger">Client Information</h3>
-                                    </fieldset>
+                                    {{-- <fieldset class="form-group mb-0 d-flex barcodeselection"> --}}
+                                        {{-- <h3 class="text-danger">Client Information</h3><br> --}}
+                                        <input type="text" placeholder="Client Name" name="client_name" id="client_name" style="width: 100%;"><br>
+                                        <input type="text" placeholder="Client Phone" name="client_phone" id="client_phone" style="width: 100%;"><br>
+                                        <input type="text" placeholder="Client Email" name="client_email" id="client_email" style="width: 100%;">
+                                    {{-- </fieldset> --}}
                                 </div>
                             </div>
                         </div>
                         <div class="table-datapos">
                             <div class="table-responsive" id="printableTable">
-                                <table id="orderTable" class="display" style="width:100%">
-                                    <thead>
+                                <table id="orderTable" class="display" style="width:100%" >
+                                    <thead style="color: white;">
                                         <tr>
                                             <th>Name</th>
                                             <th>Quantity</th>
@@ -217,7 +220,7 @@
                                             <th class=" text-right no-sort"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="color: white;">
                                     {{-- Assign by ajax --}}
                                     </tbody>
                                 </table>
@@ -243,20 +246,20 @@
                                 <table class="table right-table" id="counter_table">
                                     <tbody>
                                         <tr class="d-flex align-items-center justify-content-between">
-                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
+                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-light">
                                                 Total Price
                                             </th>
-                                            <td class="border-0 justify-content-end d-flex text-dark font-size-base"
+                                            <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="total_price">00</td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between">
                                             <th class="border-0 ">
                                                 <div
-                                                    class="d-flex align-items-center font-size-h5 mb-0 font-size-bold text-dark">
+                                                    class="d-flex align-items-center font-size-h5 mb-0 font-size-bold text-light">
                                                     Dis. % &nbsp;
                                                 </div>
                                             </th>
-                                            <td class="border-0 justify-content-end d-flex text-dark font-size-base"
+                                            <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="">
                                                 <input type="number" value="0"
                                                     class="form-control border-dark w-100px discount discount_percentage"
@@ -267,11 +270,11 @@
                                         <tr class="d-flex align-items-center justify-content-between">
                                             <th class="border-0 ">
                                                 <div
-                                                    class="d-flex align-items-center font-size-h5 mb-0 font-size-bold text-dark">
+                                                    class="d-flex align-items-center font-size-h5 mb-0 font-size-bold text-light">
                                                     Dis. fixed &nbsp;
                                                 </div>
                                             </th>
-                                            <td class="border-0 justify-content-end d-flex text-dark font-size-base"
+                                            <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="">
                                                 <input type="number" value="0"
                                                     class="form-control border-dark w-100px discount discount_fixed_amount"
@@ -280,25 +283,25 @@
                                             </td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between">
-                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
+                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-light">
                                                 Price after discount
                                             </th>
-                                            <td class="border-0 justify-content-end d-flex text-dark font-size-base"
+                                            <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="price_after_discount">00
                                             </td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between">
-                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
+                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-light">
                                                 Total Vat
                                             </th>
-                                            <td class="border-0 justify-content-end d-flex text-dark font-size-base"
+                                            <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="total_vat">00</td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between">
-                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
+                                            <th class="border-0 font-size-h5 mb-0 font-size-bold text-light">
                                                 Paid Amount
                                             </th>
-                                            <td class="border-0 justify-content-end d-flex text-dark font-size-base"
+                                            <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="payment_amount">00</td>
                                         </tr>
                                         <tr class="d-flex align-items-center justify-content-between item-price">
@@ -338,50 +341,7 @@
                                         SAVE INVOICE
                                     </a>
                                 </div>
-                                {{-- <div>
-                                    <a href="#" class="btn btn-outline-secondary ">
-                                        <i class="fas fa-credit-card mr-2"></i>
-                                        Pay With Card
-                                    </a>
-
-                                </div> --}}
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- <x-appointment-booking-component/> --}}
-        </div>
-    </div>
-    <div class="modal fade text-left" id="folderpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel14"
-        style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg " role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="myModalLabel14">New Appointment</h3>
-                    <button type="button"
-                        class="close rounded-pill btn btn-sm btn-icon btn-light btn-hover-primary m-0"
-                        data-dismiss="modal" aria-label="Close">
-                        <svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="modal-body pos-ordermain">
-                    <div class="row">
-                        <div class="col-12">
-                            {{-- Modal cntent --}}
-                            {{-- <x-appointment-booking-component/> --}}
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <div class="row">
-                        <div class="col-12">
-                            {{-- <a href="#" class="btn btn-primary">Submit</a> --}}
                         </div>
                     </div>
                 </div>
@@ -556,9 +516,21 @@
                     'vat': parseFloat($(this).find('.selected_item_vat').text()),
                 });
             });
-            if (service_data_set.length <= 0 || $('#payment_method').val().length < 1) {
-                alert('Please select a service and payment method.');
-            }else{
+
+            let pass = true;
+            if(service_data_set.length <= 0){
+                alert('Please select a car.');
+                pass = false;
+            }
+            if($('#client_name').val() == null || $('#client_phone').val() == null || $('#client_email').val() == null){
+                alert('Please input customer name, phone and email address.');
+                pass = false;
+            }
+            if($('#payment_method').val().length < 1){
+                alert('Please select a payment method.');
+                pass = false;
+            }
+            if (pass == true) {
                 $.ajax({
                     type: "POST",
                     url: "{{ route('backend.invoice.store') }}",
@@ -571,6 +543,9 @@
                         discount_percentage: $('#discount_percentage').val(),
                         fixed_discount: $('#discount_fixed_amount').val(),
                         payment_amount: parseFloat($('#payment_amount').text()),
+                        client_name: $('#client_name').val(),
+                        client_email: $('#client_email').val(),
+                        client_phone: $('#client_phone').val(),
                     },
                     dataType: 'JSON',
                     beforeSend: function() {
