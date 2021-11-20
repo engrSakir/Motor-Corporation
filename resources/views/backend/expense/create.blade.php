@@ -13,7 +13,6 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item active">Expense Create Page</li>
                 </ol>
-
             </div>
         </div>
     </div>
@@ -54,7 +53,7 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                               
+
 
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
@@ -65,7 +64,14 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="recurring" value="1" id="recurring">
+                                        <label class="form-check-label" for="recurring">
+                                            Recurring
+                                        </label>
+                                      </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-actions">

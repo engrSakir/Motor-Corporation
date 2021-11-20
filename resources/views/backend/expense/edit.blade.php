@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                                
+
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
                                     <label for="example-month-input2" class="col-4 col-form-label">Description</label>
@@ -63,6 +63,14 @@
                                         <textarea class="form-control" id="description" name="description" rows="3">{{ $expense->description }}</textarea>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="recurring" value="1" id="recurring" @if($expense->recurring == true) checked @endif>
+                                        <label class="form-check-label" for="recurring">
+                                            Recurring
+                                        </label>
+                                      </div>
                                 </div>
                             </div>
                         </div>

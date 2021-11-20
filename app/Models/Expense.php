@@ -12,6 +12,7 @@ class Expense extends Model
     protected $fillable = [
         'description',
         'amount',
+        'recurring',
         'category_id'
     ];
 
