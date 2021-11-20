@@ -72,6 +72,7 @@
                                     <th>#</th>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Email</th>
                                     <th>Phone</th>
                                     <th>Car</th>
                                     <th>Price</th>
@@ -86,8 +87,9 @@
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->id }}</td>
-                                        <td>{{ $invoice->customer_name }}</td>
-                                        <td>{{ $invoice->customer_phone }}</td>
+                                        <td>{{ $invoice->client_name }}</td>
+                                        <td>{{ $invoice->client_email }}</td>
+                                        <td>{{ $invoice->client_phone }}</td>
                                         <td>
                                         @foreach($invoice->items as $item)
                                         {{ $item->car->name ?? '#' }}
