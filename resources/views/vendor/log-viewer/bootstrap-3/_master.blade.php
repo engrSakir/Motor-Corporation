@@ -119,7 +119,7 @@
             padding: 0;
             margin-bottom: 15px;
             min-height: 70px;
-            background: #fff;
+            background: black;
             width: 100%;
             box-shadow: 0 1px 1px rgba(0,0,0,0.1);
             border-radius: 2px;
@@ -168,7 +168,7 @@
         }
 
         .info-box.level .progress .progress-bar {
-            background: #fff;
+            background: black;
         }
 
         .info-box.level-empty {
@@ -222,7 +222,7 @@
         .info-box.level-notice,
         .info-box.level-info,
         .info-box.level-debug {
-            color: #FFF;
+            color: black;
         }
 
         .label-env {
