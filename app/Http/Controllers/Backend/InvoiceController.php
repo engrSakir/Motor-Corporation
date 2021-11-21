@@ -150,4 +150,11 @@ class InvoiceController extends Controller
         }
         return $items;
     }
+
+    public function deliveryChallan(){
+
+    }
+    public function deliveryChallanShow(){
+
+    }
 }

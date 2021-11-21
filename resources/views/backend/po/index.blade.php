@@ -38,7 +38,7 @@
                             @foreach($purchaseOrders as $purchaseOrder)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $purchaseOrder->vendor_name }}</td>
+                                    <td>{{ $purchaseOrder->vendor->name ?? '#' }}</td>
                                     <td>{{ $purchaseOrder->amount }}</td>
                                     <td>{{ $purchaseOrder->job_finish_date }}</td>
                                     <td>{{ $purchaseOrder->created_at->format('d/m/Y') }}</td>

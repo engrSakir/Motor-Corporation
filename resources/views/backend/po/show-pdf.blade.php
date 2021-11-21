@@ -26,7 +26,9 @@
             <div style="width: 100%;">
                 <div id="client" style="width: 50%; ">
                     <div class="to">PO TO:</div>
-                    <h2 class="name">{{ $purchaseOrder->vendor_name }}</h2>
+                    <h2 class="name">{{ $purchaseOrder->vendor->name ?? '#' }}</h2>
+                    <div class="address">{{ $purchaseOrder->vendor->phone ?? '#' }}</div>
+                    <div class="email"><a href="mailto:{{ $purchaseOrder->vendor->email ?? '#' }}">{{ $purchaseOrder->vendor->email ?? '#' }}</a></div>
 
                 </div>
                 <div id="invoice" style="width: 45%;">

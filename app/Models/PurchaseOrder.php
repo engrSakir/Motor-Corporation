@@ -17,4 +17,8 @@ class PurchaseOrder extends Model
         'job_finish_date',
         'work_description',
     ];
+
+    public function vendor(){
+        return $this->belongsTo(VendorInfo::class, 'vendor_name', 'id');
+    }
 }

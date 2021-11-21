@@ -85,7 +85,7 @@ class CarController extends Controller
     {
         $vendors = VendorInfo::all();
         $carCategories = CarCategory::all();
-        return view('backend.car.edit', compact('vendors','carCategories'));
+        return view('backend.car.edit', compact('vendors','carCategories', 'car'));
     }
 
     /**

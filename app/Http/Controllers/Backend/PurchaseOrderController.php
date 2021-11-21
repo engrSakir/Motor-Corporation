@@ -28,8 +28,8 @@ class PurchaseOrderController extends Controller
      */
     public function create()
     {
-        $vendorInfos = VendorInfo::orderBy('id','desc')->get();
-        return view('backend.po.create', compact('vendorInfos'));
+        $vendors = VendorInfo::orderBy('id','desc')->get();
+        return view('backend.po.create', compact('vendors'));
     }
 
     /**
@@ -41,7 +41,7 @@ class PurchaseOrderController extends Controller
     public function store(Request $request)
     {
         $validate_data = $request->validate([
-            'vendor_name' => 'required|string',
+            'vendor_name' => 'required|exists:vendor_infos,id',
             'amount' => 'required|numeric',
             'job_finish_date' => 'required|string',
             'work_description' => 'required|string',
@@ -72,7 +72,8 @@ class PurchaseOrderController extends Controller
      */
     public function edit(PurchaseOrder $purchaseOrder)
     {
-        return view('backend.po.edit', compact('purchaseOrder'));
+        $vendors = VendorInfo::orderBy('id','desc')->get();
+        return view('backend.po.edit', compact('purchaseOrder', 'vendors'));
     }
 
     /**

@@ -42,14 +42,18 @@
                                 <div class="row pt-3">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="vendor_name">Purchase Orders<b
-                                                    class="text-danger">*</b> </label>
-                                            <input type="text" id="vendor_name" name="vendor_name" class="form-control"
-                                                placeholder="Vendor Name" value="{{ $purchaseOrder->vendor_name }}" required>
+                                            <label class="form-label" for="vendor_name">Vendor<b class="text-danger">*</b> </label>
+                                            <select class="select2 form-select form-control" id="vendor_name" name="vendor_name" required>
+                                                <option selected disabled value="">Chose vendor</option>
+                                                @foreach ($vendors as $vendor)
+                                                <option value="{{ $vendor->id }}" @if($purchaseOrder->vendor_name == $vendor->id) selected @endif>{{ $vendor->name }}</option>
+                                                @endforeach
+                                              </select>
+                                              </select>
                                             @error('vendor_name')
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
