@@ -152,9 +152,11 @@ class InvoiceController extends Controller
     }
 
     public function deliveryChallan(){
-
+        $invoices = Invoice::orderBy('id', 'desc')->paginate(500);
+        return view('backend.delivery-challan.index', compact('invoices'));
     }
-    public function deliveryChallanShow(){
-
+    public function deliveryChallanShow(Invoice $invoice){
+        $pdf = PDF::loadView('backend.delivery-challan.show-pdf', compact('invoice'));
+        return $pdf->stream('Delivery Challan-' . config('app.name') . '.pdf');
     }
 }
