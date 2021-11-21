@@ -17,43 +17,93 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
             <div class="card">
-            <div class="card-header bg-info">
+                <div class="card-header bg-info">
                     <h4 class="mb-0 text-white">Create Purchase Orders</h4>
                 </div>
                 <div class="card-body">
-                <form action="{{ route('backend.purchaseOrder.store') }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-body">
-                        <div class="card-body">
-                            <div class="row pt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="category_name">Purchase Orders<b class="text-danger">*</b> </label>
-                                        <input type="text" id="category_name" name="category_name" class="form-control" placeholder="Category Name" value="{{ old('category_name') }}" required>
-                                        @error('category_name')
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                        <div class="form-actions">
+                    <form action="{{ route('backend.purchaseOrder.store') }}" method="POST"
+                        class="form-horizontal form-material" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-body">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-success text-white"> <i class="fa fa-check"></i> Save</button>
-                                <button type="reset" class="btn btn-danger">Reset form</button>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                <div class="row pt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="vendor_name">Purchase Orders<b
+                                                    class="text-danger">*</b> </label>
+                                            <input type="text" id="vendor_name" name="vendor_name" class="form-control"
+                                                placeholder="Vendor Name" value="{{ old('vendor_name') }}" required>
+                                            @error('vendor_name')
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group has-danger">
+                                            <label class="form-label" for="amount">Amount <b
+                                                    class="text-danger">*</b></label>
+                                            <input type="number" id="amount" name="amount" placeholder="Amount"
+                                                class="form-control" value="{{ old('amount') }}" required>
+                                            @error('amount')
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group has-danger">
+                                            <label class="form-label" for="job_finish_date">Job finish date <b
+                                                    class="text-danger">*</b></label>
+                                            <input type="date" id="job_finishing_date" name="job_finish_date"
+                                                class="form-control" value="{{ old('job_finish_date') }}" required>
+                                            @error('job_finish_date')
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group has-danger">
+                                            <label class="form-label" for="work_description">Work Description <b
+                                                    class="text-danger">*</b></label>
+                                            <textarea cols="30" rows="10" id="work_description" name="work_description"
+                                                class="form-control" required>{{ old('work_description') }}</textarea>
+                                            @error('work_description')
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="card-body">
+                                    <button type="submit" class="btn btn-success text-white"> <i class="fa fa-check"></i>
+                                        Save</button>
+                                    <button type="reset" class="btn btn-danger">Reset form</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>

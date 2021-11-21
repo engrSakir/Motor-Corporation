@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\PurchaseOrder;
+use App\Models\VendorInfo;
 use Illuminate\Http\Request;
+use PDF;
 
 class PurchaseOrderController extends Controller
 {
@@ -26,7 +28,8 @@ class PurchaseOrderController extends Controller
      */
     public function create()
     {
-        //
+        $vendorInfos = VendorInfo::orderBy('id','desc')->get();
+        return view('backend.po.create', compact('vendorInfos'));
     }
 
     /**
@@ -37,7 +40,16 @@ class PurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate_data = $request->validate([
+            'vendor_name' => 'required|string',
+            'amount' => 'required|numeric',
+            'job_finish_date' => 'required|string',
+            'work_description' => 'required|string',
+        ]);
+
+        PurchaseOrder::create($validate_data);
+        toastr()->success('Success');
+        return back();
     }
 
     /**
@@ -48,7 +60,8 @@ class PurchaseOrderController extends Controller
      */
     public function show(PurchaseOrder $purchaseOrder)
     {
-        //
+        $pdf = PDF::loadView('backend.po.show-pdf', compact('purchaseOrder'));
+        return $pdf->stream('PO-' . config('app.name') . '.pdf');
     }
 
     /**
@@ -59,7 +72,7 @@ class PurchaseOrderController extends Controller
      */
     public function edit(PurchaseOrder $purchaseOrder)
     {
-        //
+        return view('backend.po.edit', compact('purchaseOrder'));
     }
 
     /**
@@ -71,7 +84,16 @@ class PurchaseOrderController extends Controller
      */
     public function update(Request $request, PurchaseOrder $purchaseOrder)
     {
-        //
+        $validate_data = $request->validate([
+            'vendor_name' => 'required|string',
+            'amount' => 'required|numeric',
+            'job_finish_date' => 'required|string',
+            'work_description' => 'required|string',
+        ]);
+
+        $purchaseOrder->update($validate_data);
+        toastr()->success('Success');
+        return back();
     }
 
     /**
@@ -82,6 +104,10 @@ class PurchaseOrderController extends Controller
      */
     public function destroy(PurchaseOrder $purchaseOrder)
     {
-        //
+        $purchaseOrder->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 }

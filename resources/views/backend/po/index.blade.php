@@ -27,7 +27,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Purchase Orders Name</th>
+                                <th scope="col">Vendor Name</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Job finish date</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -36,9 +38,17 @@
                             @foreach($purchaseOrders as $purchaseOrder)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $purchaseOrder->name }}</td>
+                                    <td>{{ $purchaseOrder->vendor_name }}</td>
+                                    <td>{{ $purchaseOrder->amount }}</td>
+                                    <td>{{ $purchaseOrder->job_finish_date }}</td>
                                     <td>{{ $purchaseOrder->created_at->format('d/m/Y') }}</td>
                                     <td>
+                                    <a  class="btn btn-success btn-circle" download="" href="{{ route('backend.purchaseOrder.show', $purchaseOrder) }}">
+                                        <i class="fa fa-download" ></i>
+                                    </a>
+                                    <a  class="btn btn-success btn-circle" target="_blank" href="{{ route('backend.purchaseOrder.show', $purchaseOrder) }}">
+                                        <i class="fa fa-eye" ></i>
+                                    </a>
                                     <a  class="btn btn-warning btn-circle" href="{{ route('backend.purchaseOrder.edit', $purchaseOrder) }}">
                                         <i class="fa fa-pen" ></i>
                                     </a>

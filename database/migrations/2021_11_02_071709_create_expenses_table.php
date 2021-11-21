@@ -19,6 +19,9 @@ class CreateExpensesTable extends Migration
             $table->double('amount')->default(0);
             $table->boolean('recurring')->default(false);
             $table->foreignId('category_id');
+            $table->foreignId('created_by')->nullable();
+            $table->foreignId('updated_by')->nullable();
+            $table->foreignId('deleted_by')->nullable();
             $table->timestamps();
         });
     }
