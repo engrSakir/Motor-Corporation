@@ -3,7 +3,7 @@
 <head>
     <style>
         @page {
-            background-color: blackfff;
+            background-color: #ffffff;
             sheet-size: 70mm 180mm;
             /* size: auto; */
             /* background-color: azure; */
@@ -32,17 +32,17 @@
             padding: 0;
             margin: 0 auto;
             width: 0;
-            background: black;
+            background: #fff;
         }
 
         #invoice-POS ::selection {
             background: #f31544;
-            color: black;
+            color: #fff;
         }
 
         #invoice-POS ::moz-selection {
             background: #f31544;
-            color: black;
+            color: #fff;
         }
 
         #invoice-POS h1 {
