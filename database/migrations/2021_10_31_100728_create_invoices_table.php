@@ -19,6 +19,9 @@ class CreateInvoicesTable extends Migration
             $table->double('discount_percentage')->default(0);
             $table->double('fixed_discount')->default(0);
             $table->longText('note')->nullable();
+            $table->string('client_name')->nullable();
+            $table->string('client_email')->nullable();
+            $table->string('client_phone')->nullable();
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

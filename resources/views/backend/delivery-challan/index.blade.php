@@ -1,66 +1,23 @@
 @extends('layouts.backend.app')
 
-@section('title') Invoice @endsection
+@section('title') Delivery Challan @endsection
 
 @section('content')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">Invoice Page</h4>
+            <h4 class="text-themecolor">Delivery Challan Page</h4>
         </div>
         <div class="col-md-7 align-self-center text-end">
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Invoice Page</li>
+                    <li class="breadcrumb-item active">Delivery Challan Page</li>
                 </ol>
                 <a href="{{ route('backend.invoice.create') }}" target="_blank" class="btn btn-info d-none d-lg-block m-l-15"><i
                         class="fa fa-plus-circle"></i> POS </a>
             </div>
         </div>
     </div>
-
-    <div class="row">
-
-        <!-- Invoice -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-warning text-center">
-                    <h1 class="font-light text-white">{{ $invoices->count() }}</h1>
-                    <h6 class="text-white">Total Invoice</h6>
-                </div>
-            </div>
-        </div>
-        <!-- Paid -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-info text-center">
-                    <h1 class="font-light text-white">{{ $total_paid }}</h1>
-                    <h6 class="text-white">Total Paid Amount</h6>
-                </div>
-            </div>
-        </div>
-        {{-- <!-- Due -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-primary text-center">
-                    <h1 class="font-light text-white">{{ $total_due }}</h1>
-                    <h6 class="text-white">Total Due Amount</h6>
-                </div>
-            </div>
-        </div> --}}
-
-        <!-- VAT -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-primary text-center">
-                    <h1 class="font-light text-white">{{ $total_vat }}</h1>
-                    <h6 class="text-white">Total VAT Amount</h6>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -106,15 +63,9 @@
 
                                         <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
                                         <td>
-                                            <a href="{{ route('backend.invoice.show', $invoice) }}" target="_blank"
+                                            <a href="{{ route('backend.delivery-challan.show', $invoice) }}" target="_blank"
                                                 class="btn btn-primary waves-effect btn-rounded waves-light"> <i
                                                     class="fas fa-print"></i> </a>
-                                            <a target="_blank" href="{{ route('backend.invoice.edit', $invoice) }}"
-                                                class="btn btn-secondary waves-effect btn-rounded waves-light"> <i
-                                                    class="fas fa-pen"></i> </a>
-                                                    <button value="{{ route('backend.invoice.destroy', $invoice) }}"
-                                                class="btn btn-danger btn-circle delete-btn"><i class="fa fa-trash"></i>
-                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -19,6 +19,9 @@ class CreateCarExpensesTable extends Migration
             $table->longText('description')->nullable();
             $table->double('amount')->default(0);
             $table->foreignId('car_id');
+            $table->foreignId('created_by')->nullable();
+            $table->foreignId('updated_by')->nullable();
+            $table->foreignId('deleted_by')->nullable();
             $table->timestamps();
         });
     }

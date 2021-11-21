@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Invoice</title>
+    <title>Delivery Challan</title>
     <link rel="stylesheet" href="{{ asset('assets/pdf-inv/style.css') }}" media="all" />
 </head>
 
@@ -25,13 +25,13 @@
         <div id="details" class="clearfix">
             <div style="width: 100%;">
                 <div id="client" style="width: 50%; ">
-                    <div class="to">INVOICE TO:</div>
+                    <div class="to">DELIVERY CHALLAN TO:</div>
                     <h2 class="name">{{ $invoice->client_name }}</h2>
                     <div class="address">{{ $invoice->client_phone }}</div>
                     <div class="email"><a href="mailto:{{ $invoice->client_email }}">{{ $invoice->client_email }}</a></div>
                 </div>
                 <div id="invoice" style="width: 45%;">
-                    <h1>INVOICE #{{ $invoice->id }}</h1>
+                    <h1>DELIVERY CHALLAN #{{ $invoice->id }}</h1>
                     <div class="date">Date of Invoice: {{ $invoice->created_at->format('d/m/Y') }}</div>
                     {{-- <div class="date">Due Date: 30/06/2014</div> --}}
                 </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpenseCategoriesTable extends Migration
+class CreatePurchaseOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateExpenseCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('expense_categories', function (Blueprint $table) {
+        Schema::create('purchase_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug')->nullable();
+            $table->foreignId('vendor_name');
+            $table->double('amount')->default(0);
+            $table->string('job_finish_date')->nullable();
+            $table->longText('work_description')->nullable();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();
             $table->foreignId('deleted_by')->nullable();
@@ -31,6 +33,6 @@ class CreateExpenseCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expense_categories');
+        Schema::dropIfExists('purchase_orders');
     }
 }

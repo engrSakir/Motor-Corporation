@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Wildside\Userstamps\Userstamps;
 
-class ExpenseCategory extends Model
+class PurchaseOrder extends Model
 {
     use HasFactory;
     use Userstamps;
 
     protected $fillable = [
-        'name'
+        'vendor_name',
+        'amount',
+        'job_finish_date',
+        'work_description',
     ];
 
-    public function expenses()
-    {
-        return $this->hasMany(Expense::class, 'category_id', 'id');
+    public function vendor(){
+        return $this->belongsTo(VendorInfo::class, 'vendor_name', 'id');
     }
 }

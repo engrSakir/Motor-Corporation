@@ -39,15 +39,16 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'amount'         => 'required|numeric',
+            'amount'        => 'required|numeric',
             'category_id'   => 'required|exists:expense_categories,id',
             'description'   => 'nullable',
-
+            'recurring'     => 'nullable|boolean',
         ]);
         $expense = new Expense();
         $expense->amount = $request->amount;
         $expense->category_id = $request->category_id;
         $expense->description = $request->description;
+        $expense->recurring = $request->recurring ?? false;
         $expense->save();
         toastr()->success('Successfully Saved!');
         return back();
@@ -89,11 +90,13 @@ class ExpenseController extends Controller
             'amount'         => 'required|numeric',
             'category_id'   => 'required|exists:expense_categories,id',
             'description'   => 'nullable',
+            'recurring'     => 'nullable|boolean',
 
         ]);
         $expense->amount = $request->amount;
         $expense->category_id = $request->category_id;
         $expense->description = $request->description;
+        $expense->recurring = $request->recurring ?? false;
         $expense->save();
         toastr()->success('Successfully Updated!');
         return back();

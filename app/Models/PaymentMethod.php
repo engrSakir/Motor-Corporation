@@ -12,6 +12,6 @@ class PaymentMethod extends Model
     use Userstamps;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\CarExpenseController;
 use App\Http\Controllers\Backend\ExpenseCategoryController;
 use App\Http\Controllers\Backend\PaymentMethodController;
+use App\Http\Controllers\Backend\PurchaseOrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +38,10 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('purchasePayment', PurchasePaymentController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
     Route::resource('invoice', InvoiceController::class);
+    Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index');
+    Route::get('delivery-challan/{invoice}', [InvoiceController::class, 'deliveryChallanShow'])->name('delivery-challan.show');
     Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
     Route::resource('paymentMethod', PaymentMethodController::class);
+    Route::resource('purchaseOrder', PurchaseOrderController::class);
 
 });
