@@ -64,7 +64,7 @@
             display: block;
             padding: 0;
             min-height: 70px;
-            background: #fff;
+            background: black;
             width: 100%;
             box-shadow: 0 1px 1px rgba(0,0,0,0.1);
             border-radius: .25rem;
@@ -73,7 +73,7 @@
         .box > .box-icon > i,
         .box .box-content .box-text,
         .box .box-content .box-number {
-            color: #FFF;
+            color: black;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
         }
 
@@ -112,7 +112,7 @@
         }
 
         .box .box-content .progress .progress-bar {
-            background-color: #FFF;
+            background-color: black;
         }
 
         /*
@@ -153,7 +153,7 @@
         .badge.badge-level-info,
         .badge.badge-level-debug,
         .badge.empty {
-            color: #FFF;
+            color: black;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
         }
 
@@ -210,7 +210,7 @@
         .badge.badge-env {
             background-color: #6A1B9A;
         }
-        
+
         #entries {
             overflow-wrap: anywhere;
         }
