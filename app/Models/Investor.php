@@ -89,4 +89,13 @@ class Investor extends Model
             return 0;
         }
     }
+
+
+    //Investment percentage
+    public function investmentPercentage()
+    {
+        return (Investment::sum('amount') / 100) * $this->investments()->sum('amount');
+    }
+
+    
 }
