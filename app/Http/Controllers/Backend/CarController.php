@@ -97,7 +97,27 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:car_categories,name'
+        ]);
+       $car->update([
+            'car_category_id' => $request->category,
+            'vendor_id' => $request->vendor,
+            // 'status' => $request->status,
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'purchase_price' => $request->purchase_price,
+            'selling_price' => $request->selling_price,
+            'vat_percentage' => $request->vat_percentage,
+            'discount_percentage' => $request->discount_percentage,
+            'image' => $request->image,
+            'registration' => $request->registration,
+            'mileages' => $request->mileages,
+            'description' => $request->description
+        ]);
+        toastr()->success('Saved');
+        return back();
     }
 
     /**
