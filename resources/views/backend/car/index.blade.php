@@ -44,6 +44,8 @@
                                 <td>{{ $car->selling_price }}</td>
                                 <td>{{ $car->status }}</td>
                                 <td>
+                                <a href="{{ route('backend.carExpense.create', 'car='.$car->id) }}" class="btn btn-info btn-circle"><i class="fa fa-cog"></i> </a>
+
                                 <a  class="btn btn-success btn-circle" href="{{ route('backend.purchasePayment', $car) }}">
                                     <i class="fa fa-credit-card" ></i>
                                 </a>

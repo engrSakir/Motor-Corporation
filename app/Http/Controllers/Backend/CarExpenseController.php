@@ -26,8 +26,13 @@ class CarExpenseController extends Controller
      */
     public function create()
     {
+        $selected_car = null;
+        if(request()->car){
+            $selected_car   = Car::findOrFail(request()->car);
+        } 
         $cars = Car::all();
-        return view('backend.car_expense.create', compact('cars'));
+        $carexpenses = CarExpense::where('car_id',request()->car)->get();
+        return view('backend.car_expense.create', compact('cars','selected_car','carexpenses'));
     }
 
     /**

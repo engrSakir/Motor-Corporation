@@ -49,7 +49,7 @@
                         <li><a href="{{ route('backend.expenseCategory.index') }}">Expense Category</a></li>
                     </ul>
                 </li>
-               <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>
+              <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
