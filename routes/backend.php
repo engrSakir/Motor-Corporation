@@ -43,5 +43,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
     Route::resource('paymentMethod', PaymentMethodController::class);
     Route::resource('purchaseOrder', PurchaseOrderController::class);
+    Route::get('/customer', [ InvoiceController::class, 'customer'])->name('invoice.customer');
+
 
 });

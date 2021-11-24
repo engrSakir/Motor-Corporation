@@ -80,10 +80,18 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="recurring" value="1"
-                                            id="recurring">
-                                        <label class="form-check-label" for="recurring">
-                                            Recurring
+                                        <input class="form-check-input" type="radio" name="recurring" value="variable"
+                                            id="recurring1">
+                                            <label class="form-check-label" for="recurring1">
+                                           Variable Cost
+                                        </label>
+</div>
+<div class="form-check">
+
+                                            <input class="form-check-input" type="radio" name="recurring" value="fixed"
+                                            id="recurring2">
+                                        <label class="form-check-label" for="recurring2">
+                                            Fixed Cost
                                         </label>
                                         @error('recurring')
                                         <div class="alert alert-danger" role="alert">

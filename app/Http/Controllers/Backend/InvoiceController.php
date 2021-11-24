@@ -9,6 +9,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class InvoiceController extends Controller
@@ -117,6 +118,14 @@ class InvoiceController extends Controller
     public function edit(Invoice $invoice)
     {
         //
+    }
+
+    public function customer()
+    {
+        //$invoices = Invoice::orderBy('id', 'desc')->groupBy('client_email')->get();
+        $invoices = Invoice::orderBy('id', 'desc')->select('client_email')->groupBy('client_email')->get();
+
+        return view('backend.customer.index', compact('invoices'));
     }
 
     /**
