@@ -10,7 +10,7 @@
                     <!-- Dark Logo icon -->
                     <img src="assets/images/logo-bg.png" width="200" height="75" alt="homepage" class="dark-logo" />
                     <!-- Light Logo icon -->
-                    <img src="assets/images/logo-bg.png" alt="homepage" class="light-logo" />
+                    <img src="assets/images/logo-bg.png" width="200" height="75" alt="homepage" class="light-logo" />
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text --><span>

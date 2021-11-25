@@ -122,9 +122,7 @@ class InvoiceController extends Controller
 
     public function customer()
     {
-        //$invoices = Invoice::orderBy('id', 'desc')->groupBy('client_email')->get();
-        $invoices = Invoice::orderBy('id', 'desc')->select('client_email')->groupBy('client_email')->get();
-
+        $invoices = Invoice::orderBy('id', 'desc')->get()->groupBy('client_phone');
         return view('backend.customer.index', compact('invoices'));
     }
 

@@ -29,22 +29,18 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ID</th>
                                     <th>Name</th>
+                                    <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Phone</th>                                    
-                                    <th>Created At</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($invoices as $invoice)
+                                @foreach ($invoices as $customer_phone => $invoice_goup)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>{{ $invoice->id }}</td>
-                                        <td>{{ $invoice->client_name }}</td>
-                                        <td>{{ $invoice->client_email }}</td>
-                                        <td>{{ $invoice->client_phone }}</td>                                   
-                                       
+                                        <td>{{ $invoice_goup->first()->client_name ?? '#' }}</td>
+                                        <td>{{ $customer_phone }}</td>  
+                                        <td>{{ $invoice_goup->first()->client_email ?? '#' }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
