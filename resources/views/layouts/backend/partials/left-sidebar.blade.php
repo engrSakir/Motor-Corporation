@@ -39,7 +39,7 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.investorContactPerson.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Contact Person</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.settlement.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Settlement</span></a></li>
                 <!--<li> <a class="waves-effect waves-dark" href="{{ route('backend.carCategory.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Category</span></a></li>-->
-                <li> <a class="waves-effect waves-dark" href="{{ route('backend.purchaseOrder.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">PO</span></a></li>
+                {{-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.purchaseOrder.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">PO</span></a></li> --}}
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.invoice.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Sales</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.delivery-challan.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Delivery Challan</span></a></li>
               <!--  <li> <a class="waves-effect waves-dark" href="{{ route('backend.paymentMethod.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Payment Method</span></a></li>-->
@@ -53,6 +53,7 @@
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{ route('backend.carCategory.index') }}">Car Category </a></li>
                         <li><a href="{{ route('backend.paymentMethod.index') }}">Payment Method</a></li>
+                        <li><a href="{{ route('backend.bookingPurpose.index') }}">Booking Purpose</a></li>
                     </ul>
                 </li>
               <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->

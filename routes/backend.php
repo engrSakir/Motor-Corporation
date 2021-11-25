@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\BookingPurposeController;
 use App\Http\Controllers\Backend\CarCategoryController;
 use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Backend\DashboardController;
@@ -36,6 +37,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('expenseCategory', ExpenseCategoryController::class);
     Route::resource('carExpense', CarExpenseController::class);
     Route::resource('purchasePayment', PurchasePaymentController::class);
+    Route::resource('bookingPurpose', BookingPurposeController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
     Route::resource('invoice', InvoiceController::class);
     Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index');

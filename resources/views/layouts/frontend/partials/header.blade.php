@@ -86,7 +86,7 @@
                                             </ul>
                                         </li>
                                         <li class="mega-menu hidden-sm"> <a class="level-top"
-                                                href="#"><span>Compare Cars‎</span></a> </li>
+                                                href="#"><span>Booking</span></a> </li>
                                         <li class="fl-custom-tabmenulink mega-menu"> <a href="#"
                                                 class="level-top"> <span>Offer</span> </a>
                                             <div class="level0-wrapper fl-custom-tabmenu"
