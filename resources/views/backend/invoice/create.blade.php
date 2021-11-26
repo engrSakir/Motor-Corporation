@@ -420,32 +420,29 @@
             var item_name = $(this).find('.item_name').val();
             var item_price = $(this).find('.item_price').val();
             var item_vat = $(this).find('.item_vat').val();
+            let qunatity = $("#selected_item_qty_for_" + item_id).val();
+            if (qunatity == null) {
+                qunatity = 1;
+            }
             // alert(item_name);
             if ($("#selected_item_for_" + item_id).length > 0) {
                 // update price with incease quantity
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'info',
-                    title: 'Already add',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                // $("#selected_item_qty_for_" + item_id).val(parseInt($("#selected_item_qty_for_" + item_id).val()) +
-                //     1);
-                // inner_calculation();
+                $("#selected_item_qty_for_" + item_id).val(parseInt(qunatity) + 1);
             } else {
                 //jQuery append row in table
                 table_tr = `<tr id="selected_item_for_` + item_id + `">
-                            <input type="hidden" readonly class="selected_item" name="selected_items[]" value="` + item_id + `">
+                            <input type="hidden" class="selected_item" name="selected_items[]" value="` + item_id + `">
                             <td id="selected_item_name_for_` + item_id + `">` + item_name +
                     `</td>
-                            <td> <input type="number" readonly value="1" class="form-control border-dark w-100px selected_item_qty" id="selected_item_qty_for_` +
+                            <td> <input type="number" value="1" class="form-control border-dark w-100px selected_item_qty" id="selected_item_qty_for_` +
                     item_id + `" placeholder=""> </td>
                             <td id="selected_item_vat_for_` + item_id + `" class="selected_item_vat">` +
                     item_vat + `</td>
                             <td id="selected_item_price_for_` + item_id + `" class="selected_item_price">` +
-                    item_price + `</td>
-                            <td class="selected_item_total_price">000</td>
+                    item_price +
+                    `</td>
+                            <td><input type="number"  class="form-control border-dark w-200px selected_item_total_price" id="selected_item_total_price_for_` +
+                    item_id + `"/></td>
                             <td>
                             <div class="card-toolbar text-right">
                             <a href="javascript:void(0)" class="item_remover" title="Delete"><i class="fas fa-trash-alt text-danger"></i></a>
@@ -453,8 +450,9 @@
                             </td>
                             </tr>`;
                 $('#orderTable  > tbody').append(table_tr);
-                inner_calculation();
             }
+                inner_calculation();
+            
         });
 
         $('#orderTable').on('click', '.item_remover', function() {
@@ -470,6 +468,25 @@
             discount_calculate();
             // console.log('%'+$('#discount_percentage').val());
             // console.log('F'+$('#discount_fixed_amount').val());
+        });
+        $('#orderTable').on('keyup change', '.selected_item_total_price', function() {
+            let total_price = 0;
+            let total_vat = 0;
+            $('#orderTable tbody tr').each(function(i, element) {
+                let sub_total_price = parseFloat($(this).find('.selected_item_total_price').val());
+                let qty = parseInt($(this).find('.selected_item_qty').val());
+                let price_with_vat_for_one = sub_total_price/qty;
+                let price_for_one = ((100 * price_with_vat_for_one) / 115).toFixed(2);
+                let vat_for_one = (price_with_vat_for_one - (100 * price_with_vat_for_one) / 115).toFixed(2);
+                $(this).find('.selected_item_price').text(price_for_one);
+                $(this).find('.selected_item_vat').text(vat_for_one);
+
+                // total_price += qty * price;
+                // total_vat += qty * vat;
+            });
+            $('#total_price').text((total_price).toFixed(2));
+            $('#total_vat').text((total_vat).toFixed(2));
+            discount_calculate();
         });
 
         function inner_calculation() {

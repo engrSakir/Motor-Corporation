@@ -26,7 +26,7 @@ class BookingPurposeController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.booking-purpose.create');
     }
 
     /**
@@ -37,7 +37,19 @@ class BookingPurposeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'booking_name'         => 'required|string',
+            'free_counter'         => 'required|numeric',
+            'description'   => 'nullable',
+
+        ]);
+        $bookingPurpose = new BookingPurpose();
+        $bookingPurpose->name = $request->booking_name;
+        $bookingPurpose->max_free_counter = $request->free_counter;
+        $bookingPurpose->description = $request->description;
+        $bookingPurpose->save();
+        toastr()->success('Successfully Saved!');
+        return back();
     }
 
     /**
@@ -59,7 +71,7 @@ class BookingPurposeController extends Controller
      */
     public function edit(BookingPurpose $bookingPurpose)
     {
-        //
+        return view('backend.booking-purpose.edit', compact('bookingPurpose'));
     }
 
     /**
@@ -71,7 +83,18 @@ class BookingPurposeController extends Controller
      */
     public function update(Request $request, BookingPurpose $bookingPurpose)
     {
-        //
+        $request->validate([
+            'booking_name'         => 'required|string',
+            'free_counter'         => 'required|numeric',
+            'description'   => 'nullable',
+
+        ]);
+        $bookingPurpose->name = $request->booking_name;
+        $bookingPurpose->max_free_counter = $request->free_counter;
+        $bookingPurpose->description = $request->description;
+        $bookingPurpose->save();
+        toastr()->success('Successfully Updated!');
+        return back();
     }
 
     /**
@@ -82,6 +105,10 @@ class BookingPurposeController extends Controller
      */
     public function destroy(BookingPurpose $bookingPurpose)
     {
-        //
+        $bookingPurpose->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Successfully destroy',
+        ];
     }
 }

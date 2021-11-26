@@ -1,17 +1,17 @@
 @extends('layouts.backend.app')
 
-@section('title') Car Expense Edit @endsection
+@section('title') Booking Purpose Edit @endsection
 
 @section('content')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">Car Expense Edit Page</h4>
+            <h4 class="text-themecolor">Booking Purpose Edit Page</h4>
         </div>
         <div class="col-md-7 align-self-center text-end">
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Car Expense Edit Page</li>
+                    <li class="breadcrumb-item active">Booking Purpose Edit Page</li>
                 </ol>
 
             </div>
@@ -22,9 +22,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header bg-info">
-                    <h4 class="mb-0 text-white">Update Car Expense</h4>
+                    <h4 class="mb-0 text-white">Update Booking Purpose</h4>
                 </div>
-                <form action="{{ route('backend.carExpense.update',$carExpense) }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
+                <form action="{{ route('backend.bookingPurpose.update',$bookingPurpose) }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
                     <div class="form-body">
@@ -33,20 +33,20 @@
                             <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="category_name">Name<b class="text-danger">*</b> </label>
-                                        <input type="text" id="car_name" name="car_name" class="form-control" placeholder="Name" value="{{  $carExpense->name }}" required>
-                                        @error('car_name')
+                                        <input type="text" id="booking_name" name="booking_name" class="form-control" placeholder="Name" value="{{  $bookingPurpose->name }}" required>
+                                        @error('booking_name')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>
                                         @enderror
                                     </div>
                                 </div>
-                                    <!--/span-->
                                 <div class="col-md-6">
+
                                     <div class="form-group has-danger">
-                                        <label class="form-label" for="amount">Amount <b class="text-danger">*</b></label>
-                                        <input type="number" id="amount" name="amount" class="form-control form-control-danger" value="{{  $carExpense->amount }}" required>
-                                        @error('amount')
+                                        <label class="form-label" for="amount">Max Free Counter <b class="text-danger">*</b></label>
+                                        <input type="number" id="free_counter" name="free_counter" class="form-control form-control-danger" placeholder="Max Free Counter" value="{{ $bookingPurpose->max_free_counter }}" required>
+                                        @error('free_counter')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>
@@ -54,27 +54,18 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group has-danger">
-                                    <label class="form-label">Car </label>
-                                    <select name="car_id" class="form-select col-12" id="car_id" required>
-                                    <option value="">--Select Car--</option>
-                                    @foreach($cars as $car)
-                                    <option value="{{ $car->id }}" @if($carExpense->car_id== $car->id) selected @endif >{{ $car->name }}</option>
-                                    @endforeach
-                                    </select>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                
+                              
+
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
                                     <label for="example-month-input2" class="col-4 col-form-label">Description</label>
                                         <div class="col-10">
-                                        <textarea class="form-control" id="description" name="description" rows="3">{{ $carExpense->description }}</textarea>
+                                        <textarea class="form-control" id="description" name="description" rows="3"
+                                                    placeholder="Booking Purpose Description">{{ $bookingPurpose->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="form-actions">

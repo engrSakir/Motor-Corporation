@@ -13,7 +13,7 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item active">Booking Purpose</li>
                 </ol>
-                <a href="{{ route('backend.carExpense.create') }}" class="btn btn-info d-none d-lg-block m-l-15"><i
+                <a href="{{ route('backend.bookingPurpose.create') }}" class="btn btn-info d-none d-lg-block m-l-15"><i
                         class="fa fa-plus-circle"></i> Create
                     New</a>
             </div>
@@ -29,8 +29,8 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Car</th>
+                                <th scope="col">Maximum Free Counter</th>
+                                <th scope="col">Description</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -40,15 +40,15 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $bookingPurpose->name }}</td>
-                                    <td>{{ $bookingPurpose->amount }}</td>
-                                    <td>{{ $bookingPurpose->car->name ?? '#' }}</td>
+                                    <td>{{ $bookingPurpose->max_free_counter }}</td>
+                                    <td>{{ $bookingPurpose->description }}</td>
                                     <td>{{ $bookingPurpose->created_at->format('d/m/Y') }}</td>
                                     <td>
-                                        <a class="btn btn-warning btn-circle" href="{{ route('backend.carExpense.edit', $bookingPurpose) }}">
+                                        <a class="btn btn-warning btn-circle" href="{{ route('backend.bookingPurpose.edit', $bookingPurpose) }}">
                                             <i class="fa fa-pen"></i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-circle delete-btn"
-                                            value="{{ route('backend.carExpense.destroy', $bookingPurpose) }}">
+                                            value="{{ route('backend.bookingPurpose.destroy', $bookingPurpose) }}">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </td>
