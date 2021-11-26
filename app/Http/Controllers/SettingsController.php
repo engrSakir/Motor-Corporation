@@ -74,16 +74,17 @@ class SettingsController extends Controller
             'mobile' => 'nullable|numeric',
             'email' => 'nullable|email',
             'facebook' => 'nullable|string',
-            'twitter' => 'nullable|string',
-            'linkedin' => 'nullable|string',
-            'google' => 'nullable|string',
-            'rss' => 'nullable|string',
-            'youtube' => 'nullable|string',
-            'instagram' => 'nullable|string',
+            'title1' => 'nullable|string',
+            'video1' => 'nullable|string',
+            'title2' => 'nullable|string',
+            'video2' => 'nullable|string',
+            'title3' => 'nullable|string',
+            'video3' => 'nullable|string',
             'line1' => 'nullable|string',
             'time1' => 'nullable|string',
             'logo' => 'nullable|image',
             'about' => 'nullable|string',         
+            'banner_video' => 'nullable|file|mimetypes:video/mp4',
 
         ]);
 
@@ -92,12 +93,12 @@ class SettingsController extends Controller
         update_static_option('address', $request->address);
 
         update_static_option('facebook', $request->facebook ?? '#');
-        update_static_option('twitter', $request->twitter ?? '#');
-        update_static_option('linkedin', $request->linkedin ?? '#');
-        update_static_option('google', $request->google ?? '#');
-        update_static_option('rss', $request->rss ?? '#');
-        update_static_option('youtube', $request->youtube ?? '#');
-        update_static_option('instagram', $request->instagram ?? '#');
+        update_static_option('title1', $request->title1);
+        update_static_option('video1', $request->video1);
+        update_static_option('title2', $request->title2);
+        update_static_option('video2', $request->video2);
+        update_static_option('title3', $request->title3);
+        update_static_option('video3', $request->video3);
 
         update_static_option('facebook_page_id', $request->facebook_page_id);
         update_static_option('facebook_page_access_token', $request->facebook_page_access_token);
@@ -107,6 +108,10 @@ class SettingsController extends Controller
      
        if($request->hasFile('logo')){
         update_static_option('logo',file_uploader('uploads/logo/', $request->logo, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8)));
+        
+      }
+      if($request->hasFile('banner_video')){
+        update_static_option('banner_video',file_uploader('uploads/banner_video/', $request->banner_video, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8)));
         
       }
       

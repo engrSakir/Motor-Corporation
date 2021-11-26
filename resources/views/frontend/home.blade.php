@@ -14,7 +14,7 @@
                                 <li>
                                     <video autoplay muted loop id="myVideo"
                                         style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;"
-                                        src="{{ asset('assets/videos/cover_1.mp4') }}"></video>
+                                        src="{{ asset(get_static_option('banner_video') ?? 'assets/videos/cover_1.mp4') }}"></video>
                                     <div class="container ">
                                         <div class="content_slideshow">
                                             <div class="row">
@@ -881,17 +881,14 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="https://www.youtube.com/embed/gHgwnI28Ahc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video1') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <ul class="post-meta">
-                                <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
-                            </ul>
-                            <h3><a href="blog-detail.html">Powerful and flexible premium Ecommerce themes</a></h3>
-                            <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi
-                                metus, semper eu dictum nec...</p>
+                            
+                            <h3><a href="#">{{ get_static_option('title1') }}</a></h3>
+                           
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -900,17 +897,14 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="https://www.youtube.com/embed/gHgwnI28Ahc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video2') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <ul class="post-meta">
-                                <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
-                            </ul>
-                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
-                            <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac
-                                felis erat sed elit bibendum ...</p>
+                            
+                            <h3><a href="#">{{ get_static_option('title2') }}</a></h3>
+                           
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -919,17 +913,14 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="https://www.youtube.com/embed/gHgwnI28Ahc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video3') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <ul class="post-meta">
-                                <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
-                            </ul>
-                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
-                            <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac
-                                felis erat sed elit bibendum ...</p>
+                            
+                            <h3><a href="#">{{ get_static_option('title3') }}</a></h3>
+                            
                         </div>
                     </div>
                     <!--blog_inner-->

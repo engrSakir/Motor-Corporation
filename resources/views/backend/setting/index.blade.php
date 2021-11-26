@@ -91,9 +91,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label for="twitter">Twitter</label>
-                                            <input type="text" name="twitter" value="{{ get_static_option('twitter') }}" id="twitter" class="form-control">
-                                            @error('twitter')
+                                    <label for="twitter">Title 1</label>
+                                            <input type="text" name="title1" value="{{ get_static_option('title1') }}" id="title1" class="form-control">
+                                            @error('title1')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
@@ -103,9 +103,36 @@
                                 <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label for="linkedin">Linkedin</label>
-                                            <input type="text" name="linkedin" value="{{ get_static_option('linkedin') }}" id="linkedin" class="form-control">
-                                            @error('linkedin')
+                                    <label for="linkedin">Video URL 1</label>
+                                            <input type="text" name="video1" value="{{ get_static_option('video1') }}" id="video1" class="form-control">
+                                            @error('video1')
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                             <!--/row-->
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="twitter">Title 2</label>
+                                            <input type="text" name="title2" value="{{ get_static_option('title2') }}" id="title3" class="form-control">
+                                            @error('title2')
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="linkedin">Video URL 2</label>
+                                            <input type="text" name="video2" value="{{ get_static_option('video2') }}" id="video3" class="form-control">
+                                            @error('video2')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
@@ -115,37 +142,13 @@
                                 <!--/span-->
                             </div>
                             <!--/row-->
-                            <div class="row">
+                             <!--/row-->
+                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label for="google">Google</label>
-                                            <input type="text" name="google" value="{{ get_static_option('google') }}" id="google" class="form-control">
-                                            @error('google')
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label for="rss">RSS</label>
-                                            <input type="text" name="rss" value="{{ get_static_option('rss') }}" id="rss" class="form-control">
-                                            @error('rss')
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label for="facebook">Youtube</label>
-                                            <input type="text" name="youtube" value="{{ get_static_option('youtube') }}" id="youtube" class="form-control">
-                                            @error('youtube')
+                                    <label for="twitter">Title 3</label>
+                                            <input type="text" name="title3" value="{{ get_static_option('title3') }}" id="title3" class="form-control">
+                                            @error('title3')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
@@ -153,21 +156,21 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-
-                            <!--/row-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label for="twitter">Instagram</label>
-                                            <input type="text" name="instagram" value="{{ get_static_option('instagram') }}" id="instagram" class="form-control">
-                                            @error('instagram')
+                                    <label for="linkedin">Video URL 3</label>
+                                            <input type="text" name="video3" value="{{ get_static_option('video3') }}" id="video3" class="form-control">
+                                            @error('video3')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
                                             @enderror
                                     </div>
                                 </div>
-                                </div>
                                 <!--/span-->
+                            </div>
+                             
+                           
                                 <div class="row">
 
                                 <div class="col-md-6">
@@ -178,6 +181,19 @@
                                                 <img src="{{ asset(get_static_option('logo')) }}" width="100" class="img-circle elevation-2">
                                             </div>
                                             @error('logo')
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="banner_image">Banner Video</label>
+                                            <input type="file" name="banner_video" value="{{ get_static_option('banner_video') }}" id="banner_video" class="form-control">
+                                            
+                                            @error('banner_video')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
