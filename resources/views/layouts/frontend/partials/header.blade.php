@@ -8,8 +8,9 @@
                         <a href="{{ url('/') }}" title="Car HTML" class="logo">
                             <div>
                                 <img style="background-color:#000000; border-radius:15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);"
-                                    src="{{ asset('assets/frontend/images/logo-bg.png') }}" height="110px"
+                                    src="{{ asset(get_static_option('logo') ?? 'assets/frontend/images/logo-bg.png') }}" height="110px"
                                     alt="Car Store">
+                                 
                             </div>
                         </a>
                     </div>

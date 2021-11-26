@@ -54,6 +54,8 @@
                         <li><a href="{{ route('backend.carCategory.index') }}">Car Category </a></li>
                         <li><a href="{{ route('backend.paymentMethod.index') }}">Payment Method</a></li>
                         <li><a href="{{ route('backend.bookingPurpose.index') }}">Booking Purpose</a></li>
+                        <li><a href="{{ route('backend.settings') }}">Frontend Settings</a></li>
+
                     </ul>
                 </li>
               <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->

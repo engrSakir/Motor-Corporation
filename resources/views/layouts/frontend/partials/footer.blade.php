@@ -33,11 +33,10 @@
                     <div class="co-info">
                         <h4>SHOWROOM</h4>
                         <address>
-                            <div><span>Bashundhara extension road, Ka - 30, 2/1 Kuwaiti Mosque Rd, <br>
-                                    Dhaka 1212, Dhaka Division, Bangladesh</span></div>
-                            <div> <span> +8801762522594</span></div>
-                            <div> <span><a href="#">motorcorporation.bd@gmail.com</a></span></div>
-                            <div> <span>Mon - Fri : 09am to 06pm</span></div>
+                            <div><span>{{ get_static_option('address') }}</span></div>
+                            <div> <span> {{ get_static_option('mobile') }}</span></div>
+                            <div> <span><a href="#">{{ get_static_option('email') }}</a></span></div>
+                            <div> <span>{{ get_static_option('line1') }} : {{ get_static_option('time1') }}</span></div>
                         </address>
                     </div>
                 </div>

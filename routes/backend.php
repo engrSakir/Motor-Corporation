@@ -16,6 +16,8 @@ use App\Http\Controllers\Backend\CarExpenseController;
 use App\Http\Controllers\Backend\ExpenseCategoryController;
 use App\Http\Controllers\Backend\PaymentMethodController;
 use App\Http\Controllers\Backend\PurchaseOrderController;
+use App\Http\Controllers\SettingsController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +48,8 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('paymentMethod', PaymentMethodController::class);
     Route::resource('purchaseOrder', PurchaseOrderController::class);
     Route::get('/customer', [ InvoiceController::class, 'customer'])->name('invoice.customer');
+    Route::get('settings', [SettingsController::class, 'index'])->name('settings');
+    Route::post('settings', [SettingsController::class, 'update']);
 
 
 });
