@@ -1,17 +1,17 @@
-<!-- JavaScript --> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.min.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script> 
-<script src="{{ asset('assets/frontend/js/bootstrap-slider.min.js') }}"></script> 
-<script src="{{ asset('assets/frontend/js/bootstrap-select.min.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/parallax.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/revslider.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/common.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.bxslider.min.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.mobile-menu.min.js') }}"></script> 
-<script src="{{ asset('assets/frontend/js/countdown.js') }}"></script> 
+<!-- JavaScript -->
+<script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/bootstrap-slider.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/bootstrap-select.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/parallax.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/revslider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/common.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.bxslider.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.mobile-menu.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/countdown.js') }}"></script>
 <script>
-        jQuery(document).ready(function(){
+    jQuery(document).ready(function(){
             jQuery('#rev_slider_4').show().revolution({
                 dottedOverlay: 'none',
                 delay: 5000,
@@ -81,16 +81,16 @@
                 fullScreenOffsetContainer: ''
             });
         });
-        </script> 
+</script>
 <script type="text/javascript">
     function HideMe()
     {
         jQuery('.popup1').hide();
         jQuery('#fade').hide();
     }
-</script> 
+</script>
 <script>
-      var dthen1 = new Date("12/25/17 11:59:00 PM");
+    var dthen1 = new Date("12/25/17 11:59:00 PM");
       start = "08/04/15 03:02:11 AM";
       start_date = Date.parse(start);
       var dnow1 = new Date(start_date);
@@ -102,5 +102,4 @@
       
       var iid1 = "countbox_1";
       CountBack_slider(gsecs1, "countbox_1", 1);
-    </script>
-
+</script>

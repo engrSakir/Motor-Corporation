@@ -886,9 +886,7 @@
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            
-                            <h3><a href="#">{{ get_static_option('title1') }}</a></h3>
-                           
+                            <h3><a href="{{ get_static_option('video1') }}" target="_blank">{{ get_static_option('title1') }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -902,9 +900,7 @@
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            
-                            <h3><a href="#">{{ get_static_option('title2') }}</a></h3>
-                           
+                            <h3><a  href="{{ get_static_option('video2') }}" target="_blank">{{ get_static_option('title2') }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -918,17 +914,13 @@
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            
-                            <h3><a href="#">{{ get_static_option('title3') }}</a></h3>
-                            
+                            <h3><a  href="{{ get_static_option('video3') }}" target="_blank">{{ get_static_option('title3') }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
                 </div>
             </div>
         </div>
-        <!--END For version 1,2,3,4,5,6,8 -->
-        <!--exclude For version 6 -->
         <!--container-->
     </div>
     <!--end latest blogs -->
