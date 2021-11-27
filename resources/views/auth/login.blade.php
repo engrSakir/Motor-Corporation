@@ -67,21 +67,6 @@
                                     </div>
                                 </li>
                             </ul>
-                            <div class="remember-me-popup">
-                                <div class="remember-me-popup-head" style="display:none">
-                                    <h3 id="text2">What's this?</h3>
-                                    <a href="#" class="remember-me-popup-close" onclick="showDiv()"
-                                        title="Close">Close</a>
-                                </div>
-                                <div class="remember-me-popup-body" style="display:none">
-                                    <p id="text1">Checking "Remember Me" will let you access your shopping cart on this
-                                        computer when you are logged out</p>
-                                    <div class="remember-me-popup-close-button a-right">
-                                        <a href="#" class="remember-me-popup-close button"
-                                            title="Close"><span>Close</span></a>
-                                    </div>
-                                </div>
-                            </div>
                             <p class="required">* Required Fields</p>
                             <div class="buttons-set">
                                 <button type="submit" class="button login" title="Login" name="send"

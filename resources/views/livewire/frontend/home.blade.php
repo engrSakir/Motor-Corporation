@@ -1,7 +1,4 @@
-
-@extends('layouts.frontend.app')
-@push('title') Motor Corporation @endpush
-@section('content')
+<div class="content">
     {{-- Main banner --}}
     <div class="container-fluid">
         <div class="row">
@@ -36,16 +33,18 @@
                                                             style='z-index:3; white-space:nowrap;'><span
                                                                 style="font-weight:normal; display:block">Modern-classic</span>
                                                             incredible </div>
-                                                        <div class='tp-caption Title sft  tp-resizeme ' data-endspeed='500'
-                                                            data-speed='500' data-start='1450'
+                                                        <div class='tp-caption Title sft  tp-resizeme '
+                                                            data-endspeed='500' data-speed='500' data-start='1450'
                                                             data-easing='Power2.easeInOut' data-splitin='none'
                                                             data-splitout='none' data-elementdelay='0.1'
                                                             data-endelementdelay='0.1'
-                                                            style='z-index:4; white-space:nowrap;'>Get 40% OFF on selected
+                                                            style='z-index:4; white-space:nowrap;'>Get 40% OFF on
+                                                            selected
                                                             items.</div>
                                                         <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500'
-                                                            data-speed='500' data-start='1500' data-easing='Linear.easeNone'
-                                                            data-splitin='none' data-splitout='none' data-elementdelay='0.1'
+                                                            data-speed='500' data-start='1500'
+                                                            data-easing='Linear.easeNone' data-splitin='none'
+                                                            data-splitout='none' data-elementdelay='0.1'
                                                             data-endelementdelay='0.1'
                                                             style='z-index:4; white-space:nowrap;'><a href='#'
                                                                 class="buy-btn">Booking Now</a>
@@ -158,7 +157,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -211,7 +211,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -265,7 +266,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -318,7 +320,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -372,7 +375,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -427,7 +431,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -494,7 +499,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -547,7 +553,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -601,7 +608,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -654,7 +662,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -708,7 +717,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -763,7 +773,8 @@
                             <div class="item-info">
                                 <div class="info-inner">
                                     <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>
+                                            title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain
+                                            Luxury</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -818,7 +829,8 @@
                                 <li><i class="fa fa-comments"></i><a href="#">4 comments</a> </li>
                             </ul>
                             <h3><a href="blog-detail.html">Powerful and flexible premium Ecommerce themes</a></h3>
-                            <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi
+                            <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut
+                                mi
                                 metus, semper eu dictum nec...</p>
                         </div>
                     </div>
@@ -836,7 +848,8 @@
                                 <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
                                 <li><i class="fa fa-comments"></i><a href="#">8 comments</a> </li>
                             </ul>
-                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
+                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a>
+                            </h3>
                             <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac
                                 felis erat sed elit bibendum ...</p>
                         </div>
@@ -855,7 +868,8 @@
                                 <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
                                 <li><i class="fa fa-comments"></i><a href="#">8 comments</a> </li>
                             </ul>
-                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
+                            <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a>
+                            </h3>
                             <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac
                                 felis erat sed elit bibendum ...</p>
                         </div>
@@ -881,12 +895,16 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video1') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video1') }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <h3><a href="{{ get_static_option('video1') }}" target="_blank">{{ get_static_option('title1') }}</a></h3>
+                            <h3><a href="{{ get_static_option('video1') }}" target="_blank">{{
+                                    get_static_option('title1') }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -895,12 +913,16 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video2') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video2') }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <h3><a  href="{{ get_static_option('video2') }}" target="_blank">{{ get_static_option('title2') }}</a></h3>
+                            <h3><a href="{{ get_static_option('video2') }}" target="_blank">{{
+                                    get_static_option('title2') }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -909,12 +931,16 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video3') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video3') }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <h3><a  href="{{ get_static_option('video3') }}" target="_blank">{{ get_static_option('title3') }}</a></h3>
+                            <h3><a href="{{ get_static_option('video3') }}" target="_blank">{{
+                                    get_static_option('title3') }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
@@ -924,12 +950,4 @@
         <!--container-->
     </div>
     <!--end latest blogs -->
-@endsection
-
-@push('head')
-
-@endpush
-
-@push('foot')
-
-@endpush
+</div>

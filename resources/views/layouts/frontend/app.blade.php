@@ -3,18 +3,18 @@
 
 <head>
 @include('layouts.frontend.partials.head')
-
+@livewireStyles
 </head>
 <body>
 <div id="page">
 @include('layouts.frontend.partials.header')
 
   <!--container-->
-
-  <div class="content">
+  @if(isset($slot))
+  {{ $slot }}
+  @else
   @yield('content')
-
-  </div>
+  @endif
 
   <!-- For version 1,2,3,4,6 -->
   @include('layouts.frontend.partials.footer')
@@ -224,5 +224,6 @@
 <div id="fade" style="display: block;"></div> --}}
 
 @include('layouts.frontend.partials.foot')
+@livewireScripts
 </body>
 </html>
