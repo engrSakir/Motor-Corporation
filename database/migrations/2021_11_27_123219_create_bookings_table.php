@@ -15,6 +15,7 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('status')->default('waiting'); //waiting/ accepted/ rejected /done 
             $table->string('name');
             $table->date('date')->nullable();
             $table->string('email')->nullable();

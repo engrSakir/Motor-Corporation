@@ -15,6 +15,7 @@ class CreateBookingPurposesTable extends Migration
     {
         Schema::create('booking_purposes', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
             $table->string('name');
             $table->longText('description')->nullable();
             $table->integer('max_free_counter')->default(0);
