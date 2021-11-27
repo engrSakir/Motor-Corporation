@@ -77,7 +77,7 @@
                             </div>
                             <!--/span-->
                             <div class="col-md-6">
-                                <div class="form-group">
+                               <!-- <div class="form-group">
                                     <label for="facebook">Facebook</label>
                                     <input type="text" name="facebook" value="{{ get_static_option('facebook') }}"
                                         id="facebook" class="form-control">
@@ -86,7 +86,7 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                </div>
+                                </div>-->
                             </div>
                             <!--/span-->
                         </div>
@@ -188,7 +188,7 @@
                                     <input type="file" name="logo" value="{{ get_static_option('logo') }}" id="logo"
                                         class="form-control">
                                     <div class="image">
-                                        <img src="{{ asset(get_static_option('logo')) }}" width="100"
+                                        <img src="{{ asset(get_static_option('logo')) ?? 'assets/images/logo-bg.png' }}" width="100"
                                             class="img-circle elevation-2">
                                     </div>
                                     @error('logo')
@@ -219,7 +219,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 ">
-                                <div class="form-group">
+                               <!-- <div class="form-group">
                                     <label for="facebook_page_id">Facebook page ID</label>
                                     <input type="text" name="facebook_page_id"
                                         value="{{ get_static_option('facebook_page_id') }}" id="facebook_page_id"
@@ -229,12 +229,12 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
+                               <!-- <div class="form-group">
                                     <label for="facebook_page_access_token">Facebook page Access token</label>
                                     <input type="text" name="facebook_page_access_token"
                                         value="{{ get_static_option('facebook_page_access_token') }}"
@@ -244,7 +244,7 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                </div>
+                                </div>-->
                             </div>
                             <!--/span-->
                             <div class="col-md-6">
@@ -280,7 +280,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
+                               <!-- <div class="form-group">
                                     <label for="address">About Company</label>
                                     <textarea class="ckeditor form-control"
                                         name="about">{{ get_static_option('about') }}</textarea>
@@ -289,7 +289,7 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                </div>
+                                </div> -->
                             </div>
                             <!--/span-->
                             <div class="col-md-6">

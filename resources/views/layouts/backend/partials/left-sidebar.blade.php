@@ -4,12 +4,12 @@
         <!-- User Profile-->
         <div class="user-profile">
             <div class="user-pro-body">
-                <div><img src="assets/images/users/2.jpg" alt="user-img" class="img-circle"></div>
+                <div><img src="{{ asset(auth()->user()->image ?? 'assets/images/users/2.jpg') }}" alt="user-img" class="img-circle"></div>
                 <div class="dropdown">
-                    <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Steave Gection <span class="caret"></span></a>
+                    <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
                     <div class="dropdown-menu animated flipInY">
                         <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                        <a href="{{ route('backend.profile') }}" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
                         <!-- text-->
                         <a href="javascript:void(0)" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
                         <!-- text-->
@@ -30,7 +30,6 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="nav-small-cap">--- Crypto</li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('dashboard') }}" aria-expanded="false"><i class="icon-speedometer text-danger"></i><span class="hide-menu">Dashboard</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.investor.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Investor</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.vendorInfo.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Vendor</span></a></li>
@@ -51,13 +50,18 @@
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Settings</span></a>
                     <ul aria-expanded="false" class="collapse">
+                    <li><a href="{{ route('backend.user.index') }}">Add User</a></li>
+
                         <li><a href="{{ route('backend.carCategory.index') }}">Car Category </a></li>
                         <li><a href="{{ route('backend.paymentMethod.index') }}">Payment Method</a></li>
                         <li><a href="{{ route('backend.bookingPurpose.index') }}">Booking Purpose</a></li>
                         <li><a href="{{ route('backend.settings') }}">Frontend Settings</a></li>
 
+
                     </ul>
                 </li>
+                <li> <a class="waves-effect waves-dark" href="{{ route('backend.booking.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Booking</span></a></li>
+
               <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->
             </ul>
         </nav>
