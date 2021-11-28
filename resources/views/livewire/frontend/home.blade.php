@@ -177,9 +177,9 @@
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> {{ $dealcar->mileages }}</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
+                                            <div class="col-engine"><i class="fa fa-gear"></i>{{ $dealcar->model }}</div>
                                             <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2018</div>
+                                            {{ $dealcar->brand }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -249,9 +249,9 @@
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> {{ $popularcar->mileages }}</div>
-                                            <div class="col-engine"><i class="fa fa-gear"></i> Manual</div>
+                                            <div class="col-engine"><i class="fa fa-gear"></i> {{ $popularcar->model }}</div>
                                             <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                2018</div>
+                                            {{ $popularcar->brand }}</div>
                                         </div>
                                     </div>
                                 </div>

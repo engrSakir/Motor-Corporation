@@ -20,7 +20,6 @@ class CreateBookingsTable extends Migration
             $table->date('date')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('image')->nullable();
             $table->foreignId('booking_purpose_id')->nullable();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

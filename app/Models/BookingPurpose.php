@@ -16,4 +16,9 @@ class BookingPurpose extends Model
         'description',
         'max_free_counter'
     ];
+
+    public function booking()
+    {
+        return $this->hasMany(Booking::class, 'booking_purpose_id', 'id');
+    }
 }

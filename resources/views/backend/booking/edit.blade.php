@@ -5,13 +5,13 @@
 @section('content')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">Booking  Create Page</h4>
+            <h4 class="text-themecolor">Booking  Edit Page</h4>
         </div>
         <div class="col-md-7 align-self-center text-end">
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Booking  Create Page</li>
+                    <li class="breadcrumb-item active">Booking  Edit Page</li>
                 </ol>
                 
             </div>
@@ -23,7 +23,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header bg-info">
-                    <h4 class="mb-0 text-white">Create Booking </h4>
+                    <h4 class="mb-0 text-white">Edit Booking </h4>
                 </div>
                 <form action="{{ route('backend.booking.update',$booking) }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
                     @csrf
@@ -73,7 +73,7 @@
                               
 
                                 <div class="col-md-6">
-                                <div class="form-group">
+                               <!-- <div class="form-group">
                                         <label class="form-label" for="image">Image </label>
                                         <input type="file" accept="image/*" id="image" name="image" class="form-control" placeholder="image" value="{{ old('image') }}">
                                         @error('image')
@@ -81,7 +81,7 @@
                                             {{ $message }}
                                         </div>
                                         @enderror
-                                    </div>
+                                    </div>-->
                                 </div>
 
                             </div>

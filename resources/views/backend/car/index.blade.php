@@ -12,6 +12,8 @@
                 <li class="breadcrumb-item active">Car Page</li>
             </ol>
             <a href="{{ route('backend.car.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Purchase</a>
+            <a href="{{ route('backend.purchaseOrder.index') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Purchase Order</a>
+
         </div>
     </div>
 </div>

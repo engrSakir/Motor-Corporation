@@ -17,4 +17,10 @@ class Booking extends Model
         'phone',
         'booking_purpose_id'
     ];
+
+    public function bookingPurpose()
+    {
+        return $this->belongsTo(BookingPurpose::class, 'booking_purpose_id', 'id');
+    }
+   
 }

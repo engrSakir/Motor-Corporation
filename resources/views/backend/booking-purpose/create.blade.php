@@ -55,7 +55,17 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                              
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                        <label class="form-label" for="image">Image </label>
+                                        <input type="file" accept="image/*" id="image" name="image" class="form-control" placeholder="image" value="{{ old('image') }}">
+                                        @error('image')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">

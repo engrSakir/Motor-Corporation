@@ -119,7 +119,7 @@
                                     <div class="blog_inner">
                                         <div class="blog-img">
                                             <a href="javascript:vaoid(0)">
-                                                <img src="https://image.freepik.com/free-vector/detailed-car-wash-service-concept-illustration_23-2149038677.jpg"
+                                                <img src="{{ asset($bookingPurpos->image ?? 'uploads/images/no_image.png') }}"
                                                     alt="" width="400" height="250">
                                             </a>
                                         </div>

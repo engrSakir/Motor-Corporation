@@ -12,7 +12,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Md. Sakir Ahmed</p>
+            <p class="loader__label">Motor Corporation</p>
         </div>
     </div>
     <!-- ============================================================== -->

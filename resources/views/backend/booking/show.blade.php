@@ -55,6 +55,10 @@
                                     <td>Created at</td>
                                     <td>{{$booking->created_at->format('d/m/Y') }}</td>
                                 </tr>
+                                <tr>
+                                    <td>Booking Purpose</td>
+                                    <td>{{$booking->bookingPurpose->name }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

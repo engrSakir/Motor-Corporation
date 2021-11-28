@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\BookingPurpose;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class BookingPurposeController extends Controller
@@ -47,7 +49,11 @@ class BookingPurposeController extends Controller
         $bookingPurpose->name = $request->booking_name;
         $bookingPurpose->max_free_counter = $request->free_counter;
         $bookingPurpose->description = $request->description;
+        if ($request->file('image')) {
+            $bookingPurpose->image = file_uploader('uploads/booking-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
+        }
         $bookingPurpose->save();
+
         toastr()->success('Successfully Saved!');
         return back();
     }
@@ -92,6 +98,9 @@ class BookingPurposeController extends Controller
         $bookingPurpose->name = $request->booking_name;
         $bookingPurpose->max_free_counter = $request->free_counter;
         $bookingPurpose->description = $request->description;
+        if ($request->file('image')) {
+            $bookingPurpose->image = file_uploader('uploads/booking-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
+        }
         $bookingPurpose->save();
         toastr()->success('Successfully Updated!');
         return back();
