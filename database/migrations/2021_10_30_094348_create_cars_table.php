@@ -28,6 +28,7 @@ class CreateCarsTable extends Migration
             $table->string('image')->nullable();
             $table->string('registration')->nullable();
             $table->string('mileages')->nullable();
+            $table->string('placement')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->foreignId('created_by')->nullable();

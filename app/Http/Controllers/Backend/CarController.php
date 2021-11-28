@@ -47,7 +47,6 @@ class CarController extends Controller
         Car::create([
             'car_category_id' => $request->category,
             'vendor_id' => $request->vendor,
-            // 'status' => $request->status,
             'name' => $request->name,
             'brand' => $request->brand,
             'model' => $request->model,
@@ -58,6 +57,7 @@ class CarController extends Controller
             'image' => $request->image,
             'registration' => $request->registration,
             'mileages' => $request->mileages,
+            'placement' => $request->placements,
             'description' => $request->description
         ]);
         toastr()->success('Saved');
@@ -103,7 +103,6 @@ class CarController extends Controller
        $car->update([
             'car_category_id' => $request->category,
             'vendor_id' => $request->vendor,
-            // 'status' => $request->status,
             'name' => $request->name,
             'brand' => $request->brand,
             'model' => $request->model,
@@ -114,6 +113,7 @@ class CarController extends Controller
             'image' => $request->image,
             'registration' => $request->registration,
             'mileages' => $request->mileages,
+            'placement' => $request->placements,
             'description' => $request->description
         ]);
         toastr()->success('Saved');

@@ -25,6 +25,7 @@ class Car extends Model
         'image',
         'registration',
         'mileages',
+        'placement',
         'description',
     ];
 

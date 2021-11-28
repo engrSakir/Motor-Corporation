@@ -11,7 +11,6 @@
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                 <li class="breadcrumb-item active">Investor</li>
             </ol>
-            <a href="{{ route('backend.investment.index') }}" class="btn btn-success d-none d-lg-block m-l-15"><i class="fa fa-activity"></i> Investment</a>
 
             <a href="{{ route('backend.investor.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</a>
         </div>
