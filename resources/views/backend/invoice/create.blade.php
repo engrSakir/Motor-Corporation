@@ -30,17 +30,13 @@
             background: rgb(46, 46, 46);
             border-radius: 15px;
             cursor: pointer;
-
         }
-
         .productCard:hover {
             background: linear-gradient(to top, #cca356 0%, #ff99cc 100%);
         }
-
         .productContent a {
             color: white;
         }
-
         .select2 {
             background: linear-gradient(to top, #cca356 0%, #ff99cc 100%);
             margin: 5px;
@@ -51,7 +47,6 @@
             font-size: 16px;
             overflow: hidden;
         }
-
     </style>
 </head>
 <!--end::Head-->
@@ -172,7 +167,7 @@
                                         <input type="hidden" class="item_name" value="{{ $item->name }}">
                                         <input type="hidden" class="item_price"
                                             value="{{ $item->selling_price }}">
-                                        <input type="hidden" class="item_vat"
+                                        <input type="hidden" class="item_vat_percentage"
                                             value="{{ $item->vat_percentage }}">
                                         <div class="productCard">
                                             <div class="">
@@ -378,7 +373,6 @@
         $(document).ready(function() {
             $('.select2').select2();
         });
-
         $("#item_category").change(function() {
             var category = this.value;
             // alert(category);
@@ -402,7 +396,7 @@
                             `"><input type="hidden" class="item_name" value="` + value.name +
                             `"><input type="hidden" class="item_price" value="` + value
                             .selling_price + `">
-                            <input type="hidden" class="item_vat" value="` + value.vat_percentage + `">
+                            <input type="hidden" class="item_vat_percentage" value="` + value.vat_percentage + `">
                         <div class="productCard">
                         <div class="">
                         <img style="" class="img-fluid product_card_image" src="` + item_image + `" alt="">
@@ -414,35 +408,36 @@
                 }
             });
         });
-
         $('#item_area').on('click', '.item_card', function() {
             var item_id = $(this).find('.item_id').val();
             var item_name = $(this).find('.item_name').val();
             var item_price = $(this).find('.item_price').val();
-            var item_vat = $(this).find('.item_vat').val();
-            let qunatity = $("#selected_item_qty_for_" + item_id).val();
-            if (qunatity == null) {
-                qunatity = 1;
-            }
+            var item_vat_percentage = $(this).find('.item_vat_percentage').val();
             // alert(item_name);
             if ($("#selected_item_for_" + item_id).length > 0) {
                 // update price with incease quantity
-                $("#selected_item_qty_for_" + item_id).val(parseInt(qunatity) + 1);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'info',
+                    title: 'Already add',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                // $("#selected_item_qty_for_" + item_id).val(parseInt($("#selected_item_qty_for_" + item_id).val()) +
+                //     1);
+                // inner_calculation();
             } else {
                 //jQuery append row in table
                 table_tr = `<tr id="selected_item_for_` + item_id + `">
-                            <input type="hidden" class="selected_item" name="selected_items[]" value="` + item_id + `">
+                            <input type="hidden" readonly class="selected_item" name="selected_items[]" value="` + item_id + `">
                             <td id="selected_item_name_for_` + item_id + `">` + item_name +
                     `</td>
-                            <td> <input type="number" value="1" class="form-control border-dark w-100px selected_item_qty" id="selected_item_qty_for_` +
+                            <td> <input type="number" readonly value="1" class="form-control border-dark w-100px selected_item_qty" id="selected_item_qty_for_` +
                     item_id + `" placeholder=""> </td>
                             <td id="selected_item_vat_for_` + item_id + `" class="selected_item_vat">` +
-                    item_vat + `</td>
-                            <td id="selected_item_price_for_` + item_id + `" class="selected_item_price">` +
-                    item_price +
-                    `</td>
-                            <td><input type="number"  class="form-control border-dark w-200px selected_item_total_price" id="selected_item_total_price_for_` +
-                    item_id + `"/></td>
+                    item_vat_percentage + `% </td>
+                            <td> <input type="number" id="selected_item_price_for_` + item_id + `" class="selected_item_price" value="`+item_price+`"/></td>
+                            <td class="selected_item_total_price">000</td>
                             <td>
                             <div class="card-toolbar text-right">
                             <a href="javascript:void(0)" class="item_remover" title="Delete"><i class="fas fa-trash-alt text-danger"></i></a>
@@ -450,52 +445,29 @@
                             </td>
                             </tr>`;
                 $('#orderTable  > tbody').append(table_tr);
-            }
                 inner_calculation();
-            
+            }
         });
-
         $('#orderTable').on('click', '.item_remover', function() {
             $(this).closest("tr").remove();
             inner_calculation();
         });
-
         $('#orderTable').on('keyup change', function() {
             inner_calculation();
         });
-
         $('#counter_table').on('keyup change', function() {
             discount_calculate();
             // console.log('%'+$('#discount_percentage').val());
             // console.log('F'+$('#discount_fixed_amount').val());
         });
-        $('#orderTable').on('keyup change', '.selected_item_total_price', function() {
-            let total_price = 0;
-            let total_vat = 0;
-            $('#orderTable tbody tr').each(function(i, element) {
-                let sub_total_price = parseFloat($(this).find('.selected_item_total_price').val());
-                let qty = parseInt($(this).find('.selected_item_qty').val());
-                let price_with_vat_for_one = sub_total_price/qty;
-                let price_for_one = ((100 * price_with_vat_for_one) / 115).toFixed(2);
-                let vat_for_one = (price_with_vat_for_one - (100 * price_with_vat_for_one) / 115).toFixed(2);
-                $(this).find('.selected_item_price').text(price_for_one);
-                $(this).find('.selected_item_vat').text(vat_for_one);
-
-                // total_price += qty * price;
-                // total_vat += qty * vat;
-            });
-            $('#total_price').text((total_price).toFixed(2));
-            $('#total_vat').text((total_vat).toFixed(2));
-            discount_calculate();
-        });
-
         function inner_calculation() {
             let total_price = 0;
             let total_vat = 0;
             $('#orderTable tbody tr').each(function(i, element) {
                 var qty = parseInt($(this).find('.selected_item_qty').val());
-                var price = parseFloat($(this).find('.selected_item_price').text());
-                var vat = parseFloat($(this).find('.selected_item_vat').text());
+                var price = parseFloat($(this).find('.selected_item_price').val());
+                // var vat = parseFloat($(this).find('.selected_item_vat').text());
+                var vat = parseFloat((price / 100) * parseFloat($(this).find('.selected_item_vat').text()));
                 $(this).find('.selected_item_total_price').text((qty * (price + vat)).toFixed(2));
                 total_price += qty * price;
                 total_vat += qty * vat;
@@ -504,7 +476,6 @@
             $('#total_vat').text((total_vat).toFixed(2));
             discount_calculate();
         }
-
         function discount_calculate() {
             let price = $('#total_price').text();
             let discount_percentage = parseFloat($('#discount_percentage').val());
@@ -517,7 +488,6 @@
             $('#due_amount').text((price_after_discount + vat - payment_amount).toFixed(2));
             $('#total_price_include_vat').text((price_after_discount + vat).toFixed(2));
         }
-
         $('.mdal_close_a').click(function() {
             $('#modal').modal('hide');
             location.reload();
@@ -529,11 +499,11 @@
                 service_data_set.push({
                     'service': parseInt($(this).find('.selected_item').val()),
                     'quantity': parseInt($(this).find('.selected_item_qty').val()),
-                    'price': parseFloat($(this).find('.selected_item_price').text()),
-                    'vat': parseFloat($(this).find('.selected_item_vat').text()),
+                    'price': parseFloat($(this).find('.selected_item_price').val()),
+                    // 'vat': parseFloat($(this).find('.selected_item_vat').text()),
+                    'vat': parseFloat((parseFloat($(this).find('.selected_item_price').val()) / 100) * parseFloat($(this).find('.selected_item_vat').text())),
                 });
             });
-
             let pass = true;
             if(service_data_set.length <= 0){
                 alert('Please select a car.');
@@ -566,10 +536,8 @@
                     },
                     dataType: 'JSON',
                     beforeSend: function() {
-
                     },
                     complete: function() {
-
                     },
                     success: function(data) {
                         console.log(data)
@@ -584,7 +552,6 @@
                             $('#modal').modal('show');
                             $('#modal-body').html(`<iframe src="` + data.invoice_url +
                                 `" width="100%" height="400"></iframe>`);
-
                             $(".mdal_close_a").attr("href", data.btn_url)
                         } else {
                             Swal.fire({
@@ -600,7 +567,6 @@
                         $.each(error.responseJSON.responseText, function(key, value) {
                             console.log(value)
                         });
-
                         var errorMessage = '<div class="card bg-danger">\n' +
                             '                        <div class="card-body text-center p-5">\n' +
                             '                            <span class="text-white">';
