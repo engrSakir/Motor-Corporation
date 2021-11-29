@@ -57,6 +57,9 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::post('settings', [SettingsController::class, 'update']);
     Route::resource('booking', BookingController::class);
     Route::resource('user', UserController::class);
+    Route::get('/report', [DashboardController::class, 'indexReport'])->name('report.index');
+    Route::post('/report', [DashboardController::class, 'storeReport'])->name('report.store');
+
 
 
 

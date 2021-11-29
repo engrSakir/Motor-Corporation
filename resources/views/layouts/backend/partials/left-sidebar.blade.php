@@ -61,6 +61,7 @@
                     </ul>
                 </li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.booking.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Booking</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="{{ route('backend.report.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Report</span></a></li>
 
               <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->
             </ul>
