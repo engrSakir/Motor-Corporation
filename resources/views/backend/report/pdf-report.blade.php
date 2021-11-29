@@ -77,6 +77,27 @@
         </div>
     @endforeach
     <hr>
+    @php
+        $total_investment = 0;
+        $total_settlementt = 0;
+        foreach($investors as $investor){
+            $total_investment += $investor->totalInvestmentWithInterest();
+            $total_settlementt += $investor->totalSettlement();
+        }
+    @endphp
+    <div class="info">
+        <p> Total Investment include interest: &nbsp; <strong>{{  $total_investment }} BDT</strong></p>
+    </div>
+    <div class=" success">
+        <p> Total Settlement include interest: &nbsp; <strong>{{  $total_settlementt }} BDT</strong></p>
+    </div>
+    <hr>
+    @foreach($investors as $investor)
+    <div class=" @if ($loop->odd) info @else success @endif">
+        <p> {{ $investor->name }}: &nbsp; <strong>{{  round($investor->investmentPercentage(), 2) }}%</strong></p>
+    </div>
+    @endforeach
+    <hr>
     <h3>Invoice</h3>
     <table class="table color-bordered-table primary-bordered-table first">
                             <thead>

@@ -40,8 +40,7 @@ class DashboardController extends Controller
 
     public function indexReport()
     {
-        $expenses = Expense::orderBy('id','DESC')->get();
-        return view('backend.report.index', compact('expenses'));
+        return view('backend.report.index');
     }
 
     public function storeReport(Request $request)
@@ -55,11 +54,13 @@ class DashboardController extends Controller
 
         $invoices = Invoice::whereBetween('created_at',[$start,$end])->get();
         $expenses = Expense::whereBetween('created_at',[$start,$end])->get();
+        $investors = Investor::whereBetween('created_at',[$start,$end])->get();
 
         $total_sale_amount_of_this_month = 0;
         foreach($invoices as $inv){
             $total_sale_amount_of_this_month += $inv->price();
         }
+        
         $count_items = [
             [
                 'title' => 'Total Invoice : ',
@@ -70,12 +71,11 @@ class DashboardController extends Controller
                 'title' => 'Total Expense : ',
                 'count' => Expense::whereBetween('created_at',[$start,$end])->get()->sum('amount'),
             ],
-          
         ];
 
 
 
-        $pdf = PDF::loadView('backend.report.pdf-report', compact('start', 'end', 'count_items', 'invoices', 'expenses'));
+        $pdf = PDF::loadView('backend.report.pdf-report', compact('start', 'end', 'count_items', 'invoices', 'expenses', 'investors'));
         return $pdf->stream('Report-' . config('app.name') . '.pdf');
 
         // return view('backend.report.view', compact('start','end','expense','income','user','invoice','appointment','salary','services','expenses','employees','customers'));
