@@ -7,6 +7,8 @@ use App\Models\Car;
 use App\Models\CarCategory;
 use App\Models\VendorInfo;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class CarController extends Controller
 {
@@ -44,22 +46,25 @@ class CarController extends Controller
         $request->validate([
             'name' => 'required|string|unique:car_categories,name'
         ]);
-        Car::create([
-            'car_category_id' => $request->category,
-            'vendor_id' => $request->vendor,
-            'name' => $request->name,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'purchase_price' => $request->purchase_price,
-            'selling_price' => $request->selling_price,
-            'vat_percentage' => $request->vat_percentage,
-            'discount_percentage' => $request->discount_percentage,
-            'image' => $request->image,
-            'registration' => $request->registration,
-            'mileages' => $request->mileages,
-            'placement' => $request->placements,
-            'description' => $request->description
-        ]);
+        $car = new Car();
+        $car->car_category_id = $request->category;
+        $car->vendor_id = $request->vendor;
+        $car->name = $request->name;
+        $car->brand = $request->brand;
+        $car->model = $request->model;
+        $car->purchase_price = $request->purchase_price;
+        $car->selling_price = $request->selling_price;
+        $car->vat_percentage = $request->vat_percentage;
+        $car->discount_percentage = $request->discount_percentage;
+        $car->registration = $request->registration;
+        $car->mileages = $request->mileages;
+        $car->placement = $request->placements;
+        $car->description = $request->description;
+        if ($request->file('image')) {
+            $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
+        }
+        $car->save();
+
         toastr()->success('Saved');
         return back();
     }
@@ -100,22 +105,23 @@ class CarController extends Controller
         $request->validate([
             'name' => 'required|string|unique:car_categories,name'
         ]);
-       $car->update([
-            'car_category_id' => $request->category,
-            'vendor_id' => $request->vendor,
-            'name' => $request->name,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'purchase_price' => $request->purchase_price,
-            'selling_price' => $request->selling_price,
-            'vat_percentage' => $request->vat_percentage,
-            'discount_percentage' => $request->discount_percentage,
-            'image' => $request->image,
-            'registration' => $request->registration,
-            'mileages' => $request->mileages,
-            'placement' => $request->placements,
-            'description' => $request->description
-        ]);
+        $car->car_category_id = $request->category;
+        $car->vendor_id = $request->vendor;
+        $car->name = $request->name;
+        $car->brand = $request->brand;
+        $car->model = $request->model;
+        $car->purchase_price = $request->purchase_price;
+        $car->selling_price = $request->selling_price;
+        $car->vat_percentage = $request->vat_percentage;
+        $car->discount_percentage = $request->discount_percentage;
+        $car->registration = $request->registration;
+        $car->mileages = $request->mileages;
+        $car->placement = $request->placements;
+        $car->description = $request->description;
+        if ($request->file('image')) {
+            $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
+        }
+        $car->save();
         toastr()->success('Saved');
         return back();
     }
