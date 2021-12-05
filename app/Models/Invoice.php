@@ -46,6 +46,10 @@ class Invoice extends Model
         return $this->price() + $this->vat();
     }
 
+    public function discount(){
+        return $this->price() + $this->vat();
+    }
+
 }
 
 

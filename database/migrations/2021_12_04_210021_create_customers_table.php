@@ -21,6 +21,9 @@ class CreateCustomersTable extends Migration
             $table->string('address')->nullable();
             $table->string('image')->nullable();
             $table->longText('note')->nullable();
+            $table->foreignId('created_by')->nullable();
+            $table->foreignId('updated_by')->nullable();
+            $table->foreignId('deleted_by')->nullable();
             $table->timestamps();
         });
     }

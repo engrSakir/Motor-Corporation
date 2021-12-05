@@ -6,8 +6,8 @@ use Livewire\Component;
 use App\Models\Car;
 use App\Models\CarCategory;
 use App\Models\Invoice;
-use App\Models\InvoiceItem;
 use App\Models\PaymentMethod;
+use App\Models\Customer;
 use PDF;
 
 class Pos extends Component
@@ -15,96 +15,35 @@ class Pos extends Component
     public $carCategories = null;
     public $cars = null;
     public $paymentmethods = null;
-    public $basket = [];
-    public $discount_amount = 0;
+    public $customers = null;
+
+    public $searched_car = null;
+    public $searched_car_category = null;
+    public $selected_car = null;
+
+    public $selected_customer = null;
+    public $discount_fixed_amount = 0;
+    public $discount_percentage = 0;
     public $paid_amount = 0;
+    public $advance_for_booking = false;
+
+    public $selling_price = null;
+    public $have_to_pay = null;
     public $invoice_url  = null;
 
-    public $searched_key = null;
-    public $customer_phone = null;
+    // Customer
+    public $full_name = null;
+    public $email_address = null;
+    public $phone_number = null;
+    public $address = null;
+    public $image = null;
+    public $note = null;
 
-    public $searched_item = null;
-    public $searched_item_category = null;
 
-    public $sales_receipt_id = null;
-
-    public $selected_basket = null;
-    public $new_price = [];
-
-    public function addToCard($id)
+    public function addToCard($car_id)
     {
-        $this->invoice_url = null;
-        $this->searched_key = null;
-        foreach ($this->basket as $array_key => $val) {
-            if ($val['id'] === $id) {
-                $this->searched_key =  $array_key;
-            }
-        }
-        if($this->searched_key === null || count($this->basket) < 1){
-            array_push($this->basket, [
-                'id' => $id,
-                // 'qty' => 1,
-                'name' => Car::find($id)->name,
-                'price' => Car::find($id)->selling_price,
-                'vat_percentage' => Car::find($id)->vat_percentage,
-            ]);
-            /*
-                "id" => 6
-                "car_category_id" => 3
-                "vendor_id" => 12
-                "status" => "Available"
-                "name" => "Thomas Lambert"
-                "brand" => "Commodi perspiciatis"
-                "model" => "Non hic molestias mi"
-                "purchase_price" => 812.0
-                "selling_price" => 16.0
-                "vat_percentage" => 19.0
-                "discount_percentage" => 25.0
-                "image" => null
-                "registration" => "Hic nihil tenetur pa"
-                "mileages" => "Aut sed molestiae nu"
-                "placement" => "deal_of_the_week"
-                "description" => "Eligendi ex aliquid"
-                "created_at" => "2021-11-29 10:48:22"
-                "updated_at" => "2021-11-29 10:48:22"
-                "created_by" => 1
-                "updated_by" => 1
-                "deleted_by" => null
-            */
-        }else{
-            // $this->basket[$this->searched_key]['qty']++;
-            // $this->basket[$this->searched_key]['vat_percentage'] += Car::find($id)->price;
-        }
-    }
-
-    public function removeFromCard($id)
-    {
-        try{
-            $this->searched_key = null;
-            foreach ($this->basket as $array_key => $val) {
-                if ($val['id'] === $id) {
-                    $this->searched_key =  $array_key;
-                }
-            }
-            unset($this->basket[$this->searched_key]);
-        }catch(\Exception $e){
-
-        }
-    }
-
-    public function allRemoveFromCard($id)
-    {
-        try{
-            $this->searched_key = null;
-            foreach ($this->basket as $array_key => $val) {
-                if ($val['id'] === $id) {
-                    $this->searched_key =  $array_key;
-                }
-            }
-            unset($this->basket[$this->searched_key]);
-        }catch(\Exception $e){
-
-        }
+        $this->selected_car = Car::find($car_id);
+        $this->selling_price = $this->selected_car->selling_price;
     }
 
     public function save()
@@ -118,12 +57,12 @@ class Pos extends Component
                 'parcel' => $this->parcel ?? false
            ]);
 
-           foreach ($this->basket as $card_item) {
-                InvoiceItem::create([
+           foreach ($this->basket as $card_car) {
+                Invoicecar::create([
                     'invoice_id' => $invoice->id,
-                    'product_id' => $card_item['id'],
-                    'quantity' => $card_item['qty'],
-                    'price' => $card_item['price'],
+                    'product_id' => $card_car['id'],
+                    'quantity' => $card_car['qty'],
+                    'price' => $card_car['price'],
                 ]);
             }
         }catch(\Exception $e){
@@ -139,14 +78,29 @@ class Pos extends Component
         session()->flash('message', 'Successfully done');
     }
 
-    public function selectForPriceEdit($id)
-    {
-        $this->selected_basket = $id;
-    }
 
-    public function changePrice($id, $price)
+
+    public function saveCustomer()
     {
-       dd($id.' '.$price);
+        $this->validate([
+            'full_name' => 'required|string',
+            'email_address' => 'nullable|email',
+            'phone_number' => 'required|string|max:20',
+            'address' => 'nullable|string',
+            'image' => 'nullable|image',
+            'note' => 'nullable|string',
+        ]);
+
+        Customer::create([
+            'name' => $this->full_name,
+            'phone' => $this->email_address,
+            'email' => $this->phone_number,
+            'address' => $this->address,
+            'image' => $this->image,
+            'note' => $this->note,
+        ]);
+        $this->full_name = $this->email_address = $this->phone_number =$this->address = $this->image = $this->note = null;
+        session()->flash('customer_create_message', 'Customer saved.');
     }
 
     public function mount()
@@ -154,19 +108,27 @@ class Pos extends Component
         $this->carCategories = CarCategory::all();
         $this->cars = Car::where('status', 'Available')->get();
         $this->paymentmethods = PaymentMethod::all();
+        $this->customers = Customer::orderBy('created_at', 'desc')->get();
     }
 
     public function render()
     {
         //Searching
-        if(strlen($this->searched_item) > 0){
-            $this->cars = Car::where('status', 'Available')->where('name', 'like', '%'.$this->searched_item.'%')->get();
-        }else if(strlen($this->searched_item_category) > 0 && $this->searched_item_category != 'all'){
-            $this->cars = Car::where('status', 'Available')->where('car_category_id', $this->searched_item_category)->get();
+        if(strlen($this->searched_car) > 0){
+            $this->cars = Car::where('status', 'Available')->where('name', 'like', '%'.$this->searched_car.'%')->get();
+        }else if(strlen($this->searched_car_category) > 0 && $this->searched_car_category != 'all'){
+            $this->cars = Car::where('status', 'Available')->where('car_category_id', $this->searched_car_category)->get();
         }else{
             $this->cars = Car::latest()->where('status', 'Available')->get();
         }
 
-        return view('livewire.backend.pos')->layout('layouts.pos.app');
+        if($this->selected_car != null){
+            $vat_amount = (($this->selling_price / 100) * $this->selected_car->vat_percentage);
+            $discount_amount = (($this->selling_price / 100) * $this->selected_car->discount_percentage);
+            $this->have_to_pay = round($this->selling_price + $vat_amount -  $discount_amount, 2);
+        }
+
+        return view('livewire.backend.pos')
+        ->layout('layouts.pos.app');
     }
 }
