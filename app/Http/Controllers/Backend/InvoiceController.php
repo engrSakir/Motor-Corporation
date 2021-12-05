@@ -43,7 +43,7 @@ class InvoiceController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     *($priceExVat / 100) * $vatRate
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -53,10 +53,10 @@ class InvoiceController extends Controller
             'discount_percentage' => 'nullable|numeric|min:0|max:100',
             'fixed_discount' => 'nullable|numeric',
             'advance_amount' => 'nullable|numeric',
-            'note'              => 'nullable|string',
-            'payment_method'  => 'required',
-            'client_name'  => 'required',
-            'client_email'  => 'required',
+            'note'          => 'nullable|string',
+            'payment_method'=> 'required',
+            'client_name'   => 'required',
+            // 'client_email'  => 'required',
             'client_phone'  => 'required',
         ]);
 

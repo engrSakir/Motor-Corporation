@@ -86,7 +86,7 @@
                             <div class="btn btn-icon  w-auto h-auto btn-clean d-flex align-items-center py-0 mr-3"
                                 data-toggle="modal" data-target="#folderpop">
                                 {{-- <span class="badge badge-pill badge-primary">5</span> --}}
-                                <span class="symbol symbol-35  symbol-light-success">
+                                {{-- <span class="symbol symbol-35  symbol-light-success">
                                     <span class="symbol-label bg-warning font-size-h5 ">
                                         <svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" fill="blackf"
                                             viewBox="0 0 16 16">
@@ -95,7 +95,7 @@
                                             </path>
                                         </svg>
                                     </span>
-                                </span>
+                                </span> --}}
                             </div>
                         </div>
                         <div class="dropdown">
@@ -292,7 +292,7 @@
                                             <td class="border-0 justify-content-end d-flex text-light font-size-base"
                                                 id="total_vat">00</td>
                                         </tr>
-                                        <tr class="d-flex align-items-center justify-content-between">
+                                        {{-- <tr class="d-flex align-items-center justify-content-between">
                                             <th class="border-0 font-size-h5 mb-0 font-size-bold text-light">
                                                 Paid Amount
                                             </th>
@@ -305,7 +305,7 @@
                                             </th>
                                             <td class="border-0 justify-content-end d-flex text-primary font-size-base"
                                                 id="due_amount">00</td>
-                                        </tr>
+                                        </tr> --}}
                                         <tr class="d-flex align-items-center justify-content-between item-price">
                                             <th class="border-0 font-size-h5 mb-0 font-size-bold text-primary">
                                                 TOTAL INCLUDE VAT
@@ -563,6 +563,7 @@
                         }
                     },
                     error: function(error) {
+                        alert('Something went wrong. Please check customer information and payment method.');
                         console.log(error.responseText);
                         $.each(error.responseJSON.responseText, function(key, value) {
                             console.log(value)

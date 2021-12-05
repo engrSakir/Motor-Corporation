@@ -20,7 +20,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\BookingController;
-
+use App\Http\Livewire\Backend\Pos;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +47,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('bookingPurpose', BookingPurposeController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
     Route::resource('invoice', InvoiceController::class);
+    Route::get('/pos', Pos::class)->name('pos');
     Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index');
     Route::get('delivery-challan/{invoice}', [InvoiceController::class, 'deliveryChallanShow'])->name('delivery-challan.show');
     Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
