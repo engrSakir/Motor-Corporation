@@ -178,6 +178,21 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="placements">Placement</label>
+                                        <select name="placements" class="form-select col-12" id="placements">
+                                        <option value="">--Choose Placement--</option>
+                                            <option value="deal_of_the_week" @if($car->placement == 'deal_of_the_week') selected @endif>Deal of the Week</option>
+                                            <option value="popular"  @if($car->placement == 'popular') selected @endif>Popular</option>
+                                            </select>
+                                        @error('placements')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description </label>
