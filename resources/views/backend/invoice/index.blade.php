@@ -29,12 +29,11 @@
                                     <th>ID</th>
                                     <th>Status</th>
                                     <th>Name</th>
-                                    <th>Email</th>
                                     <th>Phone</th>
                                     <th>Car</th>
-                                    <th>Price</th>
-                                    <th>Vat</th>
-                                    <th>Dic</th>
+                                    <th>Total Price</th>
+                                    <th>Paid</th>
+                                    <th>Due</th>
                                     <th>Sale Time</th>
                                     <th>Action</th>
                                 </tr>
@@ -45,20 +44,19 @@
                                         <td scope="row">{{ $invoice->id }}</td>
                                         <td>{{ $invoice->car->status }}</td>
                                         <td>{{ $invoice->customer->name }}</td>
-                                        <td>{{ $invoice->customer->email }}</td>
                                         <td>{{ $invoice->customer->phone }}</td>
                                         <td>{{ $invoice->car->name ?? '#' }}</td>
-                                        <td>{{ $invoice->price }}</td>
-                                        <td>{{ $invoice->vat_percentage }}%</td>
-                                        <td>{{ $invoice->discount_percentage }}%</td>
+                                        <td>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT</td>
+                                        <td>{{ $invoice->payments->sum('amount') }} BDT</td>
+                                        <td>{{  round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage)  - $invoice->payments->sum('amount'), 2) }} BDT</td>
                                         <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
                                         <td>
                                             <a href="{{ route('backend.invoice.show', $invoice) }}" target="_blank"
                                                 class="btn btn-primary waves-effect btn-rounded waves-light"> <i
                                                     class="fas fa-print"></i> </a>
-                                            <a target="_blank" href="{{ route('backend.invoice.edit', $invoice) }}"
+                                            {{-- <a target="_blank" href="{{ route('backend.invoice.edit', $invoice) }}"
                                                 class="btn btn-secondary waves-effect btn-rounded waves-light"> <i
-                                                    class="fas fa-pen"></i> </a>
+                                                    class="fas fa-pen"></i> </a> --}}
                                                     <button value="{{ route('backend.invoice.destroy', $invoice) }}"
                                                 class="btn btn-danger btn-circle delete-btn"><i class="fa fa-trash"></i>
                                             </button>

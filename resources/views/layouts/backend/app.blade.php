@@ -3,6 +3,7 @@
 
 <head>
     @include('layouts.backend.partials.head')
+    @livewireStyles
 </head>
 
 <body class="skin-default fixed-layout">
@@ -42,7 +43,11 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- PAge Content -->
-                @yield('content')
+                @if(isset($slot))
+                    {{ $slot }}
+                @else
+                    @yield('content')
+                @endif
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
@@ -79,6 +84,7 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
     @include('layouts.backend.partials.foot')
+    @livewireScripts
 </body>
 
 </html>
