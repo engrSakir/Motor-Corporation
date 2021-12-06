@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Invoice</title>
+    <title>Booking</title>
     <style>
         .underline {
             border-bottom: 1px dotted rgb(0, 0, 0);
@@ -55,12 +55,12 @@
             </td>
         </tr>
     </table>
-    <div class="title"> INVOICE </div>
+    <div class="title"> BOOKING </div>
     <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
         Date: {{ $invoice->created_at->format('d M Y') }}
     </div>
     <div class="underline">
-        <b>Invoice No. : {{ $invoice->id }}</b>
+        <b>Booking No. : {{ $invoice->id }}</b>
     </div>
     <div class="underline">
         <b>Mr/Mrs/M/s : {{ $invoice->customer->name ?? '#' }}</b>

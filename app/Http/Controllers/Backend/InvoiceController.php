@@ -34,10 +34,6 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        $itemCategories = CarCategory::all();
-        $items = Car::where('status', 'Available')->get();
-        $paymentmethods = PaymentMethod::all();
-        return view('backend.invoice.create', compact('itemCategories', 'items', 'paymentmethods'));
 
     }
 
@@ -49,52 +45,7 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'discount_percentage' => 'nullable|numeric|min:0|max:100',
-            'fixed_discount' => 'nullable|numeric',
-            'advance_amount' => 'nullable|numeric',
-            'note'          => 'nullable|string',
-            'payment_method'=> 'required',
-            'client_name'   => 'required',
-            // 'client_email'  => 'required',
-            'client_phone'  => 'required',
-        ]);
-
-        $invoice = new Invoice();
-        $invoice->discount_percentage = $request->discount_percentage ?? 0;
-        $invoice->fixed_discount = $request->fixed_discount ?? 0;
-        $invoice->payment_method_id = $request->payment_method;
-        $invoice->note = $request->note;
-        $invoice->client_name = $request->client_name;
-        $invoice->client_email = $request->client_email;
-        $invoice->client_phone = $request->client_phone;
-        $invoice->save();
-
-        try {
-            foreach ($request->service_data_set as $service_data) {
-                $invoiceItem = new InvoiceItem();
-                $car = Car::find($service_data['service']);
-                $invoiceItem->invoice_id   = $invoice->id;
-                $invoiceItem->car_id   = $car->id;
-                $invoiceItem->quantity  = $service_data['quantity'];
-                $invoiceItem->price     = $service_data['price'];
-                $invoiceItem->vat     = $service_data['vat'];
-                $invoiceItem->save();
-                $car->status = 'Sold';
-                $car->save();
-            }
-            return [
-                'type' => 'success',
-                'message' => 'Successfully Created',
-                'invoice_url' => route('backend.invoice.show', $invoice),
-            ];
-        } catch (\Exception $e) {
-            $invoice->delete();
-            return [
-                'type' => 'error',
-                'message' => $e->getMessage(),
-            ];
-        }
+        
     }
 
     /**
@@ -102,11 +53,26 @@ class InvoiceController extends Controller
      *
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
+     * invoice
+     * booking
+     * delivery-challan
+     * invoice-with-delivery-chalan
      */
     public function show(Invoice $invoice)
     {
-        $pdf = PDF::loadView('backend.invoice.invoice-pdf', compact('invoice'));
-        return $pdf->stream('Invoice-' . config('app.name') . '.pdf');
+        if(request()->type == 'invoice'){
+            $pdf = PDF::loadView('backend.invoice.invoice-pdf', compact('invoice'));
+            return $pdf->stream('Invoice-' . config('app.name') . '.pdf');
+        }else if(request()->type == 'booking'){
+            $pdf = PDF::loadView('backend.invoice.booking-pdf', compact('invoice'));
+            return $pdf->stream('Booking-' . config('app.name') . '.pdf');
+        }else if(request()->type == 'delivery-challan'){
+            $pdf = PDF::loadView('backend.invoice.delivery-challan-pdf', compact('invoice'));
+            return $pdf->stream('Delivery-chalan-' . config('app.name') . '.pdf');
+        }else{
+            $pdf = PDF::loadView('backend.invoice.invoice-with-delivery-chalan-pdf', compact('invoice'));
+            return $pdf->stream('Invoice-with-invoice-' . config('app.name') . '.pdf');
+        } 
     }
 
     /**
@@ -162,6 +128,7 @@ class InvoiceController extends Controller
         $invoices = Invoice::orderBy('id', 'desc')->paginate(500);
         return view('backend.delivery-challan.index', compact('invoices'));
     }
+
     public function deliveryChallanShow(Invoice $invoice){
         $pdf = PDF::loadView('backend.delivery-challan.show-pdf', compact('invoice'));
         return $pdf->stream('Delivery Challan-' . config('app.name') . '.pdf');

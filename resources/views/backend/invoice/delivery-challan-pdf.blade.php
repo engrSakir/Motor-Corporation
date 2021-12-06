@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Invoice</title>
+    <title>Delivery Chalan</title>
     <style>
         .underline {
             border-bottom: 1px dotted rgb(0, 0, 0);
@@ -55,7 +55,7 @@
             </td>
         </tr>
     </table>
-    <div class="title"> INVOICE </div>
+    <div class="title"> Delivery Challan </div>
     <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
         Date: {{ $invoice->created_at->format('d M Y') }}
     </div>

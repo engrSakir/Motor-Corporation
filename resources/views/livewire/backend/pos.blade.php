@@ -284,15 +284,15 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" class="form-control" id="image" wire:model="image">
+                    {{-- <label for="image">Image</label> --}}
+                    {{-- <input type="file" class="form-control" id="image" wire:model="image"> --}}
                     @error('image')
                         <div class="alert alert-danger" role="alert">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
-               
+               <br>
                 <div class="form-group">
                 <button type="submit" class="btn btn-primary"> Save </button>
                 </div>
