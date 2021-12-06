@@ -4,12 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Car;
-use App\Models\CarCategory;
 use App\Models\Invoice;
-use App\Models\InvoiceItem;
-use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use PDF;
 
 class InvoiceController extends Controller
@@ -21,10 +17,8 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $total_paid = 0;
-        $total_vat = 0;
         $invoices = Invoice::orderBy('id', 'desc')->paginate(500);
-        return view('backend.invoice.index', compact('invoices', 'total_paid', 'total_vat'));
+        return view('backend.invoice.index', compact('invoices'));
     }
 
     /**
@@ -112,7 +106,11 @@ class InvoiceController extends Controller
      */
     public function destroy(Invoice $invoice)
     {
-        //
+        $invoice->delete();
+        return [
+            'type' => 'success',
+            'message' => 'Destroy',
+        ];
     }
 
     public function searchByCategory($category = 'All')

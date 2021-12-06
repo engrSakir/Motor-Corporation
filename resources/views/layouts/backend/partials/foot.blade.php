@@ -10,6 +10,8 @@
 <!--stickey kit -->
 <script src="{{ asset('assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
 <script src="{{ asset('assets/node_modules/sparkline/jquery.sparkline.min.js') }}"></script>
+<!--Custom JavaScript -->
+<script src="{{ asset('assets/dist/js/custom.min.js') }}"></script>
 {{-- All table are datatable JS Start --}}
 <link href="//cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css" rel="stylesheet">
 <script src="//cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
@@ -28,8 +30,7 @@
         $('.select2').select2();
     });
 </script>
-<!--Custom JavaScript -->
-<script src="{{ asset('assets/dist/js/custom.min.js') }}"></script>
+
 <script src="{{ asset('assets/helper/helper.js') }}"></script>
 {{-- @jquery --}}
 @toastr_js
@@ -63,10 +64,11 @@
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function(data) {
+                            // console.log(data);
                             if (data.type == 'success') {
                                 Swal.fire(
                                     'Deleted!',
-                                    'Your file has been deleted. ' + data.message,
+                                    'Your file has been deleted.',
                                     'success'
                                 )
                                 if (data.url) {

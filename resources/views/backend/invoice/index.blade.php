@@ -13,54 +13,11 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item active">Invoice Page</li>
                 </ol>
-                <a href="{{ route('backend.invoice.create') }}" target="_blank" class="btn btn-info d-none d-lg-block m-l-15"><i
+                <a href="{{ route('backend.pos') }}" target="_blank" class="btn btn-info d-none d-lg-block m-l-15"><i
                         class="fa fa-plus-circle"></i> POS </a>
             </div>
         </div>
     </div>
-
-    <div class="row">
-
-        <!-- Invoice -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-warning text-center">
-                    <h1 class="font-light text-white">{{ $invoices->count() }}</h1>
-                    <h6 class="text-white">Total Invoice</h6>
-                </div>
-            </div>
-        </div>
-        <!-- Paid -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-info text-center">
-                    <h1 class="font-light text-white">{{ $total_paid }}</h1>
-                    <h6 class="text-white">Total Paid Amount</h6>
-                </div>
-            </div>
-        </div>
-        {{-- <!-- Due -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-primary text-center">
-                    <h1 class="font-light text-white">{{ $total_due }}</h1>
-                    <h6 class="text-white">Total Due Amount</h6>
-                </div>
-            </div>
-        </div> --}}
-
-        <!-- VAT -->
-        <div class="col-md-6 col-lg-4 col-xlg-2">
-            <div class="card">
-                <div class="box bg-primary text-center">
-                    <h1 class="font-light text-white">{{ $total_vat }}</h1>
-                    <h6 class="text-white">Total VAT Amount</h6>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -69,8 +26,8 @@
                         <table class="table color-bordered-table primary-bordered-table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>ID</th>
+                                    <th>Status</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
