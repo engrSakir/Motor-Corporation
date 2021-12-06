@@ -1,172 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
     <title>Invoice</title>
-    <link rel="stylesheet" href="{{ asset('assets/pdf-inv/style.css') }}" media="all" />
+    <style>
+        .underline {
+            border-bottom: 1px dotted rgb(0, 0, 0);
+            width: 100%;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .title {
+            width: 15%;
+            padding: 8px;
+            margin: 0 auto;
+            background: #343434;
+            color: white;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .m_table td,
+        th {
+            border: 1px solid black;
+        }
+
+        .m_table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .m_table th {
+            height: 30px;
+            background: rgb(209, 205, 205);
+        }
+    </style>
 </head>
 
 <body>
-    <header class="clearfix">
-        <div style="width: 100%;">
-            <div id="logo" style="width: 50%;">
-                <img width="150" src="{{ asset('assets/pdf-inv/company-logo.jpg') }}">
-            </div>
-            <div id="company" style="width: 50%;">
-                <h2 class="name"><b>Motor Corporation</b></h2>
-                <div>Bashundhara extension road, Ka - 30, 2/1 Kuwaiti Mosque Rd, Dhaka-1212</div>
-                <div>8801762522594</div>
-                <div><a href="mailto:motorcorporation.bd@gmail.com">motorcorporation.bd@gmail.com</a></div>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div id="details" class="clearfix">
-            <div style="width: 100%;">
-                <div id="client" style="width: 50%; ">
-                    <div class="to">INVOICE TO:</div>
-                    <h2 class="name">{{ $invoice->client_name }}</h2>
-                    <div class="address">{{ $invoice->client_phone }}</div>
-                    <div class="email"><a href="mailto:{{ $invoice->client_email }}">{{ $invoice->client_email }}</a></div>
-                </div>
-                <div id="invoice" style="width: 45%;">
-                    <h1>INVOICE #{{ $invoice->id }}</h1>
-                    <div class="date">Date of Invoice: {{ $invoice->created_at->format('d/m/Y') }}</div>
-                    {{-- <div class="date">Due Date: 30/06/2014</div> --}}
-                </div>
-            </div>
-        </div>
-        <table border="0" cellspacing="0" cellpadding="0">
-            <thead>
-                <tr>
-                    <th class="no">#</th>
-                    <th class="desc">DESCRIPTION</th>
-                    <th class="unit">UNIT PRICE</th>
-                    <th class="qty">QUANTITY</th>
-                    <th class="total">TOTAL</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($invoice->items as $item)
-                <tr>
-                    <td class="no">{{ $loop->iteration }}</td>
-                    <td class="desc">
-                        <h3> {{ $item->car->name ?? 'No Name' }} </h3> Model: {{ $item->car->model ?? '#' }} <br> Brand: {{ $item->car->brand ?? '#' }} <br> VAT ({{ $item->car->vat_percentage }}%): {{ $item->vat }}
-                    </td>
-                    <td class="unit">{{ $item->price }}</td>
-                    <td class="qty">{{ $item->quantity }}</td>
-                    <td class="total">{{ $item->price }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2">SUBTOTAL</td>
-                    <td>{{ $invoice->price() }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2">VAT</td>
-                    <td>{{ $invoice->vat() }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2">GRAND TOTAL</td>
-                    <td>{{ $invoice->priceIncludeVat() }}</td>
-                </tr>
-            </tfoot>
-        </table>
-        <div id="thanks">Thank you!</div>
-        <div id="notices">
-            <div>NOTICE:</div>
-            <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-        </div>
-    </main>
-    <footer>
-        Invoice was created on a computer and is valid without the signature and seal.
-    </footer>
-    <pagebreak> 
-    <header class="clearfix">
-        <div style="width: 100%;">
-            <div id="logo" style="width: 50%;">
-                <img width="150" src="{{ asset('assets/pdf-inv/company-logo.jpg') }}">
-            </div>
-            <div id="company" style="width: 50%;">
-                <h2 class="name"><b>Motor Corporation</b></h2>
-                <div>Bashundhara extension road, Ka - 30, 2/1 Kuwaiti Mosque Rd, Dhaka-1212</div>
-                <div>8801762522594</div>
-                <div><a href="mailto:motorcorporation.bd@gmail.com">motorcorporation.bd@gmail.com</a></div>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div id="details" class="clearfix">
-            <div style="width: 100%;">
-                <div id="client" style="width: 50%; ">
-                    <div class="to">DELIVERY CHALLAN TO:</div>
-                    <h2 class="name">{{ $invoice->client_name }}</h2>
-                    <div class="address">{{ $invoice->client_phone }}</div>
-                    <div class="email"><a href="mailto:{{ $invoice->client_email }}">{{ $invoice->client_email }}</a></div>
-                </div>
-                <div id="invoice" style="width: 45%;">
-                    <h1>DELIVERY CHALLAN #{{ $invoice->id }}</h1>
-                    <div class="date">Date of Invoice: {{ $invoice->created_at->format('d/m/Y') }}</div>
-                    {{-- <div class="date">Due Date: 30/06/2014</div> --}}
-                </div>
-            </div>
-        </div>
-        <table border="0" cellspacing="0" cellpadding="0">
-            <thead>
-                <tr>
-                    <th class="no">#</th>
-                    <th class="desc">DESCRIPTION</th>
-                    <th class="unit">UNIT PRICE</th>
-                    <th class="qty">QUANTITY</th>
-                    <th class="total">TOTAL</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($invoice->items as $item)
-                <tr>
-                    <td class="no">{{ $loop->iteration }}</td>
-                    <td class="desc">
-                        <h3> {{ $item->car->name ?? 'No Name' }} </h3> Model: {{ $item->car->model ?? '#' }} <br> Brand: {{ $item->car->brand ?? '#' }} <br> VAT ({{ $item->car->vat_percentage }}%): {{ $item->vat }}
-                    </td>
-                    <td class="unit">{{ $item->price }}</td>
-                    <td class="qty">{{ $item->quantity }}</td>
-                    <td class="total">{{ $item->price }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2">SUBTOTAL</td>
-                    <td>{{ $invoice->price() }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2">VAT</td>
-                    <td>{{ $invoice->vat() }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2">GRAND TOTAL</td>
-                    <td>{{ $invoice->priceIncludeVat() }}</td>
-                </tr>
-            </tfoot>
-        </table>
-        <div id="thanks">Thank you!</div>
-        <div id="notices">
-            <div>NOTICE:</div>
-            <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-        </div>
-    </main>
-    <footer>
-        Delivery chalan was created on a computer and is valid without the signature and seal.
-    </footer>
+    <table style="width: 100%">
+        <tr>
+            <td style="width: 50%">
+                <img src="{{ asset('assets/images/logo-bg.png') }}" alt="" style="width: 3in; height: 1in;">
+            </td>
+            <td style="width: 50%; text-align: right;">
+                Bashundhara Extension Road <br>
+                (Saudi Mosque Road), Ka-30/2/1 <br>
+                Jagannathpur, Nadda, Dhaka <br> <br>
+
+                Tel: 01784397842 <br>
+                Email: motorcorporation@gmail.com
+            </td>
+        </tr>
+    </table>
+    <div class="title"> INVOICE </div>
+    <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
+        Date: _____________________
+    </div>
+    <div class="underline">
+        <b>Invoice No. :</b>
+    </div>
+    <div class="underline">
+        <b>Mr/Mrs/M/s :</b>
+    </div>
+    <div class="underline">
+        <b>Address :</b>
+    </div>
+    <div class="underline">
+        <b>Phone :</b>
+    </div>
+    <table class="m_table" style="margin-top: 50px; width:100%; border-collapse: collapse;">
+        <tr>
+            <th style="width: 80%; text-align:center;">Description</th>
+            <th style="width: 20%; text-align:center;">Unit</th>
+        </tr>
+        <tr>
+            <td style="height: 5in; vertical-align: top;">Des</td>
+            <td style="text-align: right;" style="vertical-align: top;">12</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Total</td>
+            <td>100</td>
+        </tr>
+    </table>
+    <table style="margin-top: 100px; width:100%;">
+        <tr>
+            <td style="width: 50%;">
+                __________________________ <br>
+                    <b>Client's Signature</b>
+            </td>
+            <td style="width: 50%; text-align: right;">
+                __________________________ <br>
+                    <b>Authorised Signature</b>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>
