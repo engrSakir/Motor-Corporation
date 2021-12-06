@@ -54,14 +54,12 @@
                                 @foreach ($invoices as $invoice)
                                 <tr>
                                     <td>
-                                        <a href="{{ route('backend.invoice.show', $invoice) }}" target="_blank"
-                                            class="btn btn-primary waves-effect btn-rounded waves-light"> <i
-                                                class="fas fa-print"></i> </a>
-                                        {{-- <a target="_blank" href="{{ route('backend.invoice.edit', $invoice) }}"
-                                            class="btn btn-secondary waves-effect btn-rounded waves-light"> <i
-                                                class="fas fa-pen"></i> </a> --}}
-                                        <button value="{{ route('backend.invoice.destroy', $invoice) }}"
-                                            class="btn btn-danger btn-circle delete-btn"><i class="fa fa-trash"></i>
+                                        <a class="btn btn-primary btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=booking']) }}" target="_blank">Booking</a>
+                                        <a class="btn btn-success btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=invoice']) }}" target="_blank">Invoice</a>
+                                        <a class="btn btn-warning btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=delivery-challan']) }}" target="_blank">Challan</a>
+                                        <a class="btn btn-danger btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=payments']) }}" target="_blank">Payments</a>
+                                        <button value="#"
+                                            class="btn btn-danger btn-circle delete-btn"><i class="fa fa-trash text-white"></i>
                                         </button>
                                     </td>
                                     <td>

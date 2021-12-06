@@ -39,7 +39,7 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.settlement.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Settlement</span></a></li>
                <li> <a class="waves-effect waves-dark" href="{{ route('backend.carCategory.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Category</span></a></li>-->
                 {{-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.purchaseOrder.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">PO</span></a></li> --}}
-                <li> <a class="waves-effect waves-dark" href="{{ route('backend.invoice.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Sales</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="{{ route('backend.invoice') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Sales</span></a></li>
                 <!--<li> <a class="waves-effect waves-dark" href="{{ route('backend.delivery-challan.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Delivery Challan</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.paymentMethod.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Payment Method</span></a></li>-->
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Expense</span></a>
