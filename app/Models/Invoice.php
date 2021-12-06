@@ -29,6 +29,17 @@ class Invoice extends Model
     public function payments(){
         return $this->hasMany(SalePayment::class, 'invoice_id', 'id');
     }
+
+    public function totalPrice(){
+        return  round($this->price + (($this->price / 100) * $this->vat_percentage)
+        - (($this->price / 100) * $this->discount_percentage), 2);
+    }
+
+    public function due(){
+        return  round($this->price + (($this->price / 100) * $this->vat_percentage)
+        - (($this->price / 100) * $this->discount_percentage) -
+        $this->payments->sum('amount'), 2);
+    }
     /**
      * Auto boot
      *

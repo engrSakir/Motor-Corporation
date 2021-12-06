@@ -18,10 +18,26 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    @if (session()->has('message'))
+                        <div class="alert alert-{{ session('message_type') }}" role="alert">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                   
                     <div class="table-responsive">
                         <table class="table color-bordered-table primary-bordered-table">
                             <thead>
                                 <tr>
+                                    <th>Action</th>
                                     <th>Status</th>
                                     <th>INV</th>
                                     <th>Name</th>
@@ -31,28 +47,12 @@
                                     <th>Paid</th>
                                     <th>Due</th>
                                     <th>Sale Time</th>
-                                    <th>Action</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($invoices as $invoice)
                                 <tr>
-                                    <td>
-                                        {{ $invoice->car->status }}
-                                        @if($invoice->car->status == 'Booking') <button type="button" class="btn btn-danger text-white btn-sm" wire:click="makeSold({{ $invoice->car->id }})">Make Sold</button> @endif
-                                    
-                                    </td>
-                                    <td scope="row">{{ $invoice->id }}</td>
-                                    <td>{{ $invoice->customer->name }}</td>
-                                    <td>{{ $invoice->customer->phone }}</td>
-                                    <td>{{ $invoice->car->name ?? '#' }}</td>
-                                    <td>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage)
-                                        - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT</td>
-                                    <td>{{ $invoice->payments->sum('amount') }} BDT</td>
-                                    <td>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage)
-                                        - (($invoice->price / 100) * $invoice->discount_percentage) -
-                                        $invoice->payments->sum('amount'), 2) }} BDT</td>
-                                    <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
                                     <td>
                                         <a href="{{ route('backend.invoice.show', $invoice) }}" target="_blank"
                                             class="btn btn-primary waves-effect btn-rounded waves-light"> <i
@@ -64,6 +64,30 @@
                                             class="btn btn-danger btn-circle delete-btn"><i class="fa fa-trash"></i>
                                         </button>
                                     </td>
+                                    <td>
+                                        {{ $invoice->car->status }}
+                                        @if($invoice->car->status == 'Booking') <button type="button" class="btn btn-danger text-white btn-sm" wire:click="makeSold({{ $invoice->car->id }})">Make Sold</button> @endif
+                                    </td>
+                                    <td scope="row">{{ $invoice->id }}</td>
+                                    <td>{{ $invoice->customer->name }}</td>
+                                    <td>{{ $invoice->customer->phone }}</td>
+                                    <td>{{ $invoice->car->name ?? '#' }}</td>
+                                    <td>{{ $invoice->totalPrice() }} BDT</td>
+                                    <td>{{ $invoice->payments->sum('amount') }} BDT</td>
+                                    <td>
+                                        {{ $invoice->due() }} BDT 
+                                        @if($invoice->due() > 0) 
+                                        <select wire:model="payment_method.{{  $invoice->id }}">
+                                            <option value="">Payment method</option>
+                                            @foreach ($payment_methods as $payment_method_s)
+                                            <option value="{{ $payment_method_s->id }}">{{ $payment_method_s->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="number" class="form-control" style="width: 80px;" wire:keydown.enter="addPayment({{  $invoice->id }})"  wire:model="payment_amount.{{  $invoice->id }}">
+                                        @endif
+                                    </td>
+                                    <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>
