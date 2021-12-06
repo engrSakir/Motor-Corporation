@@ -168,10 +168,25 @@
                                 <span class="input-group-text">Customer <a href="#add_customer_section"> <i class="btn text-danger fa fa-plus-square"></i></a></span>
                             </div>
                              <div class="form-group form-control form-control-sm">
-                                <select class="form-control" id="customer">
-                                <option select disabled>Chose customer</option>
+                                <select class="form-control" id="customer" wire:model="selected_customer">
+                                <option select value="">Chose customer</option>
                                 @foreach ($customers as $customer)
                                      <option value={{ $customer->id }}>{{ $customer->name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-append" style="width:50%;">
+                                <span class="input-group-text">Payment Method</span>
+                            </div>
+                             <div class="form-group form-control form-control-sm">
+                                <select class="form-control" id="payment_method" wire:model="payment_method">
+                                <option select value="">Chose payment method</option>
+                                @foreach ($paymentmethods as $paymentmethod)
+                                     <option value={{ $paymentmethod->id }}>{{ $paymentmethod->name }}</option>
                                 @endforeach
                                 </select>
                             </div>
@@ -201,6 +216,17 @@
                                 <button type="button" class="btn btn-danger btn-sm btn-block" style="width: 100%;"  wire:click="save">Save Invoice</button>
                             </div>
                        </div>
+                    </div>
+                    <div class="col-12">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 @endif

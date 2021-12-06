@@ -8,6 +8,7 @@ use App\Models\CarCategory;
 use App\Models\Invoice;
 use App\Models\PaymentMethod;
 use App\Models\Customer;
+use App\Models\SalePayment;
 use PDF;
 
 class Pos extends Component
@@ -22,8 +23,7 @@ class Pos extends Component
     public $selected_car = null;
 
     public $selected_customer = null;
-    public $discount_fixed_amount = 0;
-    public $discount_percentage = 0;
+    public $payment_method = null;
     public $paid_amount = 0;
     public $advance_for_booking = false;
 
@@ -31,7 +31,7 @@ class Pos extends Component
     public $have_to_pay = null;
     public $invoice_url  = null;
 
-    // Customer
+    // Customer create
     public $full_name = null;
     public $email_address = null;
     public $phone_number = null;
@@ -48,34 +48,46 @@ class Pos extends Component
 
     public function save()
     {
+        // dd($this->selected_customer);
+        $this->validate([
+            'selected_customer' => 'required',
+            'selected_car' => 'required',
+            'payment_method' => 'required',
+            'selling_price' => 'required',
+            'paid_amount' => 'required',
+        ]);
         try{
-           $invoice = Invoice::create([
-                // 'custom_id' => '',
-                'customer_phone' => $this->customer_phone,
-                'discount_amount' => $this->discount_amount,
-                'paid_amount' => $this->paid_amount,
-                'parcel' => $this->parcel ?? false
-           ]);
+            $invoice = new Invoice();
+            $invoice->customer_id = $this->selected_customer;
+            $invoice->car_id = $this->selected_car->id;
+            $invoice->price = $this->selling_price;
+            $invoice->vat_percentage = $this->selected_car->vat_percentage;
+            $invoice->discount_percentage = $this->selected_car->discount_percentage;
+            $invoice->save();
 
-           foreach ($this->basket as $card_car) {
-                Invoicecar::create([
-                    'invoice_id' => $invoice->id,
-                    'product_id' => $card_car['id'],
-                    'quantity' => $card_car['qty'],
-                    'price' => $card_car['price'],
-                ]);
+            $sale_payment = new SalePayment();
+            $invoice->invoice_id = $invoice->id;
+            $invoice->payment_method_id = $this->payment_method;
+            if($this->advance_for_booking == true){
+                $sale_payment->is_advance = true;
+                $this->selected_car->status = 'Booking';
+            }else{
+                $sale_payment->is_advance = false;
+                $this->selected_car->status = 'Sold';
             }
+            $sale_payment->amount = $this->paid_amount;
+            $sale_payment->save();
+            $this->selected_car->save();
+
         }catch(\Exception $e){
+            session()->flash('message_type', 'danger');
             session()->flash('message', $e->getMessage());
         }
-        $this->basket = array();
-        $this->searched_key = null;
-        $this->customer_phone = null;
-        $this->discount_amount = 0;
-        $this->paid_amount = 0;
-        $this->parcel = false;
+       
+        $this->selected_customer = $this->selected_car = $this->payment_method = $this->selling_price = $this->paid_amount = null;
         $this->invoice_url = route('invoice.show', [$invoice, 'kitchen=yes']);
-        session()->flash('message', 'Successfully done');
+        session()->flash('message_type', 'success');
+        session()->flash('message', 'Success');
     }
 
 
@@ -127,6 +139,7 @@ class Pos extends Component
             $discount_amount = (($this->selling_price / 100) * $this->selected_car->discount_percentage);
             $this->have_to_pay = round($this->selling_price + $vat_amount -  $discount_amount, 2);
         }
+        $this->customers = Customer::orderBy('created_at', 'desc')->get();
 
         return view('livewire.backend.pos')
         ->layout('layouts.pos.app');
