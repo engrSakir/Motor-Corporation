@@ -34,7 +34,7 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.investment.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Investment</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.vendorInfo.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Vendor</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.car.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="{{ route('backend.invoice.customer') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Customer</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="{{ route('backend.customer') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Customer</span></a></li>
                 <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.investorContactPerson.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Contact Person</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.settlement.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Settlement</span></a></li>
                <li> <a class="waves-effect waves-dark" href="{{ route('backend.carCategory.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Category</span></a></li>-->

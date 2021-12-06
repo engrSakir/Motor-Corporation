@@ -43,7 +43,7 @@ class Invoice extends Component
        } 
     }
 
-    public function deleteInvoice(ModelsInvoice $inv){
+    public function delete(ModelsInvoice $inv){
         $inv->delete();
         session()->flash('message_type', 'success');
         session()->flash('message', 'Successfully deleted');

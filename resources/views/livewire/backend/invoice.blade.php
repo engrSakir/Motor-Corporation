@@ -58,7 +58,7 @@
                                         <a class="btn btn-success btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=invoice']) }}" target="_blank">Invoice</a>
                                         <a class="btn btn-warning btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=delivery-challan']) }}" target="_blank">Challan</a>
                                         <a class="btn btn-danger btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=payments']) }}" target="_blank">Payments</a>
-                                        <button wire:click="deleteInvoice({{ $invoice->id }})"
+                                        <button wire:click="delete({{ $invoice->id }})"
                                             class="btn btn-danger btn-circle"><i class="fa fa-trash text-white"></i>
                                         </button>
                                     </td>
