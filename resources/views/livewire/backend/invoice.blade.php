@@ -63,13 +63,15 @@
                                         </button>
                                     </td>
                                     <td>
-                                        {{ $invoice->car->status }}
-                                        @if($invoice->car->status == 'Booking') <button type="button" class="btn btn-danger text-white btn-sm" wire:click="makeSold({{ $invoice->car->id }})">Make Sold</button> @endif
+                                        {{ $invoice->car->status ?? '-' }}
+                                        @if($invoice->car)
+                                            @if($invoice->car->status == 'Booking') <button type="button" class="btn btn-danger text-white btn-sm" wire:click="makeSold({{ $invoice->car->id }})">Make Sold</button> @endif
+                                        @endif
                                     </td>
                                     <td scope="row">{{ $invoice->id }}</td>
-                                    <td>{{ $invoice->customer->name }}</td>
-                                    <td>{{ $invoice->customer->phone }}</td>
-                                    <td>{{ $invoice->car->name ?? '#' }}</td>
+                                    <td>{{ $invoice->customer->name ?? '-' }}</td>
+                                    <td>{{ $invoice->customer->phone ?? '-' }}</td>
+                                    <td>{{ $invoice->car->name ?? '-' }}</td>
                                     <td>{{ $invoice->totalPrice() }} BDT</td>
                                     <td>{{ $invoice->payments->sum('amount') }} BDT</td>
                                     <td>
@@ -85,7 +87,6 @@
                                         @endif
                                     </td>
                                     <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
-                                    
                                 </tr>
                                 @endforeach
                             </tbody>
