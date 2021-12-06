@@ -36,11 +36,17 @@ class Invoice extends Component
         $this->payment_method[$inv_id] = null;
         $this->payment_amount[$inv_id] = null;
         session()->flash('message_type', 'success');
-        session()->flash('message', 'Success');
+        session()->flash('message', 'Successfully payment added');
        }catch(\Exception $e){
         session()->flash('message_type', 'danger');
         session()->flash('message', $e->getMessage());
        } 
+    }
+
+    public function deleteInvoice(ModelsInvoice $inv){
+        $inv->delete();
+        session()->flash('message_type', 'success');
+        session()->flash('message', 'Successfully deleted');
     }
 
     public function mount(){
