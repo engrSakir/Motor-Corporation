@@ -57,19 +57,19 @@
     </table>
     <div class="title"> INVOICE </div>
     <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
-        Date: _____________________
+        Date: {{ $invoice->created_at->format('d M Y') }}
     </div>
     <div class="underline">
-        <b>Invoice No. :</b>
+        <b>Invoice No. : {{ $invoice->id }}</b>
     </div>
     <div class="underline">
-        <b>Mr/Mrs/M/s :</b>
+        <b>Mr/Mrs/M/s : {{ $invoice->customer->name ?? '#' }}</b>
     </div>
     <div class="underline">
-        <b>Address :</b>
+        <b>Address : {{ $invoice->customer->address ?? '#' }}</b>
     </div>
     <div class="underline">
-        <b>Phone :</b>
+        <b>Phone : {{ $invoice->customer->phone ?? '#' }}</b>
     </div>
     <table class="m_table" style="margin-top: 50px; width:100%; border-collapse: collapse;">
         <tr>
@@ -77,12 +77,26 @@
             <th style="width: 20%; text-align:center;">Unit</th>
         </tr>
         <tr>
-            <td style="height: 5in; vertical-align: top;">Des</td>
-            <td style="text-align: right;" style="vertical-align: top;">12</td>
+            <td style="height: 5in; vertical-align: top;">
+                <br>
+                <b>Category:</b> {{ $invoice->car->category->name }} <br>
+                <b>Name:</b> {{ $invoice->car->name }} <br>
+                <b>Brand:</b> {{ $invoice->car->brand }} <br>
+                <b>Model:</b> {{ $invoice->car->model }} <br>
+                <b>Registration:</b> {{ $invoice->car->registration }} <br>
+                <b>Mileages:</b> {{ $invoice->car->mileages }} <br>
+                
+            </td>
+            <td style="text-align: right; vertical-align: top;">
+                <br>
+                <b>Price:</b> {{ $invoice->price }} <br>
+                <b>VAT:</b> {{ $invoice->vat_percentage }} % <br>
+                <b>Discount:</b> {{ $invoice->discount_percentage }} % <br>
+            </td>
         </tr>
         <tr>
-            <td style="text-align: center;">Total</td>
-            <td>100</td>
+            <td style="text-align: center;"> <b>Total</b> </td>
+            <td style="text-align: right;"> <b>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT</b> </td>
         </tr>
     </table>
     <table style="margin-top: 100px; width:100%;">
