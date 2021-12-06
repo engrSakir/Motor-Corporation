@@ -18,36 +18,12 @@ class Invoice extends Model
         'note',
     ];
 
+    public function car(){
+        return $this->belongsTo(Car::class, 'car_id', 'id');
+    }
+
     public function payments(){
         return $this->hasMany(SalePayment::class, 'invoice_id', 'id');
-    }
-
-    public function items(){
-        return $this->hasMany(InvoiceItem::class, 'invoice_id', 'id');
-    }
-
-    public function price(){
-        $total_price = 0;
-        foreach($this->items as $item){
-            $total_price += $item->price * $item->quantity;
-        }
-        return $total_price;
-    }
-
-    public function vat(){
-        $vat_amount = 0;
-        foreach($this->items as $item){
-            $vat_amount += $item->vat * $item->quantity;
-        }
-        return $vat_amount;
-    }
-
-    public function priceIncludeVat(){
-        return $this->price() + $this->vat();
-    }
-
-    public function discount(){
-        return $this->price() + $this->vat();
     }
 
 }

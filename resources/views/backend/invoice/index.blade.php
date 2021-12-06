@@ -91,17 +91,13 @@
                                         <td>{{ $invoice->client_email }}</td>
                                         <td>{{ $invoice->client_phone }}</td>
                                         <td>
-                                        @foreach($invoice->items as $item)
-                                        {{ $item->car->name ?? '#' }}
-                                        {{-- {{ $item->car->selling_price ?? '#' }} --}}
-                                        (QT-{{ $item->quantity ?? '#' }}) <br>
-                                        @endforeach
+                                        {{ $invoice->car->name ?? '#' }}
                                         </td>
                                         <td>
-                                            {{ $invoice->price() }}
+                                            {{ $invoice->price }}
                                         </td>
                                         <td>
-                                            {{ $invoice->vat() }}
+                                            {{ $invoice->vat_percentage }}%
                                         </td>
 
                                         <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>

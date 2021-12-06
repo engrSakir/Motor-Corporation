@@ -65,9 +65,10 @@ class Pos extends Component
             $invoice->discount_percentage = $this->selected_car->discount_percentage;
             $invoice->save();
 
+            // dd($invoice->id);
             $sale_payment = new SalePayment();
-            $invoice->invoice_id = $invoice->id;
-            $invoice->payment_method_id = $this->payment_method;
+            $sale_payment->invoice_id = $invoice->id;
+            $sale_payment->payment_method_id = $this->payment_method;
             if($this->advance_for_booking == true){
                 $sale_payment->is_advance = true;
                 $this->selected_car->status = 'Booking';
@@ -78,16 +79,14 @@ class Pos extends Component
             $sale_payment->amount = $this->paid_amount;
             $sale_payment->save();
             $this->selected_car->save();
-
+            $this->selected_customer = $this->selected_car = $this->payment_method = $this->selling_price = $this->paid_amount = null;
+            $this->invoice_url = route('backend.invoice.show', $invoice);
+            session()->flash('message_type', 'success');
+            session()->flash('message', 'Success');
         }catch(\Exception $e){
             session()->flash('message_type', 'danger');
             session()->flash('message', $e->getMessage());
-        }
-       
-        $this->selected_customer = $this->selected_car = $this->payment_method = $this->selling_price = $this->paid_amount = null;
-        $this->invoice_url = route('invoice.show', [$invoice, 'kitchen=yes']);
-        session()->flash('message_type', 'success');
-        session()->flash('message', 'Success');
+        }   
     }
 
 
