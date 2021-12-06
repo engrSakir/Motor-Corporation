@@ -73,8 +73,8 @@
     </div>
     <table class="m_table" style="margin-top: 50px; width:100%; border-collapse: collapse;">
         <tr>
-            <th style="width: 80%; text-align:center;">Description</th>
-            <th style="width: 20%; text-align:center;">Unit</th>
+            <th style="width: 75%; text-align:center;">Description</th>
+            <th style="width: 25%; text-align:center;">Unit</th>
         </tr>
         <tr>
             <td style="height: 5in; vertical-align: top;">
@@ -89,9 +89,11 @@
             </td>
             <td style="text-align: right; vertical-align: top;">
                 <br>
-                <b>Price:</b> {{ $invoice->price }} <br>
-                <b>VAT:</b> {{ $invoice->vat_percentage }} % <br>
-                <b>Discount:</b> {{ $invoice->discount_percentage }} % <br>
+                <b>Price: </b> {{ $invoice->price }} BDT <br>
+                <b>VAT: &nbsp;</b> {{ $invoice->vat_percentage }} % <br>
+                <b>Discount:</b> {{ $invoice->discount_percentage }} % <br> <br> <br>
+                <b>PAID:</b> {{ $invoice->payments->sum('amount') }} BDT<br>
+                <b>DUE:</b> {{  round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage)  - $invoice->payments->sum('amount'), 2) }} BDT
             </td>
         </tr>
         <tr>

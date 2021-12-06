@@ -44,6 +44,7 @@ class Pos extends Component
     {
         $this->selected_car = Car::find($car_id);
         $this->selling_price = $this->selected_car->selling_price;
+        $this->invoice_url = null;
     }
 
     public function save()

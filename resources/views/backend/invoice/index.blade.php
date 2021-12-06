@@ -77,29 +77,23 @@
                                     <th>Car</th>
                                     <th>Price</th>
                                     <th>Vat</th>
-                                    {{-- <th>Due</th> --}}
-                                    <th>Created At</th>
+                                    <th>Dic</th>
+                                    <th>Sale Time</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($invoices as $invoice)
                                     <tr>
-                                        <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>{{ $invoice->id }}</td>
-                                        <td>{{ $invoice->client_name }}</td>
-                                        <td>{{ $invoice->client_email }}</td>
-                                        <td>{{ $invoice->client_phone }}</td>
-                                        <td>
-                                        {{ $invoice->car->name ?? '#' }}
-                                        </td>
-                                        <td>
-                                            {{ $invoice->price }}
-                                        </td>
-                                        <td>
-                                            {{ $invoice->vat_percentage }}%
-                                        </td>
-
+                                        <td scope="row">{{ $invoice->id }}</td>
+                                        <td>{{ $invoice->car->status }}</td>
+                                        <td>{{ $invoice->customer->name }}</td>
+                                        <td>{{ $invoice->customer->email }}</td>
+                                        <td>{{ $invoice->customer->phone }}</td>
+                                        <td>{{ $invoice->car->name ?? '#' }}</td>
+                                        <td>{{ $invoice->price }}</td>
+                                        <td>{{ $invoice->vat_percentage }}%</td>
+                                        <td>{{ $invoice->discount_percentage }}%</td>
                                         <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
                                         <td>
                                             <a href="{{ route('backend.invoice.show', $invoice) }}" target="_blank"
