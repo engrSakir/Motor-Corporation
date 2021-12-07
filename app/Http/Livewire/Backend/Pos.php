@@ -82,9 +82,9 @@ class Pos extends Component
             $this->selected_car->save();
             $this->selected_customer = $this->selected_car = $this->payment_method = $this->selling_price = $this->paid_amount = null;
             if($this->advance_for_booking == true){
-                $this->invoice_url = route('backend.invoice.show', [$invoice, 'type=booking']);
+                $this->invoice_url = route('backend.pdf', [$invoice, 'type=booking']);
             }else{
-                $this->invoice_url = route('backend.invoice.show', [$invoice, 'type=invoice']);
+                $this->invoice_url = route('backend.pdf', [$invoice, 'type=invoice']);
             }
             session()->flash('message_type', 'success');
             session()->flash('message', 'Success');
