@@ -15,6 +15,8 @@ class Car extends Model
         'car_category_id',
         'vendor_id',
         'status',
+        'papers_up_to_date',
+        'name_transfer_documents',
         'name',
         'brand',
         'model',

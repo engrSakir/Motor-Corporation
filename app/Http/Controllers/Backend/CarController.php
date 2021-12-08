@@ -60,6 +60,8 @@ class CarController extends Controller
         $car->mileages = $request->mileages;
         $car->placement = $request->placements;
         $car->description = $request->description;
+        $car->papers_up_to_date = $request->papers_up_to_date;
+        $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
             $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
         }
@@ -118,6 +120,8 @@ class CarController extends Controller
         $car->mileages = $request->mileages;
         $car->placement = $request->placements;
         $car->description = $request->description;
+        $car->papers_up_to_date = $request->papers_up_to_date;
+        $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
             $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
         }

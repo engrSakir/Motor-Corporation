@@ -193,6 +193,40 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="papers_up_to_date">Papers up to date</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="papers_up_to_date"
+                                            id="papers_up_to_date_yes" value="1" @if($car->papers_up_to_date) checked @endif>
+                                        <label class="form-check-label" for="papers_up_to_date_yes">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="papers_up_to_date"
+                                            id="papers_up_to_date_no" value="0" @if($car->papers_up_to_date == false) checked @endif>
+                                        <label class="form-check-label" for="papers_up_to_date_no">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="name_transfer_documents">Name transfer documents</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="name_transfer_documents"
+                                            id="name_transfer_documents_yes" value="1" @if($car->name_transfer_documents) checked @endif>
+                                        <label class="form-check-label" for="name_transfer_documents_yes">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="name_transfer_documents"
+                                            id="name_transfer_documents_no" value="0" @if($car->name_transfer_documents == false) checked @endif>
+                                        <label class="form-check-label" for="name_transfer_documents_no">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description </label>

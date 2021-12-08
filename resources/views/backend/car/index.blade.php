@@ -39,7 +39,15 @@
                         @foreach($cars as $car)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $car->name }}</td>
+                                <td>
+                                    {{ $car->name }}
+                                    @if ($car->papers_up_to_date)
+                                    <span class="badge bg-primary">P</span>
+                                    @endif
+                                    @if ($car->name_transfer_documents)
+                                    <span class="badge bg-success">T</span>
+                                    @endif
+                                </td>
                                 <td>{{ $car->purchase_price }}</td>
                                 <td>{{ $car->purchasePayments()->sum('amount') }}</td>
                                 <td>{{ $car->purchase_price - $car->purchasePayments()->sum('amount') }}</td>

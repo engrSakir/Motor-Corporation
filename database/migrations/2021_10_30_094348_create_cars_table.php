@@ -18,6 +18,8 @@ class CreateCarsTable extends Migration
             $table->foreignId('car_category_id');
             $table->foreignId('vendor_id');
             $table->string('status')->default('Available')->comment('Available|Booking|Sold');
+            $table->boolean('papers_up_to_date')->default(false);
+            $table->boolean('name_transfer_documents')->default(false);
             $table->string('name');
             $table->string('brand');
             $table->string('model');
