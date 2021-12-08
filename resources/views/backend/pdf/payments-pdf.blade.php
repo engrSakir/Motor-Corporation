@@ -77,7 +77,7 @@
             <th style="width: 25%; text-align:center;">Unit</th>
         </tr>
         <tr>
-            <td style="height: 5in; vertical-align: top;">
+            <td style="height: 4.5in; vertical-align: top;">
                 <br> <br>
                 <b>Date time and method</b> <br>
                 @foreach ($invoice->payments as $payment)

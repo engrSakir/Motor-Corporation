@@ -73,11 +73,12 @@
     </div>
     <table class="m_table" style="margin-top: 50px; width:100%; border-collapse: collapse;">
         <tr>
-            <th style="width: 75%; text-align:center;">Description</th>
-            <th style="width: 25%; text-align:center;">Unit</th>
+            <th style="width: 70%; text-align:center;">Description</th>
+            <th style="width: 15%; text-align:center;">Unit</th>
+            <th style="width: 15%; text-align:center;">Amount</th>
         </tr>
         <tr>
-            <td style="height: 5in; vertical-align: top;">
+            <td style="height: 4.5in; vertical-align: top;">
                 <br>
                 <b>Category:</b> {{ $invoice->car->category->name }} <br>
                 <b>Name:</b> {{ $invoice->car->name }} <br>
@@ -87,18 +88,21 @@
                 <b>Mileages:</b> {{ $invoice->car->mileages }} <br>
                 
             </td>
-            <td style="text-align: right; vertical-align: top;">
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">
                 <br>
-                <b>Price: </b> {{ $invoice->price }} BDT <br>
+                {{-- <b>Price: </b> {{ $invoice->price }} BDT <br>
                 <b>VAT: &nbsp;</b> {{ $invoice->vat_percentage }} % <br>
                 <b>Discount:</b> {{ $invoice->discount_percentage }} % <br> <br> <br>
                 <b>PAID:</b> {{ $invoice->payments->sum('amount') }} BDT<br>
-                <b>DUE:</b> {{  round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage)  - $invoice->payments->sum('amount'), 2) }} BDT
+                <b>DUE:</b> {{  round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage)  - $invoice->payments->sum('amount'), 2) }} BDT --}}
+                {{  round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT
             </td>
         </tr>
         <tr>
             <td style="text-align: center;"> <b>Total</b> </td>
             <td style="text-align: right;"> <b>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT</b> </td>
+            <td></td>
         </tr>
     </table>
     <table style="margin-top: 100px; width:100%;">

@@ -77,7 +77,7 @@
             <th style="width: 25%; text-align:center;">Unit</th>
         </tr>
         <tr>
-            <td style="height: 5in; vertical-align: top;">
+            <td style="height: 4.5in; vertical-align: top;">
                 <br>
                 <b>Category:</b> {{ $invoice->car->category->name }} <br>
                 <b>Name:</b> {{ $invoice->car->name }} <br>
@@ -151,7 +151,7 @@
             <th style="width: 25%; text-align:center;">Unit</th>
         </tr>
         <tr>
-            <td style="height: 5in; vertical-align: top;">
+            <td style="height: 4.5in; vertical-align: top;">
                 <br>
                 <b>Category:</b> {{ $invoice->car->category->name }} <br>
                 <b>Name:</b> {{ $invoice->car->name }} <br>
