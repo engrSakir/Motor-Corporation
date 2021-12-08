@@ -43,7 +43,7 @@
     <table style="width: 100%">
         <tr>
             <td style="width: 50%">
-                <img src="{{ asset('assets/images/logo-bg.png') }}" alt="" style="width: 3in; height: 1in;">
+                <img src="{{ asset('assets/images/logo-bg.png') }}" alt="" style="width: 2in; height: 1.5in;">
             </td>
             <td style="width: 50%; text-align: right;">
                 Bashundhara Extension Road <br>
