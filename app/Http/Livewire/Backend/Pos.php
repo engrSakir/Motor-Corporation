@@ -27,6 +27,8 @@ class Pos extends Component
     public $paid_amount = 0;
     public $advance_for_booking = false;
 
+    public $vat_percentage = null;
+    public $discount_percentage = null;
     public $selling_price = null;
     public $have_to_pay = null;
     public $invoice_url  = null;
@@ -43,6 +45,8 @@ class Pos extends Component
     public function addToCard($car_id)
     {
         $this->selected_car = Car::find($car_id);
+        $this->vat_percentage = $this->selected_car->vat_percentage;
+        $this->discount_percentage = $this->selected_car->discount_percentage;
         $this->selling_price = $this->selected_car->selling_price;
         $this->invoice_url = null;
     }
@@ -62,8 +66,8 @@ class Pos extends Component
             $invoice->customer_id = $this->selected_customer;
             $invoice->car_id = $this->selected_car->id;
             $invoice->price = $this->selling_price;
-            $invoice->vat_percentage = $this->selected_car->vat_percentage;
-            $invoice->discount_percentage = $this->selected_car->discount_percentage;
+            $invoice->vat_percentage = $this->vat_percentage;
+            $invoice->discount_percentage = $this->discount_percentage;
             $invoice->save();
 
             // dd($invoice->id);
@@ -139,8 +143,8 @@ class Pos extends Component
         }
 
         if($this->selected_car != null){
-            $vat_amount = (($this->selling_price / 100) * $this->selected_car->vat_percentage);
-            $discount_amount = (($this->selling_price / 100) * $this->selected_car->discount_percentage);
+            $vat_amount = (($this->selling_price / 100) * $this->vat_percentage);
+            $discount_amount = (($this->selling_price / 100) * $this->discount_percentage);
             $this->have_to_pay = round($this->selling_price + $vat_amount -  $discount_amount, 2);
         }
         $this->customers = Customer::orderBy('created_at', 'desc')->get();

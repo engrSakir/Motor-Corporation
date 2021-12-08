@@ -125,17 +125,17 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <div class="input-group-append" style="width:50%;">
-                                <span class="input-group-text">VAT %</span>
+                                <span class="input-group-text">VAT {{ $selected_car->vat_percentage }}%</span>
                             </div>
-                            <input type="text" class="form-control form-control-sm" readonly value="{{ $selected_car->vat_percentage }} %">
+                            <input type="text" class="form-control form-control-sm" wire:model="vat_percentage">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group">
                             <div class="input-group-append" style="width:50%;">
-                                <span class="input-group-text">Discount %</span>
+                                <span class="input-group-text">Discount {{ $selected_car->discount_percentage }}%</span>
                             </div>
-                            <input type="text" class="form-control form-control-sm" readonly value="{{ $selected_car->discount_percentage }} %">
+                            <input type="text" class="form-control form-control-sm" wire:model="discount_percentage">
                         </div>
                     </div>
                     <div class="col-md-6">
