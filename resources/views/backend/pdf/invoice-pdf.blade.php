@@ -74,8 +74,8 @@
     <table class="m_table" style="margin-top: 50px; width:100%; border-collapse: collapse;">
         <tr>
             <th style="width: 70%; text-align:center;">Description</th>
-            <th style="width: 15%; text-align:center;">Unit</th>
-            <th style="width: 15%; text-align:center;">Amount</th>
+            <th style="width: 10%; text-align:center;">Unit</th>
+            <th style="width: 20%; text-align:center;">Amount</th>
         </tr>
         <tr>
             <td style="height: 4.5in; vertical-align: top;">
@@ -101,8 +101,8 @@
         </tr>
         <tr>
             <td style="text-align: center;"> <b>Total</b> </td>
-            <td style="text-align: right;"> <b>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT</b> </td>
-            <td></td>
+            <td style="text-align: center;"> <b>1</b> </td>
+            <td style="text-align: center;"> <b>{{ round($invoice->price + (($invoice->price / 100) * $invoice->vat_percentage) - (($invoice->price / 100) * $invoice->discount_percentage), 2) }} BDT</b></td>
         </tr>
     </table>
     <table style="margin-top: 100px; width:100%;">
