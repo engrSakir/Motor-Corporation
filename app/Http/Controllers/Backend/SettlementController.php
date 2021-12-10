@@ -40,7 +40,7 @@ class SettlementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'investment' => 'required|exists:investors,id',
+            'investment' => 'required|exists:investments,id',
             'settlemen_amount' => 'required|numeric|min:0'
         ]);
         Settlement::create([

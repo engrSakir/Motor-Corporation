@@ -69,6 +69,18 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
+        
+        <footer class="footer">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </footer>
         <footer class="footer">
             © {{ date('Y') }}
             <a href="https://iciclecorporation.com/" target="_blank">Icicle Corporation</a>

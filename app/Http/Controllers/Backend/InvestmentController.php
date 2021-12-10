@@ -44,7 +44,7 @@ class InvestmentController extends Controller
             'investor' => 'required|exists:investors,id',
             'investment_amount' => 'required|numeric|min:0',
             'interest' => 'required|numeric|min:0',
-            'settlement_date' => 'required|date|after:today',
+            'settlement_date' => 'required|date',
         ]);
         $investment = Investment::create([
             'investor_id' => $request->investor,
@@ -92,7 +92,7 @@ class InvestmentController extends Controller
             'investor' => 'required|exists:investors,id',
             'investment_amount' => 'required|numeric|min:0',
             'interest' => 'required|numeric|min:0',
-            'settlement_date' => 'required|date|after:today',
+            'settlement_date' => 'required|date',
         ]);
         $investment->update([
             'investor_id' => $request->investor,
