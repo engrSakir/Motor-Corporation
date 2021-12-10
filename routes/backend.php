@@ -24,6 +24,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Livewire\Backend\Customer;
 use App\Http\Livewire\Backend\Invoice;
 use App\Http\Livewire\Backend\Pos;
+use App\Http\Livewire\Backend\ExpenseBudget;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,9 +51,6 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('bookingPurpose', BookingPurposeController::class);
     Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
     Route::get('pdf/{invoice}', [PdfController::class, 'show'])->name('pdf');
-    Route::get('/pos', Pos::class)->name('pos'); //Livewire
-    Route::get('/invoice', Invoice::class)->name('invoice'); //Livewire
-    Route::get('/customer', Customer::class)->name('customer'); //Livewire
     Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index');
     Route::get('delivery-challan/{invoice}', [InvoiceController::class, 'deliveryChallanShow'])->name('delivery-challan.show');
     Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
@@ -65,6 +63,12 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::resource('user', UserController::class);
     Route::get('/report', [DashboardController::class, 'indexReport'])->name('report.index');
     Route::post('/report', [DashboardController::class, 'storeReport'])->name('report.store');
+
+    // Livewire routes
+    Route::get('/pos', Pos::class)->name('pos'); //Livewire
+    Route::get('/invoice', Invoice::class)->name('invoice'); //Livewire
+    Route::get('/customer', Customer::class)->name('customer'); //Livewire
+    Route::get('/expense-budget', ExpenseBudget::class)->name('expenseBudget'); //Livewire
 
 
 

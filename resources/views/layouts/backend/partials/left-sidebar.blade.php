@@ -44,8 +44,9 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.paymentMethod.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Payment Method</span></a></li>-->
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Expense</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('backend.expense.index') }}">Add New Expense </a></li>
-                        <li><a href="{{ route('backend.expenseCategory.index') }}">Expense Category</a></li>
+                        <li><a href="{{ route('backend.expense.index') }}">Expense </a></li>
+                        <li><a href="{{ route('backend.expenseCategory.index') }}">Category</a></li>
+                        <li><a href="{{ route('backend.expenseBudget') }}">Budget</a></li>
                     </ul>
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Settings</span></a>

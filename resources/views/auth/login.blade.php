@@ -1,101 +1,56 @@
-@extends('layouts.frontend.app')
-@push('title') Login @endpush
-@section('content')
-<div class="page-heading">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-title">
-                    <h2 style="color:white;">Login </h2>
-                </div>
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
+        </x-slot>
+
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            <!-- Email Address -->
+            <div>
+                <x-label for="email" :value="__('Email')" />
+
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
-            <!--col-xs-12-->
-        </div>
-        <!--row-->
-    </div>
-    <!--container-->
-</div>
-<div class="main-container col1-layout wow bounceInUp animated animated animated" style="visibility: visible;">
 
-    <div class="main">
-        <div class="account-login container">
-            <!--page-title-->
+            <!-- Password -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Password')" />
 
-            <form action="{{ route('login') }}" method="post" id="login-form">
-                @csrf
-                <input name="form_key" type="hidden" value="EPYwQxF6xoWcjLUr">
-                <fieldset class="col2-set">
-                    <div class="col-1 new-users">
-                        <strong>Login note</strong>
-                        <div class="content">
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
+            </div>
 
-                            <p>By creating an account with our store, you will be able to move through the checkout
-                                process faster, store multiple shipping addresses, view and track your orders in your
-                                account and more.</p>
+            <!-- Remember Me -->
+            <div class="block mt-4">
+                <label for="remember_me" class="inline-flex items-center">
+                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
+            </div>
 
-                        </div>
-                    </div>
-                    <div class="col-2 registered-users">
-                        <strong>Administrative Login</strong>
-                        <div class="content">
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
 
-                            <p>If you have an account with us, please log in.</p>
-                            <ul class="form-list">
-                                <li>
-                                    <label for="email">Email Address<em class="required">*</em></label>
-                                    <div class="input-box">
-                                        <input type="text" name="email" value="" id="email"
-                                            class="input-text required-entry validate-email" title="Email Address">
-                                    </div>
-                                    @error('email')
-                                    <div class="alert alert-info" role="alert">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </li>
-                                <li>
-                                    <label for="pass">Password<em class="required">*</em></label>
-                                    <div class="input-box">
-                                        <input type="password" name="password"
-                                            class="input-text required-entry validate-password" id="pass"
-                                            title="Password">
-                                        @error('password')
-                                        <div class="alert alert-info" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </li>
-                            </ul>
-                            <p class="required">* Required Fields</p>
-                            <div class="buttons-set">
-                                <button type="submit" class="button login" title="Login" name="send"
-                                    id="send2"><span>Login</span></button>
-
-                                <a href="#" class="forgot-word">Forgot Your Password?</a>
-                            </div>
-                            <!--buttons-set-->
-                        </div>
-                        <!--content-->
-                    </div>
-                    <!--col-2 registered-users-->
-                </fieldset>
-                <!--col2-set-->
-            </form>
-
-        </div>
-        <!--account-login-->
-
-    </div>
-    <!--main-container-->
-
-</div>
-@endsection
-
-@push('head')
-
-@endpush
-
-@push('foot')
-
-@endpush
+                <x-button class="ml-3">
+                    {{ __('Log in') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-require __DIR__.'/frontend.php';
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 require __DIR__.'/auth.php';
-require __DIR__.'/backend.php';
