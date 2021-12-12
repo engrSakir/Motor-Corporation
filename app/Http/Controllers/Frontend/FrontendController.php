@@ -12,5 +12,11 @@ class FrontendController extends Controller
     {
         return view('frontend.home', compact('dealcars','popularcars'));
     }
-   
+
+    public function carDetails($slug)
+    {
+        $car = Car::where('slug', $slug)->first();
+        return view('frontend.car-details', compact('car'));
+
+    }    
 }
