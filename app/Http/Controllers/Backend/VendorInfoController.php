@@ -43,6 +43,8 @@ class VendorInfoController extends Controller
             'email' => 'nullable|email',
             'address' => 'nullable|string',
             'image' => 'nullable|image',
+            'vendor_type' => 'required|string',
+
         ]);
         VendorInfo::create([
             'name' => $request->name,
@@ -50,6 +52,8 @@ class VendorInfoController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'image' => $request->image,
+            'type' => $request->vendor_type,
+
         ]);
         toastr()->success('Saved');
         return back();
@@ -92,6 +96,8 @@ class VendorInfoController extends Controller
             'email' => 'nullable|email',
             'address' => 'nullable|string',
             'image' => 'nullable|image',
+            'vendor_type' => 'required|string',
+
         ]);
         $vendorInfo->update([
             'name' => $request->name,
@@ -99,6 +105,8 @@ class VendorInfoController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'image' => $request->image,
+            'type' => $request->vendor_type,
+
         ]);
         toastr()->success('Update');
         return back();

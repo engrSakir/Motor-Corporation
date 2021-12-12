@@ -75,6 +75,23 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="form-label" for="vendor_type">Vendor Type <b class="text-danger">*</b> </label>
+                                        <select class="form-control" id="vendor_type" name="vendor_type"
+                                            required>
+                                            <option selected disabled value="">Choose Type</option>
+                                            <option value="car_seller" >Car Seller</option>
+                                            <option value="service_seller" >Service Seller</option>
+
+                                        </select>                                       
+                                         @error('vendor_type')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="form-label" for="image">Image</label>
                                         <input type="file" accept="image/*" id="image" name="image" class="form-control" placeholder="Contact person phone" value="{{ old('image') }}">
                                         @error('image')

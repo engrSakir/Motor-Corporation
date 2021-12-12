@@ -20,6 +20,7 @@ class CreateVendorInfosTable extends Migration
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('image')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

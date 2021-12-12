@@ -17,5 +17,6 @@ class VendorInfo extends Model
         'email',
         'address',
         'image',
+        'type',
     ];
 }
