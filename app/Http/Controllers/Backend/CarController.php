@@ -30,7 +30,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        $vendors = VendorInfo::all();
+        $vendors = VendorInfo::where('type','car_seller')->get();
         $carCategories = CarCategory::all();
         return view('backend.car.create', compact('vendors','carCategories'));
     }

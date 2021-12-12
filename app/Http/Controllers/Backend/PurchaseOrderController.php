@@ -28,7 +28,7 @@ class PurchaseOrderController extends Controller
      */
     public function create()
     {
-        $vendors = VendorInfo::orderBy('id','desc')->get();
+        $vendors = VendorInfo::where('type','service_seller')->orderBy('id','desc')->get();
         return view('backend.po.create', compact('vendors'));
     }
 

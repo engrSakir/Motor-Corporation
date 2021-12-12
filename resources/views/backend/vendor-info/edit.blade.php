@@ -77,6 +77,23 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="form-label" for="vendor_type">Vendor Type <b class="text-danger">*</b> </label>
+                                        <select class="form-control" id="vendor_type" name="vendor_type"
+                                            required>
+                                            <option @if($vendorInfo->type == 'NULL') selected @endif value="">Choose Type</option>
+                                            <option value="car_seller" @if($vendorInfo->type == 'car_seller') selected @endif>Car Seller</option>
+                                            <option value="service_seller" @if($vendorInfo->type == 'service_seller') selected @endif >Service Seller</option>
+
+                                        </select>                                       
+                                         @error('vendor_type')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="form-label" for="image">Image</label>
                                         <input type="file" accept="image/*" id="image" name="image" class="form-control" placeholder="Contact person phone" value="{{ old('image') }}">
                                         <img width="40" class="img-circle" src="{{ asset($vendorInfo->image ?? 'assets/images/avatar.png') }}" alt="">
