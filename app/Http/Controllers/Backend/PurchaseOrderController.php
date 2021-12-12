@@ -72,7 +72,7 @@ class PurchaseOrderController extends Controller
      */
     public function edit(PurchaseOrder $purchaseOrder)
     {
-        $vendors = VendorInfo::orderBy('id','desc')->get();
+        $vendors = VendorInfo::where('type','service_seller')->orderBy('id','desc')->get();
         return view('backend.po.edit', compact('purchaseOrder', 'vendors'));
     }
 
