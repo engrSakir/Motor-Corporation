@@ -11,7 +11,10 @@
 <script src="{{ asset('assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
 <script src="{{ asset('assets/node_modules/sparkline/jquery.sparkline.min.js') }}"></script>
 <!--Custom JavaScript -->
+
 <script src="{{ asset('assets/dist/js/custom.min.js') }}"></script>
+
+
 {{-- All table are datatable JS Start --}}
 <link href="//cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css" rel="stylesheet">
 <script src="//cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
@@ -28,6 +31,7 @@
 <script>
     $(document).ready(function() {
         $('.select2').select2();
+        
     });
 </script>
 

@@ -1215,7 +1215,7 @@ button.button.btn-update:before {
     /* border-bottom: 1px solid #e5e5e5; */
     height: auto;
     line-height: normal;
-    padding: 22px 55px;
+    /*padding: 22px 55px;*/
     float: none;
     margin-right: 0;
 }
@@ -1266,7 +1266,8 @@ button.button.btn-update:before {
     display: block;
 }
 .header-logo {
-    flex: none;
+	flex: none;
+	margin-top:-25px;
 }
 .header__nav {
     flex: none;
