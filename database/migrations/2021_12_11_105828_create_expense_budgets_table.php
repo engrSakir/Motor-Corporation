@@ -15,8 +15,7 @@ class CreateExpenseBudgetsTable extends Migration
     {
         Schema::create('expense_budgets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sourse_id');
-            $table->string('source_type')->comment('amont_in_hand|investment');
+            $table->foreignId('investment_id')->nullable();
             $table->double('amount');
             $table->date('month');
             $table->foreignId('created_by')->nullable();

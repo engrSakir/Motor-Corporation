@@ -101,7 +101,7 @@ class PurchasePaymentController extends Controller
 
     public function purchasePayment(Car $car)
     {
-        $investors =Investor::all();
+        $investors = Investor::all();
         return view('backend.car.purchase-payment', compact('car', 'investors'));
     }
 }
