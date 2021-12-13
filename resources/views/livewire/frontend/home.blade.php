@@ -204,8 +204,6 @@
                 <div class="slider-items slider-width-col4 products-grid">
 
                 @foreach($popularcars as $popularcar)
-
-
                     <!-- Item -->
                     <div class="item">
                         <div class="item-inner">

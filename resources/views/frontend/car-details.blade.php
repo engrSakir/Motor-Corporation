@@ -57,7 +57,7 @@
                   <div class="price-block">
                     <div class="price-box">
                      
-                      <p class="special-price"> <span class="price-label">Special Price</span> <span id="product-price-48" class="price">{{ $car->selling_price }}</span> </p>
+                      <p class="special-price"> <span class="price-label">Special Price</span> <span id="product-price-48" class="price">৳{{ $car->selling_price }}</span> </p>
                     </div>
                   </div>
                  
