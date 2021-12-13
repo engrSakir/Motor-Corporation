@@ -62,19 +62,11 @@
                                         <li class="level0 parent drop-menu"> <a class="level-top"
                                                 href="#"><span>Inventory</span></a>
                                             <ul class="level1">
-                                                <li class="level1 first"><a href="#"><span>Car Grid</span></a>
+                                                <li class="level1 first"><a href="#popular"><span>Popular Cars</span></a>
                                                 </li>
-                                                <li class="level1 nav-10-2"> <a href="#"> <span>Car List</span>
+                                                <li class="level1 nav-10-2"> <a href="#deals"> <span>Deal of the week</span>
                                                     </a> </li>
-                                                <li class="level1 nav-10-3"> <a href="#"> <span>Accessories
-                                                            Grid</span> </a> </li>
-                                                <li class="level1 nav-10-4"> <a href="#"> <span>Accessories
-                                                            List</span> </a> </li>
-                                                <li class="level1 first parent"><a href="#"><span>Car
-                                                            Detail</span></a> </li>
-                                                <li class="level1 first parent"><a
-                                                        href="#"><span>Accessories
-                                                            Detail</span></a> </li>
+                                                
                                             </ul>
                                         </li>
                                         <li class="level0 parent drop-menu"> <a class="level-top"
@@ -94,38 +86,23 @@
                                                 style="left: 0px; display: none;">
                                                 <div class="container">
                                                     <div class="header-nav-dropdown-wrapper clearer">
+                                                    @php 
+                                                    $offer_cars=offer_cars();
+                                                    @endphp
+                                                   @foreach($offer_cars as $offer)  
+
                                                         <div class="grid12-3">
-                                                            <div><img
-                                                                    src="{{ asset('assets/frontend/images/custom-img1.jpg') }}"
+                                                           <a href="{{ route('carDetails', $offer->slug) }}"> 
+                                                           <div><img
+                                                                    src="{{ asset($offer->image ?? 'uploads/images/no_image.png') }}"
                                                                     alt="custom-image"></div>
-                                                            <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                            <h4 class="heading">SALE UP TO {{ $offer->discount_percentage }}% OFF</h4>
+                                                            <p>{{ $offer->name }}
                                                             </p>
+                                                            </a>
+
                                                         </div>
-                                                        <div class="grid12-3">
-                                                            <div><img
-                                                                    src="{{ asset('assets/frontend/images/custom-img2.jpg') }}"
-                                                                    alt="custom-image"></div>
-                                                            <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                            <p>Sed et quam lacus. Fusce condimentum eleifend enim a
-                                                                feugiat.</p>
-                                                        </div>
-                                                        <div class="grid12-3">
-                                                            <div><img
-                                                                    src="{{ asset('assets/frontend/images/custom-img3.jpg') }}"
-                                                                    alt="custom-image"></div>
-                                                            <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                            <p>Sed et quam lacus. Fusce condimentum eleifend enim a
-                                                                feugiat.</p>
-                                                        </div>
-                                                        <div class="grid12-3">
-                                                            <div><img
-                                                                    src="{{ asset('assets/frontend/images/custom-img4.jpg') }}"
-                                                                    alt="custom-image"></div>
-                                                            <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                            </p>
-                                                        </div>
+                                                   @endforeach
                                                     </div>
                                                 </div>
                                             </div>

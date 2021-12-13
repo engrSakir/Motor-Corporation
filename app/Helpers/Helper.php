@@ -4,6 +4,7 @@
 use App\Models\Invoice;
 use App\Models\StaticOption;
 use GuzzleHttp\Client;
+use App\Models\Car;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
@@ -130,5 +131,10 @@ if (!function_exists('random_code')) {
             $total_vat += $invoice->vat();
         }
         return  $total_vat;
+    }
+
+    function offer_cars(){
+        $offers= Car::orderBy('id','desc')->where('discount_percentage','>','0')->get();
+        return $offers;
     }
 }

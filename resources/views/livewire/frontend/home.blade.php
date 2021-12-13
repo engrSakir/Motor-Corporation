@@ -124,7 +124,7 @@
     </div>
     <!--end2 small banner image-->
     <!-- deals of the week Slider -->
-    <section class="wow bounceInUp animated">
+    <section id="deals" class="wow bounceInUp animated">
         <div class="hot_deals slider-items-products container">
             <div class="new_title ">
                 <h2 class="bg-black">Deals of the Week</h2>
@@ -195,7 +195,7 @@
     </section>
     <!--end deals of the week Slider -->
     <!-- est seller car Slider -->
-    <section class="wow bounceInUp animated">
+    <section id="popular" class="wow bounceInUp animated">
         <div class="hot_deals slider-items-products container">
             <div class="new_title ">
                 <h2 class="bg-black">Popular Cars</h2>
