@@ -10,7 +10,7 @@ use Livewire\Component;
 class ExpenseBudget extends Component
 {
     public $form, $expense_budgets, $investors, $amount_from_in_hand,
-    $investment, $amount_from_investment;
+    $investment, $amount_from_investment, $month;
 
     public function show_form(){
         $this->form = true;
@@ -28,14 +28,14 @@ class ExpenseBudget extends Component
         if($this->amount_from_in_hand > 0){
             $expense_budget = new ModelsExpenseBudget();
             $expense_budget->amount = $this->amount_from_in_hand;
-            $expense_budget->month = Carbon::now();
+            $expense_budget->month = $this->month;
             $expense_budget->save();
         }
 
         if($this->investment && $this->amount_from_investment > 0){
             $expense_budget = new ModelsExpenseBudget();
             $expense_budget->amount = $this->amount_from_investment;
-            $expense_budget->month = Carbon::now();
+            $expense_budget->month = $this->month;
             $expense_budget->investment_id = $this->investment;
             $expense_budget->save();
         }

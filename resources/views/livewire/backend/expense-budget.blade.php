@@ -22,10 +22,16 @@
                     <h4 class="card-title">Basic Form</h4>
                     <form wire:submit.prevent="save">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-floating mb-3">
                                     <input type="number" wire:model="amount_from_in_hand" class="form-control" id="tb-fname" placeholder="Amount in hand">
                                     <label for="tb-fname">From amount in hand</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="month" wire:model="month" class="form-control" id="tb-fname">
+                                    <label for="tb-fname">Month</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -94,6 +100,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Type</th>
                                     <th>Month</th>
                                     <th>Amount</th> 
                                 </tr>
@@ -102,6 +109,7 @@
                                 @foreach ($expense_budgets as $expense_budget)
                                 <tr>
                                     <td scope="row">#</td>
+                                    <td> @if($expense_budget->investment_id) Investment @else In Hand @endif</td>
                                     <td>{{ $expense_budget->month }}</td>
                                     <td>{{ $expense_budget->amount }}</td>
                                 </tr>

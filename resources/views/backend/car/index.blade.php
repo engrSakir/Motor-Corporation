@@ -42,10 +42,10 @@
                                 <td>
                                     {{ $car->name }}
                                     @if ($car->papers_up_to_date)
-                                    <span class="badge bg-primary">P</span>
+                                    <span class="badge bg-primary" title="Papers up to date">P</span>
                                     @endif
                                     @if ($car->name_transfer_documents)
-                                    <span class="badge bg-success">T</span>
+                                    <span class="badge bg-success" title="Name transfer">T</span>
                                     @endif
                                 </td>
                                 <td>{{ $car->purchase_price }}</td>

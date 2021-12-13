@@ -76,11 +76,43 @@ if (!function_exists('random_code')) {
         }
     }
    
+    // Daily
+        // Income
+        // Expense
+        // Amount in hand
+    // Weekly
+        // Income
+        // Expense
+        // Amount in hand
+    // Monthly
+        // Income
+        // Expense
+        // Amount in hand
+    // Yearly
+        // Income
+        // Expense
+        // Amount in hand
+    // Beetween
+        // Income
+        // Expense
+        // Amount in hand
 
-    function total_sale_amount_of_this_month(){
+    
+    // ********** Monthly income************** 
+    function monthly_income($month = null, $year = null){
+        $month = date('m');
+        $year = date('Y');
+        $total = 0;
+        foreach(Invoice::whereMonth('created_at', $month)->whereYear('created_at', $year)->get() as $inv){
+            $total += $inv->payments->sum('amount');
+        }
+        return $total;
+    }
+
+    function total_sale_amount_of_this_month(){ 
         $total_sale_amount_of_this_month = 0;
         foreach(Invoice::whereMonth('created_at', date('m'))->get() as $inv){
-            $total_sale_amount_of_this_month += $inv->price();
+            $total_sale_amount_of_this_month += $inv->totalPrice();
         }
         return $total_sale_amount_of_this_month;
     }
