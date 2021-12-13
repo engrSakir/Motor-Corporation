@@ -138,7 +138,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="{{ route('carDetails', $dealcar->slug) }}" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset($dealcar->image ?? 'uploads/images/no_image.png') }}"
                                             alt="Retis lapen casen"></a>
@@ -158,8 +158,8 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">{{ $dealcar->name }}</a>
+                                    <div class="item-title"><a href="{{ route('carDetails', $dealcar->slug) }}"
+                                            title="{{ $dealcar->name }}">{{ $dealcar->name }}</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -210,7 +210,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="javascript:void(0)" title="Retis lapen casen"
+                                <div class="item-img-info"><a href="{{ route('carDetails', $popularcar->slug) }}" title="Retis lapen casen"
                                         class="product-image"><img
                                             src="{{ asset($popularcar->image ?? 'uploads/images/no_image.png') }}"
                                             alt="Retis lapen casen"></a>
@@ -230,8 +230,8 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="javascript:void(0)"
-                                            title="Retis lapen casen">{{ $popularcar->name }}</a>
+                                    <div class="item-title"><a href="{{ route('carDetails', $popularcar->slug) }}"
+                                            title="{{ $popularcar->name }}">{{ $popularcar->name }}</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">

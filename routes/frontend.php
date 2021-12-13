@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/booking', Booking::class)->name('booking');
+Route::get('/car/{slug}', [FrontendController::class, 'carDetails'])->name('carDetails');
