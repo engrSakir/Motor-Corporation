@@ -21,7 +21,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <h3>{{ $investor->investmentPercentage() }}%</h3>
+                        <h3>{{ $investor->investments()->sum('amount') }}</h3>
                         <h6 class="card-subtitle">{{ $investor->name }}</h6></div>
                     <div class="col-12">
                         <div class="progress">
@@ -79,7 +79,7 @@
                     margin: 1em auto;
                     }
 
-                    #yearly_income_expense_chart {
+                    .dashboard_chart {
                     height: 400px;
                     }
 
@@ -125,7 +125,7 @@
                 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
                 <figure class="highcharts-figure">
-                <div id="yearly_income_expense_chart"></div>
+                <div id="yearly_income_expense_chart" class="dashboard_chart"></div>
                 </figure>
                 <script>
                     Highcharts.chart('yearly_income_expense_chart', {
@@ -203,138 +203,6 @@
                         name: 'In hand',
                         data: {{ collect($in_hand_data_of_this_year) }}
 
-                    }]
-                    });
-                </script>
-            </div>
-        </div>
-    </div>
-    {{-- Investment chart --}}
-    <div class="col-md-12">
-        <div class="card">
-            <div class="box bg-secondary text-center">
-                <style>
-                    .highcharts-figure,
-                    .highcharts-data-table table {
-                    min-width: 310px;
-                    max-width: 800px;
-                    margin: 1em auto;
-                    }
-
-                    #investment_chart {
-                    height: 400px;
-                    }
-
-                    .highcharts-data-table table {
-                    font-family: Verdana, sans-serif;
-                    border-collapse: collapse;
-                    border: 1px solid #ebebeb;
-                    margin: 10px auto;
-                    text-align: center;
-                    width: 100%;
-                    max-width: 500px;
-                    }
-
-                    .highcharts-data-table caption {
-                    padding: 1em 0;
-                    font-size: 1.2em;
-                    color: #555;
-                    }
-
-                    .highcharts-data-table th {
-                    font-weight: 600;
-                    padding: 0.5em;
-                    }
-
-                    .highcharts-data-table td,
-                    .highcharts-data-table th,
-                    .highcharts-data-table caption {
-                    padding: 0.5em;
-                    }
-
-                    .highcharts-data-table thead tr,
-                    .highcharts-data-table tr:nth-child(even) {
-                    background: #f8f8f8;
-                    }
-
-                    .highcharts-data-table tr:hover {
-                    background: #f1f7ff;
-                    }
-                </style>
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <script src="https://code.highcharts.com/modules/series-label.js"></script>
-                <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                <script src="https://code.highcharts.com/modules/export-data.js"></script>
-                <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-                
-                <figure class="highcharts-figure">
-                  <div id="investment_chart"></div>
-                  <p class="highcharts-description">
-                </figure>
-                <script>
-                    Highcharts.chart('investment_chart', {
-                    title: {
-                        text: 'Combination chart'
-                    },
-                    xAxis: {
-                        categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
-                    },
-                    labels: {
-                        items: [{
-                        html: 'Total fruit consumption',
-                        style: {
-                            left: '50px',
-                            top: '18px',
-                            color: ( // theme
-                            Highcharts.defaultOptions.title.style &&
-                            Highcharts.defaultOptions.title.style.color
-                            ) || 'black'
-                        }
-                        }]
-                    },
-                    series: [{
-                        type: 'column',
-                        name: 'Jane',
-                        data: [3, 2, 1, 3, 4]
-                    }, {
-                        type: 'column',
-                        name: 'John',
-                        data: [2, 3, 5, 7, 6]
-                    }, {
-                        type: 'column',
-                        name: 'Joe',
-                        data: [4, 3, 3, 9, 0]
-                    }, {
-                        type: 'spline',
-                        name: 'Average',
-                        data: [3, 2.67, 3, 6.33, 3.33],
-                        marker: {
-                        lineWidth: 2,
-                        lineColor: Highcharts.getOptions().colors[3],
-                        fillColor: 'white'
-                        }
-                    }, {
-                        type: 'pie',
-                        name: 'Total consumption',
-                        data: [{
-                        name: 'Jane',
-                        y: 13,
-                        color: Highcharts.getOptions().colors[0] // Jane's color
-                        }, {
-                        name: 'John',
-                        y: 23,
-                        color: Highcharts.getOptions().colors[1] // John's color
-                        }, {
-                        name: 'Joe',
-                        y: 19,
-                        color: Highcharts.getOptions().colors[2] // Joe's color
-                        }],
-                        center: [100, 80],
-                        size: 100,
-                        showInLegend: false,
-                        dataLabels: {
-                        enabled: false
-                        }
                     }]
                     });
                 </script>
