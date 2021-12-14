@@ -35,7 +35,7 @@
     @endforeach
 </div>
 <div class="row">
-    <div class="col-md-6 col-lg-4 col-xlg-2">
+    <div class="col-md-6 col-lg-3 col-xlg-2">
         <div class="card">
             <div class="box bg-primary text-center">
                 <h1 class="font-light text-white">{{ monthly_income() }}</h1>
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-4 col-xlg-2">
+    <div class="col-md-6 col-lg-3 col-xlg-2">
         <div class="card">
             <div class="box bg-primary text-center">
                 <h1 class="font-light text-white">{{ monthly_expense() }}</h1>
@@ -51,11 +51,19 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-4 col-xlg-2">
+    <div class="col-md-6 col-lg-3 col-xlg-2">
         <div class="card">
             <div class="box bg-primary text-center">
                 <h1 class="font-light text-white">{{ monthly_expense_budget() }}</h1>
                 <h6 class="text-white">Expense budget of {{ date('F-Y') }}</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3 col-xlg-2">
+        <div class="card">
+            <div class="box bg-primary text-center">
+                <h1 class="font-light text-white">{{ monthly_income() - monthly_expense_budget() }}</h1>
+                <h6 class="text-white">In hand of {{ date('F-Y') }}</h6>
             </div>
         </div>
     </div>
@@ -125,10 +133,10 @@
                         type: 'column'
                     },
                     title: {
-                        text: 'Monthly Average Rainfall'
+                        text: 'Monthly Income Review of {{ date('Y') }}'
                     },
                     subtitle: {
-                        text: 'Source: WorldClimate.com'
+                        text: 'Developed by iciclecorporation.com'
                     },
                     xAxis: {
                         categories: [
@@ -150,13 +158,13 @@
                     yAxis: {
                         min: 0,
                         title: {
-                        text: 'Rainfall (mm)'
+                        text: 'Amount in BDT'
                         }
                     },
                     tooltip: {
                         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                        '<td style="padding:0"><b>{point.y:.1f} BDT</b></td></tr>',
                         footerFormat: '</table>',
                         shared: true,
                         useHTML: true
@@ -168,20 +176,32 @@
                         }
                     },
                     series: [{
-                        name: 'Tokyo',
-                        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+                        name: 'Sale',
+                        data: {{ collect($sale_data_of_this_year) }}
 
                     }, {
-                        name: 'New York',
-                        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+                        name: 'Paid',
+                        data: {{ collect($paid_data_of_this_year) }}
 
                     }, {
-                        name: 'London',
-                        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+                        name: 'Due',
+                        data: {{ collect($due_data_of_this_year) }}
+
+                    },{
+                        name: 'Expense budget',
+                        data: {{ collect($expense_budget_data_of_this_year) }}
+
+                    },{
+                        name: 'Expense',
+                        data: {{ collect($expense_data_of_this_year) }}
+
+                    },{
+                        name: 'Profit',
+                        data: {{ collect($profit_data_of_this_year) }}
 
                     }, {
-                        name: 'Berlin',
-                        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+                        name: 'In hand',
+                        data: {{ collect($in_hand_data_of_this_year) }}
 
                     }]
                     });
