@@ -34,6 +34,11 @@ class Investment extends Model
         return $this->hasMany(PurchasePayment::class, 'investment_id', 'id');
     }
 
+    public function expenseBudgets()
+    {
+        return $this->hasMany(ExpenseBudget::class, 'investment_id', 'id');
+    }
+
     //Custom function
     public function interestAmount()
     {
@@ -47,7 +52,7 @@ class Investment extends Model
 
     public function totalUsedAmount()
     {
-        return $this->purchasePayments->sum('amount');
+        return $this->purchasePayments->sum('amount') + $this->expenseBudgets->sum('amount');
     }
 
     public function totalUsableAmount()

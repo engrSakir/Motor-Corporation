@@ -19,7 +19,8 @@ class ExpenseBudget extends Component
     public function save(){
         // dd($this->investment);
         $this->validate([
-            'amount_from_in_hand' => 'nullable|numeric',
+            'amount_from_in_hand' => 'nullable|numeric|max:'.amount_in_hand(),
+            'month' => 'required',
             'investment' => 'nullable|numeric',
             'amount_from_investment' => 'nullable|numeric',
         ]);
@@ -40,6 +41,7 @@ class ExpenseBudget extends Component
             $expense_budget->save();
         }
         $this->amount_from_in_hand = null;
+        $this->month = null;
         $this->investment = null;
         $this->amount_from_investment = null;
         if($expense_budget){

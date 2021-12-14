@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select wire:model="investment" class="form-control select2" id="investment" required>
+                                    <select wire:model="investment" class="form-control select2" id="investment">
                                         <option selected value="">Chose investment</option>
                                             @foreach ($investors as $investor)
                                             <optgroup label="{{ $investor->name }}">
@@ -59,7 +59,7 @@
                             <div class="col-12">
                                 <div class="d-md-flex align-items-center mt-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" required type="checkbox" value="" id="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Information is correct
                                         </label>

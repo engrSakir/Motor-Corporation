@@ -137,6 +137,27 @@ if (!function_exists('random_code')) {
         return $total;
     }
 
+    // ********** return from expense budget ************** 
+    function return_from_expense_budget($month = null, $year = null){
+        if(!$month)
+            $month = date('m');
+        if(!$year)
+            $year = date('Y');
+        $total = 0;
+        $total -= Expense::whereMonth('created_at', '!=', $month)->whereYear('created_at', '!=', $year)->sum('amount');
+        $total -= CarExpense::whereMonth('created_at', '!=', $month)->whereYear('created_at', '!=', $year)->sum('amount');
+        
+        $total += ExpenseBudget::where('month', '!=', $year.'-'.$month)->sum('amount');
+        return $total;
+    }
+
+    // ********** In hand amount ************** 
+    function amount_in_hand($month = null, $year = null){
+        return monthly_income() - monthly_expense() + return_from_expense_budget($month, $year);
+    }
+
+    // 
+
     function total_sale_amount_of_this_month(){ 
         $total_sale_amount_of_this_month = 0;
         foreach(Invoice::whereMonth('created_at', date('m'))->get() as $inv){
