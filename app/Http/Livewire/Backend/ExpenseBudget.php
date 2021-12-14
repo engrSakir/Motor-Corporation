@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Backend;
 
 use App\Models\ExpenseBudget as ModelsExpenseBudget;
+use App\Models\Investment;
 use App\Models\Investor;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -34,6 +35,10 @@ class ExpenseBudget extends Component
         }
 
         if($this->investment && $this->amount_from_investment > 0){
+            $this->validate([
+                'investment' => 'required|numeric',
+                'amount_from_investment' => 'required|numeric|max:'. Investment::find($this->investment)->totalUsableAmount(),
+            ]);
             $expense_budget = new ModelsExpenseBudget();
             $expense_budget->amount = $this->amount_from_investment;
             $expense_budget->month = $this->month;
