@@ -44,10 +44,10 @@ class CarExpenseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'car_name'         => 'required|string',
-            'amount'         => 'required|numeric',
-            'car_id'   => 'required|exists:cars,id',
-            'description'   => 'nullable',
+            'car_name'    => 'required|string',
+            'amount'      => 'required|numeric|max:'.round(monthly_expense_budget() - monthly_expense(), 1),
+            'car_id'      => 'required|exists:cars,id',
+            'description' => 'nullable',
 
         ]);
         $carexpense = new CarExpense();

@@ -5,6 +5,9 @@ use App\Models\Invoice;
 use App\Models\StaticOption;
 use GuzzleHttp\Client;
 use App\Models\Car;
+use App\Models\CarExpense;
+use App\Models\Expense;
+use App\Models\ExpenseBudget;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
@@ -100,12 +103,37 @@ if (!function_exists('random_code')) {
     
     // ********** Monthly income************** 
     function monthly_income($month = null, $year = null){
-        $month = date('m');
-        $year = date('Y');
+        if(!$month)
+            $month = date('m');
+        if(!$year)
+            $year = date('Y');
         $total = 0;
         foreach(Invoice::whereMonth('created_at', $month)->whereYear('created_at', $year)->get() as $inv){
             $total += $inv->payments->sum('amount');
         }
+        return $total;
+    }
+
+    // ********** Monthly expense************** 
+    function monthly_expense($month = null, $year = null){
+        if(!$month)
+            $month = date('m');
+        if(!$year)
+            $year = date('Y');
+        $total = 0;
+        $total += Expense::whereMonth('created_at', $month)->whereYear('created_at', $year)->sum('amount');
+        $total += CarExpense::whereMonth('created_at', $month)->whereYear('created_at', $year)->sum('amount');
+        return $total;
+    }
+
+    // ********** Monthly expense budget************** 
+    function monthly_expense_budget($month = null, $year = null){
+        if(!$month)
+            $month = date('m');
+        if(!$year)
+            $year = date('Y');
+        $total = 0;
+        $total += ExpenseBudget::where('month', $year.'-'.$month)->sum('amount');
         return $total;
     }
 

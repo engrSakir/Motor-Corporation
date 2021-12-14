@@ -39,7 +39,7 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'amount'        => 'required|numeric',
+            'amount'        => 'required|numeric|max:'.round(monthly_expense_budget() - monthly_expense(), 1),
             'category_id'   => 'required|exists:expense_categories,id',
             'description'   => 'nullable',
             'recurring'     => 'required|string',
