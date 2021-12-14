@@ -62,7 +62,7 @@
     <div class="col-md-6 col-lg-3 col-xlg-2">
         <div class="card">
             <div class="box bg-primary text-center">
-                <h1 class="font-light text-white">{{ monthly_income() - monthly_expense_budget() }}</h1>
+                <h1 class="font-light text-white">{{ monthly_income() - monthly_expense() }}</h1>
                 <h6 class="text-white">In hand of {{ date('F-Y') }}</h6>
             </div>
         </div>
