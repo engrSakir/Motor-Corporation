@@ -21,9 +21,7 @@
                     <h4 class="mb-0 text-white">Create Purchase Orders</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('backend.purchaseOrder.store') }}" method="POST"
-                        class="form-horizontal form-material" enctype="multipart/form-data">
-                        @csrf
+                    <form wire:submit.prevent="submit">
                         <div class="form-body">
                             <div class="card-body">
                                 @if ($errors->any())
@@ -37,29 +35,21 @@
                                 @endif
                                 <div class="row pt-3">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="form-label" for="vendor_name">Vendor<b class="text-danger">*</b> </label>
-                                            <select class="select2 form-select form-control" id="vendor_name" name="vendor_name" required>
-                                                <option selected disabled value="">Chose vendor</option>
-                                                @foreach ($vendors as $vendor)
-                                                <option value="{{ $vendor->id }}" @if(old('vendor_name') == $vendor->id) selected @endif>{{ $vendor->name }}</option>
-                                                @endforeach
-                                              </select>
-                                              </select>
-                                            @error('vendor_name')
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @foreach ($vendors as $vendor)
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="vendor_name" id="vendor_no_{{ $vendor->id }}" value="{{ $vendor->id }}" wire:model="vendor_name">
+                                            <label class="form-check-label" for="vendor_no_{{ $vendor->id }}">{{ $vendor->name }}</label>
                                         </div>
+                                        @endforeach
                                     </div>
                                     <div class="col-md-12">
                                         <table class="table table-striped table-hover">
+                                            @foreach ($po_items as $key => $po_item)
                                             <tr>
-                                                <td>1</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>
-                                                    <textarea name="" id="" class="form-control" cols="30" rows="2" placeholder="Description"></textarea>
-                                                    @error('work_description')
+                                                    <textarea name="work_description" id="" class="form-control" cols="30" rows="2" placeholder="Description" wire:model="po_field.{{ $key }}.description"></textarea>
+                                                    @error('po_field.'.$key.'.description')
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $message }}
                                                     </div>
@@ -82,9 +72,10 @@
                                                     @enderror
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                    <button type="button" class="btn btn-danger" wire:click="remove_item({{ $key }})">Delete</button>
                                                 </td>
                                             </tr>
+                                            @endforeach
 
                                         </table>
                                     </div>
@@ -92,6 +83,8 @@
                             </div>
                             <div class="form-actions">
                                 <div class="card-body">
+                                    <button type="button" class="btn btn-info text-white" wire:click="add_item"> <i class="fa fa-plus"></i>
+                                        Add item</button>
                                     <button type="submit" class="btn btn-success text-white"> <i class="fa fa-check"></i>
                                         Save</button>
                                     <button type="reset" class="btn btn-danger">Reset form</button>
