@@ -26,6 +26,7 @@ use App\Http\Livewire\Backend\Dashboard;
 use App\Http\Livewire\Backend\ExpenseBudget;
 use App\Http\Livewire\Backend\Invoice;
 use App\Http\Livewire\Backend\Pos;
+use App\Http\Livewire\Backend\PurchaseOrder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +59,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
     Route::resource('paymentMethod', PaymentMethodController::class);
     Route::resource('purchaseOrder', PurchaseOrderController::class);
-    
+
     Route::get('settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('settings', [SettingsController::class, 'update']);
     Route::resource('booking', BookingController::class);
@@ -71,5 +72,6 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('invoice', Invoice::class)->name('invoice'); //Livewire
     Route::get('customer', Customer::class)->name('customer'); //Livewire
     Route::get('expense-budget', ExpenseBudget::class)->name('expense-budget'); //Livewire
+    Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order'); //Livewire
 
 });
