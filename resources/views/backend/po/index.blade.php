@@ -47,9 +47,9 @@
                                     <a  class="btn btn-success btn-circle" target="_blank" href="{{ route('backend.purchaseOrder.show', $purchaseOrder) }}">
                                         <i class="fa fa-eye" ></i>
                                     </a>
-                                    <a  class="btn btn-warning btn-circle" href="{{ route('backend.purchaseOrder.edit', $purchaseOrder) }}">
+                                    {{-- <a  class="btn btn-warning btn-circle" href="{{ route('backend.purchaseOrder.edit', $purchaseOrder) }}">
                                         <i class="fa fa-pen" ></i>
-                                    </a>
+                                    </a> --}}
                                     <button type="button"  class="btn btn-danger btn-circle delete-btn" value="{{ route('backend.purchaseOrder.show', $purchaseOrder) }}">
                                         <i class="fa fa-trash" ></i>
                                     </button>
