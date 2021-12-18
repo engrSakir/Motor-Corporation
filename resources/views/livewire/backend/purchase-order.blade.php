@@ -37,10 +37,15 @@
                                     <div class="col-md-12">
                                         @foreach ($vendors as $vendor)
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="vendor_name" id="vendor_no_{{ $vendor->id }}" value="{{ $vendor->id }}" wire:model="vendor_name">
+                                            <input class="form-check-input" type="radio" name="vendor_name" id="vendor_no_{{ $vendor->id }}" value="{{ $vendor->id }}" wire:model="vendor_name" required>
                                             <label class="form-check-label" for="vendor_no_{{ $vendor->id }}">{{ $vendor->name }}</label>
                                         </div>
                                         @endforeach
+                                        @error('vendor_name')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-12">
                                         <table class="table table-striped table-hover">
@@ -48,7 +53,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>
-                                                    <textarea name="work_description" id="" class="form-control" cols="30" rows="2" placeholder="Description" wire:model="po_field.{{ $key }}.description"></textarea>
+                                                    <textarea name="work_description" id="" class="form-control" cols="30" rows="2" placeholder="Description" wire:model="po_field.{{ $key }}.description" required></textarea>
                                                     @error('po_field.'.$key.'.description')
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $message }}
@@ -56,16 +61,16 @@
                                                     @enderror
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control" placeholder="Price">
-                                                    @error('amount')
+                                                    <input type="number" class="form-control" placeholder="Price" wire:model="po_field.{{ $key }}.price" required>
+                                                    @error('po_field.'.$key.'.price')
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
                                                 </td>
                                                 <td>
-                                                    <input type="date" class="form-control">
-                                                    @error('job_finish_date')
+                                                    <input type="date" class="form-control" wire:model="po_field.{{ $key }}.date">
+                                                    @error('po_field.'.$key.'.date')
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $message }}
                                                         </div>
@@ -85,9 +90,11 @@
                                 <div class="card-body">
                                     <button type="button" class="btn btn-info text-white" wire:click="add_item"> <i class="fa fa-plus"></i>
                                         Add item</button>
+                                    @if(count($po_items) > 0)
                                     <button type="submit" class="btn btn-success text-white"> <i class="fa fa-check"></i>
                                         Save</button>
                                     <button type="reset" class="btn btn-danger">Reset form</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>

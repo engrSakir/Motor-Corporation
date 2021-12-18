@@ -28,8 +28,7 @@ class PurchaseOrderController extends Controller
      */
     public function create()
     {
-        $vendors = VendorInfo::where('type','service_seller')->orderBy('id','desc')->get();
-        return view('backend.po.create', compact('vendors'));
+
     }
 
     /**
@@ -40,16 +39,7 @@ class PurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        $validate_data = $request->validate([
-            'vendor_name' => 'required|exists:vendor_infos,id',
-            'amount' => 'required|numeric',
-            'job_finish_date' => 'required|string',
-            'work_description' => 'required|string',
-        ]);
-
-        PurchaseOrder::create($validate_data);
-        toastr()->success('Success');
-        return back();
+;
     }
 
     /**
@@ -60,8 +50,8 @@ class PurchaseOrderController extends Controller
      */
     public function show(PurchaseOrder $purchaseOrder)
     {
-        $pdf = PDF::loadView('backend.po.show-pdf', compact('purchaseOrder'));
-        return $pdf->stream('PO-' . config('app.name') . '.pdf');
+        $pdf = PDF::loadView('backend.pdf.po-pdf', compact('purchaseOrder'));
+        return $pdf->stream('PO-'. date('d-m-Y-h-i-s-') . config('app.name') . '.pdf');
     }
 
     /**

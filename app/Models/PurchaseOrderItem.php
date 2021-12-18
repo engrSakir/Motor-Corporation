@@ -12,8 +12,14 @@ class PurchaseOrderItem extends Model
     use Userstamps;
 
     protected $fillable = [
+        'po_id',
         'amount',
         'job_finish_date',
         'work_description',
     ];
+
+    public function po(){
+        return $this->belongsTo(PurchaseOrder::class, 'po_id', 'id');
+    }
+
 }

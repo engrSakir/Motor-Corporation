@@ -15,6 +15,7 @@ class CreatePurchaseOrderItemsTable extends Migration
     {
         Schema::create('purchase_order_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('po_id');
             $table->double('amount')->default(0);
             $table->string('job_finish_date')->nullable();
             $table->longText('work_description')->nullable();

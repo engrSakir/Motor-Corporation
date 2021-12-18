@@ -90,12 +90,14 @@ class Pos extends Component
             }else{
                 $this->invoice_url = route('backend.pdf', [$invoice, 'type=invoice']);
             }
+            $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Successfully Done!']);
             session()->flash('message_type', 'success');
             session()->flash('message', 'Success');
         }catch(\Exception $e){
+            $this->dispatchBrowserEvent('alert', ['type' => 'error',  'message' => 'Something went wrong!']);
             session()->flash('message_type', 'danger');
             session()->flash('message', $e->getMessage());
-        }   
+        }
     }
 
 

@@ -29,7 +29,6 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Vendor Name</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Job finish date</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -39,8 +38,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $purchaseOrder->vendor->name ?? '#' }}</td>
-                                    <td>{{ $purchaseOrder->amount }}</td>
-                                    <td>{{ $purchaseOrder->job_finish_date }}</td>
+                                    <td>{{ $purchaseOrder->poItems()->sum('amount') }}</td>
                                     <td>{{ $purchaseOrder->created_at->format('d/m/Y') }}</td>
                                     <td>
                                     <a  class="btn btn-success btn-circle" download="" href="{{ route('backend.purchaseOrder.show', $purchaseOrder) }}">
