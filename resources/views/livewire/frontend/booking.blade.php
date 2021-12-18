@@ -17,8 +17,12 @@
         <div class="main">
             <div class="account-login container">
                 <!--page-title-->
-                @if($booking_form_status == 'customer_info')
-                <form wire:submit.prevent="CustomerInformationSave" enctype="multipart/form-data">
+                @if($booking_form_status == 'start')
+                    <fieldset class="col2-set" style="text-align: center; height:3in;">
+                        <button type="button" class="button" title="Next" wire:click="start" style="margin-top: 1in;"><span>Start</span></button>
+                    </fieldset>
+                @elseif($booking_form_status == 'customer_info')
+                <form wire:submit.prevent="customerInformationSave">
                     <fieldset class="col2-set">
                         <div class="col-1 new-users">
                             <strong>Name & Date</strong>
@@ -115,7 +119,7 @@
                                 @endif
                                 @foreach ($bookingPurposes as $bookingPurpos)
                                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post"
-                                    wire:click="selectBookingPurpose({{ $bookingPurpos->id }})">
+                                    wire:click="selectBookingPurpose({{ $bookingPurpos->id }})" >
                                     <div class="blog_inner">
                                         <div class="blog-img">
                                             <a href="javascript:vaoid(0)">
@@ -125,7 +129,7 @@
                                         </div>
                                         <!--blog-img-->
                                         <div class="blog-info">
-                                            <h3>{{ $bookingPurpos->name }}</h3>
+                                            <h3><input type="radio" name="purpose" id="p-{{ $bookingPurpos->id }}">{{ $bookingPurpos->name }}</h3>
                                             <p>{{ $bookingPurpos->description }}</p>
                                         </div>
                                     </div>

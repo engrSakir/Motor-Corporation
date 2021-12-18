@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Booking extends Component
 {
-    public $booking_form_status = 'customer_info';
+    public $booking_form_status = 'start';
     public $name = null;
     public $date = null;
     public $email = null;
@@ -17,7 +17,12 @@ class Booking extends Component
     public $booking_purpose = null;
     public $booking = null;
 
-    public function CustomerInformationSave()
+    public function start(){
+        $this->booking_form_status = 'customer_info';
+        $this->customerInformationSave();
+    }
+
+    public function customerInformationSave()
     {
         $this->validate([
             'name'  => 'required',
@@ -55,7 +60,6 @@ class Booking extends Component
     public function mount()
     {
         $this->bookingPurposes = BookingPurpose::latest()->get();
-        $this->booking_form_status = 'customer_info';
     }
 
     public function render()
