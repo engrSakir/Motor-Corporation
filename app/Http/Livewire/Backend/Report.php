@@ -22,15 +22,11 @@ class Report extends Component
             'ending_date' => 'required',
         ]);
 
-        $this->starting_date = new Carbon($this->starting_date);
-        $this->ending_date = new Carbon($this->ending_date);
-
-
-        // $expenses = Expense::whereBetween('created_at',[$start,$end])->get();
-        // $investors = Investor::whereBetween('created_at',[$start,$end])->get();
+        $start = new Carbon($this->starting_date);
+        $end = new Carbon($this->ending_date);
 
         // Invoice List, price, paid, due
-        $invoices = Invoice::whereBetween('created_at',[$this->starting_date, $this->ending_date])->get();
+        $invoices = Invoice::whereBetween('created_at',[$start, $end])->get();
         $total_invoice_price = $total_invoice_paid = $total_invoice_due = 0;
         foreach($invoices as $inv){
             $total_invoice_price += $inv->totalPrice();
@@ -39,8 +35,8 @@ class Report extends Component
         }
 
         // Invoice List, price, paid, due
-        $expenses = Expense::whereBetween('created_at',[$this->starting_date, $this->ending_date])->get();
-        $car_expenses = CarExpense::whereBetween('created_at',[$this->starting_date, $this->ending_date])->get();
+        $expenses = Expense::whereBetween('created_at',[$start, $end])->get();
+        $car_expenses = CarExpense::whereBetween('created_at',[$start, $end])->get();
 
 
         $this->report_data_set = [
@@ -61,7 +57,7 @@ class Report extends Component
         ];
 
         return response()->streamDownload(function () {
-            PDF::loadView('backend.report.pdf-report',  ['report_data_set' => $this->report_data_set, 'starting_date' => $this->starting_date, 'ending_date' => $this->ending_date])->download();
+            PDF::loadView('backend.report.pdf-report',  ['report_data_set' => $this->report_data_set, 'starting_date' => new Carbon($this->starting_date), 'ending_date' => new Carbon($this->ending_date)])->download();
         }, 'Report generated at '.date('d-m-Y- h-i-s').'.pdf');
     }
 
