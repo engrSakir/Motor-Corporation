@@ -40,7 +40,7 @@ class DashboardController extends Controller
 
     public function indexReport()
     {
-        return view('backend.report.index');
+        return view('backend.report');
     }
 
     public function storeReport(Request $request)
@@ -60,13 +60,13 @@ class DashboardController extends Controller
         foreach($invoices as $inv){
             $total_sale_amount_of_this_month += $inv->price();
         }
-        
+
         $count_items = [
             [
                 'title' => 'Total Invoice : ',
                 'count' => Invoice::whereBetween('created_at',[$start,$end])->count(),
             ],
-           
+
             [
                 'title' => 'Total Expense : ',
                 'count' => Expense::whereBetween('created_at',[$start,$end])->get()->sum('amount'),

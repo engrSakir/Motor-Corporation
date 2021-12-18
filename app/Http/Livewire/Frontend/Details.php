@@ -5,10 +5,10 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Car;
 
-class Home extends Component
+class Details extends Component
 {
-    public $dealcars; 
-    public $popularcars; 
+    public $dealcars;
+    public $popularcars;
 
     public function mount()
     {

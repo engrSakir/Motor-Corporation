@@ -27,6 +27,7 @@ use App\Http\Livewire\Backend\ExpenseBudget;
 use App\Http\Livewire\Backend\Invoice;
 use App\Http\Livewire\Backend\Pos;
 use App\Http\Livewire\Backend\PurchaseOrder;
+use App\Http\Livewire\Backend\Report;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,8 +65,8 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::post('settings', [SettingsController::class, 'update']);
     Route::resource('booking', BookingController::class);
     Route::resource('user', UserController::class);
-    Route::get('/report', [DashboardController::class, 'indexReport'])->name('report.index');
-    Route::post('/report', [DashboardController::class, 'storeReport'])->name('report.store');
+    // Route::get('/report', [DashboardController::class, 'indexReport'])->name('report.index');
+    // Route::post('/report', [DashboardController::class, 'storeReport'])->name('report.store');
 
     // Livewire
     Route::get('pos', Pos::class)->name('pos'); //Livewire
@@ -73,5 +74,6 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('customer', Customer::class)->name('customer'); //Livewire
     Route::get('expense-budget', ExpenseBudget::class)->name('expense-budget'); //Livewire
     Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order'); //Livewire
+    Route::get('report', Report::class)->name('report'); //Livewire
 
 });

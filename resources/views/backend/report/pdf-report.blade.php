@@ -68,87 +68,87 @@
 <body>
     <div  style="width: 100%; text-align: center; " >
             <h2>Report <br> {{ config('app.name') }}</h2>
-            <h3>Date: {{ $start->format('d-m-Y') }} to {{ $end->format('d-m-Y') }}</h3>
-    </div>
-
-    @foreach ($count_items as $count_item)
-        <div class=" @if ($loop->odd) info @else success @endif">
-            <p> {{ $count_item['title'] }}: &nbsp; <strong>{{ $count_item['count'] }}</strong></p>
-        </div>
-    @endforeach
-    <hr>
-    @php
-        $total_investment = 0;
-        $total_settlementt = 0;
-        foreach($investors as $investor){
-            $total_investment += $investor->totalInvestmentWithInterest();
-            $total_settlementt += $investor->totalSettlement();
-        }
-    @endphp
-    <div class="info">
-        <p> Total Investment include interest: &nbsp; <strong>{{  $total_investment }} BDT</strong></p>
-    </div>
-    <div class=" success">
-        <p> Total Settlement include interest: &nbsp; <strong>{{  $total_settlementt }} BDT</strong></p>
+            <h3>Date: {{ $starting_date->format('d-m-Y') }} to {{ $ending_date->format('d-m-Y') }}</h3>
     </div>
     <hr>
-    @foreach($investors as $investor)
-    <div class=" @if ($loop->odd) info @else success @endif">
-        <p> {{ $investor->name }}: &nbsp; <strong>{{  round($investor->investmentPercentage(), 2) }}%</strong></p>
-    </div>
-    @endforeach
-    <hr>
-    <h3>Invoice</h3>
+    <h2 style="width: 100%; text-align:center;">Invoice</h2>
+    <div class="info"><p>Price: &nbsp; <strong>{{  $report_data_set['invoice']['price'] }} BDT</strong></p></div>
+    <div class="success"><p>Paid: &nbsp; <strong>{{  $report_data_set['invoice']['paid'] }} BDT</strong></p></div>
+    <div class="danger"><p>Due: &nbsp; <strong>{{  $report_data_set['invoice']['due'] }} BDT</strong></p></div>
     <table class="table color-bordered-table primary-bordered-table first">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>ID</th>
-                                    <th>Amount</th>
-                                   
-                                    <th>Created At</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($invoices as $invoice)
-                                    <tr>
-                                        <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>{{ $invoice->id }}</td>
-                                        <td>
-                                            {{ $invoice->price() }}
-                                        </td>
-                                        
-                                        <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <hr>
-                        <hr>
-                        <h3>Expense</h3>
-                        <table class="table color-bordered-table primary-bordered-table second">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Created At</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($expenses as $expense)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $expense->amount }}</td>
-                                    <td>{{ $expense->category->name ?? '#' }}</td>
-                                    <td>{{ $expense->created_at->format('d/m/Y') }}</td>
-
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                
+        <thead>
+            <tr>
+                <th style="text-align: right;">#</th>
+                <th style="text-align: right;">ID</th>
+                <th style="text-align: right;">Price</th>
+                <th style="text-align: right;">Paid</th>
+                <th style="text-align: right;">Due</th>
+                <th style="text-align: right;">Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($report_data_set['invoice']['list'] as $invoice)
+                <tr>
+                    <td scope="row"  style="text-align: right;">{{ $loop->iteration }}</td>
+                    <td style="text-align: right;">{{ $invoice->id }}</td>
+                    <td style="text-align: right;">{{ $invoice->totalPrice() }}</td>
+                    <td style="text-align: right;">{{ $invoice->payments->sum('amount', 2) }}</td>
+                    <td style="text-align: right;">{{ $invoice->due() }}</td>
+                    <td style="text-align: right;">{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <pagebreak>
+    <h2 style="width: 100%; text-align:center;">Expense</h2>
+    <div class="info"><p>Total: &nbsp; <strong>{{  $report_data_set['expense']['total'] }} BDT</strong></p></div>
+    <table class="table color-bordered-table primary-bordered-table first">
+        <thead>
+            <tr>
+                <th style="text-align: right;">#</th>
+                <th style="text-align: right;">ID</th>
+                <th style="text-align: right;">Note</th>
+                <th style="text-align: right;">Amount</th>
+                <th style="text-align: right;">Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($report_data_set['expense']['list'] as $expense)
+                <tr>
+                    <td scope="row"  style="text-align: right;">{{ $loop->iteration }}</td>
+                    <td style="text-align: right;">{{ $expense->id }}</td>
+                    <td style="text-align: right;">{{ $expense->description }}</td>
+                    <td style="text-align: right;">{{ $expense->amount }}</td>
+                    <td style="text-align: right;">{{ $expense->created_at->format('d/m/Y h:i A') }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <pagebreak>
+    <h2 style="width: 100%; text-align:center;">Car Expense</h2>
+    <div class="info"><p>Total: &nbsp; <strong>{{  $report_data_set['car_expense']['total'] }} BDT</strong></p></div>
+    <table class="table color-bordered-table primary-bordered-table first">
+        <thead>
+            <tr>
+                <th style="text-align: right;">#</th>
+                <th style="text-align: right;">ID</th>
+                <th style="text-align: right;">Name</th>
+                <th style="text-align: right;">Amount</th>
+                <th style="text-align: right;">Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($report_data_set['car_expense']['list'] as $car_expense)
+                <tr>
+                    <td scope="row"  style="text-align: right;">{{ $loop->iteration }}</td>
+                    <td style="text-align: right;">{{ $car_expense->id }}</td>
+                    <td style="text-align: right;">{{ $car_expense->name }}</td>
+                    <td style="text-align: right;">{{ $car_expense->amount }}</td>
+                    <td style="text-align: right;">{{ $car_expense->created_at->format('d/m/Y h:i A') }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 </body>
 
