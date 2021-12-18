@@ -12,8 +12,12 @@ class Invoice extends Model
     use Userstamps;
 
     protected $fillable = [
-        'payment_method_id',
+        'customer_id',
+        'car_id',
+        'price',
+        'vat_percentage',
         'discount_percentage',
+        'payment_method_id',
         'fixed_discount',
         'note',
     ];

@@ -14,7 +14,51 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" id="edit">
+        @if($select_for_edit)
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <form wire:submit.prevent="update">
+                        <div class="form-row row">
+                          <div class="form-group col-md-3">
+                            <label for="customer">Customer</label>
+                            <select id="customer" class="form-control" wire:model="customer">
+                              <option selected value="">Choose customer...</option>
+                              @foreach ($customers as $customer)
+                              <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="car">Car</label>
+                            <select id="car" class="form-control" wire:model="car">
+                              <option selected>Choose car...</option>
+                              <option value="{{ $select_for_edit->car_id }}">{{ $select_for_edit->car->name }}</option>
+                              @foreach ($cars as $car)
+                              <option value="{{ $car->id }}">{{ $car->name }}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="price">Price</label>
+                            <input type="number" class="form-control" id="price" wire:model="price">
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="vat">VAT percentage</label>
+                            <input type="number" class="form-control" id="vat" wire:model="vat_percentage">
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="discount">Discount percentage</label>
+                            <input type="number" class="form-control" id="discount" wire:model="discount_percentage">
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update invoice</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -61,11 +105,14 @@
                                         <button wire:click="delete({{ $invoice->id }})" onclick="confirm('Are you sure you want to remove ?') || event.stopImmediatePropagation()"
                                             class="btn btn-danger btn-circle"><i class="fa fa-trash text-white"></i>
                                         </button>
+                                        <button wire:click="select_for_edit({{ $invoice->id }})"
+                                            class="btn btn-warning btn-circle"><i class="fa fa-pen text-white"></i>
+                                        </button>
                                     </td>
                                     <td>
                                         {{ $invoice->car->status ?? '-' }}
                                         @if($invoice->car)
-                                            @if($invoice->car->status == 'Booking') <button type="button" class="btn btn-danger text-white btn-sm" wire:click="makeSold({{ $invoice->car->id }})">Make Sold</button> @endif
+                                            @if($invoice->car->status == 'Booking') <button type="button" class="btn btn-danger text-white btn-sm" wire:click="makeSold({{ $invoice->car->id }})" onclick="confirm('Are you sure you want to make is sold ?') || event.stopImmediatePropagation()">Make Sold</button> @endif
                                         @endif
                                     </td>
                                     <td scope="row">{{ $invoice->id }}</td>
