@@ -1,70 +1,7 @@
 <div class="content">
-    {{-- Main banner --}}
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Slider -->
-            <div class="home-slider5">
-                <div id="thmg-slideshow" class="thmg-slideshow">
-                    <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
-                        <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
-                            <ul>
-                                <li>
-                                    <video autoplay muted loop id="myVideo"
-                                        style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;"
-                                        src="{{ asset(get_static_option('banner_video') ?? 'assets/videos/cover_1.mp4') }}"></video>
-                                    <div class="container ">
-                                        <div class="content_slideshow">
-                                            <div class="row">
-                                                {{-- <div>
-                                                    <div class="info">
-                                                        <div class='tp-caption ExtraLargeTitle sft  tp-resizeme '
-                                                            data-endspeed='500' data-speed='500' data-start='1100'
-                                                            data-easing='Linear.easeNone' data-splitin='none'
-                                                            data-splitout='none' data-elementdelay='0.1'
-                                                            data-endelementdelay='0.1'
-                                                            style='z-index:2; white-space:nowrap;'><span>Top Brands
-                                                                2021</span>
-                                                        </div>
-                                                        <div class='tp-caption LargeTitle sfl  tp-resizeme '
-                                                            data-endspeed='500' data-speed='500' data-start='1300'
-                                                            data-easing='Linear.easeNone' data-splitin='none'
-                                                            data-splitout='none' data-elementdelay='0.1'
-                                                            data-endelementdelay='0.1'
-                                                            style='z-index:3; white-space:nowrap;'><span
-                                                                style="font-weight:normal; display:block">Modern-classic</span>
-                                                            incredible </div>
-                                                        <div class='tp-caption Title sft  tp-resizeme '
-                                                            data-endspeed='500' data-speed='500' data-start='1450'
-                                                            data-easing='Power2.easeInOut' data-splitin='none'
-                                                            data-splitout='none' data-elementdelay='0.1'
-                                                            data-endelementdelay='0.1'
-                                                            style='z-index:4; white-space:nowrap;'>Get 40% OFF on
-                                                            selected
-                                                            items.</div>
-                                                        <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500'
-                                                            data-speed='500' data-start='1500'
-                                                            data-easing='Linear.easeNone' data-splitin='none'
-                                                            data-splitout='none' data-elementdelay='0.1'
-                                                            data-endelementdelay='0.1'
-                                                            style='z-index:4; white-space:nowrap;'><a href='#'
-                                                                class="buy-btn">Booking Now</a>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="tp-bannertimer"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{--end Main banner --}}
-    <!--Search box-->
+    {{-- Main custom video banner --}}
+    <video class="cover_video" autoplay muted loop id="myVideo" src="{{ asset(get_static_option('banner_video') ?? 'assets/videos/cover_1.mp4') }}"></video>
+    {{--end Main ustom video banner --}}
     {{-- section-filter --}}
     <div class="" style="margin: 10px;">
         <div class="b-filter__inner bg-grey container">
@@ -109,14 +46,12 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="image-box" data-scroll-goto="1">
-                        <img height="350px;" width="150px;" src="{{ asset('assets/images/small_cover_1.jpg') }}"
-                            alt="banner1">
+                        <img height="350px;" width="150px;" src="{{ asset('assets/images/small_cover_1.jpg') }}" alt="banner1">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="image-box" data-scroll-goto="2">
-                        <img height="350px;" width="150px;" src="{{ asset('assets/images/small_cover_2.jpg') }}"
-                            alt="banner2">
+                        <img height="350px;" width="150px;" src="{{ asset('assets/images/small_cover_2.jpg') }}" alt="banner2">
                     </div>
                 </div>
             </div>
@@ -131,17 +66,14 @@
             </div>
             <div id="best-seller" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4 products-grid">
-                @foreach($dealcars as $dealcar)
+                    @foreach($dealcars as $dealcar)
 
 
                     <!-- Item -->
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="{{ route('carDetails', $dealcar->slug) }}" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset($dealcar->image ?? 'uploads/images/no_image.png') }}"
-                                            alt="Retis lapen casen"></a>
+                                <div class="item-img-info"><a href="{{ route('carDetails', $dealcar->slug) }}" title="Retis lapen casen" class="product-image"><img src="{{ asset($dealcar->image ?? 'uploads/images/no_image.png') }}" alt="Retis lapen casen"></a>
                                     <div class="item-box-hover">
                                         <div class="box-inner">
                                             <div class="add_cart">
@@ -149,8 +81,7 @@
                                             </div>
                                             <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
                                                         View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to
                                                             Wishlist</span></a> </span> </div>
                                         </div>
                                     </div>
@@ -158,8 +89,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="{{ route('carDetails', $dealcar->slug) }}"
-                                            title="{{ $dealcar->name }}">{{ $dealcar->name }}</a>
+                                    <div class="item-title"><a href="{{ route('carDetails', $dealcar->slug) }}" title="{{ $dealcar->name }}">{{ $dealcar->name }}</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -167,19 +97,17 @@
                                                 <div class="rating-box">
                                                     <div class="rating" style="width:80%"></div>
                                                 </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                             </div>
                                         </div>
                                         <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳ {{ $dealcar->selling_price }}</span> </span> </div>
+                                            <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $dealcar->selling_price }}</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> {{ $dealcar->mileages }}</div>
                                             <div class="col-engine"><i class="fa fa-gear"></i>{{ $dealcar->model }}</div>
                                             <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                            {{ $dealcar->brand }}</div>
+                                                {{ $dealcar->brand }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +116,7 @@
                     </div>
                     <!-- End Item -->
 
-                 @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -203,15 +131,12 @@
             <div id="best-seller" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4 products-grid">
 
-                @foreach($popularcars as $popularcar)
+                    @foreach($popularcars as $popularcar)
                     <!-- Item -->
                     <div class="item">
                         <div class="item-inner">
                             <div class="item-img">
-                                <div class="item-img-info"><a href="{{ route('carDetails', $popularcar->slug) }}" title="Retis lapen casen"
-                                        class="product-image"><img
-                                            src="{{ asset($popularcar->image ?? 'uploads/images/no_image.png') }}"
-                                            alt="Retis lapen casen"></a>
+                                <div class="item-img-info"><a href="{{ route('carDetails', $popularcar->slug) }}" title="Retis lapen casen" class="product-image"><img src="{{ asset($popularcar->image ?? 'uploads/images/no_image.png') }}" alt="Retis lapen casen"></a>
                                     <div class="item-box-hover">
                                         <div class="box-inner">
                                             <div class="add_cart">
@@ -219,8 +144,7 @@
                                             </div>
                                             <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick
                                                         View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#"
-                                                        class="link-wishlist" title="Add to Wishlist"><span>Add to
+                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to
                                                             Wishlist</span></a> </span> </div>
                                         </div>
                                     </div>
@@ -228,8 +152,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="info-inner">
-                                    <div class="item-title"><a href="{{ route('carDetails', $popularcar->slug) }}"
-                                            title="{{ $popularcar->name }}">{{ $popularcar->name }}</a>
+                                    <div class="item-title"><a href="{{ route('carDetails', $popularcar->slug) }}" title="{{ $popularcar->name }}">{{ $popularcar->name }}</a>
                                     </div>
                                     <div class="item-content">
                                         <div class="rating">
@@ -237,19 +160,17 @@
                                                 <div class="rating-box">
                                                     <div class="rating" style="width:80%"></div>
                                                 </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span
-                                                        class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                             </div>
                                         </div>
                                         <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span
-                                                        class="price">৳ {{ $popularcar->selling_price }}</span> </span> </div>
+                                            <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $popularcar->selling_price }}</span> </span> </div>
                                         </div>
                                         <div class="other-info">
                                             <div class="col-km"><i class="fa fa-tachometer"></i> {{ $popularcar->mileages }}</div>
                                             <div class="col-engine"><i class="fa fa-gear"></i> {{ $popularcar->model }}</div>
                                             <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i>
-                                            {{ $popularcar->brand }}</div>
+                                                {{ $popularcar->brand }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +178,7 @@
                         </div>
                     </div>
                     <!-- End Item -->
-@endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -274,8 +195,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                     <div class="blog_inner">
-                        <div class="blog-img"> <a href="blog-detail.html"> <img
-                                    src="{{ asset('assets/frontend/images/blog-img1.jpg') }}" alt="blog image"> </a>
+                        <div class="blog-img"> <a href="blog-detail.html"> <img src="{{ asset('assets/frontend/images/blog-img1.jpg') }}" alt="blog image"> </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
@@ -294,8 +214,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                     <div class="blog_inner">
-                        <div class="blog-img"> <a href="blog-detail.html"> <img
-                                    src="{{ asset('assets/frontend/images/blog-img2.jpg') }}" alt="blog image"> </a>
+                        <div class="blog-img"> <a href="blog-detail.html"> <img src="{{ asset('assets/frontend/images/blog-img2.jpg') }}" alt="blog image"> </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
@@ -314,8 +233,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                     <div class="blog_inner">
-                        <div class="blog-img"> <a href="blog-detail.html"> <img
-                                    src="{{ asset('assets/frontend/images/blog-img3.jpg') }}" alt="blog image"> </a>
+                        <div class="blog-img"> <a href="blog-detail.html"> <img src="{{ asset('assets/frontend/images/blog-img3.jpg') }}" alt="blog image"> </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
@@ -351,10 +269,7 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video1') }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video1') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
@@ -369,10 +284,7 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video2') }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video2') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
@@ -387,10 +299,7 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video3') }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                                <iframe width="400" height="250" src="{{ get_static_option('video3') }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->

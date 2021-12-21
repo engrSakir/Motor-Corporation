@@ -44,11 +44,17 @@
         transform: scale(1.1);
     }
 
-
-
     /* a {
         color: #faf3f3;
     } */
 
-
+    /* Cover video full screen */
+    .cover_video {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        position: ;
+        top: 0;
+        left: 0;
+    }
 </style>
