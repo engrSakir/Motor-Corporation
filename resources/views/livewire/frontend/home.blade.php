@@ -16,19 +16,23 @@
                     </select>
                 </div>
                 <div class="btn-group bootstrap-select">
-                    <select class="selectpicker" data-width="100%" tabindex="-98">
+                    <select name="cartype" class="selectpicker" data-width="100%" tabindex="-98">
                         <option>Select Car Status</option>
-                        <option>Status 1</option>
-                        <option>Status 2</option>
-                        <option>Status 3</option>
+                        @foreach($cartypes as $cartype)
+
+                        <option value="{{ $cartype->id }}">{{ $cartype->name }}</option>
+                        
+                        @endforeach
                     </select>
                 </div>
                 <div class="btn-group bootstrap-select">
                     <select class="selectpicker" data-width="100%" tabindex="-98">
                         <option>Select Model</option>
-                        <option>Model 1</option>
-                        <option>Model 2</option>
-                        <option>Model 3</option>
+                        @foreach($carmodels as $carmodel)
+
+                        <option value="{{ $carmodel->model }}">{{ $carmodel->model }}</option>
+                        
+                        @endforeach
                     </select>
                 </div>
                 <div>
