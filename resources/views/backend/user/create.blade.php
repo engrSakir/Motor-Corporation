@@ -65,7 +65,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
                                         <label class="form-label" for="user_phone">Phone </label>
-                                        <input type="number" id="user_phone" name="user_phone"
+                                        <input type="number" step="any" id="user_phone" name="user_phone"
                                             class="form-control" placeholder="Your Mobile Number"
                                             value="{{ old('user_phone') }}">
                                         @error('user_phone')
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="user_pass" class="form-label">Password <b

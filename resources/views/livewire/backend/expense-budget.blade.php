@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="number" wire:model="amount_from_in_hand" class="form-control" id="tb-fname" placeholder="Amount in hand">
+                                    <input type="number" step="any" wire:model="amount_from_in_hand" class="form-control" id="tb-fname" placeholder="Amount in hand">
                                     <label for="tb-fname">From amount in hand</label>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="number" wire:model="amount_from_investment" class="form-control" id="tb-cpwd" placeholder="Amount from investment">
+                                    <input type="number" step="any" wire:model="amount_from_investment" class="form-control" id="tb-cpwd" placeholder="Amount from investment">
                                     <label for="tb-cpwd">Amount</label>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                             </ul>
                         </div>
                     @endif
-                   
+
                     <div class="table-responsive">
                         <table class="table color-bordered-table primary-bordered-table">
                             <thead>
@@ -102,7 +102,7 @@
                                     <th>#</th>
                                     <th>Type</th>
                                     <th>Month</th>
-                                    <th>Amount</th> 
+                                    <th>Amount</th>
                                 </tr>
                             </thead>
                             <tbody>

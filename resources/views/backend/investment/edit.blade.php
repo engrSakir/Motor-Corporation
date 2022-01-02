@@ -51,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="investment_amount">Investment Amount<b class="text-danger">*</b></label>
-                                        <input type="number" id="investment_amount" name="investment_amount" class="form-control" placeholder="Investment Amount" value="{{ $investment->amount }}" required>
+                                        <input type="number" step="any" id="investment_amount" name="investment_amount" class="form-control" placeholder="Investment Amount" value="{{ $investment->amount }}" required>
                                         @error('investment_amount')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -62,7 +62,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="interest">Interest Amount in Percentage<b class="text-danger">*</b></label>
-                                        <input type="number" id="interest" name="interest" class="form-control" placeholder="Interest Amount" value="{{  $investment->interest }}" required>
+                                        <input type="number" step="any" id="interest" name="interest" class="form-control" placeholder="Interest Amount" value="{{  $investment->interest }}" required>
                                         @error('interest')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}

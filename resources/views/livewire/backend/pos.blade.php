@@ -46,7 +46,7 @@
         <div class="card">
             <div class="card-header bg-danger text-white d-flex justify-content-between">
                 <div>
-                   
+
                 </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -143,7 +143,7 @@
                             <div class="input-group-append" style="width:50%;">
                                 <span class="input-group-text">Price</span>
                             </div>
-                            <input type="number" class="form-control form-control-sm" wire:model="selling_price">
+                            <input type="number" step="any" class="form-control form-control-sm" wire:model="selling_price">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -159,7 +159,7 @@
                             <div class="input-group-append" style="width:50%;">
                                 <span class="input-group-text">Paid</span>
                             </div>
-                            <input type="number" class="form-control form-control-sm" wire:model="paid_amount">
+                            <input type="number" step="any" class="form-control form-control-sm" wire:model="paid_amount">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -192,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-12  text-center" style="font-size: 16px;">
                        <div class="row m-2">
                             <div class="col-md-6">

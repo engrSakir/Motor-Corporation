@@ -56,7 +56,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="initial_deposit">Initial Deposit<b class="text-danger">*</b> </label>
-                                        <input type="number" id="initial_deposit" name="initial_deposit" class="form-control" placeholder="Initial Deposit" value="{{ $investor->initial_deposit }}" required>
+                                        <input type="number" step="any" id="initial_deposit" name="initial_deposit" class="form-control" placeholder="Initial Deposit" value="{{ $investor->initial_deposit }}" required>
                                         @error('initial_deposit')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -67,7 +67,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="current_amount">Current Amount<b class="text-danger">*</b> </label>
-                                        <input type="number" id="current_amount" name="current_amount" class="form-control" placeholder="Current Amount" value="{{ $investor->current_amount }}" required>
+                                        <input type="number" step="any" id="current_amount" name="current_amount" class="form-control" placeholder="Current Amount" value="{{ $investor->current_amount }}" required>
                                         @error('current_amount')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}

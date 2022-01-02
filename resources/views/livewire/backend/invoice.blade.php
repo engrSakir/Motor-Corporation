@@ -42,15 +42,15 @@
                           </div>
                           <div class="form-group col-md-2">
                             <label for="price">Price</label>
-                            <input type="number" class="form-control" id="price" wire:model="price">
+                            <input type="number" step="any" class="form-control" id="price" wire:model="price">
                           </div>
                           <div class="form-group col-md-2">
                             <label for="vat">VAT percentage</label>
-                            <input type="number" class="form-control" id="vat" wire:model="vat_percentage">
+                            <input type="number" step="any" class="form-control" id="vat" wire:model="vat_percentage">
                           </div>
                           <div class="form-group col-md-2">
                             <label for="discount">Discount percentage</label>
-                            <input type="number" class="form-control" id="discount" wire:model="discount_percentage">
+                            <input type="number" step="any" class="form-control" id="discount" wire:model="discount_percentage">
                           </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Update invoice</button>
@@ -130,7 +130,7 @@
                                             <option value="{{ $payment_method_s->id }}">{{ $payment_method_s->name }}</option>
                                             @endforeach
                                         </select>
-                                        <input type="number" class="form-control" style="width: 80px;" wire:keydown.enter="addPayment({{  $invoice->id }})"  wire:model="payment_amount.{{  $invoice->id }}">
+                                        <input type="number" step="any" class="form-control" style="width: 80px;" wire:keydown.enter="addPayment({{  $invoice->id }})"  wire:model="payment_amount.{{  $invoice->id }}">
                                         @endif
                                     </td>
                                     <td>{{ $invoice->created_at->format('d/m/Y h:i A') }}</td>

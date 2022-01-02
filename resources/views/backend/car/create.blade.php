@@ -121,7 +121,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="purchase_price">Purchase price<b
                                                 class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="purchase_price" name="purchase_price"
+                                        <input type="number" step="any" step="any" id="purchase_price" name="purchase_price"
                                             class="form-control" placeholder="Purchase price"
                                             value="{{ old('purchase_price') }}" required>
                                         @error('purchase_price')
@@ -135,7 +135,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="selling_price">Selling price<b
                                                 class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="selling_price" name="selling_price"
+                                        <input type="number" step="any" step="any" id="selling_price" name="selling_price"
                                             class="form-control" placeholder="Selling price"
                                             value="{{ old('selling_price') }}" required>
                                         @error('selling_price')
@@ -149,7 +149,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="vat_percentage">Vat percentage (%)<b
                                                 class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="vat_percentage" name="vat_percentage"
+                                        <input type="number" step="any" step="any" id="vat_percentage" name="vat_percentage"
                                             class="form-control" placeholder="Vat percentage"
                                             value="{{ old('vat_percentage') }}" required>
                                         @error('vat_percentage')
@@ -163,7 +163,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="discount_percentage">Discount percentage (%)<b
                                                 class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="discount_percentage"
+                                        <input type="number" step="any" step="any" id="discount_percentage"
                                             name="discount_percentage" class="form-control"
                                             placeholder="Discount percentage" value="{{ old('discount_percentage') }}"
                                             required>

@@ -28,7 +28,7 @@
                 <form action="{{ route('backend.car.update',$car) }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
-                
+
                     <div class="form-body">
                         <div class="card-body">
                             <div class="row pt-3">
@@ -102,7 +102,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="purchase_price">Purchase price<b class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="purchase_price" name="purchase_price" class="form-control" placeholder="Purchase price" value="{{ $car->purchase_price }}" required>
+                                        <input type="number" step="any" step="any" id="purchase_price" name="purchase_price" class="form-control" placeholder="Purchase price" value="{{ $car->purchase_price }}" required>
                                         @error('purchase_price')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -113,7 +113,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="selling_price">Selling price<b class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="selling_price" name="selling_price" class="form-control" placeholder="Selling price" value="{{ $car->selling_price }}" required>
+                                        <input type="number" step="any" step="any" id="selling_price" name="selling_price" class="form-control" placeholder="Selling price" value="{{ $car->selling_price }}" required>
                                         @error('selling_price')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -124,7 +124,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="vat_percentage">Vat percentage (%)<b class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="vat_percentage" name="vat_percentage" class="form-control" placeholder="Vat percentage" value="{{ $car->vat_percentage }}" required>
+                                        <input type="number" step="any" step="any" id="vat_percentage" name="vat_percentage" class="form-control" placeholder="Vat percentage" value="{{ $car->vat_percentage }}" required>
                                         @error('vat_percentage')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -135,7 +135,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="discount_percentage">Discount percentage (%)<b class="text-danger">*</b> </label>
-                                        <input type="number" step="any" id="discount_percentage" name="discount_percentage" class="form-control" placeholder="Discount percentage" value="{{ $car->discount_percentage }}" required>
+                                        <input type="number" step="any" step="any" id="discount_percentage" name="discount_percentage" class="form-control" placeholder="Discount percentage" value="{{ $car->discount_percentage }}" required>
                                         @error('discount_percentage')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}

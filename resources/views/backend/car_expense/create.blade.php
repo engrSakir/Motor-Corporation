@@ -47,7 +47,7 @@
 
                                     <div class="form-group has-danger">
                                         <label class="form-label" for="amount">Amount <b class="text-danger">*</b></label>
-                                        <input type="number" id="amount" name="amount" class="form-control form-control-danger" placeholder="Amount" value="{{ old('amount') }}" required>
+                                        <input type="number" step="any" id="amount" name="amount" class="form-control form-control-danger" placeholder="Amount" value="{{ old('amount') }}" required>
                                         @error('amount')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
     <div class="col-md-5 align-self-center">
             <h4 class="text-themecolor">List of Car Expenses</h4>

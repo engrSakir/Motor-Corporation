@@ -45,7 +45,7 @@
 
                                     <div class="form-group has-danger">
                                         <label class="form-label" for="amount">Max Free Counter <b class="text-danger">*</b></label>
-                                        <input type="number" id="free_counter" name="free_counter" class="form-control form-control-danger" placeholder="Max Free Counter" value="{{ $bookingPurpose->max_free_counter }}" required>
+                                        <input type="number" step="any" id="free_counter" name="free_counter" class="form-control form-control-danger" placeholder="Max Free Counter" value="{{ $bookingPurpose->max_free_counter }}" required>
                                         @error('free_counter')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                              
+
 
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">

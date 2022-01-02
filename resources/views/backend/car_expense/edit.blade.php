@@ -45,7 +45,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
                                         <label class="form-label" for="amount">Amount <b class="text-danger">*</b></label>
-                                        <input type="number" id="amount" name="amount" class="form-control form-control-danger" value="{{  $carExpense->amount }}" required>
+                                        <input type="number" step="any" id="amount" name="amount" class="form-control form-control-danger" value="{{  $carExpense->amount }}" required>
                                         @error('amount')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                                
+
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
                                     <label for="example-month-input2" class="col-4 col-form-label">Description</label>

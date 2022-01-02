@@ -126,7 +126,7 @@
                                             </optgroup>
                                             @endforeach
                                     </select>
-                                <input type="number" step="any" class="form-control" name="payment_amount" value="{{ old('payment_amount') }}" placeholder="Payment amount" required>
+                                <input type="number" step="any" step="any" class="form-control" name="payment_amount" value="{{ old('payment_amount') }}" placeholder="Payment amount" required>
                                 <button class="btn btn-info text-white" type="submit">Make Payment!</button>
                             </div>
                             @error('investment')
