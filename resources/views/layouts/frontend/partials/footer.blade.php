@@ -72,7 +72,7 @@
                             <li><a title="Search Terms" href="#">Search Terms</a></li>
                             <li><a title="Advanced Search" href="#">Advanced Search</a></li>
                             <li><a title="History" href="#">About Us</a></li>
-                            <li><a title="History" href="#">Contact Us</a></li>
+                            <li><a title="History" href="{{ route('contact') }}">Contact Us</a></li>
                             <li><a title="Suppliers" href="#">Suppliers</a></li>
                         </ul>
                     </div>
