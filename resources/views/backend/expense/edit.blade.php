@@ -83,7 +83,7 @@
                                 <div class="col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="recurring" value="1"
-                                            id="recurring" @if ($expense->recurring == true) checked @endif>
+                                            id="recurring" @if ($expense->expense_type == true) checked @endif>
                                         <label class="form-check-label" for="recurring">
                                             Recurring
                                         </label>

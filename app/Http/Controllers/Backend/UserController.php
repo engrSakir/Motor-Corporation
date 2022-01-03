@@ -45,19 +45,19 @@ class UserController extends Controller
     {
         $request->validate([
             'user_name'     => 'required|string',
-            'user_email'    => 'nullable|email',
+            'user_email'    => 'required|email|unique:users,email',
             'user_phone'    => 'nullable|string|max:11|unique:users,phone',
-            'user_address'  => 'nullable',
+            'user_address'  => 'nullable|string',
             'user_pass'     => 'nullable|min:4',
-            'image' => 'nullable|image',
-
+            'image'         => 'nullable|image',
         ]);
+
         $user = new User();
         $user->name = $request->user_name;
         $user->email = $request->user_email;
         $user->phone = $request->user_phone;
         $user->address = $request->user_address;
-        $user->password = $request->user_pass ?? Str::random(8);
+        $user->password = Hash::make($request->user_pass ?? Str::random(8));
         if ($request->file('image')) {
             $user->image = file_uploader('uploads/user-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::slug($request->user_name, '-'));
         }
@@ -88,7 +88,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-       
+
         return view('backend.user.edit', compact('user'));
     }
 
@@ -108,8 +108,6 @@ class UserController extends Controller
             'user_pass'     => 'nullable|min:4',
             'user_address'     => 'nullable',
             'image' => 'nullable|image',
-
-
         ]);
 
         $user->name = $request->user_name;
@@ -122,7 +120,7 @@ class UserController extends Controller
         if ($request->file('image')) {
             $user->image = file_uploader('uploads/user-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::slug($request->user_name, '-'));
         }
-        $user->save();       
+        $user->save();
 
         toastr()->success('Successfully Updated!');
         return back();
@@ -142,6 +140,4 @@ class UserController extends Controller
             'message' => 'Successfully destroy',
         ];
     }
-
-   
 }
