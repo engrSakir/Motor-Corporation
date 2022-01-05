@@ -16,7 +16,7 @@
     <div class="main-container col1-layout" style="visibility: visible;">
         <div class="main">
             <div class="account-login container">
-<form wire:submit.prevent="submit" >
+                <form wire:submit.prevent="submit">
                     <fieldset class="col2-set">
                         <div class="col-1 new-users">
                             <div class="content">
@@ -24,9 +24,7 @@
                                     <li>
                                         <label for="name" style="color: white">Name<em class="required">*</em></label>
                                         <div class="input-box">
-                                            <input style="color: red; background-color:white;" type="text" 
-                                                value="" id="name" class="input-text required-entry" title="Full name"
-                                                wire:model="name">
+                                            <input style="color: red; background-color:white;" type="text" value="" id="name" class="input-text required-entry" title="Full name" wire:model="name">
                                         </div>
                                         @error('name')
                                         <div class="alert alert-danger" role="alert">
@@ -35,12 +33,9 @@
                                         @enderror
                                     </li>
                                     <li>
-                                    <label for="email" style="color: white">Email Address<em
-                                                class="required">*</em></label>
+                                        <label for="email" style="color: white">Email Address<em class="required">*</em></label>
                                         <div class="input-box">
-                                            <input style="color: red; background-color:white;" type="email"
-                                                value="" id="email" class="input-text required-entry validate-email"
-                                                title="Email Address" wire:model="email">
+                                            <input style="color: red; background-color:white;" type="email" value="" id="email" class="input-text required-entry validate-email" title="Email Address" wire:model="email">
                                         </div>
                                         @error('email')
                                         <div class="alert alert-danger" role="alert">
@@ -54,14 +49,11 @@
                         <div class="col-2 registered-users">
                             <div class="content">
                                 <ul class="form-list">
-                                    
+
                                     <li>
-                                        <label for="phone" style="color: white">Phone number<em
-                                                class="required">*</em></label>
+                                        <label for="phone" style="color: white">Phone number<em class="required">*</em></label>
                                         <div class="input-box">
-                                            <input style="color: red; background-color:white;" type="text" 
-                                                class="input-text required-entry" id="pass" title="Phone"
-                                                wire:model="phone">
+                                            <input style="color: red; background-color:white;" type="text" class="input-text required-entry" id="pass" title="Phone" wire:model="phone">
                                             @error('phone')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
@@ -70,19 +62,16 @@
                                         </div>
                                     </li>
                                     <li>
-                                    <label for="phone" style="color: white">Message<em
-                                                class="required">*</em></label>
+                                        <label for="phone" style="color: white">Message<em class="required">*</em></label>
                                         <div class="input-box">
-                                            <textarea style="color: red; background-color:white;"
-                                                class="w-full mt-1 form-control form-textarea" rows="4" cols="50" id="pass" title="Short Message"
-                                                wire:model="shortmsg"></textarea>
+                                            <textarea style="color: red; background-color:white;" class="w-full mt-1 form-control form-textarea" rows="4" cols="50" id="pass" title="Short Message" wire:model="shortmsg"></textarea>
                                             @error('shortmsg')
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
                                             @enderror
                                         </div>
-</li>
+                                    </li>
                                 </ul>
                                 <p class="required">* Required Fields</p>
                                 <div class="buttons-set">
@@ -92,6 +81,6 @@
                         </div>
                     </fieldset>
                 </form>
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>

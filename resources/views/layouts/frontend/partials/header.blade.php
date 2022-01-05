@@ -10,7 +10,7 @@
                                 <img style="background-color:#000000; border-radius:15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);"
                                     src="{{ asset(get_static_option('logo') ?? 'assets/frontend/images/logo-bg.png') }}" height="110px"
                                     alt="Car Store">
-                                 
+
                             </div>
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                                                 </li>
                                                 <li class="level1 nav-10-2"> <a href="#deals"> <span>Deal of the week</span>
                                                     </a> </li>
-                                                
+
                                             </ul>
                                         </li>
                                         <li class="level0 parent drop-menu"> <a class="level-top"
@@ -86,13 +86,13 @@
                                                 style="left: 0px; display: none;">
                                                 <div class="container">
                                                     <div class="header-nav-dropdown-wrapper clearer">
-                                                    @php 
+                                                    @php
                                                     $offer_cars=offer_cars();
                                                     @endphp
-                                                   @foreach($offer_cars as $offer)  
+                                                   @foreach($offer_cars as $offer)
 
                                                         <div class="grid12-3">
-                                                           <a href="{{ route('carDetails', $offer->slug) }}"> 
+                                                           <a href="{{ route('carDetails', $offer->slug) }}">
                                                            <div><img
                                                                     src="{{ asset($offer->image ?? 'uploads/images/no_image.png') }}"
                                                                     alt="custom-image"></div>
@@ -107,7 +107,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="{{ route('contact') }}"> <a class="level-top" href="#"><span>Contact Us</span></a></li>
+                                        <li class=""> <a class="level-top" href="{{ route('contact') }}"><span>Contact Us</span></a></li>
                                     </ul>
                                     <!--nav-->
                                 </div>
