@@ -42,10 +42,12 @@ class Home extends Component
         // dd($this->popularcars->count());
     }
 
+
     public function mount()
     {
         $this->dealcars = Car::orderBy('id','desc')->where('placement','deal_of_the_week')->get();
         $this->popularcars = Car::orderBy('id','desc')->where('placement','popular')->get();
+
         //Category
         $this->categories = CarCategory::all();
         //Brands

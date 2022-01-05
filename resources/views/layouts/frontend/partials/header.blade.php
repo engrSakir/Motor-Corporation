@@ -107,7 +107,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class=""> <a class="level-top" href="#"><span>Contact Us</span></a></li>
+                                        <li class="{{ route('contact') }}"> <a class="level-top" href="#"><span>Contact Us</span></a></li>
                                     </ul>
                                     <!--nav-->
                                 </div>

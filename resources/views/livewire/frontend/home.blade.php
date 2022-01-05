@@ -7,6 +7,7 @@
     <div class="" style="margin: 10px;">
         <div class="home_car_filter bg-grey container">
             <h2>Find your right car</h2>
+
             <form class="b-filter row" wire:submit.prevent="search">
                 <select class="col-md-4" style="margin-bottom: 10px; color:white;" wire:model="category">
                     <option value="">Select Category</option>
@@ -28,7 +29,6 @@
                     <option>{{ $model }}</option>
                     @endforeach
                 </select>
-
                 <div>
                     <div class="b-filter__btns" wire:click="search">
                         <button type="submit" class="btn btn-lg btn-primary">search vehicle</button>
