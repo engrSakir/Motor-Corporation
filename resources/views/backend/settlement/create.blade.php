@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group">
-                                        <input type="number" step="any" class="form-control" name="settlemen_amount" value="{{ old('settlemen_amount') }}" placeholder="Settlement amount" required>
+                                        <input type="number" step="any" step="any" class="form-control" name="settlemen_amount" value="{{ old('settlemen_amount') }}" placeholder="Settlement amount" required>
                                     </div>
                                     @error('settlemen_amount')
                                         <div class="alert alert-danger" role="alert">

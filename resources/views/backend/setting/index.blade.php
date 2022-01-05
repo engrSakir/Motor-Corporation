@@ -37,7 +37,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Mobile Number</label>
-                                    <input type="number" name="mobile" placeholder="Companies Mobile Number"
+                                    <input type="number" step="any" name="mobile" placeholder="Companies Mobile Number"
                                         value="{{ get_static_option('mobile') }}" id="mobile" class="form-control">
                                     @error('mobile')
                                     <div class="alert alert-danger" role="alert">

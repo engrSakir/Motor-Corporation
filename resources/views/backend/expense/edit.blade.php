@@ -36,7 +36,7 @@
                                     <div class="form-group has-danger">
                                         <label class="form-label" for="amount">Amount <b
                                                 class="text-danger">*</b></label>
-                                        <input type="number" id="amount" name="amount"
+                                        <input type="number" step="any" id="amount" name="amount"
                                             class="form-control form-control-danger" value="{{ $expense->amount }}"
                                             required>
                                         @error('amount')
@@ -83,7 +83,7 @@
                                 <div class="col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="recurring" value="1"
-                                            id="recurring" @if ($expense->recurring == true) checked @endif>
+                                            id="recurring" @if ($expense->expense_type == true) checked @endif>
                                         <label class="form-check-label" for="recurring">
                                             Recurring
                                         </label>

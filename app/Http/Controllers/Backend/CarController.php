@@ -44,7 +44,16 @@ class CarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|unique:car_categories,name'
+            'name' => 'required|string|unique:cars,name',
+            'category' => 'required|exists:car_categories,id',
+            'vendor' => 'required|exists:vendor_infos,id',
+            'brand' => 'required|string',
+            'model' => 'required|string',
+            'purchase_price' => 'required|numeric|min:0',
+            'selling_price' => 'required|numeric|min:0',
+            'vat_percentage' => 'required|numeric|min:0',
+            'discount_percentage' => 'required|numeric|min:0',
+            'image' => 'nullable|image',
         ]);
         $car = new Car();
         $car->car_category_id = $request->category;
@@ -106,7 +115,16 @@ class CarController extends Controller
     public function update(Request $request, Car $car)
     {
         $request->validate([
-            'name' => 'required|string|unique:car_categories,name'
+            'name' => 'required|string|unique:cars,name,'.$car->id,
+            'category' => 'required|exists:car_categories,id',
+            'vendor' => 'required|exists:vendor_infos,id',
+            'brand' => 'required|string',
+            'model' => 'required|string',
+            'purchase_price' => 'required|numeric|min:0',
+            'selling_price' => 'required|numeric|min:0',
+            'vat_percentage' => 'required|numeric|min:0',
+            'discount_percentage' => 'required|numeric|min:0',
+            'image' => 'nullable|image',
         ]);
         $car->car_category_id = $request->category;
         $car->vendor_id = $request->vendor;

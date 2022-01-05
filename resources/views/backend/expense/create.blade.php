@@ -34,7 +34,7 @@
                                     <div class="form-group has-danger">
                                         <label class="form-label" for="amount">Amount <b
                                                 class="text-danger">*</b></label>
-                                        <input type="number" id="amount" name="amount"
+                                        <input type="number" step="any" id="amount" name="amount"
                                             class="form-control form-control-danger" placeholder="Amount"
                                             value="{{ old('amount') }}" required>
                                         @error('amount')

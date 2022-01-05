@@ -61,7 +61,7 @@
                                                     @enderror
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control" placeholder="Price" wire:model="po_field.{{ $key }}.price" required>
+                                                    <input type="number" step="any" class="form-control" placeholder="Price" wire:model="po_field.{{ $key }}.price" required>
                                                     @error('po_field.'.$key.'.price')
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $message }}
