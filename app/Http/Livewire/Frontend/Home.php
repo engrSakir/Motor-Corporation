@@ -9,7 +9,38 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Component
 {
-    public $dealcars, $popularcars, $categories, $brands, $models;
+    public $dealcars, $popularcars, $categories, $brands, $models, $category, $brand, $model;
+
+    public function search(){
+         $dealcars = Car::orderBy('id','desc')->where('placement','deal_of_the_week');
+         $dealcars->when($this->category,function ($query){
+            $query->where('car_category_id',$this->category);
+         });
+
+         $dealcars->when($this->brand,function ($query){
+            $query->where('brand',$this->brand);
+         });
+
+         $dealcars->when($this->model,function ($query){
+            $query->where('model',$this->model);
+         });
+         $this->dealcars = $dealcars->get();
+
+         $popularcars = Car::orderBy('id','desc')->where('placement','popular');
+         $popularcars->when($this->category,function ($query){
+            $query->where('car_category_id',$this->category);
+         });
+
+         $popularcars->when($this->brand,function ($query){
+            $query->where('brand',$this->brand);
+         });
+
+         $popularcars->when($this->model,function ($query){
+            $query->where('model',$this->model);
+         });
+        $this->popularcars = $popularcars->get();
+        // dd($this->popularcars->count());
+    }
 
     public function mount()
     {
