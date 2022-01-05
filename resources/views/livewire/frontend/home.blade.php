@@ -8,27 +8,28 @@
             <h2>Find your right car</h2>
             <form class="b-filter">
                 <div class="btn-group bootstrap-select">
+                    <select class="selectpicker" data-width="100%" tabindex="-98" wire:model="category">
+                        <option>Select Category</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="btn-group bootstrap-select">
+
                     <select class="selectpicker" data-width="100%" tabindex="-98">
-                        <option>Select Make</option>
-                        <option>Make 1</option>
-                        <option>Make 2</option>
-                        <option>Make 3</option>
+                        <option>Select Car Brand</option>
+                        @foreach ($brands as $brand)
+                        <option>{{ $brand }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="btn-group bootstrap-select">
                     <select class="selectpicker" data-width="100%" tabindex="-98">
-                        <option>Select Car Status</option>
-                        <option>Status 1</option>
-                        <option>Status 2</option>
-                        <option>Status 3</option>
-                    </select>
-                </div>
-                <div class="btn-group bootstrap-select">
-                    <select class="selectpicker" data-width="100%" tabindex="-98">
-                        <option>Select Model</option>
-                        <option>Model 1</option>
-                        <option>Model 2</option>
-                        <option>Model 3</option>
+                        <option>Select Car Model</option>
+                        @foreach ($models as $model)
+                        <option>{{ $model }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div>

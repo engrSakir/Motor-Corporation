@@ -45,8 +45,8 @@ class CarController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:cars,name',
-            'car_category_id' => 'required|exists:car_categories,id',
-            'vendor_id' => 'required|exists:vendors,id',
+            'category' => 'required|exists:car_categories,id',
+            'vendor' => 'required|exists:vendor_infos,id',
             'brand' => 'required|string',
             'model' => 'required|string',
             'purchase_price' => 'required|numeric|min:0',
@@ -116,8 +116,8 @@ class CarController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:cars,name,'.$car->id,
-            'car_category_id' => 'required|exists:car_categories,id',
-            'vendor_id' => 'required|exists:vendors,id',
+            'category' => 'required|exists:car_categories,id',
+            'vendor' => 'required|exists:vendor_infos,id',
             'brand' => 'required|string',
             'model' => 'required|string',
             'purchase_price' => 'required|numeric|min:0',

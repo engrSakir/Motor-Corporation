@@ -3,28 +3,37 @@
 @section('title') Car Edit | @endsection
 
 @section('content')
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">Car</h4>
-        </div>
-        <div class="col-md-7 align-self-center text-end">
-            <div class="d-flex justify-content-end align-items-center">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Car</li>
-                </ol>
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Car</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Car</li>
+            </ol>
 
-            </div>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
             <div class="card-header bg-info">
-                    <h4 class="mb-0 text-white">Update Car</h4>
+                <h4 class="mb-0 text-white">Update Car</h4>
+            </div>
+            <div class="card-body">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <div class="card-body">
+                @endif
                 <form action="{{ route('backend.car.update',$car) }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
@@ -40,8 +49,8 @@
                                             @foreach ($vendors as $vendor)
                                             <option value="{{ $vendor->id }}" @if($car->vendor_id == $vendor->id) selected @endif>{{ $vendor->name }}</option>
                                             @endforeach
-                                          </select>
-                                          </select>
+                                        </select>
+                                        </select>
                                         @error('vendor')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -57,8 +66,8 @@
                                             @foreach ($carCategories as $category)
                                             <option value="{{ $category->id }}" @if($car->car_category_id == $category->id) selected @endif>{{ $category->name }}</option>
                                             @endforeach
-                                          </select>
-                                          </select>
+                                        </select>
+                                        </select>
                                         @error('category')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -169,7 +178,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="image">Image </label>
                                         <input type="file" accept="image/*" id="image" name="image" class="form-control" placeholder="image" value="{{ old('image') }}">
-                                        <img id="image_display" width="150" src="{{ asset($car->image ?? 'uploads/images/no_image.png') }}" class="image-display" alt="User image"/>
+                                        <img id="image_display" width="150" src="{{ asset($car->image ?? 'uploads/images/no_image.png') }}" class="image-display" alt="User image" />
 
                                         @error('image')
                                         <div class="alert alert-danger" role="alert">
@@ -182,10 +191,10 @@
                                     <div class="form-group">
                                         <label class="form-label" for="placements">Placement</label>
                                         <select name="placements" class="form-select col-12" id="placements">
-                                        <option value="">--Choose Placement--</option>
+                                            <option value="">--Choose Placement--</option>
                                             <option value="deal_of_the_week" @if($car->placement == 'deal_of_the_week') selected @endif>Deal of the Week</option>
-                                            <option value="popular"  @if($car->placement == 'popular') selected @endif>Popular</option>
-                                            </select>
+                                            <option value="popular" @if($car->placement == 'popular') selected @endif>Popular</option>
+                                        </select>
                                         @error('placements')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -196,15 +205,13 @@
                                 <div class="col-md-3">
                                     <label class="form-label" for="papers_up_to_date">Papers up to date</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="papers_up_to_date"
-                                            id="papers_up_to_date_yes" value="1" @if($car->papers_up_to_date) checked @endif>
+                                        <input class="form-check-input" type="radio" name="papers_up_to_date" id="papers_up_to_date_yes" value="1" @if($car->papers_up_to_date) checked @endif>
                                         <label class="form-check-label" for="papers_up_to_date_yes">
                                             Yes
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="papers_up_to_date"
-                                            id="papers_up_to_date_no" value="0" @if($car->papers_up_to_date == false) checked @endif>
+                                        <input class="form-check-input" type="radio" name="papers_up_to_date" id="papers_up_to_date_no" value="0" @if($car->papers_up_to_date == false) checked @endif>
                                         <label class="form-check-label" for="papers_up_to_date_no">
                                             No
                                         </label>
@@ -213,17 +220,15 @@
                                 <div class="col-md-3">
                                     <label class="form-label" for="name_transfer_documents">Name transfer documents</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="name_transfer_documents"
-                                            id="name_transfer_documents_yes" value="1" @if($car->name_transfer_documents) checked @endif>
+                                        <input class="form-check-input" type="radio" name="name_transfer_documents" id="name_transfer_documents_yes" value="1" @if($car->name_transfer_documents) checked @endif>
                                         <label class="form-check-label" for="name_transfer_documents_yes">
                                             Yes
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="name_transfer_documents"
-                                            id="name_transfer_documents_no" value="0" @if($car->name_transfer_documents == false) checked @endif>
+                                        <input class="form-check-input" type="radio" name="name_transfer_documents" id="name_transfer_documents_no" value="0" @if($car->name_transfer_documents == false) checked @endif>
                                         <label class="form-check-label" for="name_transfer_documents_no">
-                                           No
+                                            No
                                         </label>
                                     </div>
                                 </div>
@@ -248,10 +253,10 @@
                         </div>
                     </div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @push('head')

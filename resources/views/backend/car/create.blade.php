@@ -4,13 +4,13 @@
 
 @section('content')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
         <h4 class="text-themecolor">Car</h4>
@@ -32,8 +32,16 @@
                 <h4 class="mb-0 text-white">Purchase Car</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('backend.car.store') }}" method="POST" class="form-horizontal form-material"
-                    enctype="multipart/form-data">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <form action="{{ route('backend.car.store') }}" method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
                     @csrf
                     <div class="form-body">
                         <div class="card-body">
@@ -42,8 +50,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="vendor">Vendor<b class="text-danger">*</b>
                                         </label>
-                                        <select class="select2 form-select form-control" id="vendor" name="vendor"
-                                            required>
+                                        <select class="select2 form-select form-control" id="vendor" name="vendor" required>
                                             <option selected disabled value="">Chose vendor</option>
                                             @foreach ($vendors as $vendor)
                                             <option value="{{ $vendor->id }}" @if(old('vendor')==$vendor->id) selected
@@ -62,8 +69,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="category">Category<b class="text-danger">*</b>
                                         </label>
-                                        <select class="select2 form-select form-control" id="category" name="category"
-                                            required>
+                                        <select class="select2 form-select form-control" id="category" name="category" required>
                                             <option selected disabled value="">Chose category</option>
                                             @foreach ($carCategories as $category)
                                             <option value="{{ $category->id }}" @if(old('category')==$category->id)
@@ -82,8 +88,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="name">Car Name<b class="text-danger">*</b>
                                         </label>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name"
-                                            value="{{ old('name') }}" required>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}" required>
                                         @error('name')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -95,8 +100,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="brand">Car Brand<b class="text-danger">*</b>
                                         </label>
-                                        <input type="text" id="brand" name="brand" class="form-control"
-                                            placeholder="Brand" value="{{ old('brand') }}" required>
+                                        <input type="text" id="brand" name="brand" class="form-control" placeholder="Brand" value="{{ old('brand') }}" required>
                                         @error('brand')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -108,8 +112,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="model">Car Model<b class="text-danger">*</b>
                                         </label>
-                                        <input type="text" id="model" name="model" class="form-control"
-                                            placeholder="Model" value="{{ old('model') }}" required>
+                                        <input type="text" id="model" name="model" class="form-control" placeholder="Model" value="{{ old('model') }}" required>
                                         @error('model')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -119,11 +122,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="purchase_price">Purchase price<b
-                                                class="text-danger">*</b> </label>
-                                        <input type="number" step="any" step="any" id="purchase_price" name="purchase_price"
-                                            class="form-control" placeholder="Purchase price"
-                                            value="{{ old('purchase_price') }}" required>
+                                        <label class="form-label" for="purchase_price">Purchase price<b class="text-danger">*</b> </label>
+                                        <input type="number" step="any" step="any" id="purchase_price" name="purchase_price" class="form-control" placeholder="Purchase price" value="{{ old('purchase_price') }}" required>
                                         @error('purchase_price')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -133,11 +133,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="selling_price">Selling price<b
-                                                class="text-danger">*</b> </label>
-                                        <input type="number" step="any" step="any" id="selling_price" name="selling_price"
-                                            class="form-control" placeholder="Selling price"
-                                            value="{{ old('selling_price') }}" required>
+                                        <label class="form-label" for="selling_price">Selling price<b class="text-danger">*</b> </label>
+                                        <input type="number" step="any" step="any" id="selling_price" name="selling_price" class="form-control" placeholder="Selling price" value="{{ old('selling_price') }}" required>
                                         @error('selling_price')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -147,11 +144,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="vat_percentage">Vat percentage (%)<b
-                                                class="text-danger">*</b> </label>
-                                        <input type="number" step="any" step="any" id="vat_percentage" name="vat_percentage"
-                                            class="form-control" placeholder="Vat percentage"
-                                            value="{{ old('vat_percentage') }}" required>
+                                        <label class="form-label" for="vat_percentage">Vat percentage (%)<b class="text-danger">*</b> </label>
+                                        <input type="number" step="any" step="any" id="vat_percentage" name="vat_percentage" class="form-control" placeholder="Vat percentage" value="{{ old('vat_percentage') }}" required>
                                         @error('vat_percentage')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -161,12 +155,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="discount_percentage">Discount percentage (%)<b
-                                                class="text-danger">*</b> </label>
-                                        <input type="number" step="any" step="any" id="discount_percentage"
-                                            name="discount_percentage" class="form-control"
-                                            placeholder="Discount percentage" value="{{ old('discount_percentage') }}"
-                                            required>
+                                        <label class="form-label" for="discount_percentage">Discount percentage (%)<b class="text-danger">*</b> </label>
+                                        <input type="number" step="any" step="any" id="discount_percentage" name="discount_percentage" class="form-control" placeholder="Discount percentage" value="{{ old('discount_percentage') }}" required>
                                         @error('discount_percentage')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -177,8 +167,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="registration">Registration </label>
-                                        <input type="text" id="registration" name="registration" class="form-control"
-                                            placeholder="Registration" value="{{ old('registration') }}">
+                                        <input type="text" id="registration" name="registration" class="form-control" placeholder="Registration" value="{{ old('registration') }}">
                                         @error('registration')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -189,8 +178,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="mileages">Mileages </label>
-                                        <input type="text" id="mileages" name="mileages" class="form-control"
-                                            placeholder="Mileages" value="{{ old('mileages') }}">
+                                        <input type="text" id="mileages" name="mileages" class="form-control" placeholder="Mileages" value="{{ old('mileages') }}">
                                         @error('mileages')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -201,8 +189,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="image">Image </label>
-                                        <input type="file" accept="image/*" id="image" name="image" class="form-control"
-                                            placeholder="image" value="{{ old('image') }}">
+                                        <input type="file" accept="image/*" id="image" name="image" class="form-control" placeholder="image" value="{{ old('image') }}">
                                         @error('image')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -228,15 +215,13 @@
                                 <div class="col-md-3">
                                     <label class="form-label" for="papers_up_to_date">Papers up to date</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="papers_up_to_date"
-                                            id="papers_up_to_date_yes" value="1" checked>
+                                        <input class="form-check-input" type="radio" name="papers_up_to_date" id="papers_up_to_date_yes" value="1" checked>
                                         <label class="form-check-label" for="papers_up_to_date_yes">
                                             Yes
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="papers_up_to_date"
-                                            id="papers_up_to_date_no" value="0">
+                                        <input class="form-check-input" type="radio" name="papers_up_to_date" id="papers_up_to_date_no" value="0">
                                         <label class="form-check-label" for="papers_up_to_date_no">
                                             No
                                         </label>
@@ -245,25 +230,22 @@
                                 <div class="col-md-3">
                                     <label class="form-label" for="name_transfer_documents">Name transfer documents</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="name_transfer_documents"
-                                            id="name_transfer_documents_yes" value="1" checked>
+                                        <input class="form-check-input" type="radio" name="name_transfer_documents" id="name_transfer_documents_yes" value="1" checked>
                                         <label class="form-check-label" for="name_transfer_documents_yes">
                                             Yes
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="name_transfer_documents"
-                                            id="name_transfer_documents_no" value="0">
+                                        <input class="form-check-input" type="radio" name="name_transfer_documents" id="name_transfer_documents_no" value="0">
                                         <label class="form-check-label" for="name_transfer_documents_no">
-                                           No
+                                            No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label" for="summernote">Description </label>
-                                        <textarea name="description" id="summernote" cols="30" rows="10"
-                                            class="form-control">{!! old('description') !!}</textarea>
+                                        <textarea name="description" id="summernote" cols="30" rows="10" class="form-control">{!! old('description') !!}</textarea>
                                         @error('description')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
@@ -289,10 +271,11 @@
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({
-        tabsize: 2,
-        height: 100
-      });
+            tabsize: 2
+            , height: 100
+        });
     });
+
 </script>
 @endsection
 
