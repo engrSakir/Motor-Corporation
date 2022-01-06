@@ -50,7 +50,6 @@
                   </div>
                   <div class="ratings">
                     <div class="rating-box">
-                      <div style="width:60%" class="rating"></div>
                     </div>
                   <!--  <p class="rating-links"> <a href="#">1 Review</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>-->
                   </div>
@@ -70,35 +69,15 @@
                           <td class="value-spec"> {{ $car->mileages }} </td>
                         </tr>
                         
-                        <tr class="odd">
-                          <td class="label-spec"> Transmission <span class="coln">:</span></td>
-                          <td class="value-spec"> Automatic </td>
-                        </tr>
+                       
                        
                         <tr class="odd">
                           <td class="label-spec"> Model <span class="coln">:</span></td>
                           <td class="value-spec"> {{ $car->model }} </td>
                         </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Power Windows <span class="coln">:</span></td>
-                          <td class="value-spec"> Yes </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Airbags <span class="coln">:</span></td>
-                          <td class="value-spec"> Available </td>
-                        </tr>
-                         <tr class="odd">
-                          <td class="label-spec"> ABS <span class="coln">:</span></td>
-                          <td class="value-spec"> Yes </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Central Locking <span class="coln">:</span></td>
-                          <td class="value-spec"> Yes </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Fog Lamps <span class="coln">:</span></td>
-                          <td class="value-spec"> Front </td>
-                        </tr>
+                        
+                        
+                        
                       </tbody>
                     </table>
                   </div>
@@ -136,14 +115,14 @@
             <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
               <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Vehicle Overview </a> </li>
               <li><a href="#product_tabs_tags" data-toggle="tab">Technical Specification</a></li>
-             <li> <a href="#product_tabs_custom" data-toggle="tab">Accessories</a> </li>
-              <!-- <li> <a href="#reviews_tabs" data-toggle="tab">Reviews</a> </li>
+             <!-- <li> <a href="#product_tabs_custom" data-toggle="tab">Accessories</a> </li>
+              <li> <a href="#reviews_tabs" data-toggle="tab">Reviews</a> </li>
               <li> <a href="#product_tabs_custom1" data-toggle="tab">Custom Tab1</a> </li>-->
             </ul>
             <div id="productTabContent" class="tab-content">
               <div class="tab-pane fade in active" id="product_tabs_description">
                 <div class="std">
-
+                {{ $car->description }}
                 </div>
               </div>
               <div class="tab-pane fade" id="product_tabs_tags">
@@ -155,35 +134,13 @@
                           <td class="value-spec"> {{ $car->mileages }} </td>
                         </tr>
                         
-                        <tr class="odd">
-                          <td class="label-spec"> Transmission <span class="coln">:</span></td>
-                          <td class="value-spec"> Automatic </td>
-                        </tr>
                         
                         <tr class="odd">
                           <td class="label-spec"> Model <span class="coln">:</span></td>
                           <td class="value-spec"> {{ $car->model }} </td>
                         </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Power Windows <span class="coln">:</span></td>
-                          <td class="value-spec"> Yes </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Airbags <span class="coln">:</span></td>
-                          <td class="value-spec"> Available </td>
-                        </tr>
-                         <tr class="odd">
-                          <td class="label-spec"> ABS <span class="coln">:</span></td>
-                          <td class="value-spec"> Yes </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Central Locking <span class="coln">:</span></td>
-                          <td class="value-spec"> Yes </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Fog Lamps <span class="coln">:</span></td>
-                          <td class="value-spec"> Front </td>
-                        </tr>
+                        
+                      
                       </tbody>
                     </table>
                   </div>
@@ -256,58 +213,29 @@
                   </div>
                   <div class="clear"></div>
                 </div>
-              </div>-->
+              </div>
               <div class="tab-pane fade" id="product_tabs_custom">
                 <div class="spec-row" id="summarySpecs">
                     <table width="100%">
                       <tbody>
+                      <tr class="odd">
+                          <td class="label-spec"> Mileage <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ $car->mileages }} </td>
+                        </tr>
+                        
+                        
                         <tr class="odd">
-                          <td class="label-spec"> Air Conditioner <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
+                          <td class="label-spec"> Model <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ $car->model }} </td>
                         </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> AntiLock Braking System <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Power Steering <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Power Windows <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> CD Player <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Leather Seats <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Central Locking <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                         <tr class="odd">
-                          <td class="label-spec"> Power Door Locks <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Brake Assist <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
-                        <tr class="odd">
-                          <td class="label-spec"> Driver Airbag <span class="coln">:</span></td>
-                          <td class="value-spec"> <i class="fa fa-check-circle"></i> </td>
-                        </tr>
+                        
                       </tbody>
                     </table>
                   </div>
-              </div>
+              </div>-->
               <div class="tab-pane fade" id="product_tabs_custom1">
                 <div class="product-tabs-content-inner clearfix">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
+                <p> </p>
                 </div>
               </div>
             </div>
