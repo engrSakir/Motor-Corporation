@@ -194,6 +194,8 @@
                                             <option value="">--Choose Placement--</option>
                                             <option value="deal_of_the_week" @if($car->placement == 'deal_of_the_week') selected @endif>Deal of the Week</option>
                                             <option value="popular" @if($car->placement == 'popular') selected @endif>Popular</option>
+                                            <option value="used" @if($car->placement == 'used') selected @endif>Used</option>
+
                                         </select>
                                         @error('placements')
                                         <div class="alert alert-danger" role="alert">

@@ -204,6 +204,8 @@
                                             <option value="">--Choose Placement--</option>
                                             <option value="deal_of_the_week">Deal of the Week</option>
                                             <option value="popular">Popular</option>
+                                            <option value="used">Used</option>
+
                                         </select>
                                         @error('placements')
                                         <div class="alert alert-danger" role="alert">

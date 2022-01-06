@@ -138,6 +138,44 @@
             </div>
         </div>
     </section>
+    <section wire:ignore.self id="deals" class="wow bounceInUp animated">
+        <div class="hot_deals slider-items-products container">
+            <div class="new_title ">
+                <h2 class="bg-black">Used Cars</h2>
+            </div>
+            <div class="row">
+                @foreach($usedcars as $usedcar)
+                <div class="col-md-3 text-center" style="margin-bottom: 15px;">
+                    <div class="card">
+                        <a class="image-box" href="{{ route('carDetails', $usedcar->slug) }}">
+                            <img class="" style="padding:20px; max-height: 220px;"
+                                src="{{ asset($usedcar->image ?? 'uploads/images/no_image.png') }}" alt="">
+                        </a>
+                        <div class="item-info">
+                            <div class="info-inner">
+                                <div class="item-title">
+                                    <a href="{{ route('carDetails', $usedcar->slug) }}" title="{{ $usedcar->name }}">
+                                        <b>{{ $usedcar->name }}</b>
+                                    </a>
+                                </div>
+                                <div class="item-content">
+                                    <div class="item-price">
+                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $usedcar->selling_price }}</span> </span> </div>
+                                    </div>
+                                    <div class="other-info">
+                                        <div class="col-km" style="font-size: 11px;">{{ $usedcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;">&nbsp;{{ $usedcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;">{{ $usedcar->brand }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
     <!-- est seller car Slider -->
     <!-- latest blogs -->
     <div class="latest-blog wow bounceInUp animated animated container">
