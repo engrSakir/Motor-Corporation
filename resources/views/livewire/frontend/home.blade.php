@@ -85,9 +85,9 @@
                                         <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $dealcar->selling_price }}</span> </span> </div>
                                     </div>
                                     <div class="other-info">
-                                        <div class="col-km" style="font-size: 11px;">{{ $dealcar->mileages }}</div>
-                                        <div class="col-engine" style="font-size: 11px;">&nbsp;{{ $dealcar->model }}&nbsp;</div>
-                                        <div class="col-date" style="font-size: 11px;">{{ $dealcar->brand }}</div>
+                                        <div class="col-km" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{ $dealcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{ $dealcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{ $dealcar->brand }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -125,9 +125,9 @@
                                         <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $popularcar->selling_price }}</span> </span> </div>
                                     </div>
                                     <div class="other-info">
-                                        <div class="col-km" style="font-size: 11px;">{{ $popularcar->mileages }}</div>
-                                        <div class="col-engine" style="font-size: 11px;">&nbsp;{{ $popularcar->model }}&nbsp;</div>
-                                        <div class="col-date" style="font-size: 11px;">{{ $popularcar->brand }}</div>
+                                        <div class="col-km" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{ $popularcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{ $popularcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{ $popularcar->brand }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -163,9 +163,9 @@
                                         <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $usedcar->selling_price }}</span> </span> </div>
                                     </div>
                                     <div class="other-info">
-                                        <div class="col-km" style="font-size: 11px;">{{ $usedcar->mileages }}</div>
-                                        <div class="col-engine" style="font-size: 11px;">&nbsp;{{ $usedcar->model }}&nbsp;</div>
-                                        <div class="col-date" style="font-size: 11px;">{{ $usedcar->brand }}</div>
+                                        <div class="col-km" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{ $usedcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{ $usedcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{ $usedcar->brand }}</div>
                                     </div>
                                 </div>
                             </div>
