@@ -30,14 +30,14 @@
                             <div class="collapse navbar-collapse">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search">
+                                      <!--  <input type="text" class="form-control" placeholder="Search">
                                         <span class="input-group-btn">
                                             <button type="submit" class="search-btn"> <span
                                                     class="glyphicon glyphicon-search"> <span
                                                         class="sr-only">Search</span> </span> </button>
-                                        </span>
+                                        </span>-->
                                         <span class="input-group-btn">
-                                            <a href="#" class="search-btn" style="">
+                                            <a href="https://goo.gl/maps/cVH1xazhpxBytoNF6" target="_blank" class="search-btn" style="">
                                                 <img width="30px;" src="{{ asset('assets/images/map-icon.png') }}" alt="">
                                                 {{-- <button class="button btn-cart" type="button"></button> --}}
                                                 {{-- <i class="fa fa-tachometer"></i> --}}
