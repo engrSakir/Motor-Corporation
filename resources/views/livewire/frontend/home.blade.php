@@ -9,21 +9,21 @@
             <h2>Find your right car</h2>
 
             <form class="b-filter row" wire:submit.prevent="search">
-                <select class="col-md-4" style="margin-bottom: 10px; color:white;" wire:model="category">
+                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;" wire:model="category">
                     <option value="">Select Category</option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}*{{ $category->id }}</option>
                     @endforeach
                 </select>
 
-                <select class="col-md-4" style="margin-bottom: 10px; color:white;" wire:model="brand">
+                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;" wire:model="brand">
                     <option value="">Select Car Brand</option>
                     @foreach ($brands as $brand)
                     <option>{{ $brand }}</option>
                     @endforeach
                 </select>
 
-                <select class="col-md-4" style="margin-bottom: 10px; color:white;" wire:model="model">
+                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;" wire:model="model">
                     <option value="">Select Car Model</option>
                     @foreach ($models as $model)
                     <option>{{ $model }}</option>
