@@ -28,6 +28,7 @@ use App\Http\Livewire\Backend\Invoice;
 use App\Http\Livewire\Backend\Pos;
 use App\Http\Livewire\Backend\PurchaseOrder;
 use App\Http\Livewire\Backend\Report;
+use App\Http\Livewire\Backend\Video;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +58,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('pdf/{invoice}', [PdfController::class, 'show'])->name('pdf');
     Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index');
     Route::get('delivery-challan/{invoice}', [InvoiceController::class, 'deliveryChallanShow'])->name('delivery-challan.show');
-    Route::get('/ajax/get-items-by-category/{category}', [ InvoiceController::class, 'searchByCategory']);
+    Route::get('/ajax/get-items-by-category/{category}', [InvoiceController::class, 'searchByCategory']);
     Route::resource('paymentMethod', PaymentMethodController::class);
     Route::resource('purchaseOrder', PurchaseOrderController::class);
 
@@ -75,5 +76,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('expense-budget', ExpenseBudget::class)->name('expense-budget'); //Livewire
     Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order'); //Livewire
     Route::get('report', Report::class)->name('report'); //Livewire
+    Route::get('video', Video::class)->name('video'); //Livewire
+
 
 });
