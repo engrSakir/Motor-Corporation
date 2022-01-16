@@ -15,7 +15,7 @@ class VendorInfoController extends Controller
      */
     public function index()
     {
-        $vendorInfos = VendorInfo::orderBy('id','desc')->get();
+        $vendorInfos = VendorInfo::orderBy('id', 'desc')->get();
         return view('backend.vendor-info.index', compact('vendorInfos'));
     }
 
@@ -42,7 +42,7 @@ class VendorInfoController extends Controller
             'phone' => 'required|string',
             'email' => 'nullable|email',
             'address' => 'nullable|string',
-            'image' => 'nullable|image',
+            'image' => 'nullable|file',
             'vendor_type' => 'required|string',
 
         ]);
@@ -95,7 +95,7 @@ class VendorInfoController extends Controller
             'phone' => 'required|string',
             'email' => 'nullable|email',
             'address' => 'nullable|string',
-            'image' => 'nullable|image',
+            'image' => 'nullable|file',
             'vendor_type' => 'required|string',
 
         ]);
@@ -120,7 +120,7 @@ class VendorInfoController extends Controller
      */
     public function destroy(VendorInfo $vendorInfo)
     {
-        $vendorInfo ->delete();
+        $vendorInfo->delete();
         return [
             'type' => 'success',
             'message' => 'Destroy',

@@ -49,7 +49,7 @@ class UserController extends Controller
             'user_phone'    => 'nullable|string|max:11|unique:users,phone',
             'user_address'  => 'nullable|string',
             'user_pass'     => 'nullable|min:4',
-            'image'         => 'nullable|image',
+            'image'         => 'nullable|file',
         ]);
 
         $user = new User();
@@ -107,7 +107,7 @@ class UserController extends Controller
             'user_phone'    => 'nullable|string|max:11|unique:users,phone,' . $user->id,
             'user_pass'     => 'nullable|min:4',
             'user_address'     => 'nullable',
-            'image' => 'nullable|image',
+            'image' => 'nullable|file',
         ]);
 
         $user->name = $request->user_name;
@@ -134,7 +134,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-       $user->delete();
+        $user->delete();
         return [
             'type' => 'success',
             'message' => 'Successfully destroy',

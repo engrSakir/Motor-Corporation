@@ -82,8 +82,8 @@ class SettingsController extends Controller
             'video3' => 'nullable|string',
             'line1' => 'nullable|string',
             'time1' => 'nullable|string',
-            'logo' => 'nullable|image',
-            'about' => 'nullable|string',         
+            'logo' => 'nullable|file',
+            'about' => 'nullable|string',
             'banner_video' => 'nullable|file|mimetypes:video/mp4',
 
         ]);
@@ -105,18 +105,15 @@ class SettingsController extends Controller
 
         update_static_option('line1', $request->line1);
         update_static_option('time1', $request->time1);
-     
-       if($request->hasFile('logo')){
-        update_static_option('logo',file_uploader('uploads/logo/', $request->logo, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8)));
-        
-      }
-      if($request->hasFile('banner_video')){
-        update_static_option('banner_video',file_uploader('uploads/banner_video/', $request->banner_video, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8)));
-        
-      }
-      
-      return back()->with('success','Successfully updated');
 
+        if ($request->hasFile('logo')) {
+            update_static_option('logo', file_uploader('uploads/logo/', $request->logo, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8)));
+        }
+        if ($request->hasFile('banner_video')) {
+            update_static_option('banner_video', file_uploader('uploads/banner_video/', $request->banner_video, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8)));
+        }
+
+        return back()->with('success', 'Successfully updated');
     }
 
     /**

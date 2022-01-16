@@ -92,7 +92,7 @@
                                     <div class="form-group has-danger">
                                         <label class="col-md-12" for="image">User Image</label>
                                         <div class="col-md-12">
-                                            <input type="file" name="image" accept="image/*"
+                                            <input type="file" name="image"
                                                 class="form-control image-chose-btn image-importer" id="image">
                                             @error('image')
                                                 <div class="alert alert-danger" role="alert">

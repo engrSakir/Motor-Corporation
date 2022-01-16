@@ -61,7 +61,7 @@ class Pos extends Component
             'selling_price' => 'required',
             'paid_amount' => 'required',
         ]);
-        try{
+        try {
             $invoice = new Invoice();
             $invoice->customer_id = $this->selected_customer;
             $invoice->car_id = $this->selected_car->id;
@@ -74,10 +74,10 @@ class Pos extends Component
             $sale_payment = new SalePayment();
             $sale_payment->invoice_id = $invoice->id;
             $sale_payment->payment_method_id = $this->payment_method;
-            if($this->advance_for_booking == true){
+            if ($this->advance_for_booking == true) {
                 $sale_payment->is_advance = true;
                 $this->selected_car->status = 'Booking';
-            }else{
+            } else {
                 $sale_payment->is_advance = false;
                 $this->selected_car->status = 'Sold';
             }
@@ -85,15 +85,15 @@ class Pos extends Component
             $sale_payment->save();
             $this->selected_car->save();
             $this->selected_customer = $this->selected_car = $this->payment_method = $this->selling_price = $this->paid_amount = null;
-            if($this->advance_for_booking == true){
+            if ($this->advance_for_booking == true) {
                 $this->invoice_url = route('backend.pdf', [$invoice, 'type=booking']);
-            }else{
+            } else {
                 $this->invoice_url = route('backend.pdf', [$invoice, 'type=invoice']);
             }
             $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Successfully Done!']);
             session()->flash('message_type', 'success');
             session()->flash('message', 'Success');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             $this->dispatchBrowserEvent('alert', ['type' => 'error',  'message' => 'Something went wrong!']);
             session()->flash('message_type', 'danger');
             session()->flash('message', $e->getMessage());
@@ -109,7 +109,7 @@ class Pos extends Component
             'email_address' => 'nullable|email',
             'phone_number' => 'required|string|max:20',
             'address' => 'nullable|string',
-            'image' => 'nullable|image',
+            'image' => 'nullable|file',
             'note' => 'nullable|string',
         ]);
 
@@ -121,7 +121,7 @@ class Pos extends Component
             'image' => $this->image,
             'note' => $this->note,
         ]);
-        $this->full_name = $this->email_address = $this->phone_number =$this->address = $this->image = $this->note = null;
+        $this->full_name = $this->email_address = $this->phone_number = $this->address = $this->image = $this->note = null;
         session()->flash('customer_create_message', 'Customer saved.');
     }
 
@@ -136,15 +136,15 @@ class Pos extends Component
     public function render()
     {
         //Searching
-        if(strlen($this->searched_car) > 0){
-            $this->cars = Car::where('status', 'Available')->where('name', 'like', '%'.$this->searched_car.'%')->get();
-        }else if(strlen($this->searched_car_category) > 0 && $this->searched_car_category != 'all'){
+        if (strlen($this->searched_car) > 0) {
+            $this->cars = Car::where('status', 'Available')->where('name', 'like', '%' . $this->searched_car . '%')->get();
+        } else if (strlen($this->searched_car_category) > 0 && $this->searched_car_category != 'all') {
             $this->cars = Car::where('status', 'Available')->where('car_category_id', $this->searched_car_category)->get();
-        }else{
+        } else {
             $this->cars = Car::latest()->where('status', 'Available')->get();
         }
 
-        if($this->selected_car != null){
+        if ($this->selected_car != null) {
             $vat_amount = (($this->selling_price / 100) * $this->vat_percentage);
             $discount_amount = (($this->selling_price / 100) * $this->discount_percentage);
             $this->have_to_pay = round($this->selling_price + $vat_amount -  $discount_amount, 2);
@@ -152,6 +152,6 @@ class Pos extends Component
         $this->customers = Customer::orderBy('created_at', 'desc')->get();
 
         return view('livewire.backend.pos')
-        ->layout('layouts.pos.app');
+            ->layout('layouts.pos.app');
     }
 }

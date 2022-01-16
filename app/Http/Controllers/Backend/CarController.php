@@ -19,7 +19,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::orderBy('id','desc')->get();
+        $cars = Car::orderBy('id', 'desc')->get();
         return view('backend.car.index', compact('cars'));
     }
 
@@ -30,9 +30,9 @@ class CarController extends Controller
      */
     public function create()
     {
-        $vendors = VendorInfo::where('type','car_seller')->get();
+        $vendors = VendorInfo::where('type', 'car_seller')->get();
         $carCategories = CarCategory::all();
-        return view('backend.car.create', compact('vendors','carCategories'));
+        return view('backend.car.create', compact('vendors', 'carCategories'));
     }
 
     /**
@@ -53,7 +53,7 @@ class CarController extends Controller
             'selling_price' => 'required|numeric|min:0',
             'vat_percentage' => 'required|numeric|min:0',
             'discount_percentage' => 'required|numeric|min:0',
-            'image' => 'nullable|image',
+            'image' => 'nullable|file',
         ]);
         $car = new Car();
         $car->car_category_id = $request->category;
@@ -73,7 +73,7 @@ class CarController extends Controller
         $car->papers_up_to_date = $request->papers_up_to_date;
         $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
-            $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
+            $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
         }
         $car->save();
 
@@ -100,9 +100,9 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        $vendors = VendorInfo::where('type','car_seller')->get();
+        $vendors = VendorInfo::where('type', 'car_seller')->get();
         $carCategories = CarCategory::all();
-        return view('backend.car.edit', compact('vendors','carCategories', 'car'));
+        return view('backend.car.edit', compact('vendors', 'carCategories', 'car'));
     }
 
     /**
@@ -115,7 +115,7 @@ class CarController extends Controller
     public function update(Request $request, Car $car)
     {
         $request->validate([
-            'name' => 'required|string|unique:cars,name,'.$car->id,
+            'name' => 'required|string|unique:cars,name,' . $car->id,
             'category' => 'required|exists:car_categories,id',
             'vendor' => 'required|exists:vendor_infos,id',
             'brand' => 'required|string',
@@ -124,7 +124,7 @@ class CarController extends Controller
             'selling_price' => 'required|numeric|min:0',
             'vat_percentage' => 'required|numeric|min:0',
             'discount_percentage' => 'required|numeric|min:0',
-            'image' => 'nullable|image',
+            'image' => 'nullable|file',
         ]);
         $car->car_category_id = $request->category;
         $car->vendor_id = $request->vendor;
@@ -143,7 +143,7 @@ class CarController extends Controller
         $car->papers_up_to_date = $request->papers_up_to_date;
         $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
-            $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') .'-'. Str::random(8));
+            $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
         }
         $car->save();
         toastr()->success('Saved');
