@@ -18,6 +18,8 @@ class CreateExpenseBudgetsTable extends Migration
             $table->foreignId('investment_id')->nullable();
             $table->double('amount');
             $table->string('month');
+            $table->longText('note')->nullable();
+            $table->date('issue_date')->nullable();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();
             $table->foreignId('deleted_by')->nullable();

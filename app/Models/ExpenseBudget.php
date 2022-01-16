@@ -14,6 +14,8 @@ class ExpenseBudget extends Model
         'sourse_id',
         'source_type',
         'amount',
-        'month'
+        'month',
+        'note',
+        'issue_date',
     ];
 }
