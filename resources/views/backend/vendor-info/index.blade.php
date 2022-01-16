@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title') Vendor  | @endsection
+@section('title') Vendor | @endsection
 @section('content')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
@@ -11,7 +11,8 @@
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                 <li class="breadcrumb-item active">Blank Page</li>
             </ol>
-            <a href="{{ route('backend.vendorInfo.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</a>
+            <a href="{{ route('backend.vendorInfo.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i
+                    class="fa fa-plus-circle"></i> Create New</a>
         </div>
     </div>
 </div>
@@ -29,30 +30,36 @@
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
                             <th scope="col">Address</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($vendorInfos as $vendorInfo)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td><img width="40" class="img-circle" src="{{ asset($vendorInfo->image ?? 'assets/images/avatar.png') }}" alt=""></td>
-                                <td>{{ $vendorInfo->name }}</td>
-                                <td>{{ $vendorInfo->phone }}</td>
-                                <td>{{ $vendorInfo->email }}</td>
-                                <td>{{ $vendorInfo->address }}</td>
-                                <td>
-                                <a  class="btn btn-success btn-circle" href="{{ route('backend.vendorInfo.show', $vendorInfo) }}">
-                                    <i class="fa fa-eye" ></i>
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td><img width="40" class="img-circle"
+                                    src="{{ asset($vendorInfo->image ?? 'assets/images/avatar.png') }}" alt=""></td>
+                            <td>{{ $vendorInfo->name }}</td>
+                            <td>{{ $vendorInfo->phone }}</td>
+                            <td>{{ $vendorInfo->email }}</td>
+                            <td>{{ $vendorInfo->address }}</td>
+                            <td>{{ $vendorInfo->type }}</td>
+                            <td>
+                                <a class="btn btn-success btn-circle"
+                                    href="{{ route('backend.vendorInfo.show', $vendorInfo) }}">
+                                    <i class="fa fa-eye"></i>
                                 </a>
-                                <a  class="btn btn-warning btn-circle" href="{{ route('backend.vendorInfo.edit', $vendorInfo) }}">
-                                    <i class="fa fa-pen" ></i>
+                                <a class="btn btn-warning btn-circle"
+                                    href="{{ route('backend.vendorInfo.edit', $vendorInfo) }}">
+                                    <i class="fa fa-pen"></i>
                                 </a>
-                                <button type="button" class="btn btn-danger btn-circle delete-btn text-white" value="{{ route('backend.vendorInfo.destroy', $vendorInfo) }}">
-                                    <i class="fa fa-trash" ></i>
+                                <button type="button" class="btn btn-danger btn-circle delete-btn text-white"
+                                    value="{{ route('backend.vendorInfo.destroy', $vendorInfo) }}">
+                                    <i class="fa fa-trash"></i>
                                 </button>
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
