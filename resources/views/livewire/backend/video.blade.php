@@ -23,6 +23,17 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-floating mb-3">
+                                    <input type="title" class="form-control" wire:model="title">
+                                    <label for="video">Video Title</label>
+                                </div>
+                                @error('title')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
                                     <input type="url" class="form-control" wire:model="url">
                                     <label for="video">Video Url</label>
                                 </div>
@@ -56,7 +67,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Video</th>
+                                <th>Video Title</th>
+                                <th>Video Url</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -65,6 +77,7 @@
                             @foreach ($videos as $video)
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
+                                <td>{{ $video->title }}</td>
                                 <td>{{ $video->url }}</td>
                                 <td wire:click="select_video({{ $video->id }} , 'status')">
                                     @if ($video->status)

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Video extends Component
 {
-    public $videos, $status, $url, $selected_video, $purpose, $video;
+    public $videos, $status, $url, $title, $selected_video, $purpose, $video;
 
     public function render()
     {
@@ -18,6 +18,7 @@ class Video extends Component
     public function submit()
     {
         $this->validate([
+            'title' => 'required',
             'url' => 'required',
         ]);
         if ($this->selected_video) {
@@ -25,10 +26,11 @@ class Video extends Component
         } else {
             $model = new ModelsVideo();
         }
+        $model->title = $this->title;
         $model->url = $this->url;
         $model->save();
 
-        $this->url = null;
+        $this->url = $this->title = null;
         $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Done']);
     }
 
@@ -36,6 +38,7 @@ class Video extends Component
     {
         if ($purpose == 'edit') {
             $this->selected_video = $video;
+            $this->title = $this->selected_video->title;
             $this->url = $this->selected_video->url;
         } else if ($purpose == 'delete') {
             $video->delete();

@@ -9,21 +9,24 @@
             <h2>Find your right car</h2>
 
             <form class="b-filter row" wire:submit.prevent="search">
-                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;" wire:model="category">
+                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
+                    wire:model="category">
                     <option value="">Select Category</option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}*{{ $category->id }}</option>
                     @endforeach
                 </select>
 
-                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;" wire:model="brand">
+                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
+                    wire:model="brand">
                     <option value="">Select Car Brand</option>
                     @foreach ($brands as $brand)
                     <option>{{ $brand }}</option>
                     @endforeach
                 </select>
 
-                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;" wire:model="model">
+                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
+                    wire:model="model">
                     <option value="">Select Car Model</option>
                     @foreach ($models as $model)
                     <option>{{ $model }}</option>
@@ -82,12 +85,19 @@
                                 </div>
                                 <div class="item-content">
                                     <div class="item-price">
-                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $dealcar->selling_price }}</span> </span> </div>
+                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{
+                                                    $dealcar->selling_price }}</span> </span> </div>
                                     </div>
                                     <div class="other-info">
-                                        <div class="col-km" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{ $dealcar->mileages }}</div>
-                                        <div class="col-engine" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{ $dealcar->model }}&nbsp;</div>
-                                        <div class="col-date" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{ $dealcar->brand }}</div>
+                                        <div class="col-km" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{
+                                            $dealcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{
+                                            $dealcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{
+                                            $dealcar->brand }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -116,18 +126,26 @@
                         <div class="item-info">
                             <div class="info-inner">
                                 <div class="item-title">
-                                    <a href="{{ route('carDetails', $popularcar->slug) }}" title="{{ $popularcar->name }}">
+                                    <a href="{{ route('carDetails', $popularcar->slug) }}"
+                                        title="{{ $popularcar->name }}">
                                         <b>{{ $popularcar->name }}</b>
                                     </a>
                                 </div>
                                 <div class="item-content">
                                     <div class="item-price">
-                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $popularcar->selling_price }}</span> </span> </div>
+                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{
+                                                    $popularcar->selling_price }}</span> </span> </div>
                                     </div>
                                     <div class="other-info">
-                                        <div class="col-km" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{ $popularcar->mileages }}</div>
-                                        <div class="col-engine" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{ $popularcar->model }}&nbsp;</div>
-                                        <div class="col-date" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{ $popularcar->brand }}</div>
+                                        <div class="col-km" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{
+                                            $popularcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{
+                                            $popularcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{
+                                            $popularcar->brand }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -160,12 +178,19 @@
                                 </div>
                                 <div class="item-content">
                                     <div class="item-price">
-                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{ $usedcar->selling_price }}</span> </span> </div>
+                                        <div class="price-box"><span class="regular-price"><span class="price">৳ {{
+                                                    $usedcar->selling_price }}</span> </span> </div>
                                     </div>
                                     <div class="other-info">
-                                        <div class="col-km" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{ $usedcar->mileages }}</div>
-                                        <div class="col-engine" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{ $usedcar->model }}&nbsp;</div>
-                                        <div class="col-date" style="font-size: 11px;"><span style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{ $usedcar->brand }}</div>
+                                        <div class="col-km" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Mileage</span></br>{{
+                                            $usedcar->mileages }}</div>
+                                        <div class="col-engine" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Model</span></br>&nbsp;{{
+                                            $usedcar->model }}&nbsp;</div>
+                                        <div class="col-date" style="font-size: 11px;"><span
+                                                style="color:#9A0C05;font-weight:bold;font-size:16px;">Brand</span></br>{{
+                                            $usedcar->brand }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -261,60 +286,27 @@
             </div>
             <!--For version 1,2,3,4,5,6,8 -->
             <div class="row">
+                @foreach($videos as $key => $video)
+                
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video1') }}"
-                                    title="YouTube video player" frameborder="0"
+                                <iframe width="400" height="250" src="{{ $video->url }}" title="{{ $video->title }}"
+                                    frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                             </a>
                         </div>
                         <!--blog-img-->
                         <div class="blog-info">
-                            <h3><a href="{{ get_static_option('video1') }}" target="_blank">{{
-                                    get_static_option('title1') }}</a></h3>
+                            <h3><a href="{{ $video->url }}" target="_blank">{{ $video->title }}</a></h3>
                         </div>
                     </div>
                     <!--blog_inner-->
                 </div>
-                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-                    <div class="blog_inner">
-                        <div class="blog-img">
-                            <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video2') }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </a>
-                        </div>
-                        <!--blog-img-->
-                        <div class="blog-info">
-                            <h3><a href="{{ get_static_option('video2') }}" target="_blank">{{
-                                    get_static_option('title2') }}</a></h3>
-                        </div>
-                    </div>
-                    <!--blog_inner-->
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-                    <div class="blog_inner">
-                        <div class="blog-img">
-                            <a href="javascript:vaoid(0)">
-                                <iframe width="400" height="250" src="{{ get_static_option('video3') }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </a>
-                        </div>
-                        <!--blog-img-->
-                        <div class="blog-info">
-                            <h3><a href="{{ get_static_option('video3') }}" target="_blank">{{
-                                    get_static_option('title3') }}</a></h3>
-                        </div>
-                    </div>
-                    <!--blog_inner-->
-                </div>
+                @endforeach
+
             </div>
         </div>
         <!--container-->
