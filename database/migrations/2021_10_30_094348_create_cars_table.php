@@ -30,6 +30,8 @@ class CreateCarsTable extends Migration
             $table->string('image')->nullable();
             $table->string('registration')->nullable();
             $table->string('mileages')->nullable();
+            $table->string('chassis_number')->nullable();
+            $table->string('car_number')->nullable(); //Only For Used Car.
             $table->string('placement')->nullable();
             $table->string('slug')->nullable();
             $table->longText('description')->nullable();

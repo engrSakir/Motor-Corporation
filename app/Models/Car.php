@@ -27,11 +27,14 @@ class Car extends Model
         'image',
         'registration',
         'mileages',
+        'chassis_number',
+        'car_number',
         'placement',
         'description',
     ];
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(CarCategory::class, 'car_category_id', 'id');
     }
 
@@ -40,13 +43,13 @@ class Car extends Model
         return $this->hasMany(PurchasePayment::class, 'car_id', 'id');
     }
 
-        //How many percentage are payed in purchase (to vendor)
-        public function percentageOfPurchasePayment()
-        {
-            try {
-                return ($this->purchasePayments()->sum('amount') / $this->purchase_price) * 100;
-            } catch (\Exception $exception) {
-                return 0;
-            }
+    //How many percentage are payed in purchase (to vendor)
+    public function percentageOfPurchasePayment()
+    {
+        try {
+            return ($this->purchasePayments()->sum('amount') / $this->purchase_price) * 100;
+        } catch (\Exception $exception) {
+            return 0;
         }
+    }
 }
