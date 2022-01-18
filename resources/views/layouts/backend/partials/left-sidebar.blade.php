@@ -60,12 +60,13 @@
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Settings</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('backend.user.index') }}">Add User</a></li>
+                        <li><a href="{{ route('backend.user.index') }}">All User</a></li>
 
                         <li><a href="{{ route('backend.carCategory.index') }}">Car Category </a></li>
                         <li><a href="{{ route('backend.paymentMethod.index') }}">Payment Method</a></li>
                         <li><a href="{{ route('backend.bookingPurpose.index') }}">Booking Purpose</a></li>
                         <li><a href="{{ route('backend.settings') }}">Frontend Settings</a></li>
+                        <li><a href="{{ route('backend.permission-management') }}">Permission Management</a></li>
 
 
                     </ul>

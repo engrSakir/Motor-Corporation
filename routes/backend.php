@@ -25,6 +25,7 @@ use App\Http\Livewire\Backend\Customer;
 use App\Http\Livewire\Backend\Dashboard;
 use App\Http\Livewire\Backend\ExpenseBudget;
 use App\Http\Livewire\Backend\Invoice;
+use App\Http\Livewire\Backend\PermissionManagement;
 use App\Http\Livewire\Backend\Pos;
 use App\Http\Livewire\Backend\PurchaseOrder;
 use App\Http\Livewire\Backend\Report;
@@ -37,46 +38,44 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::get('dashboard', Dashboard::class)->middleware(['auth'])->name('dashboard');
 Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'], function () {
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-    Route::post('profile', [ProfileController::class, 'update']);
-    Route::resource('investor', InvestorController::class);
-    Route::resource('investment', InvestmentController::class);
-    Route::resource('investorContactPerson', InvestorContactPersonController::class);
-    Route::resource('settlement', SettlementController::class);
-    Route::resource('vendorInfo', VendorInfoController::class);
-    Route::resource('carCategory', CarCategoryController::class);
-    Route::resource('car', CarController::class);
-    Route::resource('expense', ExpenseController::class);
-    Route::resource('expenseCategory', ExpenseCategoryController::class);
-    Route::resource('carExpense', CarExpenseController::class);
-    Route::resource('purchasePayment', PurchasePaymentController::class);
-    Route::resource('bookingPurpose', BookingPurposeController::class);
-    Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment');
-    Route::get('pdf/{invoice}', [PdfController::class, 'show'])->name('pdf');
-    Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index');
-    Route::get('delivery-challan/{invoice}', [InvoiceController::class, 'deliveryChallanShow'])->name('delivery-challan.show');
-    Route::get('/ajax/get-items-by-category/{category}', [InvoiceController::class, 'searchByCategory']);
-    Route::resource('paymentMethod', PaymentMethodController::class);
-    Route::resource('purchaseOrder', PurchaseOrderController::class);
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware(['permission:profile']);
+    Route::post('profile', [ProfileController::class, 'update'])->middleware(['permission:profile']);
+    Route::resource('investor', InvestorController::class)->middleware(['permission:investor']);
+    Route::resource('investment', InvestmentController::class)->middleware(['permission:investment']);
+    Route::resource('investorContactPerson', InvestorContactPersonController::class)->middleware(['permission:investor-contact-person']);
+    Route::resource('settlement', SettlementController::class)->middleware(['permission:settlement']);
+    Route::resource('vendorInfo', VendorInfoController::class)->middleware(['permission:vendor-info']);
+    Route::resource('carCategory', CarCategoryController::class)->middleware(['permission:car-category']);
+    Route::resource('car', CarController::class)->middleware(['permission:car']);
+    Route::resource('expense', ExpenseController::class)->middleware(['permission:expense']);
+    Route::resource('expenseCategory', ExpenseCategoryController::class)->middleware(['permission:expense-category']);
+    Route::resource('carExpense', CarExpenseController::class)->middleware(['permission:car-expense']);
+    Route::resource('purchasePayment', PurchasePaymentController::class)->middleware(['permission:purchase-payment']);
+    Route::resource('bookingPurpose', BookingPurposeController::class)->middleware(['permission:booking-purpose']);
+    Route::get('purchase-payment/{car}', [PurchasePaymentController::class, 'purchasePayment'])->name('purchasePayment')->middleware(['permission:purchase-payment']);
+    Route::get('pdf/{invoice}', [PdfController::class, 'show'])->name('pdf')->middleware(['permission:pdf']);
+    Route::get('delivery-challan', [InvoiceController::class, 'deliveryChallan'])->name('delivery-challan.index')->middleware(['permission:delivery-challan']);
+    Route::get('delivery-challan/{invoice}', [InvoiceController::class, 'deliveryChallanShow'])->name('delivery-challan.show')->middleware(['permission:delivery-challan']);
+    Route::get('/ajax/get-items-by-category/{category}', [InvoiceController::class, 'searchByCategory'])->middleware(['permission:search-by-category']);
+    Route::resource('paymentMethod', PaymentMethodController::class)->middleware(['permission:payment-method']);
+    Route::resource('purchaseOrder', PurchaseOrderController::class)->middleware(['permission:purchase-order']);
 
-    Route::get('settings', [SettingsController::class, 'index'])->name('settings');
-    Route::post('settings', [SettingsController::class, 'update']);
-    Route::resource('booking', BookingController::class);
-    Route::resource('user', UserController::class);
+    Route::get('settings', [SettingsController::class, 'index'])->name('settings')->middleware(['permission:settings']);
+    Route::post('settings', [SettingsController::class, 'update'])->middleware(['permission:settings']);
+    Route::resource('booking', BookingController::class)->middleware(['permission:booking']);
+    Route::resource('user', UserController::class)->middleware(['permission:user']);
     // Route::get('/report', [DashboardController::class, 'indexReport'])->name('report.index');
     // Route::post('/report', [DashboardController::class, 'storeReport'])->name('report.store');
 
     // Livewire
-    Route::get('pos', Pos::class)->name('pos'); //Livewire
-    Route::get('invoice', Invoice::class)->name('invoice'); //Livewire
-    Route::get('customer', Customer::class)->name('customer'); //Livewire
-    Route::get('expense-budget', ExpenseBudget::class)->name('expense-budget'); //Livewire
-    Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order'); //Livewire
-    Route::get('report', Report::class)->name('report'); //Livewire
-    Route::get('video', Video::class)->name('video'); //Livewire
-
-
+    Route::get('pos', Pos::class)->name('pos')->middleware(['permission:pos']); //Livewire
+    Route::get('invoice', Invoice::class)->name('invoice')->middleware(['permission:invoice']); //Livewire
+    Route::get('customer', Customer::class)->name('customer')->middleware(['permission:customer']); //Livewire
+    Route::get('expense-budget', ExpenseBudget::class)->name('expense-budget')->middleware(['permission:expense-budget']); //Livewire
+    Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order')->middleware(['permission:purchase-order']); //Livewire
+    Route::get('report', Report::class)->name('report')->middleware(['permission:report']); //Livewire
+    Route::get('video', Video::class)->name('video')->middleware(['permission:video']); //Livewire
+    Route::get('permission-management', PermissionManagement::class)->name('permission-management')->middleware(['permission:permission-management']);
 });

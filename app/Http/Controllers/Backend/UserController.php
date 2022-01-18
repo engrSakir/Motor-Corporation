@@ -88,8 +88,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-
-        return view('backend.user.edit', compact('user'));
+        $roles = Role::all();
+        return view('backend.user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -108,6 +108,7 @@ class UserController extends Controller
             'user_pass'     => 'nullable|min:4',
             'user_address'     => 'nullable',
             'image' => 'nullable|image',
+            'role' => 'required',
         ]);
 
         $user->name = $request->user_name;
@@ -121,6 +122,8 @@ class UserController extends Controller
             $user->image = file_uploader('uploads/user-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::slug($request->user_name, '-'));
         }
         $user->save();
+        if (auth()->user()->id != $user->id)
+            $user->syncRoles($request->role);
 
         toastr()->success('Successfully Updated!');
         return back();
@@ -134,7 +137,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-       $user->delete();
+        $user->delete();
         return [
             'type' => 'success',
             'message' => 'Successfully destroy',
