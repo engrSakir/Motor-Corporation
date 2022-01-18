@@ -3,8 +3,12 @@
 <head>
     <title>Invoice</title>
     <style>
+        @page{
+            margin-top: 1cm;
+            margin-bottom: 1cm;
+        }
         .underline {
-            border-bottom: 1px dotted rgb(0, 0, 0);
+            border-bottom: 1px solid rgb(0, 0, 0);
             width: 100%;
             display: block;
             margin-top: 5px;
@@ -55,7 +59,7 @@
             </td>
         </tr>
     </table>
-    <div class="title"> PAYMENTS </div>
+    <div class="title" style="margin-top: 50px;"> PAYMENTS </div>
     <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
         Date: {{ $invoice->created_at->format('d M Y') }}
     </div>
@@ -82,14 +86,14 @@
                 <b>Date time and method</b> <br>
                 @foreach ($invoice->payments as $payment)
                     {{ $payment->created_at->format('d-M-Y h:i A') }} &nbsp; {{ $payment->paymentMethod->name ?? '-' }} <br>
-                @endforeach    
+                @endforeach
             </td>
             <td style="text-align: right; vertical-align: top;">
                 <br> <br>
                 <b>Amount</b> <br>
                 @foreach ($invoice->payments as $payment)
                    {{ $payment->amount }} BDT <br>
-                @endforeach   
+                @endforeach
             </td>
         </tr>
         <tr>

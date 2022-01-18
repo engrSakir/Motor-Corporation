@@ -3,8 +3,13 @@
 <head>
     <title>Invoice</title>
     <style>
+        @page{
+            margin-top: 1cm;
+            margin-bottom: 1cm;
+        }
+
         .underline {
-            border-bottom: 1px dotted rgb(0, 0, 0);
+            border-bottom: 1px solid rgb(0, 0, 0);
             width: 100%;
             display: block;
             margin-top: 5px;
@@ -55,7 +60,7 @@
             </td>
         </tr>
     </table>
-    <div class="title"> INVOICE </div>
+    <div class="title" style="margin-top: 50px;"> INVOICE </div>
     <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
         Date: {{ $invoice->created_at->format('d M Y') }}
     </div>
@@ -86,7 +91,7 @@
                 <b>Model:</b> {{ $invoice->car->model }} <br>
                 <b>Registration:</b> {{ $invoice->car->registration }} <br>
                 <b>Mileages:</b> {{ $invoice->car->mileages }} <br>
-                
+
             </td>
             <td style="text-align: center; vertical-align: top;">
              <br>    1
