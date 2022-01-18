@@ -59,7 +59,7 @@
                 @endcan
                 <!--<li> <a class="waves-effect waves-dark" href="{{ route('backend.delivery-challan.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Delivery Challan</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.paymentMethod.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Payment Method</span></a></li>-->
-                @canany('expense|expense-category|expense-budget')
+                @canany(['expense', 'expense-category', 'expense-budget'])
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Expense</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -75,7 +75,7 @@
                     </ul>
                 </li>
                 @endcanany
-                @canany('user|car-category|payment-method|booking-purpose|settings|permission-management')
+                @canany(['user', 'car-category', 'payment-method', 'booking-purpose', 'settings', 'permission-management'])
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Settings</span></a>
                     <ul aria-expanded="false" class="collapse">
