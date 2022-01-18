@@ -91,6 +91,7 @@
                 <b>Model:</b> {{ $invoice->car->model }} <br>
                 <b>Registration:</b> {{ $invoice->car->registration }} <br>
                 <b>Mileages:</b> {{ $invoice->car->mileages }} <br>
+                <b>Chassis number:</b> {{ $invoice->car->chassis_number }} <br>
 
             </td>
             <td style="text-align: center; vertical-align: top;">
