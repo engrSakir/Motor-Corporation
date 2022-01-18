@@ -29,55 +29,91 @@
             <ul id="sidebarnav">
                 <li> <a class="waves-effect waves-dark" href="{{ route('dashboard') }}" aria-expanded="false"><i
                             class="icon-speedometer text-danger"></i><span class="hide-menu">Dashboard</span></a></li>
+                @can('investment')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.investment.index') }}"
                         aria-expanded="false"><i class="far fa-circle text-info"></i><span
                             class="hide-menu">Investment</span></a></li>
+                @endcan
+                @can('vendor-info')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.vendorInfo.index') }}"
                         aria-expanded="false"><i class="far fa-circle text-info"></i><span
                             class="hide-menu">Vendor</span></a></li>
+                @endcan
+                @can('car')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.car.index') }}" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Car</span></a></li>
+                @endcan
+                @can('customer')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.customer') }}" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Customer</span></a></li>
+                @endcan
                 <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.investorContactPerson.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Contact Person</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.settlement.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Settlement</span></a></li>
                <li> <a class="waves-effect waves-dark" href="{{ route('backend.carCategory.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Category</span></a></li>-->
                 {{-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.purchaseOrder.index') }}"
                         aria-expanded="false"><i class="far fa-circle text-info"></i><span
                             class="hide-menu">PO</span></a></li> --}}
+                @can('invoice')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.invoice') }}" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Sales</span></a></li>
+                @endcan
                 <!--<li> <a class="waves-effect waves-dark" href="{{ route('backend.delivery-challan.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Delivery Challan</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.paymentMethod.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Payment Method</span></a></li>-->
+                @canany('expense|expense-category|expense-budget')
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Expense</span></a>
                     <ul aria-expanded="false" class="collapse">
+                        @can('expence')
                         <li><a href="{{ route('backend.expense.index') }}">Expense List</a></li>
+                        @endcan
+                        @can('expense-category')
                         <li><a href="{{ route('backend.expenseCategory.index') }}">Category</a></li>
+                        @endcan
+                        @can('expense-budget')
                         <li><a href="{{ route('backend.expense-budget') }}">Budget</a></li>
+                        @endcan
                     </ul>
                 </li>
+                @endcanany
+                @canany('user|car-category|payment-method|booking-purpose|settings|permission-management')
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Settings</span></a>
                     <ul aria-expanded="false" class="collapse">
+                        @can('user')
                         <li><a href="{{ route('backend.user.index') }}">All User</a></li>
-
+                        @endcan
+                        @can('car-category')
                         <li><a href="{{ route('backend.carCategory.index') }}">Car Category </a></li>
+                        @endcan
+                        @can('payment-method')
                         <li><a href="{{ route('backend.paymentMethod.index') }}">Payment Method</a></li>
+                        @endcan
+                        @can('booking-purpose')
                         <li><a href="{{ route('backend.bookingPurpose.index') }}">Booking Purpose</a></li>
+                        @endcan
+                        @can('settings')
                         <li><a href="{{ route('backend.settings') }}">Frontend Settings</a></li>
+                        @endcan
+                        @can('permission-management')
                         <li><a href="{{ route('backend.permission-management') }}">Permission Management</a></li>
-
-
+                        @endcan
                     </ul>
                 </li>
+                @endcanany
+                @can('booking')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.booking.index') }}"
                         aria-expanded="false"><i class="far fa-circle text-info"></i><span
                             class="hide-menu">Booking</span></a></li>
+                @endcan
+                @can('report')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.report') }}" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Report</span></a></li>
+                @endcan
+                @can('video')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.video') }}" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Video</span></a></li>
+                @endcan
+
 
                 <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->
             </ul>
