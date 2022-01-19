@@ -61,7 +61,7 @@
     </table>
     <div class="title" style="margin-top: 50px;"> Delivery Challan </div>
     <div style="width: 100%; text-align: right; margin-top: 10px; margin-bottom: 10px;">
-        Date: {{ $invoice->created_at->format('d M Y') }}
+        Date: {{ date("d-m-Y", strtotime($invoice->delivery_challan_date)) }}
     </div>
     <div class="underline">
         <b>Invoice No. : {{ $invoice->id }}</b>
