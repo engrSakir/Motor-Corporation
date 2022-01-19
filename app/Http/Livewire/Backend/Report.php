@@ -16,7 +16,8 @@ class Report extends Component
     public $ending_date;
     public $report_data_set = [];
 
-    public function report(){
+    public function report()
+    {
         $this->validate([
             'starting_date' => 'required',
             'ending_date' => 'required',
@@ -26,17 +27,17 @@ class Report extends Component
         $end = new Carbon($this->ending_date);
 
         // Invoice List, price, paid, due
-        $invoices = Invoice::whereBetween('created_at',[$start, $end])->get();
+        $invoices = Invoice::whereBetween('created_at', [$start, $end])->get();
         $total_invoice_price = $total_invoice_paid = $total_invoice_due = 0;
-        foreach($invoices as $inv){
+        foreach ($invoices as $inv) {
             $total_invoice_price += $inv->totalPrice();
             $total_invoice_due += $inv->due();
             $total_invoice_paid += $inv->payments->sum('amount', 2);
         }
 
         // Invoice List, price, paid, due
-        $expenses = Expense::whereBetween('created_at',[$start, $end])->get();
-        $car_expenses = CarExpense::whereBetween('created_at',[$start, $end])->get();
+        $expenses = Expense::whereBetween('created_at', [$start, $end])->get();
+        $car_expenses = CarExpense::whereBetween('created_at', [$start, $end])->get();
 
 
         $this->report_data_set = [
@@ -58,7 +59,7 @@ class Report extends Component
 
         return response()->streamDownload(function () {
             PDF::loadView('backend.report.pdf-report',  ['report_data_set' => $this->report_data_set, 'starting_date' => new Carbon($this->starting_date), 'ending_date' => new Carbon($this->ending_date)])->download();
-        }, 'Report generated at '.date('d-m-Y- h-i-s').'.pdf');
+        }, 'Report generated at ' . date('d-m-Y- h-i-s') . '.pdf');
     }
 
     public function render()

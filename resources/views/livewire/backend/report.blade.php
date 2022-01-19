@@ -1,1 +1,3 @@
-->layout('layouts.backend.app')
+<div>
+    <h1>Report</h1>
+</div>

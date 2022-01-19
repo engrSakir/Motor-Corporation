@@ -52,4 +52,9 @@ class Car extends Model
             return 0;
         }
     }
+
+    public function vendor()
+    {
+        return $this->belongsTo(VendorInfo::class, 'vendor_id', 'id');
+    }
 }
