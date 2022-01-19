@@ -101,30 +101,17 @@
                                 @foreach ($invoices as $invoice)
                                 <tr>
                                     <td>
-                                        <a class="btn btn-primary btn-sm"
-                                            href="{{ route('backend.pdf', [$invoice, 'type=booking']) }}"
-                                            target="_blank">Booking</a>
-                                        <a class="btn btn-success btn-sm"
-                                            href="{{ route('backend.pdf', [$invoice, 'type=invoice']) }}"
-                                            target="_blank">Invoice</a>
-                                        <a class="btn btn-warning btn-sm"
-                                            href="{{ route('backend.pdf', [$invoice, 'type=delivery-challan']) }}"
-                                            target="_blank">Challan</a>
-                                        <a class="btn btn-danger btn-sm"
-                                            href="{{ route('backend.pdf', [$invoice, 'type=payments']) }}"
-                                            target="_blank">Payments</a>
-                                        <button wire:click="delete({{ $invoice->id }})"
-                                            onclick="confirm('Are you sure you want to remove ?') || event.stopImmediatePropagation()"
-                                            class="btn btn-danger btn-circle"><i class="fa fa-trash text-white"></i>
-                                        </button>
-                                        <button wire:click="select_for_edit({{ $invoice->id }})"
-                                            class="btn btn-warning btn-circle"><i class="fa fa-pen text-white"></i>
-                                        </button>
-
                                         <a href="{{ route('backend.invoice.details' , $invoice) }}"
                                             class="btn btn-success btn-circle">
                                             <i class="fa fa-eye text-white"></i>
                                         </a>
+                                        <button wire:click="select_for_edit({{ $invoice->id }})"
+                                            class="btn btn-warning btn-circle"><i class="fa fa-pen text-white"></i>
+                                        </button>
+                                        <button wire:click="delete({{ $invoice->id }})"
+                                            onclick="confirm('Are you sure you want to remove ?') || event.stopImmediatePropagation()"
+                                            class="btn btn-danger btn-circle"><i class="fa fa-trash text-white"></i>
+                                        </button>
                                     </td>
                                     <td>
                                         {{ $invoice->car->status ?? '-' }}
