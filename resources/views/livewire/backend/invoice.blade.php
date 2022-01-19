@@ -122,8 +122,8 @@
                                         </button>
 
                                         <a href="{{ route('backend.invoice.details' , $invoice) }}"
-                                            class="btn btn-warning btn-circle">
-                                            <i class="fa fa-pen text-white"></i>
+                                            class="btn btn-success btn-circle">
+                                            <i class="fa fa-eye text-white"></i>
                                         </a>
                                     </td>
                                     <td>

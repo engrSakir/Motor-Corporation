@@ -60,6 +60,81 @@
                 </div>
             </div>
         </div>
+        <div class="col-12">
+            <div class="card ">
+                <div class="card-header text-center bg-primary text-white">
+                    <h3>Action</h3>
+                </div>
+                <div class="card-body text-center">
+                    <a class="btn btn-primary btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=booking']) }}"
+                        target="_blank">Booking</a>
+                    <a class="btn btn-success btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=invoice']) }}"
+                        target="_blank">Invoice</a>
+                    <a class="btn btn-warning btn-sm"
+                        href="{{ route('backend.pdf', [$invoice, 'type=delivery-challan']) }}"
+                        target="_blank">Challan</a>
+                    <a class="btn btn-danger btn-sm" href="{{ route('backend.pdf', [$invoice, 'type=payments']) }}"
+                        target="_blank">Payments</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <h4 class="mb-0 text-white">Edit Information</h4>
+                </div>
+                <div class="card-body">
+                    <form wire:submit.prevent="edit" class="form-horizontal form-material"
+                        enctype="multipart/form-data">
+                        <div class="form-body">
+                            <div class="card-body">
+                                <div class="row pt-3">
+                                    {{-- <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Name<b class="text-danger">*</b> </label>
+                                            <select class="select2 form-select form-control" required>
+                                                <option selected disabled value="">Chose Option ..</option>
+                                            </select>
+                                            </select>
+                                            @error('')
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Deliver Challan Date ({{ date("d-m-Y",
+                                                strtotime($invoice->delivery_challan_date)) }})
+                                                <b class="text-danger">*</b>
+                                            </label>
+                                            <input wire:model="delivery_challan_date" type="date" class="form-control"
+                                                placeholder="Deliver Challan Date" required>
+                                            @error('delivery_challan_date')
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="card-body">
+                                    <button type="submit" class="btn btn-success text-white"> <i
+                                            class="fa fa-check"></i> Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
     @push('head')
 
