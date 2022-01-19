@@ -21,6 +21,7 @@ class CreateInvoicesTable extends Migration
             $table->double('vat_percentage')->default(0);
             $table->double('discount_percentage')->default(0);
             $table->longText('note')->nullable();
+            $table->dateTime('delivery_challan_date')->nullable();
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

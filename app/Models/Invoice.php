@@ -53,7 +53,7 @@ class Invoice extends Model
         parent::boot();
 
         self::creating(function($model){
-            // ... code here
+            $model->delivery_challan_date = date('Y-m-d');
         });
 
         self::created(function($model){
