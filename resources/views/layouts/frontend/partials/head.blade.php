@@ -57,4 +57,43 @@
         top: 0;
         left: 0;
     }
+
+
+    .row {
+        margin-top: 12px;
+    }
+
+    .product-item img {
+        width: 300px;
+        height: 200px;
+    }
+
+    /*With Simple Caption*/
+    .product-item {
+        position: relative;
+    }
+
+    .product-item .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        opacity: 0;
+        transition: all 0.8s ease;
+    }
+
+    .product-item .text h1 {
+        margin: 0;
+        color: white;
+    }
+
+    .product-item:hover .text {
+        opacity: 1;
+
+    }
+
+    .product-item:hover img {
+        -webkit-filter: sepia(90%);
+    }
 </style>

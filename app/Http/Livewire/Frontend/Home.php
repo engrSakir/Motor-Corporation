@@ -10,66 +10,33 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Component
 {
-   public $usedcars, $dealcars, $popularcars, $categories, $brands, $models, $category, $brand, $model, $videos;
+   public $categories, $brands, $models, $category, $brand, $model;
+   public $cars;
 
    public function search()
    {
-      $dealcars = Car::orderBy('id', 'desc')->where('placement', 'deal_of_the_week');
-      $dealcars->when($this->category, function ($query) {
+      $cars = Car::latest()->where('status', 'Available');
+      $cars->when($this->category, function ($query) {
          $query->where('car_category_id', $this->category);
       });
 
-      $dealcars->when($this->brand, function ($query) {
+      $cars->when($this->brand, function ($query) {
          $query->where('brand', $this->brand);
       });
 
-      $dealcars->when($this->model, function ($query) {
+      $cars->when($this->model, function ($query) {
          $query->where('model', $this->model);
       });
-      $this->dealcars = $dealcars->get();
 
-      $popularcars = Car::orderBy('id', 'desc')->where('placement', 'popular');
-      $popularcars->when($this->category, function ($query) {
-         $query->where('car_category_id', $this->category);
-      });
-
-      $popularcars->when($this->brand, function ($query) {
-         $query->where('brand', $this->brand);
-      });
-
-      $popularcars->when($this->model, function ($query) {
-         $query->where('model', $this->model);
-      });
-      $this->popularcars = $popularcars->get();
-      // dd($this->popularcars->count());
-
-      $usedcars = Car::orderBy('id', 'desc')->where('placement', 'used');
-      $usedcars->when($this->category, function ($query) {
-         $query->where('car_category_id', $this->category);
-      });
-
-      $usedcars->when($this->brand, function ($query) {
-         $query->where('brand', $this->brand);
-      });
-
-      $usedcars->when($this->model, function ($query) {
-         $query->where('model', $this->model);
-      });
-      $this->usedcars = $usedcars->get();
+      $this->cars = $cars->get();
    }
 
 
    public function mount()
    {
-      $this->dealcars = Car::orderBy('id', 'desc')->where('placement', 'deal_of_the_week')->get();
-      $this->popularcars = Car::orderBy('id', 'desc')->where('placement', 'popular')->get();
-      $this->usedcars = Car::orderBy('id', 'desc')->where('placement', 'used')->get();
+      $this->cars = Car::latest()->where('status', 'Available')->get();
 
-      //Category
       $this->categories = CarCategory::all();
-      //Video
-      $this->videos = Video::latest()->where('status', true)->get();
-      //Brands
       $brands = Car::where('status', 'Available')->get()->groupBy('brand');
       $this->brands = array();
       foreach ($brands as $brand => $brand_cars) {
