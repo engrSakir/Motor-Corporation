@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\BookingController;
+use App\Http\Livewire\Backend\CarDetails;
 use App\Http\Livewire\Backend\Customer;
 use App\Http\Livewire\Backend\Dashboard;
 use App\Http\Livewire\Backend\ExpenseBudget;
@@ -74,6 +75,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('pos', Pos::class)->name('pos')->middleware(['permission:pos']); //Livewire
     Route::get('invoice', Invoice::class)->name('invoice')->middleware(['permission:invoice']); //Livewire
     Route::get('invoice/details/{invoice}', InvoiceDetails::class)->name('invoice.details')->middleware(['permission:invoice']); //Livewire
+    Route::get('car/details/{car}', CarDetails::class)->name('car.details')->middleware(['permission:car']); //Livewire
     Route::get('customer', Customer::class)->name('customer')->middleware(['permission:customer']); //Livewire
     Route::get('expense-budget', ExpenseBudget::class)->name('expense-budget')->middleware(['permission:expense-budget']); //Livewire
     Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order')->middleware(['permission:purchase-order']); //Livewire
