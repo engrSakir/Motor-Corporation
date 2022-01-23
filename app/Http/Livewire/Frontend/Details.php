@@ -4,21 +4,21 @@ namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
 use App\Models\Car;
+use App\Models\CarImage;
 
 class Details extends Component
 {
-    public $dealcars;
-    public $popularcars;
+    public $car, $slug, $carImages;
 
     public function mount()
     {
-        $this->dealcars = Car::orderBy('id','desc')->where('placement','deal_of_the_week')->get();
-        $this->popularcars = Car::orderBy('id','desc')->where('placement','popular')->get();
+        $this->car = Car::where('slug', $this->slug)->first();
+        $this->carImages = CarImage::latest()->get();
     }
 
     public function render()
     {
-        return view('livewire.frontend.car-details')
-        ->layout('layouts.frontend.app');
+        return view('livewire.frontend.details')
+            ->layout('layouts.frontend.app');
     }
 }

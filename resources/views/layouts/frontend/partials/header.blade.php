@@ -1,4 +1,3 @@
-
 <header>
     <div class="container">
         <div class="row">
@@ -8,8 +7,8 @@
                         <a href="{{ url('/') }}" title="Car HTML" class="logo">
                             <div>
                                 <img style="background-color:#000000; border-radius:15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);"
-                                    src="{{ asset(get_static_option('logo') ?? 'assets/frontend/images/logo-bg.png') }}" height="110px"
-                                    alt="Car Store">
+                                    src="{{ asset(get_static_option('logo') ?? 'assets/frontend/images/logo-bg.png') }}"
+                                    height="110px" alt="Car Store">
 
                             </div>
                         </a>
@@ -30,18 +29,20 @@
                             <div class="collapse navbar-collapse">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
-                                      <!--  <input type="text" class="form-control" placeholder="Search">
+                                        <!--  <input type="text" class="form-control" placeholder="Search">
                                         <span class="input-group-btn">
                                             <button type="submit" class="search-btn"> <span
                                                     class="glyphicon glyphicon-search"> <span
                                                         class="sr-only">Search</span> </span> </button>
                                         </span>-->
                                         <span class="input-group-btn">
-                                            <a href="https://goo.gl/maps/cVH1xazhpxBytoNF6" target="_blank" class="search-btn" style="">
-                                                <img width="30px;" src="{{ asset('assets/images/map-icon.png') }}" alt="">
+                                            <a href="https://goo.gl/maps/cVH1xazhpxBytoNF6" target="_blank"
+                                                class="search-btn" style="">
+                                                <img width="30px;" src="{{ asset('assets/images/map-icon.png') }}"
+                                                    alt="">
                                                 {{-- <button class="button btn-cart" type="button"></button> --}}
                                                 {{-- <i class="fa fa-tachometer"></i> --}}
-                                                {{-- <span class="glyphicon glyphicon-map-marker">  </span> --}}
+                                                {{-- <span class="glyphicon glyphicon-map-marker"> </span> --}}
                                             </a>
                                         </span>
                                     </div>
@@ -52,19 +53,22 @@
                         <div class="fl-nav-menu">
                             <nav>
                                 <div class="mm-toggle-wrap">
-                                    <div class="mm-toggle"><i class="fa fa-bars"></i><span
-                                            class="mm-label">Menu</span> </div>
+                                    <div class="mm-toggle"><i class="fa fa-bars"></i><span class="mm-label">Menu</span>
+                                    </div>
                                 </div>
                                 <div class="nav-inner">
                                     <!-- BEGIN NAV -->
                                     <ul id="nav" class="hidden-xs">
-                                        <li class="active"> <a class="level-top" href="{{ url('/') }}"><span>Home</span></a></li>
+                                        <li class="active"> <a class="level-top"
+                                                href="{{ url('/') }}"><span>Home</span></a></li>
                                         <li class="level0 parent drop-menu"> <a class="level-top"
                                                 href="#"><span>Inventory</span></a>
                                             <ul class="level1">
-                                                <li class="level1 first"><a href="#popular"><span>Popular Cars</span></a>
+                                                <li class="level1 first"><a href="#popular"><span>Popular
+                                                            Cars</span></a>
                                                 </li>
-                                                <li class="level1 nav-10-2"> <a href="#deals"> <span>Deal of the week</span>
+                                                <li class="level1 nav-10-2"> <a href="#deals"> <span>Deal of the
+                                                            week</span>
                                                     </a> </li>
 
                                             </ul>
@@ -80,34 +84,36 @@
                                         </li>
                                         <li class="mega-menu hidden-sm"> <a class="level-top"
                                                 href="{{ route('booking') }}"><span>Booking</span></a> </li>
-                                        <li class="fl-custom-tabmenulink mega-menu"> <a href="#"
-                                                class="level-top"> <span>Offer</span> </a>
+                                        <li class="fl-custom-tabmenulink mega-menu"> <a href="#" class="level-top">
+                                                <span>Offer</span> </a>
                                             <div class="level0-wrapper fl-custom-tabmenu"
                                                 style="left: 0px; display: none;">
                                                 <div class="container">
                                                     <div class="header-nav-dropdown-wrapper clearer">
-                                                    @php
-                                                    $offer_cars=offer_cars();
-                                                    @endphp
-                                                   @foreach($offer_cars as $offer)
+                                                        @php
+                                                        $offer_cars=offer_cars();
+                                                        @endphp
+                                                        @foreach($offer_cars as $offer)
 
                                                         <div class="grid12-3">
-                                                           <a href="{{ route('carDetails', $offer->slug) }}">
-                                                           <div><img
-                                                                    src="{{ asset($offer->image ?? 'uploads/images/no_image.png') }}"
-                                                                    alt="custom-image"></div>
-                                                            <h4 class="heading">SALE UP TO {{ $offer->discount_percentage }}% OFF</h4>
-                                                            <p>{{ $offer->name }}
-                                                            </p>
+                                                            <a href="#">
+                                                                <div><img
+                                                                        src="{{ asset($offer->image ?? 'uploads/images/no_image.png') }}"
+                                                                        alt="custom-image"></div>
+                                                                <h4 class="heading">SALE UP TO {{
+                                                                    $offer->discount_percentage }}% OFF</h4>
+                                                                <p>{{ $offer->name }}
+                                                                </p>
                                                             </a>
 
                                                         </div>
-                                                   @endforeach
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class=""> <a class="level-top" href="{{ route('contact') }}"><span>Contact Us</span></a></li>
+                                        <li class=""> <a class="level-top" href="{{ route('contact') }}"><span>Contact
+                                                    Us</span></a></li>
                                     </ul>
                                     <!--nav-->
                                 </div>
