@@ -239,10 +239,64 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="form-label" for="garaj_no">Garaj Number</label>
+                                        <input type="text" id="garaj_no" name="garaj_no" class="form-control"
+                                            placeholder="Car Number" value="{{ old('garaj_no') }}">
+                                        @error('garaj_no')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="form-label" for="image">Image </label>
                                         <input type="file" accept="image/*" id="image" name="image" class="form-control"
                                             placeholder="image" value="{{ old('image') }}">
                                         @error('image')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="image">Cover Image </label>
+                                        <input type="file" accept="image/*" id="image" name="image_of_cover"
+                                            class="form-control" placeholder="image_of_cover"
+                                            value="{{ old('image_of_cover') }}">
+                                        @error('image_of_cover')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="image_of_specification">Specificaton Image
+                                        </label>
+                                        <input type="file" accept="image/*" id="image_of_specification"
+                                            name="image_of_specification" class="form-control"
+                                            placeholder="image_of_specification"
+                                            value="{{ old('image_of_specification') }}">
+                                        @error('image_of_specification')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="image">Description Image </label>
+                                        <input type="file" accept="image/*" id="image" name="image_of_description"
+                                            class="form-control" placeholder="image_of_description"
+                                            value="{{ old('image_of_description') }}">
+                                        @error('image_of_description')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>

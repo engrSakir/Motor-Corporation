@@ -73,10 +73,20 @@ class CarController extends Controller
         $car->placement = $request->placements;
         $car->slug = Str::slug($request->name, '-');
         $car->description = $request->description;
+        $car->garaj_no = $request->garaj_no;
         $car->papers_up_to_date = $request->papers_up_to_date;
         $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
             $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
+        }
+        if ($request->file('image_of_cover')) {
+            $car->image_of_cover = file_uploader('uploads/car-image/', $request->image_of_cover, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
+        }
+        if ($request->file('image_of_specification')) {
+            $car->image_of_specification = file_uploader('uploads/car-image/', $request->image_of_specification, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
+        }
+        if ($request->file('image_of_description')) {
+            $car->image_of_description = file_uploader('uploads/car-image/', $request->image_of_description, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
         }
         $car->save();
 
@@ -144,12 +154,23 @@ class CarController extends Controller
         $car->car_number = $request->car_number;
         $car->placement = $request->placements;
         $car->description = $request->description;
+        $car->garaj_no = $request->garaj_no;
         $car->slug = Str::slug($request->name, '-');
         $car->papers_up_to_date = $request->papers_up_to_date;
         $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
             $car->image = file_uploader('uploads/car-image/', $request->image, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
         }
+        if ($request->file('image_of_cover')) {
+            $car->image_of_cover = file_uploader('uploads/car-image/', $request->image_of_cover, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
+        }
+        if ($request->file('image_of_specification')) {
+            $car->image_of_specification = file_uploader('uploads/car-image/', $request->image_of_specification, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
+        }
+        if ($request->file('image_of_description')) {
+            $car->image_of_description = file_uploader('uploads/car-image/', $request->image_of_description, Carbon::now()->format('Y-m-d H-i-s-a') . '-' . Str::random(8));
+        }
+
         $car->save();
         toastr()->success('Saved');
         return back();

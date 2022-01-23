@@ -31,6 +31,10 @@ class Car extends Model
         'car_number',
         'placement',
         'description',
+        'garaj_no',
+        'image_of_cover',
+        'image_of_specification',
+        'image_of_description',
     ];
 
     public function category()
