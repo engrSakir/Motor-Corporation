@@ -5,10 +5,12 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Car;
 use App\Models\CarImage;
+use App\Models\Contact;
 
 class Details extends Component
 {
     public $car, $slug, $carImages;
+    public  $name, $email, $phone, $message, $car_id;
 
     public function mount()
     {
@@ -20,5 +22,29 @@ class Details extends Component
     {
         return view('livewire.frontend.details')
             ->layout('layouts.frontend.app');
+    }
+
+    public function submit()
+    {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'message' => 'required'
+        ]);
+        $model = new Contact();
+        $model->car_id = $this->car_id;
+        $model->name = $this->name;
+        $model->email = $this->email;
+        $model->phone = $this->phone;
+        $model->message = $this->message;
+        $model->save();
+
+        $this->name = null;
+        $this->email = null;
+        $this->phone = null;
+        $this->message = null;
+
+        $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Send']);
     }
 }
