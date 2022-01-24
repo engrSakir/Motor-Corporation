@@ -21,10 +21,10 @@ class CarDetails extends Component
         $this->car = $car;
     }
 
-    public function add_image(Car $car)
+    public function save()
     {
         $this->validate([
-            'image' => 'required',
+            'image' => 'required|image',
         ]);
 
         if ($this->selected_image) {
@@ -32,7 +32,7 @@ class CarDetails extends Component
         } else {
             $model = new CarImage();
         }
-        $this->car_id = $car->id;
+        $model->car_id = $this->car->id;
         if ($this->image) {
             $model->image = 'storage/' . $this->image->store('carDetails', 'public');
         }

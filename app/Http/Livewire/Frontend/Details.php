@@ -15,7 +15,6 @@ class Details extends Component
     public function mount()
     {
         $this->car = Car::where('slug', $this->slug)->first();
-        $this->carImages = CarImage::latest()->get();
     }
 
     public function render()
@@ -33,7 +32,7 @@ class Details extends Component
             'message' => 'required'
         ]);
         $model = new Contact();
-        $model->car_id = $this->car_id;
+        $model->car_id = $this->car->id;
         $model->name = $this->name;
         $model->email = $this->email;
         $model->phone = $this->phone;

@@ -56,7 +56,7 @@
         <div class="container mt-4 bg-white text-dark" style="width:100% ; height:100%">
             <div class="row gallery">
                 <h1 class="text-center tm-mb-1">Gallery</h1>
-                @foreach($carImages as $carImage)
+                @foreach($car->carImages as $carImage)
                 <div class="col-md-4 text-center mb-3">
                     <img src="{{ asset($carImage->image) }}" alt="" style="width: 300px ; height: 300px">
                 </div>
@@ -73,7 +73,6 @@
                             <div class="col-1 new-users">
                                 <div class="content">
                                     <ul class="form-list">
-                                        <input type="hidden" name="car_id" value="{{ $car->id }}" wire:model="car_id">
                                         <li>
                                             <label for="name" style="color: white">Name<em
                                                     class="required">*</em></label>
