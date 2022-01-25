@@ -53,11 +53,11 @@
             </div>
         </section>
 
-        <div class="container mt-4 bg-white text-dark" style="width:100% ; height:100%">
+        <div class="container  bg-white text-dark" style="width:100% ; height:100%">
             <div class="row gallery">
                 <h1 class="text-center tm-mb-1">Gallery</h1>
                 @foreach($car->carImages as $carImage)
-                <div class="col-md-4 text-center mb-3">
+                <div class="col-md-3 text-center mb-3 margin">
                     <img src="{{ asset($carImage->image) }}" alt="" style="width: 300px ; height: 300px">
                 </div>
                 @endforeach
@@ -208,6 +208,11 @@
             height: 100%;
             /* margin-left: 80px;
             margin-top: 30px; */
+        }
+
+        .margin {
+            margin-bottom: 20px;
+
         }
 
         .tm-img-responsive1 {

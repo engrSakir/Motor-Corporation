@@ -64,28 +64,33 @@
     </div>
 
     <div class="row bg-color" id="map" style="margin: 10px;">
-        <div class="col-md-6 right-div margin">
+        <div class="col-md-6 right-div margin-y">
             <h3 class="text">Youtube</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Yiz-K_BIO44"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-
+            <div class="margin-x">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Yiz-K_BIO44"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
         </div>
-        <div class="col-md-6 left-div margin">
+        <div class="col-md-6 left-div  center-sm">
             <h3 class="text">Instagram</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Dorf8i6lCuk"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-
-        </div>
-        <div class="row" id="collection" style="margin: 10px;">
             @foreach ($instagrams as $instagram)
-            <div class="col-md-3" style="margin-top: 20px;">
-                <div class="product-item" style="text-align: center;">
-                    <img src="{{ asset($instagram->image) }}">
-                </div>
+            <div class="col-md-3 instagram product-item " style="text-align: center;">
+                <img src="{{ asset($instagram->image) }}">
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="container bg-white text-dark" style="width:100% ; height:100%; margin-bottom:20px;">
+        <div class="row video">
+            <h1 class="text-center margin-y">Videos</h1>
+            @foreach($videos as $video)
+            <div class="col-md-3 text-center mb-3">
+                <iframe width="560" height="315" src="{{ $video->url }}" title="{{ $video->title }}" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
             @endforeach
         </div>
@@ -101,13 +106,38 @@
             margin-bottom: 50px;
         }
 
-        .text {
-            color: rgb(82, 75, 75);
+        .instagram {
+            width: 50%;
+            height: 50%;
+            margin-bottom: 20px;
         }
 
-        .margin {
+        .video {
+            margin: 30px;
+        }
+
+        .text {
+            color: rgb(82, 75, 75);
+            margin-left: 20px;
+        }
+
+        .margin-y {
             margin-top: 50px;
             margin-bottom: 50px;
+        }
+
+        .margin-x {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        @media(max-width: 992px) {
+            .center-sm {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
         }
     </style>
 </div>

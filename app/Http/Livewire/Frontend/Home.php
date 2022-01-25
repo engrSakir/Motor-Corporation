@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Component
 {
-   public $categories, $brands, $models, $category, $brand, $model;
+   public $categories, $brands, $models, $category, $brand, $model, $videos;
    public $cars, $instagrams;
 
    public function search()
@@ -37,6 +37,7 @@ class Home extends Component
    {
       $this->cars = Car::latest()->where('status', 'Available')->get();
       $this->instagrams = Instagram::latest()->where('status', 1)->get();
+      $this->videos = Video::latest()->get();
 
       $this->categories = CarCategory::all();
       $brands = Car::where('status', 'Available')->get()->groupBy('brand');
