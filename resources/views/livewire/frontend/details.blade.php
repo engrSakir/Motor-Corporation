@@ -107,7 +107,6 @@
                             <div class="col-2 registered-users">
                                 <div class="content">
                                     <ul class="form-list">
-
                                         <li>
                                             <label for="phone" style="color: white">Phone number<em
                                                     class="required">*</em></label>

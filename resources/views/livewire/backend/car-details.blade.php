@@ -137,7 +137,7 @@
                         enctype="multipart/form-data">
                         <div class="form-body">
                             <div class="card-body">
-                                <div class="row pt-3">
+                                <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Image</label>
                                         <div class="input-group">

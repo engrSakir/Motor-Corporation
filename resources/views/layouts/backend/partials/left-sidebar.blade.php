@@ -75,7 +75,8 @@
                     </ul>
                 </li>
                 @endcanany
-                @canany(['user', 'car-category', 'payment-method', 'booking-purpose', 'settings', 'permission-management'])
+                @canany(['user', 'car-category', 'payment-method', 'booking-purpose', 'settings',
+                'permission-management', 'instagram'])
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Settings</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -97,6 +98,10 @@
                         @can('permission-management')
                         <li><a href="{{ route('backend.permission-management') }}">Permission Management</a></li>
                         @endcan
+                        @can('instagram')
+                        <li><a href="{{ route('backend.instagram') }}">Instagram</a></li>
+                        @endcan
+
                     </ul>
                 </li>
                 @endcanany

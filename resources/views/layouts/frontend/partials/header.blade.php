@@ -61,18 +61,8 @@
                                     <ul id="nav" class="hidden-xs">
                                         <li class="active"> <a class="level-top"
                                                 href="{{ url('/') }}"><span>Home</span></a></li>
-                                        <li class="level0 parent drop-menu"> <a class="level-top"
-                                                href="#"><span>Inventory</span></a>
-                                            <ul class="level1">
-                                                <li class="level1 first"><a href="#popular"><span>Popular
-                                                            Cars</span></a>
-                                                </li>
-                                                <li class="level1 nav-10-2"> <a href="#deals"> <span>Deal of the
-                                                            week</span>
-                                                    </a> </li>
-
-                                            </ul>
-                                        </li>
+                                        <li class="active"> <a class="level-top"
+                                                href="#collection"><span>Collecttion</span></a></li>
                                         <li class="level0 parent drop-menu"> <a class="level-top"
                                                 href="#"><span>Blog</span></a>
                                             <ul class="level1">
@@ -82,8 +72,6 @@
                                                             Detail</span> </a> </li>
                                             </ul>
                                         </li>
-                                        <li class="mega-menu hidden-sm"> <a class="level-top"
-                                                href="{{ route('booking') }}"><span>Booking</span></a> </li>
                                         <li class="fl-custom-tabmenulink mega-menu"> <a href="#" class="level-top">
                                                 <span>Offer</span> </a>
                                             <div class="level0-wrapper fl-custom-tabmenu"

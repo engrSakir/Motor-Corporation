@@ -5,13 +5,14 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Car;
 use App\Models\CarCategory;
+use App\Models\Instagram;
 use App\Models\Video;
 use Illuminate\Support\Facades\DB;
 
 class Home extends Component
 {
    public $categories, $brands, $models, $category, $brand, $model;
-   public $cars;
+   public $cars, $instagrams;
 
    public function search()
    {
@@ -35,6 +36,7 @@ class Home extends Component
    public function mount()
    {
       $this->cars = Car::latest()->where('status', 'Available')->get();
+      $this->instagrams = Instagram::latest()->where('status', 1)->get();
 
       $this->categories = CarCategory::all();
       $brands = Car::where('status', 'Available')->get()->groupBy('brand');

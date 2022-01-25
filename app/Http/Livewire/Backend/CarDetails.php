@@ -10,12 +10,14 @@ use Livewire\WithFileUploads;
 class CarDetails extends Component
 {
     use WithFileUploads;
-    public $car, $image, $selected_image, $car_id, $car_images;
+    public $car, $image, $selected_image, $car_images;
+
     public function render()
     {
-        $this->car_images = CarImage::latest()->get();
+        $this->car_images = CarImage::where('car_id', $this->car->id)->latest()->get();
         return view('livewire.backend.car-details')->layout('layouts.backend.app');
     }
+
     public function mount(Car $car)
     {
         $this->car = $car;

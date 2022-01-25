@@ -10,7 +10,7 @@ use App\Models\Contact;
 class Details extends Component
 {
     public $car, $slug, $carImages;
-    public  $name, $email, $phone, $message, $car_id;
+    public  $name, $email, $phone, $message;
 
     public function mount()
     {
