@@ -10,6 +10,7 @@ class Instagram extends Component
 {
     use WithFileUploads;
     public $image, $url, $selected_instagram, $instagrams;
+    public $video_url;
 
     public function render()
     {
@@ -20,13 +21,14 @@ class Instagram extends Component
     public function save()
     {
         $this->validate([
-            'image' => 'required|image',
             'url' => 'required|url'
         ]);
-
         if ($this->selected_instagram) {
             $model = $this->selected_instagram;
         } else {
+            $this->validate([
+                'image' => 'required|image',
+            ]);
             $model = new ModelsInstagram();
         }
         if ($this->image) {
@@ -34,7 +36,7 @@ class Instagram extends Component
         }
         $model->url = $this->url;
         $model->save();
-        $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message', 'Successfully Done!!']);
+        $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Done']);
     }
 
     public function select_instagram(ModelsInstagram $instagram, $purpose)
@@ -42,13 +44,23 @@ class Instagram extends Component
         if ($purpose == 'edit') {
             $this->selected_instagram = $instagram;
             $this->url = $instagram->url;
-        } elseif ($purpose == 'delete') {
+        } else if ($purpose == 'delete') {
             $instagram->delete();
-            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message', 'Successfully Deleted!!']);
-        } elseif ($purpose == 'status') {
+            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Deleted']);
+        } else if ($purpose == 'status') {
             $instagram->status = !$instagram->status;
             $instagram->save();
-            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message', 'Successfully Change Status!!']);
+            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Updated']);
+        }
+    }
+
+    public function save_video()
+    {
+        try {
+            update_static_option('single_youtube_video', $this->video_url);
+            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message', 'Successfully Updated!!']);
+        } catch (\Exception $e) {
+            $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message', $e->getMessage()]);
         }
     }
 }

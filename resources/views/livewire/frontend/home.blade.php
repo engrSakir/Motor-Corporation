@@ -67,7 +67,7 @@
         <div class="col-md-6 right-div margin-y">
             <h3 class="text">Youtube</h3>
             <div class="margin-x">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Yiz-K_BIO44"
+                <iframe width="560" height="315" src="{{ get_static_option('single_youtube_video') }}"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
@@ -77,7 +77,10 @@
             <h3 class="text">Instagram</h3>
             @foreach ($instagrams as $instagram)
             <div class="col-md-3 instagram product-item " style="text-align: center;">
-                <img src="{{ asset($instagram->image) }}">
+                <a href="{{ $instagram->url }}" target="_blank">
+                    <img src="{{ asset($instagram->image) }}">
+                </a>
+
             </div>
             @endforeach
         </div>
