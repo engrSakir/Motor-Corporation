@@ -17,17 +17,17 @@ class Instagram extends Component
         $this->instagrams = ModelsInstagram::latest()->get();
         return view('livewire.backend.instagram')->layout('layouts.backend.app');
     }
-
     public function save()
     {
-        $this->validate([
-            'url' => 'required|url'
-        ]);
         if ($this->selected_instagram) {
+            $this->validate([
+                'url' => 'required|url'
+            ]);
             $model = $this->selected_instagram;
         } else {
             $this->validate([
                 'image' => 'required|image',
+                'url' => 'required|url'
             ]);
             $model = new ModelsInstagram();
         }

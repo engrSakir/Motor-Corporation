@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Car;
 use App\Models\CarImage;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Session;
 
 class Details extends Component
 {
@@ -44,6 +45,6 @@ class Details extends Component
         $this->phone = null;
         $this->message = null;
 
-        $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Send']);
+        Session::flash('message', 'Successfully Send!!');
     }
 }

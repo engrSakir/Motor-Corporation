@@ -29,7 +29,6 @@
                                     <div class="form-group col-md-12">
                                         <label for="url">Video Url</label>
                                         <input type="url" step="any" class="form-control" id="url"
-                                            value="{{ get_static_option('single_youtube_video') }}"
                                             wire:model="video_url" placeholder="Enter Url">
                                         @error('video_url')
                                         <div class="alert alert-danger" role="alert">
@@ -50,62 +49,6 @@
                     </form>
                 </div>
             </div>
-            {{-- <div class="card">
-                <div class="form-group col-md-12">
-                    <div class="table-responsive">
-                        <div class="card-header bg-success">
-                            <h4 class="mb-0 text-white">Video</h4>
-                        </div>
-                        <table class="table table-resonsive-md">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th><strong>Video Url</strong></th>
-                                    <th><strong>Status</strong></th>
-                                    <th><strong>Action</strong></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($instagrams as $instagram)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <img style="width:50px; height:50px;" src="{{ asset($instagram->image) }}"
-                                            alt="">
-                                    </td>
-                                    <td>{{ $instagram->url }}</td>
-                                    <td wire:click="select_instagram({{ $instagram->id }} , 'status')">
-                                        @if($instagram->status)
-                                        <div class="d-flex aligns-items-center mr-3">
-                                            <i class="fa fa-circle text-success "></i>
-                                            Actice
-                                        </div>
-                                        @else
-                                        <div class="d-flex aligns-items-center mr-3">
-                                            <i class="fa fa-circle text-danger "></i>
-                                            Deactice
-                                        </div>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="javascript:void(0)"
-                                                wire:click="select_instagram({{ $instagram->id }} , 'edit')"
-                                                class="btn btn-primary shadow sharp" style="margin-right: 10px"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="javascript:void(0)"
-                                                wire:click="select_instagram({{ $instagram->id }} , 'delete')"
-                                                onclick="confirm('Are you sure you want to remove ?') || event.stopImmediatePropagation()"
-                                                class="btn btn-danger shadow sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
 

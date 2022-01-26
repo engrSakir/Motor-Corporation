@@ -98,6 +98,9 @@
                         @can('permission-management')
                         <li><a href="{{ route('backend.permission-management') }}">Permission Management</a></li>
                         @endcan
+                        @can('contact')
+                        <li><a href="{{ route('backend.contact') }}">Contact</a></li>
+                        @endcan
                         @can('instagram')
                         <li><a href="{{ route('backend.instagram') }}">Instagram</a></li>
                         @endcan

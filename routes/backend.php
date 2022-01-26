@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\BookingController;
 use App\Http\Livewire\Backend\CarDetails;
+use App\Http\Livewire\Backend\Contact;
 use App\Http\Livewire\Backend\Customer;
 use App\Http\Livewire\Backend\Dashboard;
 use App\Http\Livewire\Backend\ExpenseBudget;
@@ -82,6 +83,7 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('purchase-order', PurchaseOrder::class)->name('purchase-order')->middleware(['permission:purchase-order']); //Livewire
     Route::get('report', Report::class)->name('report')->middleware(['permission:report']); //Livewire
     Route::get('video', Video::class)->name('video')->middleware(['permission:video']); //Livewire
+    Route::get('contact', Contact::class)->name('contact')->middleware(['permission:contact']); //Livewire
     Route::get('instagram', Instagram::class)->name('instagram')->middleware(['permission:instagram']); //Livewire
     Route::get('permission-management', PermissionManagement::class)->name('permission-management')->middleware(['permission:permission-management']);
 });

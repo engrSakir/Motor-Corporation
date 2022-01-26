@@ -2,32 +2,95 @@
     <!-- Back to top button -->
     <div class="content">
         {{-- Main custom image banner --}}
+        @if($car->image_of_cover)
         <img src="{{ asset($car->image_of_cover) }}" alt="" class="cover_video">
+        @endif
         {{--end Main ustom image banner --}}
     </div>
+
     <a id="button"><i class="fas fa-angle-up fa-2x"></i></a>
     <div class="container-fluid">
         <section class="tm-mb-1" id="about">
             <div class="tm-row tm-about-row">
                 <div class="tm-section-1-l">
+                    @if($car->image_of_specification)
                     <img src="{{ asset($car->image_of_specification) }}" alt="About image" class="tm-img-responsive">
+                    @endif
                 </div>
                 <article class="tm-section-1-r tm-bg-color-8">
-                    <h2 class="tm-mb-2 tm-title-color"> Comparto CSS Layout</h2>
-                    <p>Comparto is a custom light-weight CSS layout for your website. You can easily adapt and use this
-                        for your
-                        commercial or personal websites. Feel free to use it.</p>
-                    <p>You cannot redistribute this template ZIP file in any template collection website. Please
-                        if you have any question.</p>
-                    <p>Nunc sed gravida elit. Curabitur rutrum elit id lobortis viverra. Fusce at libero dui.</p>
-                    <p>You cannot redistribute this template ZIP file in any template collection website. Please
-                        if you have any question.</p>
-                    <p>Nunc sed gravida elit. Curabitur rutrum elit id lobortis viverra. Fusce at libero dui.</p>
-                    <p>You cannot redistribute this template ZIP file in any template collection website. Please
-                        if you have any question.</p>
-                    <p>Nunc sed gravida elit. Curabitur rutrum elit id lobortis viverra. Fusce at libero dui.</p>
+                    <h2 class="tm-mb-2 tm-title-color">
+                        <tr>
+                            <td><strong>Car Name: </strong> </td>
+                            <td>{{ $car->name ?? 'Not Found'}}</td>
+                        </tr>
+                    </h2>
+                    <p>
+                        <tr>
+                            <td><strong>Car Brand: </strong> </td>
+                            <td>{{ $car->brand ?? 'Not Found'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Cateogry: </strong></td>
+                            <td>{{ $car->category->name ?? 'Not Found'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Papers Up-to-Date: </strong></td>
+                            <td>{{ $car->papers_up_to_date ? 'Yes' : 'No'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Name Transfer Documents: </strong></td>
+                            <td>{{ $car->name_transfer_documents ? 'yes' : 'No'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Vat Percentage: </strong></td>
+                            <td>{{ $car->vat_percentage ?? 'Not Found'}}%</td>
+                        </tr>
+                    </p>
 
-                    <a href="#" class="tm-btn tm-btn-1 tm-link-to-services">More Detail</a>
+                    <p>
+                        <tr>
+                            <td><strong>Car Discount Percentage: </strong></td>
+                            <td>{{ $car->discount_percentage ?? 'Not Found'}}%</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Registration: </strong></td>
+                            <td>{{ $car->registration ?? 'Not Found'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Mileages: </strong></td>
+                            <td>{{ $car->mileages ?? 'Not Found'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Chassis Number: </strong></td>
+                            <td>{{ $car->chassis_number ?? 'Not Found'}}</td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Car Number: </strong></td>
+                            <td>{{ $car->car_number ?? 'Not Found'}} </td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td><strong>Status: </strong></td>
+                            <td>{{ $car->placement ?? 'Not Found'}}</td>
+                        </tr>
+                    </p>
                 </article>
             </div>
         </section>
@@ -36,16 +99,8 @@
         <section class="text-white bg-gray tm-mb-1 tm-row tm-services-row ">
             <div class="tm-section-2-l">
                 <article class="tm-box-pad tm-mb-1">
-                    <h2 class="tm-mb-2">02 Aliquam pretium hendrerit</h2>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
-                    <p class="tm-mb-1">Nam iaculis, urna ut laoreet aliquam</p>
+                    <h2 class="tm-mb-2">Car Description</h2>
+                    <p class="tm-mb-1">{{ $car->description }}</p>
                 </article>
             </div>
             <div class="tm-section-2-r">
@@ -67,6 +122,9 @@
         <div class="main-container col1-layout" style="visibility: visible;">
             <div class="main">
                 <h1>Contact Us</h1>
+                @if(Session::has('message'))
+                <p class="alert alert-success">{{ Session::get('message') }}</p>
+                @endif
                 <div class="account-login container">
                     <form wire:submit.prevent="submit">
                         <fieldset class="col2-set">
