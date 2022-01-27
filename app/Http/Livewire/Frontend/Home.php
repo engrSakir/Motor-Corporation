@@ -37,7 +37,7 @@ class Home extends Component
    {
       $this->cars = Car::latest()->where('status', 'Available')->get();
       $this->instagrams = Instagram::latest()->where('status', 1)->get();
-      $this->videos = Video::latest()->get();
+      $this->videos = Video::latest()->where('status', 1)->get();
 
       $this->categories = CarCategory::all();
       $brands = Car::where('status', 'Available')->get()->groupBy('brand');

@@ -76,38 +76,54 @@
         <div class="col-md-6 left-div  center-sm">
             <h3 class="text">Instagram</h3>
             @foreach ($instagrams as $instagram)
-            @if($instagram->status)
             <div class="col-md-3 instagram product-item " style="text-align: center;">
                 <a href="{{ $instagram->url }}" target="_blank">
                     <img src="{{ asset($instagram->image) }}">
                 </a>
 
             </div>
-            @endif
             @endforeach
         </div>
     </div>
 
-    <div class="container bg-white text-dark" style="width:100% ; height:100%; margin-bottom:20px;">
-        <div class="row video">
-            <h1 class="text-center margin-y">Videos</h1>
-            @foreach($videos as $video)
-            @if($video->status)
-            <div class="col-md-3 text-center mb-3">
-                <iframe width="560" height="315" src="{{ $video->url }}" title="{{ $video->title }}" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+    {{-- Video --}}
+    <div class="latest-blog wow bounceInUp animated animated container">
+        <!--exclude For version 6 -->
+        <div class="blog-home-inner">
+            <div class="blog-title">
+                <h2>Videos</h2>
             </div>
-            @endif
-            @endforeach
+            <!--For version 1,2,3,4,5,6,8 -->
+            <div class="row">
+                @foreach ($videos as $video)
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="javascript:vaoid(0)">
+                                <iframe width="400" height="250" src="{{ $video->url }}" title="{{ $video->title }}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </a>
+                        </div>
+                        <!--blog-img-->
+                        <div class="blog-info">
+                            <h3><a href="{{ $video->url }}" target="_blank">{{ $video->title }}</a></h3>
+                        </div>
+                    </div>
+                    <!--blog_inner-->
+                </div>
+                @endforeach
+            </div>
         </div>
+        <!--container-->
     </div>
 
     <style>
-
         .margin {
             margin: 50px;
         }
+
         .bg-color {
             background-color: #DBF3F2;
             height: 100%;
