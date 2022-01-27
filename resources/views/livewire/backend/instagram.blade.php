@@ -59,7 +59,7 @@
                     <h4 class="mb-0 text-white">Add Image</h4>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="save" class="form-horizontal form-material"
+                    <form wire:submit.prevent="save"  class="form-horizontal form-material"
                         enctype="multipart/form-data">
                         <div class="form-body">
                             <div class="card-body">

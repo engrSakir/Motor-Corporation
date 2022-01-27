@@ -76,12 +76,14 @@
         <div class="col-md-6 left-div  center-sm">
             <h3 class="text">Instagram</h3>
             @foreach ($instagrams as $instagram)
+            @if($instagram->status)
             <div class="col-md-3 instagram product-item " style="text-align: center;">
                 <a href="{{ $instagram->url }}" target="_blank">
                     <img src="{{ asset($instagram->image) }}">
                 </a>
 
             </div>
+            @endif
             @endforeach
         </div>
     </div>
@@ -90,16 +92,22 @@
         <div class="row video">
             <h1 class="text-center margin-y">Videos</h1>
             @foreach($videos as $video)
+            @if($video->status)
             <div class="col-md-3 text-center mb-3">
                 <iframe width="560" height="315" src="{{ $video->url }}" title="{{ $video->title }}" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
+            @endif
             @endforeach
         </div>
     </div>
 
     <style>
+
+        .margin {
+            margin: 50px;
+        }
         .bg-color {
             background-color: #DBF3F2;
             height: 100%;

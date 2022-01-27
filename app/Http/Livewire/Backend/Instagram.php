@@ -36,6 +36,8 @@ class Instagram extends Component
         }
         $model->url = $this->url;
         $model->save();
+
+        $this->image = $this->url =  null;
         $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Successfully Done']);
     }
 

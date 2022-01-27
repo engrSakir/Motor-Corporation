@@ -112,9 +112,11 @@
             <div class="row gallery">
                 <h1 class="text-center tm-mb-1">Gallery</h1>
                 @foreach($car->carImages as $carImage)
+                @if($carImage->status)
                 <div class="col-md-3 text-center mb-3 margin">
                     <img src="{{ asset($carImage->image) }}" alt="" style="width: 300px ; height: 300px">
                 </div>
+                @endif
                 @endforeach
             </div>
         </div>
