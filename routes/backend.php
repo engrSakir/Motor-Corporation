@@ -33,6 +33,7 @@ use App\Http\Livewire\Backend\PermissionManagement;
 use App\Http\Livewire\Backend\Pos;
 use App\Http\Livewire\Backend\PurchaseOrder;
 use App\Http\Livewire\Backend\Report;
+use App\Http\Livewire\Backend\SamplePdfGenerator;
 use App\Http\Livewire\Backend\Video;
 use Illuminate\Support\Facades\Route;
 
@@ -86,4 +87,5 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('contact', Contact::class)->name('contact')->middleware(['permission:contact']); //Livewire
     Route::get('instagram', Instagram::class)->name('instagram')->middleware(['permission:instagram']); //Livewire
     Route::get('permission-management', PermissionManagement::class)->name('permission-management')->middleware(['permission:permission-management']);
+    Route::get('sample-pdf', SamplePdfGenerator::class)->name('sample-pdf')->middleware(['permission:sample-pdf']);
 });

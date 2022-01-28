@@ -13,7 +13,7 @@
             </ol>
             <a href="{{ route('backend.car.create') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i
                     class="fa fa-plus-circle"></i> Purchase</a>
-            <a href="{{ route('backend.purchaseOrder.index') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i
+            <a href="{{ route('backend.purchase-order') }}" class="btn btn-dark d-none d-lg-block m-l-15"><i
                     class="fa fa-plus-circle"></i> Purchase Order</a>
 
         </div>

@@ -366,11 +366,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description </label>
                                         <textarea name="description" id="description" cols="30" rows="10"
-                                            class="form-control">{!! $car->description !!}</textarea>
+                                            class="form-control summernote">{!! $car->description !!}</textarea>
                                         @error('description')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}

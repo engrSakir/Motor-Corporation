@@ -9,8 +9,15 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item active">Invoice Page</li>
                 </ol>
+                @can('sample-pdf')
+                <a href="{{ route('backend.sample-pdf') }}" class="btn btn-warning d-none d-lg-block m-l-15"><i
+                    class="fa fa-plus-circle"></i> Custom Generate </a>
+                @endcan
+                @can('pos')
                 <a href="{{ route('backend.pos') }}" target="_blank" class="btn btn-info d-none d-lg-block m-l-15"><i
-                        class="fa fa-plus-circle"></i> POS </a>
+                    class="fa fa-plus-circle"></i> POS </a>
+                @endcan
+                
             </div>
         </div>
     </div>

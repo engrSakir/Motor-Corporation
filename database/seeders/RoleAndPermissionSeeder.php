@@ -37,7 +37,6 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'delivery-challan'])->assignRole([$admin_role]);
         Permission::create(['name' => 'search-by-category'])->assignRole([$admin_role]);
         Permission::create(['name' => 'payment-method'])->assignRole([$admin_role]);
-        Permission::create(['name' => ''])->assignRole([$admin_role]);
         Permission::create(['name' => 'settings'])->assignRole([$admin_role]);
         Permission::create(['name' => 'booking'])->assignRole([$admin_role]);
         Permission::create(['name' => 'user'])->assignRole([$admin_role]);
@@ -45,10 +44,12 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'invoice'])->assignRole([$admin_role]);
         Permission::create(['name' => 'customer'])->assignRole([$admin_role]);
         Permission::create(['name' => 'expense-budget'])->assignRole([$admin_role]);
+        Permission::create(['name' => 'purchase-order'])->assignRole([$admin_role]);
         Permission::create(['name' => 'report'])->assignRole([$admin_role]);
         Permission::create(['name' => 'video'])->assignRole([$admin_role]);
         Permission::create(['name' => 'contact'])->assignRole([$admin_role]);
         Permission::create(['name' => 'instagram'])->assignRole([$admin_role]);
         Permission::create(['name' => 'permission-management'])->assignRole([$admin_role]);
+        Permission::create(['name' => 'sample-pdf'])->assignRole([$admin_role]);
     }
 }
