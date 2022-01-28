@@ -1,3 +1,23 @@
+<!-- Summernote JS -->
+<script>
+    $('.summernote').summernote({
+        placeholder: 'Write important note ...',
+        tabsize: 2,
+        height: 300,
+        toolbar: [
+            ['style', ['style', 'bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>
+
 <script src="{{ asset('assets/node_modules/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="{{ asset('assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -13,7 +33,6 @@
 <!--Custom JavaScript -->
 
 <script src="{{ asset('assets/dist/js/custom.min.js') }}"></script>
-
 
 {{-- All table are datatable JS Start --}}
 <link href="//cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -31,7 +50,6 @@
 <script>
     $(document).ready(function() {
         $('.select2').select2();
-
     });
 </script>
 
