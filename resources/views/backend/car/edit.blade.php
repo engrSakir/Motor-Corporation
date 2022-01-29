@@ -307,9 +307,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="placements">Placement</label>
+                                        <label class="form-label" for="placements">Car type</label>
                                         <select name="placements" class="form-select col-12" id="placements">
-                                            <option value="">--Choose Placement--</option>
+                                            <option value="">--Choose Car type--</option>
                                             {{-- <option value="deal_of_the_week" @if($car->placement ==
                                                 'deal_of_the_week')
                                                 selected @endif>Deal of the Week</option> --}}

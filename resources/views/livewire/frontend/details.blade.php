@@ -100,7 +100,7 @@
             <div class="tm-section-2-l">
                 <article class="tm-box-pad tm-mb-1">
                     <h2 class="tm-mb-2">Car Description</h2>
-                    <p class="tm-mb-1">{{ $car->description }}</p>
+                    <p class="tm-mb-1">{!! $car->description !!}</p>
                 </article>
             </div>
             <div class="tm-section-2-r">

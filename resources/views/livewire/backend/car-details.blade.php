@@ -95,7 +95,7 @@
                                     <td>{{ $car->description ?? 'Not Found'}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Car Placement</td>
+                                    <td>Car Car type</td>
                                     <td>{{ $car->placement ?? 'Not Found'}}</td>
                                 </tr>
                                 <tr>
