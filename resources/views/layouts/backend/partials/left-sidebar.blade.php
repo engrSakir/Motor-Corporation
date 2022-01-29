@@ -89,9 +89,9 @@
                         @can('payment-method')
                         <li><a href="{{ route('backend.paymentMethod.index') }}">Payment Method</a></li>
                         @endcan
-                        @can('booking-purpose')
+                        {{-- @can('booking-purpose')
                         <li><a href="{{ route('backend.bookingPurpose.index') }}">Booking Purpose</a></li>
-                        @endcan
+                        @endcan --}}
                         @can('settings')
                         <li><a href="{{ route('backend.settings') }}">Frontend Settings</a></li>
                         @endcan
