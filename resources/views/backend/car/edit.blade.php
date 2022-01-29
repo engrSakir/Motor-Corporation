@@ -229,10 +229,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="garaj_no">Garaj No </label>
-                                        <input type="text" id="garaj_no" name="garaj_no" class="form-control"
-                                            placeholder="Garaj No" value="{{ $car->garaj_no }}">
-                                        @error('garaj_no')
+                                        <label class="form-label" for="gegaraj_no">Garage No </label>
+                                        <input type="text" id="gegaraj_no" name="gegaraj_no" class="form-control"
+                                            placeholder="Garage No" value="{{ $car->gegaraj_no }}">
+                                        @error('gegaraj_no')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>

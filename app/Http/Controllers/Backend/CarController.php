@@ -73,7 +73,7 @@ class CarController extends Controller
         $car->placement = $request->placements;
         $car->slug = Str::slug($request->name, '-');
         $car->description = $request->description;
-        $car->garaj_no = $request->garaj_no;
+        $car->gegaraj_no = $request->gegaraj_no;
         $car->papers_up_to_date = $request->papers_up_to_date;
         $car->name_transfer_documents = $request->name_transfer_documents;
         if ($request->file('image')) {
@@ -154,7 +154,7 @@ class CarController extends Controller
         $car->car_number = $request->car_number;
         $car->placement = $request->placements;
         $car->description = $request->description;
-        $car->garaj_no = $request->garaj_no;
+        $car->gegaraj_no = $request->gegaraj_no;
         $car->slug = Str::slug($request->name, '-');
         $car->papers_up_to_date = $request->papers_up_to_date;
         $car->name_transfer_documents = $request->name_transfer_documents;

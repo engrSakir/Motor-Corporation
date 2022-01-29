@@ -226,10 +226,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="garaj_no">Garaj Number</label>
-                                        <input type="text" id="garaj_no" name="garaj_no" class="form-control"
-                                            placeholder="Car Number" value="{{ old('garaj_no') }}">
-                                        @error('garaj_no')
+                                        <label class="form-label" for="gegaraj_no">Garage Number</label>
+                                        <input type="text" id="gegaraj_no" name="gegaraj_no" class="form-control"
+                                            placeholder="Car Number" value="{{ old('gegaraj_no') }}">
+                                        @error('gegaraj_no')
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>
