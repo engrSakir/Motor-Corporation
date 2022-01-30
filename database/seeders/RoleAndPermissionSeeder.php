@@ -49,6 +49,8 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'video'])->assignRole([$admin_role]);
         Permission::create(['name' => 'contact'])->assignRole([$admin_role]);
         Permission::create(['name' => 'instagram'])->assignRole([$admin_role]);
+        Permission::create(['name' => 'saving-investment'])->assignRole([$admin_role]);
+        Permission::create(['name' => 'saving-investor'])->assignRole([$admin_role]);
         Permission::create(['name' => 'permission-management'])->assignRole([$admin_role]);
         Permission::create(['name' => 'sample-pdf'])->assignRole([$admin_role]);
     }

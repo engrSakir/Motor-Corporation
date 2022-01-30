@@ -29,11 +29,24 @@
             <ul id="sidebarnav">
                 <li> <a class="waves-effect waves-dark" href="{{ route('dashboard') }}" aria-expanded="false"><i
                             class="icon-speedometer text-danger"></i><span class="hide-menu">Dashboard</span></a></li>
-                @can('investment')
+                {{-- @can('investment')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.investment.index') }}"
                         aria-expanded="false"><i class="far fa-circle text-info"></i><span
                             class="hide-menu">Investment</span></a></li>
-                @endcan
+                @endcan --}}
+                @canany(['investment', 'saving-investment'])
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                            class="far fa-circle text-info"></i><span class="hide-menu">Investment</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        @can('investment')
+                        <li><a href="{{ route('backend.investment.index') }}">Investment</a></li>
+                        @endcan
+                        @can('saving-investment')
+                        <li><a href="{{ route('backend.saving-investment') }}">Saving Investment</a></li>
+                        @endcan
+                    </ul>
+                </li>
+                @endcanany
                 @can('vendor-info')
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.vendorInfo.index') }}"
                         aria-expanded="false"><i class="far fa-circle text-info"></i><span

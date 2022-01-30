@@ -120,10 +120,6 @@
     </div>
 
     <style>
-        .margin {
-            margin: 50px;
-        }
-
         .bg-color {
             background-color: #DBF3F2;
             height: 100%;
