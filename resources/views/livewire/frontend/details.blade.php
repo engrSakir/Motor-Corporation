@@ -17,7 +17,7 @@
                     <img src="{{ asset($car->image_of_specification) }}" alt="About image" class="tm-img-responsive">
                     @endif
                 </div>
-                <article class="tm-section-1-r tm-bg-color-8">
+                <article class="tm-section-1-r tm-bg-color-8 image_spacification">
                     <h2 class="tm-mb-2 tm-title-color">
                         <tr>
                             <td><strong>Car Name: </strong> </td>
@@ -46,19 +46,6 @@
                         <tr>
                             <td><strong>Car Name Transfer Documents: </strong></td>
                             <td>{{ $car->name_transfer_documents ? 'yes' : 'No'}}</td>
-                        </tr>
-                    </p>
-                    <p>
-                        <tr>
-                            <td><strong>Car Vat Percentage: </strong></td>
-                            <td>{{ $car->vat_percentage ?? 'Not Found'}}%</td>
-                        </tr>
-                    </p>
-
-                    <p>
-                        <tr>
-                            <td><strong>Car Discount Percentage: </strong></td>
-                            <td>{{ $car->discount_percentage ?? 'Not Found'}}%</td>
                         </tr>
                     </p>
                     <p>
@@ -123,7 +110,7 @@
 
         <div class="main-container col1-layout" style="visibility: visible;">
             <div class="main">
-                <h1>Contact Us</h1>
+                <h1>Book Now</h1>
                 @if(Session::has('message'))
                 <p class="alert alert-success">{{ Session::get('message') }}</p>
                 @endif
@@ -211,6 +198,15 @@
     </div>
 
     <style>
+        .image_spacification {
+            font-family: Roboto, sans-serif;
+            font-weight: 300;
+            color: #fff;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            line-height: 30px;
+        }
+
         .bg-white {
             background-color: white;
         }

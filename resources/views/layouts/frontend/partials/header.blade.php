@@ -50,7 +50,7 @@
                             </div>
                             <!--links-->
                         </div>
-                        <div class="fl-nav-menu">
+                        <div class="fl-nav-menu" style="float: right">
                             <nav>
                                 <div class="mm-toggle-wrap">
                                     <div class="mm-toggle"><i class="fa fa-bars"></i><span class="mm-label">Menu</span>
@@ -113,4 +113,7 @@
             </div>
         </div>
     </div>
+    <style>
+        .right {}
+    </style>
 </header>
