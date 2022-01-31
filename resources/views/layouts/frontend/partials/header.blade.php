@@ -113,7 +113,4 @@
             </div>
         </div>
     </div>
-    <style>
-        .right {}
-    </style>
 </header>
