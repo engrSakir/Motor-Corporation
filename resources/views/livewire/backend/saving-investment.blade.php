@@ -85,7 +85,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Investor Id</th>
+                                <th>Investor</th>
                                 <th>Amount</th>
                                 <th>Interest</th>
                                 <th>Action</th>
@@ -95,7 +95,7 @@
                             @foreach ($investments as $investment)
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
-                                <td>{{ $investment->investor->name }}</td>
+                                <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
                                 <td>{{ $investment->amount }}</td>
                                 <td>{{ $investment->interest }}</td>
                                 <td>

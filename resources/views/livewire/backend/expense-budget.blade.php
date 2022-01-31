@@ -19,7 +19,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Basic Form</h4>
                     <form wire:submit.prevent="save">
                         <div class="row">
                             <div class="col-md-6">

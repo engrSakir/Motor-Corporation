@@ -5,17 +5,16 @@ namespace App\Http\Livewire\Backend;
 use App\Models\Investment;
 use App\Models\Investor;
 use App\Models\SavingInvestment as ModelsSavingInvestment;
+use App\Models\SavingInvestor;
 use Livewire\Component;
 
 class SavingInvestment extends Component
 {
-    // public $investor, $investment_amount, $interest, $selected_saving_investment, $investors, $investments;
-
     public $investor_id, $amount, $interest, $selected_saving_investment;
 
     public function render()
     {
-        $this->investors = Investor::latest()->get();
+        $this->investors = SavingInvestor::latest()->get();
         $this->investments = ModelsSavingInvestment::latest()->get();
         return view('livewire.backend.saving-investment')->layout('layouts.backend.app');
     }
@@ -23,7 +22,7 @@ class SavingInvestment extends Component
     public function submit()
     {
         $this->validate([
-            'investor_id' => 'required|exists:investors,id',
+            'investor_id' => 'required|exists:saving_investors,id',
             'amount' => 'required|numeric',
             'interest' => 'required|numeric',
         ]);

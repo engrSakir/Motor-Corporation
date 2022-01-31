@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Backend;
 use App\Models\ExpenseBudget as ModelsExpenseBudget;
 use App\Models\Investment;
 use App\Models\Investor;
+use App\Models\SavingInvestor;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -68,7 +69,7 @@ class ExpenseBudget extends Component
 
     public function mount()
     {
-        $this->investors = Investor::all();
+        $this->investors = SavingInvestor::latest()->get();
         $this->expense_budgets = ModelsExpenseBudget::latest()->get();
     }
 

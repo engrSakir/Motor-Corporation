@@ -11,11 +11,15 @@ class ExpenseBudget extends Model
     use HasFactory, Userstamps;
 
     protected $fillable = [
-        'sourse_id',
-        'source_type',
+        'investment_id',
         'amount',
         'month',
         'note',
         'issue_date',
     ];
+
+    public function investment()
+    {
+        return $this->belongsTo(SavingInvestment::class, 'investment_id', 'id');
+    }
 }

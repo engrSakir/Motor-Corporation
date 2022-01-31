@@ -18,6 +18,23 @@ class SavingInvestment extends Model
 
     public function investor()
     {
-        return $this->belongsTo(Investor::class, 'investor_id', 'id');
+        return $this->belongsTo(SavingInvestor::class, 'investor_id', 'id');
+    }
+
+    public function expenseBudgets()
+    {
+        return $this->hasMany(ExpenseBudget::class, 'investment_id', 'id');
+    }
+
+    //Custom function
+
+    public function totalUsedAmount()
+    {
+        return $this->expenseBudgets->sum('amount');
+    }
+
+    public function totalUsableAmount()
+    {
+        return $this->amount - $this->totalUsedAmount();
     }
 }

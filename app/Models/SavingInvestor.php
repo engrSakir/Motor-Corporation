@@ -16,4 +16,9 @@ class SavingInvestor extends Model
         'initial_deposit',
         'current_amount',
     ];
+
+    public function investments()
+    {
+        return $this->hasMany(SavingInvestment::class, 'investor_id', 'id');
+    }
 }
