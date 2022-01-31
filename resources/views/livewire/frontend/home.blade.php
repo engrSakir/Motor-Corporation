@@ -4,8 +4,8 @@
         src="{{ asset(get_static_option('banner_video') ?? 'assets/videos/cover_1.mp4') }}"></video>
     {{--end Main ustom video banner --}}
     {{-- section-filter --}}
-    <div class="" style="margin: 10px;">
-        <div class="home_car_filter bg-grey container">
+    <div class="">
+        <div class="home_car_filter bg-grey container-fluid">
             <h2>Find your right car</h2>
 
             <form class="b-filter row" wire:submit.prevent="search">
@@ -42,28 +42,28 @@
     </div>
     <!--end Search box-->
 
-    <div class="row" id="collection" style="margin: 10px;">
+    <div class="row" id="collection">
         @foreach ($cars as $car)
-        <div class="col-md-3" style="margin-top: 20px;">
+        <div class="col-md-6" style="margin-top: 20px;">
             <div class="product-item" style="text-align: center;">
                 <span class="text">
                     <a href="{{ route('details', $car->slug) }}">
                         <h1>{{ $car->name }}</h1>
                     </a>
                 </span>
-                <img src="{{ asset($car->image) }}">
+                <img src="{{ asset($car->image) }}" style="width:100%; height:100%;">
             </div>
         </div>
         @endforeach
     </div>
 
-    <div class="row" id="map" style="margin: 10px;">
+    <div class="row" id="map">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58419.66942567678!2d90.3391568!3d23.7748463!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c79eb9eadc09%3A0x2cb30660b4a4d4a4!2sMotor%20Corporation!5e0!3m2!1sen!2sbd!4v1643092595353!5m2!1sen!2sbd"
             width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <div class="row bg-color" id="map" style="margin: 10px;">
+    <div class="row bg-color" id="map">
         <div class="col-md-6 right-div margin-y">
             <h3 class="text">Youtube</h3>
             <div class="margin-x">
