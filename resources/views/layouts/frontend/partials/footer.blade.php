@@ -101,8 +101,9 @@
                         <ul>
                             <li class="fb"><a href="https://www.facebook.com/MotorCorporationBD" target="_blank"></a>
                             </li>
-                            <li class="ins"><a href="#" target="_blank"></a>
-                            <li class="youtube"><a href="#" target="_blank"></a>
+                            <li class="ins"><a href="https://www.instagram.com/motor_corporation/" target="_blank"></a>
+                            <li class="youtube"><a href="https://www.youtube.com/channel/UC45Hn3mFddEx65W7q13oOuQ"
+                                    target="_blank"></a>
                             </li>
                             <!-- <li class="tw"><a href="#"></a></li>
                             <li class="googleplus"><a href="#"></a></li>

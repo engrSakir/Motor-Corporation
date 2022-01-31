@@ -76,7 +76,7 @@
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Expense</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        @can('expence')
+                        @can('expense')
                         <li><a href="{{ route('backend.expense.index') }}">Expense List</a></li>
                         @endcan
                         @can('expense-category')
