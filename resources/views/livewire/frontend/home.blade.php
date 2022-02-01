@@ -119,6 +119,41 @@
         <!--container-->
     </div>
 
+    {{-- Blogs --}}
+    <div class="latest-blog wow bounceInUp animated animated container">
+        <!--exclude For version 6 -->
+        <div class="blog-home-inner">
+            <div class="blog-title">
+                <h2>Blogs</h2>
+            </div>
+            <!--For version 1,2,3,4,5,6,8 -->
+            <div class="row">
+                @foreach ($blogs as $blog)
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="javascript:vaoid(0)">
+                                {{-- <iframe width="400" height="250" src="{{ $video->url }}"
+                                    title="{{ $video->title }}" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe> --}}
+
+                                <img src="{{ asset($blog->image) }}" alt="">
+                            </a>
+                        </div>
+                        <!--blog-img-->
+                        <div class="blog-info">
+                            <h3>{{ $blog->title }}</a></h3>
+                        </div>
+                    </div>
+                    <!--blog_inner-->
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <!--container-->
+    </div>
+
     <style>
         .bg-color {
             background-color: #DBF3F2;

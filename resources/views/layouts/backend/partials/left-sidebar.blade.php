@@ -134,6 +134,12 @@
                 <li> <a class="waves-effect waves-dark" href="{{ route('backend.video') }}" aria-expanded="false"><i
                             class="far fa-circle text-info"></i><span class="hide-menu">Video</span></a></li>
                 @endcan
+                @can('blog')
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('backend.blog') }}" aria-expanded="false"><i
+                            class="far fa-circle text-info"></i><span class="hide-menu">Blogs</span></a>
+                </li>
+                @endcan
                 <!-- <li> <a class="waves-effect waves-dark" href="{{ route('backend.carExpense.index') }}" aria-expanded="false"><i class="far fa-circle text-info"></i><span class="hide-menu">Car Expense</span></a></li>-->
             </ul>
         </nav>

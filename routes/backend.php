@@ -37,6 +37,7 @@ use App\Http\Livewire\Backend\SamplePdfGenerator;
 use App\Http\Livewire\Backend\SavingInvestment as BackendSavingInvestment;
 use App\Http\Livewire\Backend\SavingInvestor as BackendSavingInvestor;
 use App\Http\Livewire\Backend\Video;
+use App\Http\Livewire\Backend\Blog;
 use App\Http\Livewire\SavingInvestor as LivewireSavingInvestor;
 use App\Models\SavingInvestment;
 use App\Models\SavingInvestor;
@@ -95,4 +96,5 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend/', 'middleware' => 'auth'
     Route::get('sample-pdf', SamplePdfGenerator::class)->name('sample-pdf')->middleware(['permission:sample-pdf']);
     Route::get('saving-investment', BackendSavingInvestment::class)->name('saving-investment')->middleware(['permission:saving-investment']);
     Route::get('saving-investor', BackendSavingInvestor::class)->name('saving-investor')->middleware(['permission:saving-investor']);
+    Route::get('blogs', Blog::class)->name('blog')->middleware(['permission:blog']);
 });

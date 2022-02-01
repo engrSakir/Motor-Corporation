@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Frontend;
 
+use App\Models\Blog;
 use Livewire\Component;
 use App\Models\Car;
 use App\Models\CarCategory;
@@ -38,6 +39,7 @@ class Home extends Component
       $this->cars = Car::latest()->where('status', 'Available')->get();
       $this->instagrams = Instagram::latest()->where('status', 1)->get();
       $this->videos = Video::latest()->where('status', 1)->get();
+      $this->blogs = Blog::latest()->where('status', 1)->get();
 
       $this->categories = CarCategory::all();
       $brands = Car::where('status', 'Available')->get()->groupBy('brand');
