@@ -6,6 +6,7 @@ use App\Models\Car;
 use App\Models\CarImage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use PDF;
 
 class CarDetails extends Component
 {
@@ -55,5 +56,12 @@ class CarDetails extends Component
             $carImage->save();
             $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message', 'Successfully Change Status!!']);
         }
+    }
+
+    public function download_spacification()
+    {
+        return response()->streamDownload(function () {
+            PDF::loadView('backend.pdf.car', ['car' => $this->car])->download();
+        }, 'Car Specification ' . date('d-m-Y- h-i-s') . '.pdf');
     }
 }

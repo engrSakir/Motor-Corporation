@@ -41,7 +41,7 @@
                                         @foreach ($investors as $investor)
                                         <optgroup label="{{ $investor->name }}">
                                             @foreach ($investor->investments as $investment)
-                                            @if($investment->totalUsableAmount() > 0)
+                                            @if($investment->totalUsableAmount() > 0 && $investment->type == 'Bank')
                                             <option value="{{ $investment->id }}" @if(old('investment')==$investment->
                                                 id) selected @endif>ID: {{ $investment->id }} Balance: {{
                                                 $investment->totalUsableAmount() }} of {{ $investment->amount }}

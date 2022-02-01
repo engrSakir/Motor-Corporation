@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Livewire\Backend\SavingInvestment;
 use App\Models\Invoice;
 use App\Models\StaticOption;
 use GuzzleHttp\Client;
@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\CarExpense;
 use App\Models\Expense;
 use App\Models\ExpenseBudget;
+use App\Models\SavingInvestment as ModelsSavingInvestment;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
@@ -53,15 +54,16 @@ if (!function_exists('random_code')) {
         return false;
     }
 
-    function file_uploader($folder_path, $file, $new_file_name = null){
+    function file_uploader($folder_path, $file, $new_file_name = null)
+    {
         if ($file && file_exists($file->getRealPath())) {
             if (!file_exists($folder_path)) {
                 mkdir($folder_path, 0777, true);
             }
-            if ($new_file_name){
-                $file->move($folder_path, $new_file_name . '.' .$file->getClientOriginalExtension());
+            if ($new_file_name) {
+                $file->move($folder_path, $new_file_name . '.' . $file->getClientOriginalExtension());
                 $folder_pathwith_name = $folder_path . $new_file_name . '.' . $file->getClientOriginalExtension();
-            }else{
+            } else {
                 $file->move($folder_path, $file->getClientOriginalName());
                 $folder_pathwith_name = $folder_path . $file->getClientOriginalName();
             }
@@ -70,55 +72,57 @@ if (!function_exists('random_code')) {
         return false;
     }
 
-    function file_deleter($file){
+    function file_deleter($file)
+    {
         try {
             if ($file)
                 File::delete(public_path($file));
-        }catch (\Exception$exception){
-
+        } catch (\Exception $exception) {
         }
     }
-   
-    // Daily
-        // Income
-        // Expense
-        // Amount in hand
-    // Weekly
-        // Income
-        // Expense
-        // Amount in hand
-    // Monthly
-        // Income
-        // Expense
-        // Amount in hand
-    // Yearly
-        // Income
-        // Expense
-        // Amount in hand
-    // Beetween
-        // Income
-        // Expense
-        // Amount in hand
 
-    
+    // Daily
+    // Income
+    // Expense
+    // Amount in hand
+    // Weekly
+    // Income
+    // Expense
+    // Amount in hand
+    // Monthly
+    // Income
+    // Expense
+    // Amount in hand
+    // Yearly
+    // Income
+    // Expense
+    // Amount in hand
+    // Beetween
+    // Income
+    // Expense
+    // Amount in hand
+
+
     // ********** Monthly income************** 
-    function monthly_income($month = null, $year = null){
-        if(!$month)
+    function monthly_income($month = null, $year = null)
+    {
+        if (!$month)
             $month = date('m');
-        if(!$year)
+        if (!$year)
             $year = date('Y');
         $total = 0;
-        foreach(Invoice::whereMonth('created_at', $month)->whereYear('created_at', $year)->get() as $inv){
+        foreach (Invoice::whereMonth('created_at', $month)->whereYear('created_at', $year)->get() as $inv) {
             $total += $inv->payments->sum('amount');
         }
         return $total;
     }
 
     // ********** Monthly expense************** 
-    function monthly_expense($month = null, $year = null){
-        if(!$month)
+    function monthly_expense($month = null, $year = null)
+    {
+        if (!$month)
             $month = date('m');
-        if(!$year)
+        if (!$year)
             $year = date('Y');
         $total = 0;
         $total += Expense::whereMonth('created_at', $month)->whereYear('created_at', $year)->sum('amount');
@@ -127,95 +131,107 @@ if (!function_exists('random_code')) {
     }
 
     // ********** Monthly expense budget************** 
-    function monthly_expense_budget($month = null, $year = null){
-        if(!$month)
+    function monthly_expense_budget($month = null, $year = null)
+    {
+        if (!$month)
             $month = date('m');
-        if(!$year)
+        if (!$year)
             $year = date('Y');
         $total = 0;
-        $total += ExpenseBudget::where('month', $year.'-'.$month)->sum('amount');
+        $total += ExpenseBudget::where('month', $year . '-' . $month)->sum('amount');
         return $total;
     }
 
     // ********** return from expense budget ************** 
-    function return_from_expense_budget($month = null, $year = null){
-        if(!$month)
+    function return_from_expense_budget($month = null, $year = null)
+    {
+        if (!$month)
             $month = date('m');
-        if(!$year)
+        if (!$year)
             $year = date('Y');
         $total = 0;
         $total -= Expense::whereMonth('created_at', '!=', $month)->whereYear('created_at', '!=', $year)->sum('amount');
         $total -= CarExpense::whereMonth('created_at', '!=', $month)->whereYear('created_at', '!=', $year)->sum('amount');
-        
-        $total += ExpenseBudget::where('month', '!=', $year.'-'.$month)->sum('amount');
+
+        $total += ExpenseBudget::where('month', '!=', $year . '-' . $month)->sum('amount');
         return $total;
     }
 
     // ********** In hand amount ************** 
-    function amount_in_hand($month = null, $year = null){
-        return monthly_income() - monthly_expense() + return_from_expense_budget($month, $year);
+    function amount_in_hand($month = null, $year = null)
+    {
+        return monthly_income() - monthly_expense() + return_from_expense_budget($month, $year)
+            - ModelsSavingInvestment::where('type', 'profit')->whereMonth('created_at', date('m'))->sum('amount');
     }
 
     // 
 
-    function total_sale_amount_of_this_month(){ 
+    function total_sale_amount_of_this_month()
+    {
         $total_sale_amount_of_this_month = 0;
-        foreach(Invoice::whereMonth('created_at', date('m'))->get() as $inv){
+        foreach (Invoice::whereMonth('created_at', date('m'))->get() as $inv) {
             $total_sale_amount_of_this_month += $inv->totalPrice();
         }
         return $total_sale_amount_of_this_month;
     }
 
-    function total_sale_amount_of_this_year(){
+    function total_sale_amount_of_this_year()
+    {
         $total_sale_amount_of_this_year = 0;
-        foreach(Invoice::whereYear('created_at', date('Y'))->get() as $inv){
+        foreach (Invoice::whereYear('created_at', date('Y'))->get() as $inv) {
             $total_sale_amount_of_this_year += $inv->price();
         }
         return $total_sale_amount_of_this_year;
     }
 
-    function total_sale_amount_between($start_date,$end_date){
+    function total_sale_amount_between($start_date, $end_date)
+    {
         $total_sale_amount_of_this_between = 0;
-        foreach(Invoice::whereBetween('created_at',[$start_date,$end_date])->get() as $inv){
+        foreach (Invoice::whereBetween('created_at', [$start_date, $end_date])->get() as $inv) {
             $total_sale_amount_of_this_between += $inv->price();
         }
         return $total_sale_amount_of_this_between;
     }
 
-    function total_sale_amount(){
+    function total_sale_amount()
+    {
         $total_sale_amount = 0;
-        foreach(Invoice::all() as $inv){
+        foreach (Invoice::all() as $inv) {
             $total_sale_amount += $inv->price();
         }
         return $total_sale_amount;
     }
 
-    function total_vat_of_the_month(){
+    function total_vat_of_the_month()
+    {
         $total_vat_of_the_month = 0;
-        foreach(Invoice::whereMonth('created_at', date('m'))->get() as $invoice){
+        foreach (Invoice::whereMonth('created_at', date('m'))->get() as $invoice) {
             $total_vat_of_the_month += $invoice->vat();
         }
         return  $total_vat_of_the_month;
     }
 
-    function total_vat_of_the_year(){
+    function total_vat_of_the_year()
+    {
         $total_vat_of_the_year = 0;
-        foreach(Invoice::whereYear('created_at', date('Y'))->get() as $invoice){
+        foreach (Invoice::whereYear('created_at', date('Y'))->get() as $invoice) {
             $total_vat_of_the_year += $invoice->vat();
         }
         return  $total_vat_of_the_year;
     }
 
-    function total_vat(){
+    function total_vat()
+    {
         $total_vat = 0;
-        foreach(Invoice::all() as $invoice){
+        foreach (Invoice::all() as $invoice) {
             $total_vat += $invoice->vat();
         }
         return  $total_vat;
     }
 
-    function offer_cars(){
-        $offers= Car::orderBy('id','desc')->where('discount_percentage','>','0')->get();
+    function offer_cars()
+    {
+        $offers = Car::orderBy('id', 'desc')->where('discount_percentage', '>', '0')->get();
         return $offers;
     }
 }

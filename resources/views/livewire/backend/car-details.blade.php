@@ -26,9 +26,20 @@
                             <tbody>
                                 <h4>
                                     {{-- Car Info --}}
-                                    <b class="text-danger">Car Information</b>
-                                    <img style="width:50px; height:50px" src="{{ asset($car->image) }}" alt="">
-                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <b class="text-danger">Car Information</b>
+                                            <img style="width:50px; height:50px" src="{{ asset($car->image) }}" alt="">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="javascript:void(0)"
+                                                wire:click="download_spacification({{ $car->id }})"
+                                                class="btn btn-primary shadow sharp">Download
+                                                Spacification</a>
+                                        </div>
+
+                                    </div>
                                 </h4>
                                 <tr>
                                     <td>Car Name</td>

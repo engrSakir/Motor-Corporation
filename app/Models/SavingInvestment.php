@@ -13,7 +13,7 @@ class SavingInvestment extends Model
     protected $fillable = [
         'investor_id',
         'amount',
-        'interest',
+        'type',
     ];
 
     public function investor()

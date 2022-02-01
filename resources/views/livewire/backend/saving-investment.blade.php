@@ -23,7 +23,7 @@
                     <h4 class="card-title">Saving Investment</h4>
                     <form wire:submit.prevent="submit">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Investor Name</label>
                                     <select id="investor" class="form-control" wire:model="investor_id">
@@ -39,23 +39,27 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Investment Type</label>
+                                    <select id="investor" class="form-control" wire:model="type">
+                                        <option selected>Choose Investor...</option>
+                                        <option value="Profit">Get From Profit</option>
+                                        <option value="Bank">Direct Bank</option>
+                                    </select>
+                                    @error('type')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control" wire:model="amount">
                                     <label>Amount</label>
                                 </div>
                                 @error('amount')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" wire:model="interest">
-                                    <label>Interest</label>
-                                </div>
-                                @error('interest')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -87,7 +91,7 @@
                                 <th>#</th>
                                 <th>Investor</th>
                                 <th>Amount</th>
-                                <th>Interest</th>
+                                <th>Type</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -97,7 +101,7 @@
                                 <td scope="row">{{ $loop->iteration }}</td>
                                 <td>{{ $investment->investor->name ?? 'Not Found' }}</td>
                                 <td>{{ $investment->amount }}</td>
-                                <td>{{ $investment->interest }}</td>
+                                <td>{{ $investment->type }}</td>
                                 <td>
                                     <button wire:click="select_saving_investment({{ $investment->id }} , 'edit')"
                                         class="btn btn-info btn-circle"><i class="fa fa-pen text-white"></i>

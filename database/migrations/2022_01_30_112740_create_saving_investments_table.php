@@ -16,8 +16,8 @@ class CreateSavingInvestmentsTable extends Migration
         Schema::create('saving_investments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('investor_id');
+            $table->string('type');
             $table->double('amount')->default(0);
-            $table->double('interest')->nullable();
             $table->timestamps();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();

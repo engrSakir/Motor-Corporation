@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class SavingInvestment extends Component
 {
-    public $investor_id, $amount, $interest, $selected_saving_investment;
+    public $investor_id, $amount, $type, $selected_saving_investment;
 
     public function render()
     {
@@ -24,7 +24,7 @@ class SavingInvestment extends Component
         $this->validate([
             'investor_id' => 'required|exists:saving_investors,id',
             'amount' => 'required|numeric',
-            'interest' => 'required|numeric',
+            'type' => 'required|string',
         ]);
         if ($this->selected_saving_investment) {
             $model = $this->selected_saving_investment;
@@ -35,10 +35,10 @@ class SavingInvestment extends Component
         }
         $model->investor_id = $this->investor_id;
         $model->amount = $this->amount;
-        $model->interest = $this->interest;
+        $model->type = $this->type;
         $model->save();
 
-        $this->investor_id = $this->amount = $this->interest = null;
+        $this->investor_id = $this->amount = $this->type = null;
     }
 
 
@@ -48,7 +48,7 @@ class SavingInvestment extends Component
             $this->selected_saving_investment = $savingInvestment;
             $this->investor_id = $this->selected_saving_investment->investor_id;
             $this->amount = $this->selected_saving_investment->amount;
-            $this->interest = $this->selected_saving_investment->interest;
+            $this->type = $this->selected_saving_investment->type;
         } else if ($purpose == 'delete') {
             $savingInvestment->delete();
             $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'Successfully Deleted']);
