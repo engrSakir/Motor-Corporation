@@ -5,11 +5,12 @@
     {{--end Main ustom video banner --}}
     {{-- section-filter --}}
     <div class="">
-        <div class="home_car_filter bg-grey container-fluid">
+        <div class="home_car_filter container-fluid">
             <h2>Find your right car</h2>
 
             <form class="b-filter row" wire:submit.prevent="search">
-                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
+                <select class="col-md-4"
+                    style="border:none; margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
                     wire:model="category">
                     <option value="">Select Category</option>
                     @foreach ($categories as $category)
@@ -17,7 +18,8 @@
                     @endforeach
                 </select>
 
-                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
+                <select class="border:none; col-md-4"
+                    style="border:none; margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
                     wire:model="brand">
                     <option value="">Select Car Brand</option>
                     @foreach ($brands as $brand)
@@ -25,7 +27,8 @@
                     @endforeach
                 </select>
 
-                <select class="col-md-4" style="margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
+                <select class="col-md-4"
+                    style="border:none; margin-bottom: 10px; color:white; font-size:20px; font-weight: bold;"
                     wire:model="model">
                     <option value="">Select Car Model</option>
                     @foreach ($models as $model)
@@ -132,12 +135,7 @@
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                     <div class="blog_inner">
                         <div class="blog-img">
-                            <a href="javascript:vaoid(0)">
-                                {{-- <iframe width="400" height="250" src="{{ $video->url }}"
-                                    title="{{ $video->title }}" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe> --}}
-
+                            <a href="{{ route('blogDetails', $blog->slug) }}">
                                 <img src="{{ asset($blog->image) }}" alt="">
                             </a>
                         </div>

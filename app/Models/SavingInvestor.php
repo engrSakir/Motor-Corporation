@@ -13,7 +13,6 @@ class SavingInvestor extends Model
     protected $fillable = [
         'name',
         'opening_date',
-        'initial_deposit',
         'current_amount',
     ];
 

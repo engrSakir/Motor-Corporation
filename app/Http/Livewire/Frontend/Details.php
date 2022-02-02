@@ -8,6 +8,7 @@ use App\Models\CarImage;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Session;
 
+
 class Details extends Component
 {
     public $car, $slug, $carImages;

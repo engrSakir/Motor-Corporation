@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Backend;
 use App\Models\Blog as ModelsBlog;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 class Blog extends Component
 {
@@ -43,6 +44,7 @@ class Blog extends Component
         }
         $model->title = $this->title;
         $model->description = $this->description;
+        $model->slug = Str::slug($this->title);
         if ($this->image)
             $model->image = 'storage/' . $this->image->store('blogs', 'public');
         $model->save();

@@ -48,17 +48,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" wire:model="initial_deposit">
-                                    <label>Initial Deposit</label>
-                                </div>
-                                @error('initial_deposit')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
                                     <input type="number" class="form-control" wire:model="current_amount">
                                     <label>Current Amount</label>
                                 </div>

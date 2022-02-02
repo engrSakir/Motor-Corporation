@@ -72,34 +72,6 @@
                                                             Detail</span> </a> </li>
                                             </ul>
                                         </li>
-                                        <li class="fl-custom-tabmenulink mega-menu"> <a href="#" class="level-top">
-                                                <span>Offer</span> </a>
-                                            <div class="level0-wrapper fl-custom-tabmenu"
-                                                style="left: 0px; display: none;">
-                                                <div class="container">
-                                                    <div class="header-nav-dropdown-wrapper clearer">
-                                                        @php
-                                                        $offer_cars=offer_cars();
-                                                        @endphp
-                                                        @foreach($offer_cars as $offer)
-
-                                                        <div class="grid12-3">
-                                                            <a href="#">
-                                                                <div><img
-                                                                        src="{{ asset($offer->image ?? 'uploads/images/no_image.png') }}"
-                                                                        alt="custom-image"></div>
-                                                                <h4 class="heading">SALE UP TO {{
-                                                                    $offer->discount_percentage }}% OFF</h4>
-                                                                <p>{{ $offer->name }}
-                                                                </p>
-                                                            </a>
-
-                                                        </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
                                         <li class=""> <a class="level-top" href="{{ route('contact') }}"><span>Contact
                                                     Us</span></a></li>
                                     </ul>
