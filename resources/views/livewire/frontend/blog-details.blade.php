@@ -1,24 +1,38 @@
 <div>
     <!-- Back to top button -->
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url({{ asset($blog->image)}});
+            height: 7in;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+    </style>
+    <div class="hero-image">
+        <div class="hero-text">
+            <b>{{ $blog->created_at->format('d M Y') }}</b>
+            <h1 style="font-size:50px">{{ $blog->title }}</h1>
+        </div>
+    </div>
     <div class="content">
-        {{-- Main Banner Custom Image --}}
-        @if($blog->image)
-        <img src="{{ asset($blog->image) }}" alt="" class="cover_video" style="margin-bottom: 50px;">
-        <article class="col-12" style="text-align: center ; margin-bottom:50px;">
-            <h3 class="tm-mb-2 tm-title-color">
-                <tr>
-                    <td><strong>Blog Title: </strong> </td>
-                    <td>{{ $blog->title }}</td>
-                </tr>
-            </h3>
-            <h4>
-                <tr>
-                    <td><strong>Blog Description </strong> </td>
-                    <td>{{ $blog->description }}</td>
-                </tr>
-            </h4>
+        <article class="col-12" style="padding: 20px;">
+            <b>Writer: </b> {{ $blog->creator->name }} <br>
+            <b>Date: </b>{{ $blog->created_at->format('d M Y') }} <br> <br> <br>
+            {!! $blog->description !!}
         </article>
-        @endif
     </div>
 
 
@@ -245,5 +259,6 @@
             flex-direction: column;
         }
     }
+
 </style>
 </div>

@@ -19,7 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->string('image')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->foreignId('created_by')->nullable();
             $table->foreignId('updated_by')->nullable();
             $table->foreignId('deleted_by')->nullable();
