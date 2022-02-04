@@ -90,7 +90,7 @@
     </div>
 
     {{-- Video --}}
-    <div class="latest-blog wow bounceInUp animated animated container">
+    <div class="latest-blog wow bounceInUp animated animated">
         <!--exclude For version 6 -->
         <div class="blog-home-inner">
             <div class="blog-title">
@@ -123,7 +123,7 @@
     </div>
 
     {{-- Blogs --}}
-    <div class="latest-blog wow bounceInUp animated animated container">
+    <div class="latest-blog wow bounceInUp animated animated">
         <!--exclude For version 6 -->
         <div class="blog-home-inner">
             <div class="blog-title">

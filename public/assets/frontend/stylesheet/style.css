@@ -14558,7 +14558,7 @@ button.btn-share,
 }
 
 .home_car_filter {
-    background: black;
+    /* background: black; */
     padding: 40px;
     box-shadow: 0 3px 5px 0 rgba(36, 39, 44, 0.1);
     position: relative;
